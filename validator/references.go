@@ -164,6 +164,13 @@ func (check *checker) checkCountTarget(where scope, target CountTarget) {
 		if _, exists := check.dataset.GameSystem.Detachments[target.Detachment]; !exists {
 			check.report(where, "detachment %q is not a game-system detachment", target.Detachment)
 		}
+	case CountTargetKindUniversalOption:
+		if _, exists := check.dataset.GameSystem.UniversalOptions[target.Option]; !exists {
+			check.report(where, "universal option %q is not a game-system universal option", target.Option)
+		}
+		if target.Datasheet != nil {
+			check.resolveDatasheet(where, *target.Datasheet)
+		}
 	case CountTargetKindRole, CountTargetKindDetachmentKind, CountTargetKindAnyUnit:
 	}
 }

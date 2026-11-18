@@ -72,13 +72,18 @@ Typos in the current data (`Mele`, `Smaill Arms`, a WS of `26`) are fixed by the
 
 BattleScribe hides and shows entries with modifiers and nested conditions. Here, a typed `condition` decides availability:
 
-* **`Count`:** how many of something the unit, detachment or army contains (counting a `Detachment` type in `Detachment` scope asks whether this detachment is of that type), between an optional `minimum` and `maximum`. It can count a datasheet, a keyword, a battlefield role, a wargear option, a detachment choice (e.g. a faction filter), a detachment type, a detachment kind, or any unit. "Not taken" is `maximum: 0`.
+* **`Count`:** how many of something the unit, detachment or army contains (counting a `Detachment` type in `Detachment` scope asks whether this detachment is of that type), between an optional `minimum` and `maximum`. It can count a datasheet, a keyword, a battlefield role, a wargear option, a detachment choice (e.g. a faction filter), a detachment type, a detachment kind, any unit, or units that took a universal option (`UniversalOption`, e.g. "this detachment's Commander is a Renegade Commander" when it also names a datasheet). "Not taken" is `maximum: 0`.
 * **`PrimaryFaction`:** the army's primary faction.
 * **`All`, `Any` and `Not`** combine conditions.
 
-It's used by `availableWhen` on datasheets, links, options, detachments and detachment abilities, and by `alternativeRoles` (e.g. Khorne Berserkers becoming Troops).
+It's used by `availableWhen` on datasheets, links, options, detachments and detachment abilities, and by `alternativeRoles` (e.g. Khorne Berserkers becoming Troops). Two more constructs apply only while a condition holds:
 
-A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Supreme Command, Super-heavy Auxiliary, Patrol or Fortification Network detachment. Slot maximums, detachments per army, and keyword maximums (one Commander per detachment, one Warmaster per army) are all limits. A keyword limit can also set a `minimum`, e.g. a Supreme Command must include a WARMASTER.
+* **`conditionalChanges`** on a datasheet add weapons, abilities, keywords or profile changes, or remove weapons, e.g. an ability only one Ordo's Acolytes have. A weapon whose characteristics change becomes a second weapon, swapped in this way or by an option.
+* **`costChanges`** on an option `set` or `increment` its cost, in order, e.g. a jump pack that costs more in a larger unit.
+
+A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Supreme Command, Super-heavy Auxiliary, Patrol or Fortification Network detachment. Slot maximums, detachments per army, and keyword maximums (one Commander per detachment, one Warmaster per army) are all limits. A keyword limit can also set a `minimum`, e.g. a Supreme Command must include a WARMASTER. An option group's `minimum` or `maximum` may be a limit too, counting the unit's own options, e.g. one heavy weapon, plus one if the unit takes its 10-model option.
+
+Options carry their own army-wide caps where a datasheet would: `maximumPerDetachment`, `maximumPerArmy` and `minimumPerArmy`. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it.
 
 `game-system.schema.json` reuses the catalogue's `option` for universal options, so a validator loads all three schemas together.
 
@@ -89,10 +94,10 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 1. Slugs are unique as listed under "Ids and references". Profile names are unique within a datasheet.
 2. Every reference resolves. A `catalogue-id/` reference only points into an imported catalogue; `imports` only names `kind: Library` catalogues that exist; a catalogue's `id` matches its file name.
 3. `datasheetLinks`, `detachmentChoices` and `detachmentAbilities` appear only in `kind: Faction` catalogues, and a `datasheetLinks` target is a library datasheet.
-4. Count targets resolve: a `Detachment` names a game-system detachment; a `DetachmentChoice` names an option of some `detachmentChoices` entry; an `Option` names an option of its datasheet (or of `datasheet`, when given); `PrimaryFaction` names a `kind: Faction` catalogue.
+4. Count targets resolve: a `Detachment` names a game-system detachment; a `DetachmentChoice` names an option of some `detachmentChoices` entry; an `Option` names an option of its datasheet (or of `datasheet`, when given); `PrimaryFaction` names a `kind: Faction` catalogue; a `UniversalOption` names a game-system universal option (and its `datasheet`, when given, resolves).
 5. Every keyword used in a count target or a keyword limit is a keyword some datasheet, option, link or choice actually adds, which catches typos.
-6. An option group's `default` is one of its options, and its `minimum` is no more than its options' `maximum`s add up to (any option without a `maximum` lifts the cap).
-7. `removesWeapons` only names weapons the datasheet carries or another of its options adds, and `profileChange.profile` names one of the datasheet's profiles. Universal options belong to no datasheet, so this rule skips them.
+6. An option group's `default` is one of its options, and its `minimum` is no more than its options' `maximum`s add up to (any option without a `maximum` lifts the cap). A group bound written as a limit always has terms, so it depends on the unit and is not compared.
+7. `removesWeapons` only names weapons the datasheet carries, another of its options adds, or a conditional change adds, and `profileChange.profile` names one of the datasheet's profiles, including those its options add. Universal options belong to no datasheet, so this rule skips them.
 8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot or keyword limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.
 9. `game-system.json`'s `release` matches the tag being released (`go run . -release 2.0.0`; CI passes it on a tag push).
 
@@ -138,7 +143,12 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `constraint` min/max, scope parent | 7,382 | `minimum`/`maximum` on option groups and options; no max constraint means `maximum` is left out |
 | `constraint` max, scope roster | 203 | `maximumPerArmy` |
 | `constraint` max, scope force | 20 | `maximumPerDetachment` |
-| `modifier` on PL | 535 | 407 unconditional ones become the cost in that context; 98 by unit size or per model become option costs; the 30 other conditional ones are mapped one by one by the importer |
+| `modifier` on PL | 535 | unconditional ones become the cost in that context; conditional ones on the unit become option costs, and conditional ones on an option become its `costChanges` |
+| `modifier` on an option group's min/max constraint | — | a `limit` counting the unit's options |
+| `modifier` on a weapon's characteristics | — | a second weapon, swapped in by an option or a `conditionalChanges` entry |
+| `modifier` set hidden on an ability or weapon, with conditions | — | the option's `addsAbilities`/`addsWeapons` when it depends on one, otherwise `conditionalChanges` |
+| `constraint` on an option, scope force or roster | — | the option's `maximumPerDetachment`, `maximumPerArmy` or `minimumPerArmy` |
+| `selectionEntry` type `model` with its own Unit profile, optional | — | `addsProfiles` on that option |
 | `modifier` on M/A/W/Sv, when an option is taken | — | `profileChanges` on that option |
 | `modifier` on M/A/W/Sv/name, unconditional (on a link) | — | a catalogue-local entry with its own slug, in place of a link with overrides |
 | `modifier` set hidden, with conditions | — | `availableWhen` |

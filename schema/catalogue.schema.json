@@ -122,6 +122,11 @@
                "type": "array",
                "items": { "$ref": "#/$defs/optionGroup" }
             },
+            "conditionalChanges": {
+               "description": "Changes that apply while `when` holds, such as an ability only one faction's units have.",
+               "type": "array",
+               "items": { "$ref": "#/$defs/conditionalChange" }
+            },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
             "maximumPerArmy": {
@@ -202,14 +207,52 @@
          "required": ["name", "options"],
          "additionalProperties": false
       },
+      "conditionalChange": {
+         "description": "What changes about a datasheet while `when` holds.",
+         "type": "object",
+         "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
+         "properties": {
+            "when": { "$ref": "common.schema.json#/$defs/condition" },
+            "addsWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
+            "removesWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
+            "addsAbilities": {
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/reference" },
+               "uniqueItems": true
+            },
+            "profileChanges": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/profileChange" } },
+            "addsFactionKeywords": true,
+            "addsKeywords": true
+         },
+         "required": ["when"],
+         "minProperties": 2,
+         "unevaluatedProperties": false
+      },
+      "growingBound": {
+         "description": "A bound that grows with the unit; a fixed one is written as a plain integer.",
+         "$ref": "common.schema.json#/$defs/limit",
+         "required": ["terms"]
+      },
+      "costChange": {
+         "description": "A change to an option's cost while `when` holds: `set` replaces it, `increment` adds to it. Changes apply in order.",
+         "type": "object",
+         "properties": {
+            "when": { "$ref": "common.schema.json#/$defs/condition" },
+            "set": { "type": "integer" },
+            "increment": { "type": "integer" }
+         },
+         "required": ["when"],
+         "oneOf": [{ "required": ["set"] }, { "required": ["increment"] }],
+         "additionalProperties": false
+      },
       "optionGroup": {
-         "description": "A choice of options, e.g. a weapon swap or the unit's size. Leaving out `maximum` means no limit.",
+         "description": "A choice of options, e.g. a weapon swap or the unit's size. Leaving out `maximum` means no limit. A bound that depends on the unit, e.g. one weapon per model, is a `limit` counting its options.",
          "type": "object",
          "properties": {
             "id": { "$ref": "common.schema.json#/$defs/slug" },
             "name": { "type": "string", "minLength": 1 },
-            "minimum": { "type": "integer", "minimum": 0 },
-            "maximum": { "type": "integer", "minimum": 1 },
+            "minimum": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "$ref": "#/$defs/growingBound" }] },
+            "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
             "default": {
                "description": "The id of the option picked when the unit is added; one of `options`.",
                "$ref": "common.schema.json#/$defs/slug"
@@ -235,8 +278,18 @@
                "description": "Power Level added (or, if negative, removed) each time the option is taken.",
                "type": "integer"
             },
+            "costChanges": { "type": "array", "items": { "$ref": "#/$defs/costChange" } },
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "type": "integer", "minimum": 1 },
+            "maximumPerDetachment": { "type": "integer", "minimum": 1 },
+            "minimumPerArmy": { "type": "integer", "minimum": 1 },
+            "maximumPerArmy": { "type": "integer", "minimum": 1 },
+            "addsProfiles": {
+               "description": "Model profiles the option adds to the unit, e.g. an extra model with its own characteristics.",
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/modelProfile" },
+               "minItems": 1
+            },
             "addsWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
             "removesWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
             "addsAbilities": {

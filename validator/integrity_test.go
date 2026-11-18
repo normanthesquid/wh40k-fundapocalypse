@@ -39,6 +39,10 @@ func pointer[Value any](value Value) *Value {
 	return &value
 }
 
+func fixed(value int) *Bound {
+	return &Bound{Fixed: &value}
+}
+
 func count(of CountTarget) *Condition {
 	return &Condition{Kind: ConditionKindCount, Of: &of, Minimum: pointer(1)}
 }
@@ -54,6 +58,65 @@ func TestIntegrityRules(t *testing.T) {
 		want   string
 	}{
 		{"valid fixtures", func(*Dataset) {}, ""},
+		{"unknown universal option counted", func(dataset *Dataset) {
+			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindUniversalOption, Option: "nope"}))
+		}, `universal option "nope" is not a game-system universal option`},
+		{"universal option counted on a missing datasheet", func(dataset *Dataset) {
+			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindUniversalOption, Option: "commander", Datasheet: pointer("nope")}))
+		}, `"nope" does not resolve`},
+		{"growing group maximum names a missing option", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Wargear[1].Maximum = &Bound{Growing: &Limit{Base: 1, Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindOption, Option: "nope"}}}}}
+			})
+		}, `wargear/1/maximum/terms/0/per: option "nope" is not an option of its datasheet`},
+		{"growing group minimum is not compared statically", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				term := LimitTerm{Per: CountTarget{Kind: CountTargetKindOption, Option: "psyker"}}
+				inquisitor.Wargear[1].Minimum = &Bound{Growing: &Limit{Base: 9, Terms: []LimitTerm{term}}}
+			})
+		}, ""},
+		{"cost change condition is checked", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) {
+				option.CostChanges = []CostChange{{When: *count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})}}
+			})
+		}, `costChanges/0/when/of: option "nope" is not an option of its datasheet`},
+		{"per-army minimum above maximum", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) { option.MinimumPerArmy, option.MaximumPerArmy = pointer(3), pointer(2) })
+		}, "minimumPerArmy: minimum 3 is more than maximum 2"},
+		{"added profile reuses a profile name", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Inquisitor"}} })
+		}, `addsProfiles/0: profile name "Inquisitor" is used twice`},
+		{"one option adds two models with one name", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Servitor"}, {Name: "Servitor"}} })
+		}, `addsProfiles/1: profile name "Servitor" is used twice`},
+		{"alternative options may add models with one name", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Servitor"}} })
+			editUpgrade(dataset, 1, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Servitor"}} })
+		}, ""},
+		{"conditional change cannot remove only what it adds", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Weapons = nil
+				weapon := []string{"weapons/master-crafted-weapons"}
+				inquisitor.ConditionalChanges = []ConditionalChange{{WargearChanges: WargearChanges{AddsWeapons: weapon, RemovesWeapons: weapon}}}
+			})
+		}, `conditionalChanges/0/removesWeapons: weapon "weapons/master-crafted-weapons" is not carried`},
+		{"profile change may name an added profile", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) {
+				option.AddsProfiles = []ModelProfile{{Name: "Servitor"}}
+				option.ProfileChanges = []ProfileChange{{Profile: pointer("Servitor")}}
+			})
+		}, ""},
+		{"conditional change removes a weapon nobody carries", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Weapons = nil
+				inquisitor.ConditionalChanges = []ConditionalChange{{WargearChanges: WargearChanges{RemovesWeapons: []string{"weapons/master-crafted-weapons"}}}}
+			})
+		}, `conditionalChanges/0/removesWeapons: weapon "weapons/master-crafted-weapons" is not carried`},
+		{"conditional change condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.ConditionalChanges = []ConditionalChange{{When: *count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"})}}
+			})
+		}, `conditionalChanges/0/when/of: detachment "nope"`},
 		{"dangling library weapon", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Weapons = []string{"weapons/nope"} })
 		}, `inquisitor/weapons: weapon "weapons/nope" does not resolve`},
@@ -237,14 +300,14 @@ func TestIntegrityRules(t *testing.T) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[0].Default = pointer("psyker") })
 		}, `wargear/0: default "psyker" is not one of the group's options`},
 		{"group minimum its options cannot meet", func(dataset *Dataset) {
-			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = pointer(3) })
+			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = fixed(3) })
 		}, `wargear/1: minimum 3 is more than the 2 its options allow`},
 		{"group minimum its options just meet", func(dataset *Dataset) {
-			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = pointer(2) })
+			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = fixed(2) })
 		}, ""},
 		{"group minimum with an unlimited option", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) {
-				inquisitor.Wargear[1].Minimum = pointer(5)
+				inquisitor.Wargear[1].Minimum = fixed(5)
 				inquisitor.Wargear[1].Options[1].Maximum = nil
 			})
 		}, ""},
@@ -283,7 +346,7 @@ func TestIntegrityRules(t *testing.T) {
 			editUpgrade(dataset, 0, func(option *Option) { option.Minimum = pointer(1) })
 		}, ""},
 		{"group minimum above maximum", func(dataset *Dataset) {
-			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[0].Minimum = pointer(2) })
+			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[0].Minimum = fixed(2) })
 		}, `wargear/0: minimum 2 is more than maximum 1`},
 		{"count minimum above maximum", func(dataset *Dataset) {
 			condition := count(CountTarget{Kind: CountTargetKindAnyUnit})

@@ -48,8 +48,140 @@
                      "cost": 5
                   }
                ]
+            },
+            {
+               "id": "heavy-weapon",
+               "name": "Heavy weapon",
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "ten-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "options": [
+                  {
+                     "id": "example-cannon",
+                     "name": "Example cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "example-cannon"
+                     ],
+                     "removesWeapons": [
+                        "example-bolter"
+                     ],
+                     "costChanges": [
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "ten-models"
+                              },
+                              "minimum": 1
+                           },
+                           "increment": 1
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "id": "leader",
+               "name": "Leader",
+               "maximum": 1,
+               "options": [
+                  {
+                     "id": "example-sergeant",
+                     "name": "Example Sergeant",
+                     "cost": 1,
+                     "maximumPerDetachment": 1,
+                     "maximumPerArmy": 3,
+                     "addsProfiles": [
+                        {
+                           "name": "Example Sergeant",
+                           "movement": {
+                              "kind": "Inches",
+                              "inches": 6
+                           },
+                           "weaponSkill": 2,
+                           "ballisticSkill": 3,
+                           "attacks": {
+                              "kind": "Fixed",
+                              "value": 3
+                           },
+                           "wounds": 2,
+                           "leadership": 8,
+                           "save": 6
+                        }
+                     ]
+                  }
+               ]
+            }
+         ],
+         "weapons": [
+            "example-bolter"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "UniversalOption",
+                     "option": "commander"
+                  },
+                  "minimum": 1
+               },
+               "addsAbilities": [
+                  "deep-strike"
+               ],
+               "profileChanges": [
+                  {
+                     "profile": "Example Sergeant",
+                     "increment": {
+                        "leadership": 1
+                     }
+                  }
+               ]
             }
          ]
+      }
+   },
+   "weapons": {
+      "example-bolter": {
+         "name": "Example bolter",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "example-cannon": {
+         "name": "Example cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
       }
    }
 }
