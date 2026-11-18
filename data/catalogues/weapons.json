@@ -7,35 +7,23 @@
       "master-crafted-weapons": {
          "name": "Master-crafted Weapons",
          "type": "Melee",
-         "attacks": "2",
+         "attacks": { "kind": "User" },
          "antiPersonnel": 9,
          "antiTank": 9
       },
       "lascannon": {
          "name": "Lascannon",
          "type": "Heavy",
-         "range": {
-            "kind": "Inches",
-            "inches": 48
-         },
-         "attacks": {
-            "kind": "Fixed",
-            "value": 1
-         },
+         "range": { "kind": "Inches", "inches": 48 },
+         "attacks": { "kind": "Fixed", "value": 1 },
          "antiPersonnel": 10,
          "antiTank": 5
       },
       "heavy-flamer": {
          "name": "Heavy Flamer",
          "type": "Heavy",
-         "range": {
-            "kind": "Inches",
-            "inches": 8
-         },
-         "attacks": {
-            "kind": "Fixed",
-            "value": 1
-         },
+         "range": { "kind": "Inches", "inches": 8 },
+         "attacks": { "kind": "Fixed", "value": 1 },
          "antiPersonnel": 6,
          "antiTank": 9,
          "text": "Inferno"
