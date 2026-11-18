@@ -83,7 +83,7 @@ It's used by `availableWhen` on datasheets, links, options, detachments and deta
 
 A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Supreme Command, Super-heavy Auxiliary, Patrol or Fortification Network detachment. Slot maximums, detachments per army, and keyword maximums (one Commander per detachment, one Warmaster per army) are all limits. A keyword limit can also set a `minimum`, e.g. a Supreme Command must include a WARMASTER. An option group's `minimum` or `maximum` may be a limit too, counting the unit's own options, e.g. one heavy weapon, plus one if the unit takes its 10-model option.
 
-Options carry their own army-wide caps where a datasheet would: `maximumPerDetachment`, `maximumPerArmy` and `minimumPerArmy`. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it.
+Options carry their own army-wide caps where a datasheet would: `maximumPerDetachment`, `maximumPerArmy` and `minimumPerArmy`. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it. A datasheet with no stat line at all leaves `profiles` out; that is right only where the official datasheet prints none, as for terrain features such as the Aegis Defence Line.
 
 `game-system.schema.json` reuses the catalogue's `option` for universal options, so a validator loads all three schemas together.
 

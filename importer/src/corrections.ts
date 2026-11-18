@@ -129,6 +129,17 @@ export const DROPPED_PROFILES: readonly DroppedProfile[] = [
    { profileId: "f124-5fae-59f7-d57c", name: "Elysian Command Squad (3/4 Models)" },
 ];
 
+/** Terrain features whose official datasheet prints no stat line: once set up, they are terrain rather than a unit. */
+export const PROFILELESS_DATASHEETS: readonly { readonly unitId: string; readonly name: string; readonly source: Source }[] = [
+   { unitId: "f46d-c8d1-dff8-817b", name: "Aegis Defence Line", source: pdf("Unaligned", 1) },
+   { unitId: "1ff8-573b-e9de-08c0", name: "Imperial Defence Line", source: pdf("Unaligned", 4) },
+   { unitId: "39c7-dbab-c476-e28d", name: "Mekboy Workshop", source: pdf("Orks", 51) },
+   { unitId: "5853-cb10-ede1-3e7d", name: "Sacristan Forgeshrine", source: pdf("Imperial_Knights", 13) },
+   { unitId: "5667-2d59-4000-4303", name: "Tectonic Fragdrill", source: pdf("Genestealers", 29) },
+   { unitId: "646a-f716-9cdf-247b", name: "Feculent Gnarlmaw", source: pdf("Legiones_Daemonica", 49) },
+   { unitId: "03eb-2033-4a6c-669a", name: "Skull Altar", source: pdf("Legiones_Daemonica", 50) },
+];
+
 export function describeSource(source: Source): string {
    return source.page === undefined ? source.document : `${source.document} p${source.page}`;
 }

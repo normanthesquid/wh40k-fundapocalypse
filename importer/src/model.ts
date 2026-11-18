@@ -165,7 +165,7 @@ export interface Datasheet {
    cost: number;
    factionKeywords?: string[];
    keywords: string[];
-   profiles: ModelProfile[];
+   profiles?: ModelProfile[];
    weapons?: string[];
    abilities?: string[];
    transport?: string;

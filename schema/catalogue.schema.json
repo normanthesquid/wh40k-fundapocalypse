@@ -98,6 +98,7 @@
                "uniqueItems": true
             },
             "profiles": {
+               "description": "The unit's stat lines. Absent only where the official datasheet prints none, such as a terrain feature.",
                "type": "array",
                "items": { "$ref": "common.schema.json#/$defs/modelProfile" },
                "minItems": 1
@@ -135,7 +136,7 @@
                "minimum": 1
             }
          },
-         "required": ["name", "battlefieldRole", "cost", "keywords", "profiles"],
+         "required": ["name", "battlefieldRole", "cost", "keywords"],
          "additionalProperties": false
       },
       "datasheetLink": {

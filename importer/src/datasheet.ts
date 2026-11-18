@@ -4,7 +4,7 @@ import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type Op
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { describeSource, MISSING_PROFILES, SIZED_PROFILES } from "./corrections.ts";
+import { describeSource, MISSING_PROFILES, PROFILELESS_DATASHEETS, SIZED_PROFILES } from "./corrections.ts";
 import { CHARACTERISTIC_TYPE_IDS, isDroppedProfile, parseCharacteristic, profileFromCharacteristics, take, UNIT_CHARACTERISTICS, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
 
@@ -121,10 +121,11 @@ export class DatasheetConverter {
       this.addSizedProfiles();
       if (this.role === undefined) this.role = this.roleFromLinks();
       if (this.role === undefined) this.unhandled(view.element, "no primary battlefield role");
-      if (this.profiles.length === 0) this.unhandled(view.element, "no unit profile");
+      if (this.profiles.length === 0) this.checkProfileless();
       if (this.failed || this.role === undefined) return undefined;
       const renamed = modifiers.find((modifier) => modifier.field === "name" && modifier.type === "set" && modifier.condition === null);
-      const datasheet: Datasheet = { name: renamed?.value ?? view.name, battlefieldRole: this.role, cost: this.cost, keywords: [...this.keywords], profiles: this.profiles };
+      const datasheet: Datasheet = { name: renamed?.value ?? view.name, battlefieldRole: this.role, cost: this.cost, keywords: [...this.keywords] };
+      if (this.profiles.length > 0) datasheet.profiles = this.profiles;
       if (this.factionKeywords.size > 0) datasheet.factionKeywords = [...this.factionKeywords];
       if (this.weapons.length > 0) datasheet.weapons = this.weapons;
       if (this.abilities.size > 0) datasheet.abilities = [...this.abilities];
@@ -247,6 +248,13 @@ export class DatasheetConverter {
       if (profile === undefined) return;
       this.conversion.report.recordCorrection(this.view.element, `profile ${missing.name} added (${describeSource(missing.source)})`);
       this.profiles.push(profile);
+   }
+
+   /** A datasheet without a stat line is right only where the official datasheet prints none. */
+   private checkProfileless(): void {
+      const profileless = PROFILELESS_DATASHEETS.find((entry) => this.view.ids.includes(entry.unitId));
+      if (profileless === undefined) this.unhandled(this.view.element, "no unit profile");
+      else this.conversion.report.recordCorrection(this.view.element, `no stat line, as printed (${describeSource(profileless.source)})`);
    }
 
    /** Characteristics that grow with the unit's models, as changes while it has that many. */

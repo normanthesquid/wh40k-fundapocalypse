@@ -4,6 +4,14 @@
    "name": "Example library (illustrative values, not real data)",
    "kind": "Library",
    "datasheets": {
+      "example-defence-line": {
+         "name": "Example Defence Line",
+         "battlefieldRole": "Fortification",
+         "cost": 4,
+         "keywords": [
+            "HEAVY"
+         ]
+      },
       "example-squad": {
          "name": "Example Squad",
          "battlefieldRole": "Elites",

@@ -1,0 +1,14 @@
+{
+   "id": "bad",
+   "name": "Bad",
+   "kind": "Faction",
+   "datasheets": {
+      "unit": {
+         "name": "Unit",
+         "battlefieldRole": "Fortification",
+         "cost": 1,
+         "keywords": [],
+         "profiles": []
+      }
+   }
+}
