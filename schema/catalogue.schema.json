@@ -118,10 +118,9 @@
                "minLength": 1
             },
             "wargear": {
-               "description": "Option groups, keyed by slug, in the order they are shown. Option slugs are unique across all groups of one datasheet.",
-               "type": "object",
-               "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
-               "additionalProperties": { "$ref": "#/$defs/optionGroup" }
+               "description": "Option groups, in the order they are shown. Group and option ids are unique across all groups of one datasheet.",
+               "type": "array",
+               "items": { "$ref": "#/$defs/optionGroup" }
             },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
@@ -153,7 +152,24 @@
                "items": { "$ref": "common.schema.json#/$defs/reference" },
                "uniqueItems": true
             },
+            "conditionalKeywords": {
+               "description": "Keywords the faction adds only when `when` holds, e.g. when the unit takes one of the library datasheet's options.",
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
+                  "properties": {
+                     "when": { "$ref": "common.schema.json#/$defs/condition" },
+                     "addsFactionKeywords": true,
+                     "addsKeywords": true
+                  },
+                  "required": ["when"],
+                  "unevaluatedProperties": false
+               }
+            },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "maximumPerDetachment": { "type": "integer", "minimum": 1 },
+            "maximumPerArmy": { "type": "integer", "minimum": 1 },
             "addsFactionKeywords": true,
             "addsKeywords": true
          },
@@ -190,28 +206,30 @@
          "description": "A choice of options, e.g. a weapon swap or the unit's size. Leaving out `maximum` means no limit.",
          "type": "object",
          "properties": {
+            "id": { "$ref": "common.schema.json#/$defs/slug" },
             "name": { "type": "string", "minLength": 1 },
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "type": "integer", "minimum": 1 },
             "default": {
-               "description": "The option picked when the unit is added; one of `options`.",
+               "description": "The id of the option picked when the unit is added; one of `options`.",
                "$ref": "common.schema.json#/$defs/slug"
             },
             "options": {
-               "type": "object",
-               "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
-               "additionalProperties": { "$ref": "#/$defs/option" },
-               "minProperties": 1
+               "description": "The options, in the order they are shown.",
+               "type": "array",
+               "items": { "type": "object", "$ref": "#/$defs/option", "properties": { "id": true }, "required": ["id"] },
+               "minItems": 1
             }
          },
-         "required": ["name", "options"],
+         "required": ["id", "name", "options"],
          "additionalProperties": false
       },
       "option": {
-         "description": "One wargear option. Leaving out `maximum` means no limit beyond the group's.",
+         "description": "One wargear option. Leaving out `maximum` means no limit beyond the group's. `id` is required inside an option group; universal options take their id from their key.",
          "type": "object",
          "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
          "properties": {
+            "id": { "$ref": "common.schema.json#/$defs/slug" },
             "name": { "type": "string", "minLength": 1 },
             "cost": {
                "description": "Power Level added (or, if negative, removed) each time the option is taken.",

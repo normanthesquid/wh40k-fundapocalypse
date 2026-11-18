@@ -14,9 +14,9 @@
          "pattern": "^([a-z0-9]+(-[a-z0-9]+)*/)?[a-z0-9]+(-[a-z0-9]+)*$"
       },
       "keyword": {
-         "description": "A keyword as printed, e.g. `INFANTRY`, `<CHAPTER>` or `Commander (T'au)`.",
+         "description": "A keyword in capitals, e.g. `INFANTRY`, `<CHAPTER>` or `COMMANDER (T'AU)`. Keywords match exactly, so lower case is rejected.",
          "type": "string",
-         "pattern": "^\\S(.*\\S)?$"
+         "pattern": "^[^a-z\\s]([^a-z]*[^a-z\\s])?$"
       },
       "skillTarget": {
          "description": "The D6 result needed to hit (WS, BS), e.g. 3 for `3+`.",

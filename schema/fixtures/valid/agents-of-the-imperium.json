@@ -3,14 +3,21 @@
    "id": "agents-of-the-imperium",
    "name": "Imperium - Agents of the Imperium",
    "kind": "Faction",
-   "imports": ["weapons"],
+   "imports": [
+      "weapons"
+   ],
    "detachmentChoices": {
       "faction-filter": {
          "name": "Faction Filter",
          "minimum": 1,
          "maximum": 1,
          "options": {
-            "inquisition": { "name": "Inquisition", "addsFactionKeywords": ["INQUISITION"] }
+            "inquisition": {
+               "name": "Inquisition",
+               "addsFactionKeywords": [
+                  "INQUISITION"
+               ]
+            }
          }
       }
    },
@@ -19,59 +26,118 @@
          "name": "Inquisitor",
          "battlefieldRole": "HQ",
          "cost": 4,
-         "factionKeywords": ["IMPERIUM", "INQUISITION"],
-         "keywords": ["LIGHT", "INFANTRY", "CHARACTER", "INQUISITOR"],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION"
+         ],
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "INQUISITOR"
+         ],
          "profiles": [
             {
                "name": "Inquisitor",
-               "movement": { "kind": "Inches", "inches": 6 },
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
                "weaponSkill": 3,
                "ballisticSkill": 3,
-               "attacks": { "kind": "Fixed", "value": 1 },
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
                "wounds": 1,
                "leadership": 7,
                "save": 8
             }
          ],
-         "weapons": ["weapons/master-crafted-weapons"],
-         "abilities": ["authority-of-the-inquisition", "unquestionable-wisdom"],
-         "wargear": {
-            "ordo": {
+         "weapons": [
+            "weapons/master-crafted-weapons"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition",
+            "unquestionable-wisdom"
+         ],
+         "wargear": [
+            {
+               "id": "ordo",
                "name": "Ordo",
                "minimum": 1,
                "maximum": 1,
                "default": "ordo-hereticus",
-               "options": {
-                  "ordo-hereticus": { "name": "Ordo Hereticus" },
-                  "ordo-malleus": { "name": "Ordo Malleus" },
-                  "ordo-xenos": { "name": "Ordo Xenos" }
-               }
+               "options": [
+                  {
+                     "id": "ordo-hereticus",
+                     "name": "Ordo Hereticus"
+                  },
+                  {
+                     "id": "ordo-malleus",
+                     "name": "Ordo Malleus"
+                  },
+                  {
+                     "id": "ordo-xenos",
+                     "name": "Ordo Xenos"
+                  }
+               ]
             },
-            "upgrades": {
+            {
+               "id": "upgrades",
                "name": "Upgrades",
-               "options": {
-                  "psyker": { "name": "Psyker", "cost": 1, "maximum": 1, "addsKeywords": ["PSYKER"] },
-                  "terminator-armour": {
+               "options": [
+                  {
+                     "id": "psyker",
+                     "name": "Psyker",
+                     "cost": 1,
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "PSYKER"
+                     ]
+                  },
+                  {
+                     "id": "terminator-armour",
                      "name": "Terminator Armour",
                      "cost": 2,
                      "maximum": 1,
-                     "addsKeywords": ["TERMINATOR"],
-                     "addsAbilities": ["deep-strike"],
-                     "profileChanges": [{ "set": { "movement": { "kind": "Inches", "inches": 5 }, "save": 4 } }],
+                     "addsKeywords": [
+                        "TERMINATOR"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              },
+                              "save": 4
+                           }
+                        }
+                     ],
                      "availableWhen": {
                         "kind": "Count",
                         "scope": "Unit",
-                        "of": { "kind": "Option", "option": "ordo-malleus" },
+                        "of": {
+                           "kind": "Option",
+                           "option": "ordo-malleus"
+                        },
                         "minimum": 1
                      }
                   }
-               }
+               ]
             }
-         },
+         ],
          "availableWhen": {
             "kind": "Count",
             "scope": "Detachment",
-            "of": { "kind": "DetachmentChoice", "option": "inquisition" },
+            "of": {
+               "kind": "DetachmentChoice",
+               "option": "inquisition"
+            },
             "minimum": 1
          }
       }

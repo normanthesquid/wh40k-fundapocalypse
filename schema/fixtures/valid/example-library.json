@@ -8,30 +8,48 @@
          "name": "Example Squad",
          "battlefieldRole": "Elites",
          "cost": 5,
-         "keywords": ["INFANTRY", "LIGHT"],
+         "keywords": [
+            "INFANTRY",
+            "LIGHT"
+         ],
          "profiles": [
             {
                "name": "Example Marine",
-               "movement": { "kind": "Inches", "inches": 6 },
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
                "weaponSkill": 3,
                "ballisticSkill": 3,
-               "attacks": { "kind": "Dice", "count": 2, "sides": 3 },
+               "attacks": {
+                  "kind": "Dice",
+                  "count": 2,
+                  "sides": 3
+               },
                "wounds": 2,
                "save": 6
             }
          ],
-         "wargear": {
-            "unit-size": {
+         "wargear": [
+            {
+               "id": "unit-size",
                "name": "Unit size",
                "minimum": 1,
                "maximum": 1,
                "default": "five-models",
-               "options": {
-                  "five-models": { "name": "5 models" },
-                  "ten-models": { "name": "10 models", "cost": 5 }
-               }
+               "options": [
+                  {
+                     "id": "five-models",
+                     "name": "5 models"
+                  },
+                  {
+                     "id": "ten-models",
+                     "name": "10 models",
+                     "cost": 5
+                  }
+               ]
             }
-         }
+         ]
       }
    }
 }

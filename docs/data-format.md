@@ -18,14 +18,14 @@ data/                      (from v2.0.0, written by the one-time importer in sta
   catalogues/<catalogue-id>.json
 ```
 
-In `fixtures/valid/`, `agents-of-the-imperium.json`, `weapons.json` and `game-system.json` are converted by hand from `v1.10.0`, with the real values. `example-library.json` and `example-faction.json` are illustrative and exist to exercise library links, alternative roles and detachment abilities.
+In `fixtures/valid/`, `agents-of-the-imperium.json`, `weapons.json` and `game-system.json` are converted by hand from `v1.10.0`, with the real values for the entries they include (Supreme Command's Dedicated Transport rule is left out for brevity). `example-library.json` and `example-faction.json` are illustrative and exist to exercise library links, alternative roles and detachment abilities.
 
 ## Ids and references
 
 Every entry has a **slug** (`lascannon`, `ordo-malleus`):
-* datasheets, datasheet links, weapons, abilities, warmaster traits and detachment choices in a catalogue;
-* detachments and universal options in the game system;
-* option groups and options within a datasheet.
+* in a catalogue: datasheets, datasheet links, weapons, abilities, warmaster traits, detachment choices, the options of each detachment choice, and detachment abilities;
+* in the game system: detachments, universal options and abilities;
+* within a datasheet: option groups and options, given as an `id` because they are ordered arrays.
 
 **A slug never changes**, even when the name does, because army lists and rules proposals in fundamalleus store it. Retiring an entry removes its slug; it is never reused.
 
@@ -39,7 +39,13 @@ A **reference** is a bare slug when the target is in the same catalogue or the g
 
 ### Library datasheets
 
-`imports` makes a library's entries referenceable but fields no units by itself. A faction lists each library datasheet it fields in `datasheetLinks`. The link can replace the battlefield role or cost and add faction keywords, keywords, abilities, alternative roles and an `availableWhen`. The link's own slug is the unit's id in that faction, so `dark-angels/tactical-squad` and `space-wolves/tactical-squad` stay distinct while sharing one library datasheet. A change to that library datasheet reaches every faction that links it.
+`imports` makes a library's entries referenceable but fields no units by itself. A faction lists each library datasheet it fields in `datasheetLinks`. The link can replace the battlefield role or cost and add faction keywords, keywords, abilities, alternative roles and an `availableWhen`. The link's own slug is the unit's id in that faction, so `dark-angels/tactical-squad` and `space-wolves/tactical-squad` stay distinct while sharing one library datasheet. A change to that library datasheet reaches every faction that links it. `conditionalKeywords` adds keywords only when a condition holds, e.g. when the unit takes one of the library datasheet's options.
+
+## Keywords and order
+
+Keywords are written in capitals (`INFANTRY`, `COMMANDER (T'AU)`) and match exactly; the schema rejects lower case, so `Infantry` can't silently become a second keyword.
+
+Lists whose order is shown to players, such as option groups and the options in a group, are arrays in display order. Maps keyed by slug (datasheets, weapons, abilities) carry no meaningful order.
 
 ## Typed values
 
@@ -65,27 +71,33 @@ Typos in the current data (`Mele`, `Smaill Arms`, a WS of `26`) are fixed by the
 
 BattleScribe hides and shows entries with modifiers and nested conditions. Here, a typed `condition` decides availability:
 
-* **`Count`:** how many of something the unit, detachment or army contains, between an optional `minimum` and `maximum`. It can count a datasheet, a keyword, a battlefield role, a wargear option, a detachment choice (e.g. a faction filter), a detachment type, a detachment kind, or any unit. "Not taken" is `maximum: 0`.
+* **`Count`:** how many of something the unit, detachment or army contains (counting a `Detachment` type in `Detachment` scope asks whether this detachment is of that type), between an optional `minimum` and `maximum`. It can count a datasheet, a keyword, a battlefield role, a wargear option, a detachment choice (e.g. a faction filter), a detachment type, a detachment kind, or any unit. "Not taken" is `maximum: 0`.
 * **`PrimaryFaction`:** the army's primary faction.
 * **`All`, `Any` and `Not`** combine conditions.
 
 It's used by `availableWhen` on datasheets, links, options, detachments and detachment abilities, and by `alternativeRoles` (e.g. Khorne Berserkers becoming Troops).
 
-A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Auxiliary detachment. Slot maximums, detachments per army, and keyword limits (one Commander per detachment, one Warmaster per army) are all limits.
+A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Auxiliary detachment. Slot maximums, detachments per army, and keyword maximums (one Commander per detachment, one Warmaster per army) are all limits. A keyword limit can also set a `minimum`, e.g. a Supreme Command must include a WARMASTER.
+
+`game-system.schema.json` reuses the catalogue's `option` for universal options, so a validator loads all three schemas together.
 
 ## Integrity rules
 
 JSON Schema checks each file's shape. These rules span entries or files, so stage 2's CI checks them in its own validator:
 
-1. Slugs are unique across every kind within a catalogue, and within the game system. Option slugs are unique across all option groups of a datasheet. Profile names are unique within a datasheet.
-2. Every reference resolves. A `catalogue-id/` reference only points into an imported catalogue, and a `datasheetLinks` target is a library datasheet.
-3. An option group's `default` is one of its options.
-4. `minimum` ≤ `maximum` wherever both appear, including movement ranges.
-5. `game-system.json`'s `release` matches the tag being released.
+1. Slugs are unique as listed under "Ids and references". Profile names are unique within a datasheet.
+2. Every reference resolves. A `catalogue-id/` reference only points into an imported catalogue; `imports` only names `kind: Library` catalogues that exist; a catalogue's `id` matches its file name.
+3. `datasheetLinks`, `detachmentChoices` and `detachmentAbilities` appear only in `kind: Faction` catalogues, and a `datasheetLinks` target is a library datasheet.
+4. Count targets resolve: a `Detachment` names a game-system detachment; a `DetachmentChoice` names an option of some `detachmentChoices` entry; an `Option` names an option of its datasheet (or of `datasheet`, when given); `PrimaryFaction` names a `kind: Faction` catalogue.
+5. Every keyword used in a count target or a keyword limit is a keyword some datasheet, option, link or choice actually adds, which catches typos.
+6. An option group's `default` is one of its options, and its `minimum` is no more than the number of options it offers.
+7. `removesWeapons` only names weapons the datasheet carries or another of its options adds, and `profileChange.profile` names one of the datasheet's profiles.
+8. `minimum` ≤ `maximum` wherever both appear, including movement ranges.
+9. `game-system.json`'s `release` matches the tag being released.
 
 ## Revisions are computed, not stored
 
-fundamalleus flags saved army lists whose units changed in a new release (007 Stage 5). It does this with a hash of each datasheet section. Tooling computes the hash from the canonical JSON: references are resolved to their full content (weapon profiles, ability text), library links are merged, keys are sorted, and keyword and ability lists are sorted, so reordering them is not a change.
+fundamalleus flags saved army lists whose units changed in a new release (007 Stage 5). It does this with a hash of each datasheet section. Tooling computes the hash from the canonical JSON: references are resolved to their full content (weapon profiles, ability text), library links are merged, object keys are sorted, and keyword and ability lists are sorted, so reordering them is not a change. Option groups and options keep their order, because display order is part of the datasheet.
 
 * **cost:** the base cost, and every option's cost.
 * **wargear:** the option groups and options, without their costs.
@@ -113,7 +125,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `characteristic` | 25,806 | typed fields (see "Typed values") |
 | `forceEntry` | 21 | 11 `detachments`; the other 10 are each detachment's nested child force of the same name, merged into it |
 | Detachment `rule` (e.g. Objective Secured) | — | detachment `abilities` |
-| `.gst` upgrades Commander, Warmaster, Warlord | 14 | `universalOptions`, capped by `keywordLimits` / `armyKeywordLimits` |
+| `.gst` upgrades Commander, Warmaster, Warlord | 14 | `universalOptions`, capped or required by `keywordLimits` / `armyKeywordLimits` |
 | `categoryEntry` / `categoryLink` | 1,583 / 12,191 | battlefield-role categories become `battlefieldRole`; `Faction: *` become `factionKeywords`; the rest become `keywords` |
 | `categoryLink` changed by `add`/`remove`/`set-primary` modifiers | 10 | `alternativeRoles` or `addsKeywords` |
 | `selectionEntry` type `unit` | 1,235 | `datasheets` |
@@ -144,6 +156,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `infoGroup` | grouping for BattleScribe's display only |
 | `modifier` set name on an `infoLink` | display renames of a linked rule; the referenced ability carries the right name |
 | BattleScribe `id`s (`8438-2d0c-...`) | replaced by slugs; the importer keeps a one-time mapping in its report |
+| Conditional rename of Commander to Warlord | a display label; the keyword and its limits carry the rule |
 | `hidden="true"` with no condition | dead entries; the importer lists them for a decision rather than converting them |
 
 Anything the importer meets that this table doesn't cover fails the import, so nothing is silently lost.

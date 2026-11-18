@@ -41,9 +41,18 @@
    "additionalProperties": false,
    "$defs": {
       "keywordLimits": {
+         "description": "How many units with each keyword are required (`minimum`) or allowed (`maximum`).",
          "type": "object",
          "propertyNames": { "$ref": "common.schema.json#/$defs/keyword" },
-         "additionalProperties": { "$ref": "common.schema.json#/$defs/limit" }
+         "additionalProperties": {
+            "type": "object",
+            "properties": {
+               "minimum": { "type": "integer", "minimum": 0 },
+               "maximum": { "$ref": "common.schema.json#/$defs/limit" }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
+         }
       },
       "slotLimit": {
          "type": "object",
