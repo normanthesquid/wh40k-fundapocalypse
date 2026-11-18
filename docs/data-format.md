@@ -1,6 +1,6 @@
 # Fundapocalypse data format
 
-BSData, the upstream of these catalogues, has been taken down. That frees Fundapocalypse from BattleScribe's format and tools, so from `v2.0.0` onwards the rules are plain JSON validated by JSON Schema (draft 2020-12). This document describes that format and how each BattleScribe construct maps onto it. The plan is tracked in fundamalleus's Pragmatik project, under initiative `006 - Fundapocalypse rules data format` (this stage is FUN-70).
+BSData, the upstream of these catalogues, has been taken down. That frees Fundapocalypse from BattleScribe's format and tools, so from `v2.0.0` onwards the rules are plain JSON validated by JSON Schema (draft 2020-12). This document describes that format and how each BattleScribe construct maps onto it.
 
 `v1.10.0` is the last BattleScribe release and stays tagged as the rollback point.
 
@@ -13,7 +13,7 @@ schema/
   catalogue.schema.json    a faction or a shared library
   fixtures/valid/          a small data set that must pass, laid out like data/
   fixtures/invalid/        catalogues the schema must reject, each for the reason in its name
-data/                      (from v2.0.0, written by the one-time importer in stage 3)
+data/                      (from v2.0.0, written by a one-time importer from the BattleScribe files)
   game-system.json
   catalogues/<catalogue-id>.json
 validator/                 the Go validator CI runs: the schema plus the integrity rules below
@@ -98,7 +98,7 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 
 ## Revisions are computed, not stored
 
-fundamalleus flags saved army lists whose units changed in a new release (007 Stage 5). It does this with a hash of each datasheet section. Tooling computes the hash from the canonical JSON: references are resolved to their full content (weapon profiles, ability text), library links are merged, object keys are sorted, and keyword and ability lists are sorted, so reordering them is not a change. Option groups and options keep their order, because display order is part of the datasheet.
+fundamalleus flags saved army lists whose units changed in a new release. It does this with a hash of each datasheet section. Tooling computes the hash from the canonical JSON: references are resolved to their full content (weapon profiles, ability text), library links are merged, object keys are sorted, and keyword and ability lists are sorted, so reordering them is not a change. Option groups and options keep their order, because display order is part of the datasheet.
 
 * **cost:** the base cost, and every option's cost.
 * **wargear:** the option groups and options, without their costs.

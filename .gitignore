@@ -19,7 +19,7 @@
 # Don't ignore .yml for CI build definitions
 !*.yml
 
-# Don't ignore the JSON schema and fixtures, the format docs and the converted data (FUN-70)
+# Don't ignore the JSON schema and fixtures, the format docs and the converted data
 !/schema/
 !/schema/**
 !/docs/
@@ -27,6 +27,6 @@
 !/data/
 !/data/**
 
-# The validator and the repo's conventions (FUN-71)
+# The validator
 !/validator/
 !/validator/**
