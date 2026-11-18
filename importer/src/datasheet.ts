@@ -4,7 +4,8 @@ import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type Op
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { CHARACTERISTIC_TYPE_IDS, parseCharacteristic, take, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
+import { describeSource, MISSING_PROFILES, SIZED_PROFILES } from "./corrections.ts";
+import { CHARACTERISTIC_TYPE_IDS, isDroppedProfile, parseCharacteristic, profileFromCharacteristics, take, UNIT_CHARACTERISTICS, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
 
 /** Visibility from `hidden` and its modifiers: a condition, "Always", "Never", or undefined when a condition failed. */
@@ -69,6 +70,7 @@ export class DatasheetConverter {
          detachmentSlug: (forceId) => conversion.gameSystemIndex.detachmentByForceId.get(forceId),
          factionSlug: (catalogueId) => conversion.factionSlug(catalogueId),
          unhandled: (element, message) => this.unhandled(element, message),
+         recordCorrection: (element, message) => conversion.report.recordCorrection(element, message),
       };
    }
 
@@ -113,8 +115,10 @@ export class DatasheetConverter {
       this.addProfiles(view, undefined);
       this.addChildren(view, undefined);
       this.resolveOptionProfiles();
+      if (this.profiles.length === 0) this.addMissingProfile();
       this.applyUnitModifiers(modifiers);
       for (const apply of this.deferred) apply();
+      this.addSizedProfiles();
       if (this.role === undefined) this.role = this.roleFromLinks();
       if (this.role === undefined) this.unhandled(view.element, "no primary battlefield role");
       if (this.profiles.length === 0) this.unhandled(view.element, "no unit profile");
@@ -187,7 +191,7 @@ export class DatasheetConverter {
 
    /** Profiles, rules and info links, with each info group (linked or held directly) opened into its contents, which BattleScribe only groups for display. */
    private infoTargets(profiles: Element[], rules: Element[], infoLinks: Element[], infoGroups: Element[]): { link: Element | undefined; target: Element | undefined }[] {
-      const targets: { link: Element | undefined; target: Element | undefined }[] = [...profiles, ...rules].map((target) => ({ link: undefined, target }));
+      const targets: { link: Element | undefined; target: Element | undefined }[] = [...profiles.filter((profile) => !isDroppedProfile(profile)), ...rules].map((target) => ({ link: undefined, target }));
       const open = (group: Element, link: Element | undefined) => {
          if (group.attributes.hidden === "true" || childrenOf(group, "modifiers", "modifier").length > 0 || (link !== undefined && childrenOf(link, "modifiers", "modifier").length > 0)) {
             this.unhandled(link ?? group, "info group that is hidden or has modifiers");
@@ -199,7 +203,7 @@ export class DatasheetConverter {
       for (const link of infoLinks) {
          const target = this.conversion.registry.lookup(attribute(link, "targetId"));
          if (target?.tag === "infoGroup") open(target, link);
-         else targets.push({ link, target });
+         else if (target === undefined || !isDroppedProfile(target)) targets.push({ link, target });
       }
       return targets;
    }
@@ -233,6 +237,39 @@ export class DatasheetConverter {
             else if (!(change.addsAbilities ??= []).includes(reference)) change.addsAbilities.push(reference);
          }
       }
+   }
+
+   /** The correction table's profile for a unit the data gives none. */
+   private addMissingProfile(): void {
+      const missing = MISSING_PROFILES.find((entry) => this.view.ids.includes(entry.unitId));
+      if (missing === undefined) return;
+      const profile = profileFromCharacteristics(new Map(Object.entries(missing.printed)), this.view.element, missing.name, new Map(), this.conversion.report);
+      if (profile === undefined) return;
+      this.conversion.report.recordCorrection(this.view.element, `profile ${missing.name} added (${describeSource(missing.source)})`);
+      this.profiles.push(profile);
+   }
+
+   /** Characteristics that grow with the unit's models, as changes while it has that many. */
+   private addSizedProfiles(): void {
+      const sized = SIZED_PROFILES.find((entry) => this.view.ids.includes(entry.unitId));
+      if (sized === undefined) return;
+      const models = this.modelOption();
+      if (models === undefined || this.profiles.length !== 1) {
+         this.unhandled(this.view.element, "sized profile without one model option and one profile");
+         return;
+      }
+      for (const { models: count, printed } of sized.sizes) {
+         const set: ProfileValues = {};
+         for (const [characteristic, field] of UNIT_CHARACTERISTICS) {
+            const value = printed[characteristic];
+            if (value === undefined) continue;
+            const parsed = take(parseCharacteristic(field, value), this.view.element, characteristic, this.conversion.report);
+            if (parsed !== null && parsed !== undefined) (set as Record<string, unknown>)[field] = parsed;
+         }
+         const when: Condition = { kind: "Count", scope: "Unit", of: models, minimum: count, maximum: count };
+         (this.conditionalChange(when).profileChanges ??= []).push({ set });
+      }
+      this.conversion.report.recordCorrection(this.view.element, `profile by model count added (${describeSource(sized.source)})`);
    }
 
    /** The datasheet's change for one condition, shared by everything that applies under it. */

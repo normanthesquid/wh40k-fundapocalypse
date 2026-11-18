@@ -1,3 +1,4 @@
+import { describeSource, DROPPED_PROFILES, PROFILE_CORRECTIONS, type UnitCharacteristic } from "./corrections.ts";
 import type { Ability, ModelProfile, ProfileValues, Weapon } from "./model.ts";
 import type { Report } from "./report.ts";
 import {
@@ -36,6 +37,26 @@ export function characteristicsOf(profile: Element): Characteristics {
    return new Map(childrenOf(profile, "characteristics", "characteristic").map((characteristic) => [attribute(characteristic, "name"), characteristic.text]));
 }
 
+const correctionsById = new Map(PROFILE_CORRECTIONS.map((correction) => [correction.profileId, correction]));
+const droppedIds = new Set(DROPPED_PROFILES.map((dropped) => dropped.profileId));
+
+/** A blank placeholder profile the importer leaves out. */
+export function isDroppedProfile(profile: Element): boolean {
+   return droppedIds.has(attribute(profile, "id"));
+}
+
+/** The profile's characteristics with the correction table's values in place of wrong or missing ones. */
+function correctedCharacteristics(profile: Element, report: Report): Characteristics {
+   const characteristics = characteristicsOf(profile);
+   const correction = correctionsById.get(attribute(profile, "id"));
+   if (correction === undefined) return characteristics;
+   for (const [name, printed] of Object.entries(correction.printed)) {
+      report.recordCorrection(profile, `${name}: "${characteristics.get(name) ?? ""}" set to "${printed}" (${describeSource(correction.source)})`);
+      characteristics.set(name, printed);
+   }
+   return characteristics;
+}
+
 /** Unwraps a parsed value, reporting corrections and failures against the profile. */
 export function take<Value>(parsed: Parsed<Value>, profile: Element, characteristic: string, report: Report): Value | undefined | null {
    if (parsed.kind === "Unparseable") {
@@ -64,7 +85,7 @@ export function parseCharacteristic(name: keyof ProfileValues, printed: string):
    }
 }
 
-const UNIT_CHARACTERISTICS: readonly [string, keyof ProfileValues][] = [
+export const UNIT_CHARACTERISTICS: readonly [UnitCharacteristic, keyof ProfileValues][] = [
    ["M", "movement"],
    ["WS", "weaponSkill"],
    ["BS", "ballisticSkill"],
@@ -76,7 +97,11 @@ const UNIT_CHARACTERISTICS: readonly [string, keyof ProfileValues][] = [
 
 /** A Unit profile; `overrides` are printed values from unconditional modifiers, keyed by characteristic. */
 export function unitProfile(profile: Element, name: string, overrides: Map<keyof ProfileValues, string>, report: Report): ModelProfile | undefined {
-   const characteristics = characteristicsOf(profile);
+   return profileFromCharacteristics(correctedCharacteristics(profile, report), profile, name, overrides, report);
+}
+
+/** A Unit profile from printed values; `profile` is where findings are reported. */
+export function profileFromCharacteristics(characteristics: Characteristics, profile: Element, name: string, overrides: Map<keyof ProfileValues, string>, report: Report): ModelProfile | undefined {
    const values: Record<string, unknown> = { name };
    let failed = false;
    for (const [printedName, field] of UNIT_CHARACTERISTICS) {
@@ -101,7 +126,11 @@ export function unitProfile(profile: Element, name: string, overrides: Map<keyof
 }
 
 export function weaponFromProfile(profile: Element, report: Report): Weapon | undefined {
-   const characteristics = characteristicsOf(profile);
+   if (isDroppedProfile(profile)) {
+      report.recordDropped(profile, "blank placeholder profile of the wrong type");
+      return undefined;
+   }
+   const characteristics = correctedCharacteristics(profile, report);
    const type = take(parseWeaponType(characteristics.get("Type") ?? ""), profile, "Type", report);
    if (type === null || type === undefined) return undefined;
    const weapon: Weapon = { name: attribute(profile, "name").trim(), type };

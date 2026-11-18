@@ -16,6 +16,7 @@ export interface ConditionContext {
    unitHasCategory(categoryId: string): boolean | undefined;
    factionSlug(catalogueId: string): string | undefined;
    unhandled(element: Element, message: string): void;
+   recordCorrection(element: Element, message: string): void;
 }
 
 /** A condition, or a constant once the conversion could decide it statically. */
@@ -49,10 +50,14 @@ export function allOf(...conditions: (Condition | undefined)[]): Condition | und
    return combine("All", conditions.filter((condition) => condition !== undefined));
 }
 
-function countScope(scope: string, context: ConditionContext): CountScope | undefined {
+function countScope(scope: string, element: Element, context: ConditionContext): CountScope | undefined {
    if (scope === "force") return "Detachment";
    if (scope === "roster") return "Army";
    if (scope === "parent" || scope === "self" || context.isUnitScope(scope)) return "Unit";
+   if (context.isThisUnit(scope) === false) {
+      context.recordCorrection(element, `condition scoped to another unit (${scope}), a copy-paste slip, read as this unit`);
+      return "Unit";
+   }
    return undefined;
 }
 
@@ -119,7 +124,7 @@ export function convertCondition(element: Element, context: ConditionContext): F
       }
       return { kind: "Count", scope: "Army", of: { kind: "Detachment", detachment }, minimum: bounds.minimum, maximum: bounds.maximum };
    }
-   const scope = countScope(scopeText, context);
+   const scope = countScope(scopeText, element, context);
    if (field !== "selections" || scope === undefined || bounds === undefined) {
       context.unhandled(element, `condition field=${field} scope=${scopeText} type=${type} value=${threshold}`);
       return undefined;

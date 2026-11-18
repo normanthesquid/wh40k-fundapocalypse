@@ -180,6 +180,7 @@ export class CatalogueConversion {
          detachmentSlug: (forceId) => this.conversion.gameSystemIndex.detachmentByForceId.get(forceId),
          factionSlug: (catalogueId) => this.conversion.factionSlug(catalogueId),
          unhandled: (element, message) => this.conversion.report.failUnhandled(element, message),
+         recordCorrection: (element, message) => this.conversion.report.recordCorrection(element, message),
       };
       const link: DatasheetLink = { datasheet: this.conversion.reference(this.builder, target) };
       const own = view.element;
@@ -267,6 +268,7 @@ export class CatalogueConversion {
             detachmentSlug: (forceId) => this.conversion.gameSystemIndex.detachmentByForceId.get(forceId),
             factionSlug: (catalogueId) => this.conversion.factionSlug(catalogueId),
             unhandled: (element, message) => this.conversion.report.failUnhandled(element, message),
+            recordCorrection: (element, message) => this.conversion.report.recordCorrection(element, message),
          };
          const availability = availabilityOf(rule.attributes.hidden === "true", flatModifiers(childrenOf(rule, "modifiers", "modifier"), [], context));
          if (availability === "Never" || availability === undefined) {

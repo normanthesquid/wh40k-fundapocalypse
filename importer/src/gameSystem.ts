@@ -88,6 +88,7 @@ export class GameSystemConversion {
          detachmentSlug: (forceId) => index.detachmentByForceId.get(forceId),
          factionSlug: (catalogueId) => registry.catalogues.find((document) => document.battleScribeId === catalogueId)?.slug,
          unhandled: (element, message) => report.failUnhandled(element, message),
+         recordCorrection: (element, message) => report.recordCorrection(element, message),
       };
    }
 
