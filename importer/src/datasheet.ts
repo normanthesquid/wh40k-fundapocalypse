@@ -349,15 +349,15 @@ export class DatasheetConverter {
       for (const modifier of conditional) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
    }
 
-   private addProfileChange(modifier: FlatModifier, profileName: string): void {
+   private addProfileChange(modifier: FlatModifier, profileName: string, required?: Condition): void {
       const field = CHARACTERISTIC_TYPE_IDS[modifier.field];
-      const taken = this.optionTaken(modifier.condition);
+      const taken = required === undefined ? this.optionTaken(modifier.condition) : undefined;
       const option = taken === undefined ? undefined : this.optionsBySlug.get(taken);
       if (field === undefined || modifier.condition === null || modifier.condition === undefined) {
          this.unhandled(modifier.element, `conditional unit profile modifier ${modifier.type} ${modifier.field}`);
          return;
       }
-      const changes = ((option ?? this.conditionalChange(modifier.condition)).profileChanges ??= []);
+      const changes = ((option ?? this.conditionalChange(allOf(required, modifier.condition)!)).profileChanges ??= []);
       const isAdded = !this.profiles.some((profile) => profile.name === profileName);
       const forProfile = this.profiles.length > 1 || isAdded ? profileName : undefined;
       let change = changes.find((existing) => existing.profile === forProfile);
@@ -628,10 +628,12 @@ export class DatasheetConverter {
       const isUnitSize = (group: OptionGroup) => group.options.every((option) => byOption.get(option)?.length === 1);
       for (const group of this.groups) {
          if (this.profiles.length > 0 || !isUnitSize(group)) continue;
-         for (const option of group.options) for (const { conditional } of byOption.get(option)!) for (const modifier of conditional) this.unhandled(modifier.element, "conditional modifier on a unit-size profile");
          const baseOption = group.options.find((option) => option.id === group.default) ?? group.options[0];
          const base = { ...byOption.get(baseOption)![0].profile, name: baseProfileName(byOption.get(baseOption)![0].profile.name) };
          this.profiles.push(base);
+         for (const option of group.options) {
+            for (const { conditional } of byOption.get(option)!) for (const modifier of conditional) this.deferred.push(() => this.addProfileChange(modifier, base.name, this.requires(option)));
+         }
          for (const option of group.options) {
             if (option === baseOption) continue;
             const { profile, element } = byOption.get(option)![0];
