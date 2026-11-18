@@ -12,6 +12,8 @@ Warhammer 40,000 Fundapocalypse
 
 [![Chat on Discord](https://img.shields.io/discord/558412685981777922.svg?logo=discord&style=popout-square)](https://discord.gg/3QtaU2g)
 
+> Unofficial and not affiliated with Games Workshop; see [NOTICE.md](NOTICE.md).
+
 #### Contents ####
 
 * [Overview][]

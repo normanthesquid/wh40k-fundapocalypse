@@ -1,7 +1,7 @@
 # Repo rules
 
-- This repo's plans and tickets live in **fundamalleus's Pragmatik project `FUN`**, not here and not in GitHub issues; the data-format work is Initiative `006 - Fundapocalypse rules data format`. Cite tickets as links, e.g. [FUN-71](https://pragmatik.withaplan.com/projects/FUN/issues/71).
-- House style comes from `cephalotech-ab/shared-infra`, as in fundamalleus's CLAUDE.md, with recorded exceptions: this repo stays on the personal `normanthesquid` account and its CI runs on GitHub-hosted `ubuntu-latest` (FUN-71).
+- This repo is public. Nothing in it (files, commit messages, PR titles or bodies, branch names, issue comments) names or links the private tracker or its ticket keys. Plans for this repo are kept with the fundamalleus repo.
+- House style comes from `cephalotech-ab/shared-infra`, with recorded exceptions: this repo stays on the personal `normanthesquid` account, and its CI runs on GitHub-hosted `ubuntu-latest`. The comment and file length checks come from shared-infra through a read-only deploy key (secret `SHARED_INFRA_DEPLOY_KEY`), so they skip on fork PRs.
 - The format is defined by `schema/` and [docs/data-format.md](docs/data-format.md). Run the validator from `validator/` before pushing: `go test ./...` and `go run .` (or `go run . -data ../schema/fixtures/valid` until `data/` exists).
 - `.gitignore` ignores everything by default, so a new top-level file or directory needs a `!` entry there.
 - A new tooling ecosystem gets a `.github/dependabot.yml` entry in the same change.

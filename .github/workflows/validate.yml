@@ -3,7 +3,7 @@ name: Validate
 on:
   pull_request:
   push:
-    branches: [master]
+    branches: [main]
     tags: ["v*"]
 
 concurrency:
@@ -17,7 +17,7 @@ jobs:
   validate:
     name: Validator and data
     # GitHub-hosted on purpose: org runners can't serve this personal-account repo,
-    # and fork PRs on a public repo must not run on our host (Pragmatik FUN-71).
+    # and fork PRs on a public repo must not run on our host.
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -42,7 +42,7 @@ jobs:
       - name: Validate the fixture data set
         run: go run . -data ../schema/fixtures/valid
 
-      # data/ arrives with the stage 3 importer; until then only the fixtures exist.
+      # data/ arrives with the BattleScribe importer; until then only the fixtures exist.
       - name: Validate data/
         if: hashFiles('data/game-system.json') != '' && !startsWith(github.ref, 'refs/tags/')
         run: go run .
@@ -51,3 +51,33 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         run: go run . -release "${GITHUB_REF_NAME#v}"
 
+
+  lengths:
+    name: Comment and file lengths
+    runs-on: ubuntu-latest
+    # Fork PRs get no secrets, so the private shared-infra checkout and its checks skip there.
+    env:
+      HAS_SHARED_INFRA_KEY: ${{ secrets.SHARED_INFRA_DEPLOY_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - if: env.HAS_SHARED_INFRA_KEY == 'true'
+        uses: actions/checkout@v7
+        with:
+          repository: cephalotech-ab/shared-infra
+          ssh-key: ${{ secrets.SHARED_INFRA_DEPLOY_KEY }}
+          path: .shared-infra
+          sparse-checkout: scripts/shared
+          persist-credentials: false
+
+      - name: Check comment lengths
+        if: env.HAS_SHARED_INFRA_KEY == 'true'
+        run: python3 .shared-infra/scripts/shared/check_comment_lengths.py
+
+      - name: Check file lengths
+        if: env.HAS_SHARED_INFRA_KEY == 'true'
+        run: python3 .shared-infra/scripts/shared/check_file_lengths.py
+
+      - name: Note the skip
+        if: env.HAS_SHARED_INFRA_KEY != 'true'
+        run: echo "::notice::No shared-infra key (a fork PR?), so the length checks were skipped."
