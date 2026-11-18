@@ -1,0 +1,145 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://github.com/normanthesquid/wh40k-fundapocalypse/schema/catalogue.schema.json",
+   "title": "Fundapocalypse catalogue (a faction or a shared library)",
+   "type": "object",
+   "properties": {
+      "$schema": { "type": "string" },
+      "id": { "$ref": "common.schema.json#/$defs/slug" },
+      "name": { "type": "string", "minLength": 1 },
+      "kind": {
+         "description": "A Faction can be an army's primary faction; a Library only supplies entries to the catalogues that import it.",
+         "enum": ["Faction", "Library"]
+      },
+      "imports": {
+         "description": "Catalogues whose entries this one may reference with `catalogue-id/slug`.",
+         "type": "array",
+         "items": { "$ref": "common.schema.json#/$defs/slug" },
+         "uniqueItems": true
+      },
+      "datasheets": {
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "#/$defs/datasheet" }
+      },
+      "weapons": {
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "common.schema.json#/$defs/weapon" }
+      },
+      "abilities": {
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "common.schema.json#/$defs/ability" }
+      },
+      "warmasterTraits": {
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "common.schema.json#/$defs/ability" }
+      }
+   },
+   "required": ["id", "name", "kind"],
+   "additionalProperties": false,
+   "$defs": {
+      "datasheet": {
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "battlefieldRole": { "$ref": "common.schema.json#/$defs/battlefieldRole" },
+            "cost": {
+               "description": "Power Level of the unit with no options chosen.",
+               "$ref": "common.schema.json#/$defs/powerLevel"
+            },
+            "factionKeywords": {
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/keyword" },
+               "uniqueItems": true
+            },
+            "keywords": {
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/keyword" },
+               "uniqueItems": true
+            },
+            "profiles": {
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/modelProfile" },
+               "minItems": 1
+            },
+            "weapons": {
+               "description": "Weapons the unit carries before any option is chosen.",
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/reference" }
+            },
+            "abilities": {
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/reference" },
+               "uniqueItems": true
+            },
+            "transport": {
+               "description": "The transport capacity rule, as printed.",
+               "type": "string",
+               "minLength": 1
+            },
+            "wargear": {
+               "description": "Option groups, in the order they are shown.",
+               "type": "array",
+               "items": { "$ref": "#/$defs/optionGroup" }
+            },
+            "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "maximumPerDetachment": { "type": "integer", "minimum": 1 },
+            "maximumPerArmy": {
+               "description": "1 for a named character or other unique unit.",
+               "type": "integer",
+               "minimum": 1
+            }
+         },
+         "required": ["name", "battlefieldRole", "cost", "keywords", "profiles"],
+         "additionalProperties": false
+      },
+      "optionGroup": {
+         "description": "A choice of options, e.g. a weapon swap or the unit's size. Each option counts toward `minimum`..`maximum`.",
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "minimum": { "type": "integer", "minimum": 0, "default": 0 },
+            "maximum": { "type": "integer", "minimum": 1 },
+            "default": {
+               "description": "The option picked when the unit is added.",
+               "$ref": "common.schema.json#/$defs/slug"
+            },
+            "options": {
+               "type": "object",
+               "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+               "additionalProperties": { "$ref": "#/$defs/option" },
+               "minProperties": 1
+            }
+         },
+         "required": ["name", "options"],
+         "additionalProperties": false
+      },
+      "option": {
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "cost": {
+               "description": "Power Level added each time the option is taken.",
+               "$ref": "common.schema.json#/$defs/powerLevel"
+            },
+            "maximum": {
+               "description": "How many times this one option may be taken.",
+               "type": "integer",
+               "minimum": 1,
+               "default": 1
+            },
+            "addsWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
+            "removesWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
+            "addsAbilities": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
+            "addsKeywords": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/keyword" } },
+            "profileChanges": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/profileChange" } },
+            "availableWhen": { "$ref": "common.schema.json#/$defs/condition" }
+         },
+         "required": ["name"],
+         "additionalProperties": false
+      }
+   }
+}

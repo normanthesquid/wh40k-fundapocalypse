@@ -1,0 +1,78 @@
+{
+   "$schema": "../../catalogue.schema.json",
+   "id": "agents-of-the-imperium",
+   "name": "Imperium - Agents of the Imperium",
+   "kind": "Faction",
+   "imports": ["weapons"],
+   "datasheets": {
+      "inquisitor": {
+         "name": "Inquisitor",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "factionKeywords": ["IMPERIUM", "INQUISITION"],
+         "keywords": ["LIGHT", "INFANTRY", "CHARACTER", "INQUISITOR"],
+         "profiles": [
+            {
+               "name": "Inquisitor",
+               "movement": { "kind": "Inches", "inches": 6 },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": 1,
+               "wounds": 1,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "weapons": ["weapons/master-crafted-weapons"],
+         "abilities": ["authority-of-the-inquisition", "unquestionable-wisdom"],
+         "wargear": [
+            {
+               "name": "Upgrades",
+               "maximum": 2,
+               "options": {
+                  "psyker": { "name": "Psyker", "cost": 1, "addsKeywords": ["PSYKER"] },
+                  "terminator-armour": {
+                     "name": "Terminator Armour",
+                     "cost": 2,
+                     "addsKeywords": ["TERMINATOR"],
+                     "addsAbilities": ["deep-strike"],
+                     "profileChanges": [{ "set": { "movement": { "kind": "Inches", "inches": 5 }, "save": 4 } }],
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": { "kind": "Option", "option": "ordo-hereticus" },
+                        "maximum": 0
+                     }
+                  }
+               }
+            },
+            {
+               "name": "Ordo",
+               "minimum": 1,
+               "maximum": 1,
+               "default": "ordo-hereticus",
+               "options": {
+                  "ordo-hereticus": { "name": "Ordo Hereticus", "addsKeywords": ["ORDO HERETICUS"] },
+                  "ordo-malleus": { "name": "Ordo Malleus", "addsKeywords": ["ORDO MALLEUS"] }
+               }
+            }
+         ],
+         "availableWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": { "kind": "Keyword", "keyword": "INQUISITION" },
+            "minimum": 1
+         }
+      }
+   },
+   "abilities": {
+      "authority-of-the-inquisition": {
+         "name": "Authority of the Inquisition",
+         "text": "This unit can be included in any IMPERIUM detachment without that detachment losing its faction."
+      },
+      "unquestionable-wisdom": {
+         "name": "Unquestionable Wisdom",
+         "text": "Once per battle round, this unit can re-roll one hit roll."
+      }
+   }
+}

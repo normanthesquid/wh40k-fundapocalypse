@@ -1,0 +1,28 @@
+{
+   "$schema": "../../game-system.schema.json",
+   "release": "2.0.0",
+   "detachments": {
+      "battalion": {
+         "name": "Battalion Detachment",
+         "slots": {
+            "HQ": { "maximum": 3 },
+            "Troops": { "minimum": 3, "maximum": 6 },
+            "Elites": { "maximum": 6 },
+            "FastAttack": { "maximum": 3 },
+            "HeavySupport": { "maximum": 3 },
+            "DedicatedTransport": { "maximum": 0 }
+         },
+         "abilities": ["objective-secured"]
+      }
+   },
+   "abilities": {
+      "objective-secured": {
+         "name": "Objective Secured",
+         "text": "TROOPS units in this detachment control objective markers even if an enemy unit is within range of them."
+      },
+      "deep-strike": {
+         "name": "Deep Strike",
+         "text": "During deployment, this unit can be set up in reserve instead of on the battlefield."
+      }
+   }
+}

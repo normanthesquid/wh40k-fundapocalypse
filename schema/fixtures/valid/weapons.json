@@ -1,0 +1,30 @@
+{
+   "$schema": "../../catalogue.schema.json",
+   "id": "weapons",
+   "name": "Library - Weapons",
+   "kind": "Library",
+   "weapons": {
+      "master-crafted-weapons": {
+         "name": "Master-crafted weapons",
+         "type": "Melee",
+         "attacks": { "kind": "User" },
+         "antiPersonnel": 4,
+         "antiTank": 6
+      },
+      "lascannon": {
+         "name": "Lascannon",
+         "type": "Heavy",
+         "range": 48,
+         "attacks": { "kind": "Fixed", "value": 1 },
+         "antiPersonnel": 6,
+         "antiTank": 3
+      },
+      "heavy-flamer": {
+         "name": "Heavy flamer",
+         "type": "SmallArms",
+         "range": 8,
+         "attacks": { "kind": "Dice", "count": 1, "sides": 6 },
+         "antiPersonnel": 4
+      }
+   }
+}

@@ -1,0 +1,263 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://github.com/normanthesquid/wh40k-fundapocalypse/schema/common.schema.json",
+   "title": "Shared Fundapocalypse definitions",
+   "$defs": {
+      "slug": {
+         "description": "A stable id, unique within its kind in one catalogue. Never changes on rename.",
+         "type": "string",
+         "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "reference": {
+         "description": "A reference to an entry: a bare slug in the same catalogue (or the game system), or `catalogue-id/slug` in another.",
+         "type": "string",
+         "pattern": "^([a-z0-9]+(-[a-z0-9]+)*/)?[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "keyword": {
+         "description": "A keyword as printed, e.g. `INFANTRY` or `<CHAPTER>`.",
+         "type": "string",
+         "pattern": "^[A-Z0-9<>'’ -]+$"
+      },
+      "skillTarget": {
+         "description": "The D6 result needed to hit (WS, BS), e.g. 3 for `3+`.",
+         "type": "integer",
+         "minimum": 2,
+         "maximum": 6
+      },
+      "twoDiceTarget": {
+         "description": "The 2D6 result needed (saves, SAP, SAT), e.g. 8 for `8+`.",
+         "type": "integer",
+         "minimum": 2,
+         "maximum": 12
+      },
+      "powerLevel": {
+         "type": "integer",
+         "minimum": 0
+      },
+      "battlefieldRole": {
+         "enum": [
+            "HQ",
+            "Troops",
+            "Elites",
+            "FastAttack",
+            "HeavySupport",
+            "Flyer",
+            "DedicatedTransport",
+            "LordOfWar",
+            "Fortification",
+            "NoForceOrgSlot"
+         ]
+      },
+      "weaponType": {
+         "enum": ["SmallArms", "Heavy", "Melee"]
+      },
+      "movement": {
+         "oneOf": [
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "Inches" }, "inches": { "type": "integer", "minimum": 0 } },
+               "required": ["kind", "inches"],
+               "additionalProperties": false
+            },
+            {
+               "description": "A minimum and maximum move, as for aircraft (e.g. 20\"-60\").",
+               "type": "object",
+               "properties": {
+                  "kind": { "const": "Range" },
+                  "minimum": { "type": "integer", "minimum": 0 },
+                  "maximum": { "type": "integer", "minimum": 0 }
+               },
+               "required": ["kind", "minimum", "maximum"],
+               "additionalProperties": false
+            },
+            {
+               "description": "The unit cannot move (printed as `-`).",
+               "type": "object",
+               "properties": { "kind": { "const": "Immobile" } },
+               "required": ["kind"],
+               "additionalProperties": false
+            }
+         ]
+      },
+      "weaponAttacks": {
+         "oneOf": [
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "Fixed" }, "value": { "type": "integer", "minimum": 0 } },
+               "required": ["kind", "value"],
+               "additionalProperties": false
+            },
+            {
+               "description": "Printed as `User`: the bearer's own Attacks.",
+               "type": "object",
+               "properties": { "kind": { "const": "User" } },
+               "required": ["kind"],
+               "additionalProperties": false
+            },
+            {
+               "description": "Printed as `x2`: the bearer's Attacks multiplied.",
+               "type": "object",
+               "properties": { "kind": { "const": "UserMultiplied" }, "multiplier": { "type": "integer", "minimum": 2 } },
+               "required": ["kind", "multiplier"],
+               "additionalProperties": false
+            },
+            {
+               "description": "Printed as `2D6`.",
+               "type": "object",
+               "properties": {
+                  "kind": { "const": "Dice" },
+                  "count": { "type": "integer", "minimum": 1 },
+                  "sides": { "enum": [3, 6] }
+               },
+               "required": ["kind", "count", "sides"],
+               "additionalProperties": false
+            }
+         ]
+      },
+      "modelProfile": {
+         "description": "One model profile. A skill or Leadership printed as `-` is left out.",
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "movement": { "$ref": "#/$defs/movement" },
+            "weaponSkill": { "$ref": "#/$defs/skillTarget" },
+            "ballisticSkill": { "$ref": "#/$defs/skillTarget" },
+            "attacks": { "type": "integer", "minimum": 0 },
+            "wounds": { "type": "integer", "minimum": 1 },
+            "leadership": { "type": "integer", "minimum": 1 },
+            "save": { "$ref": "#/$defs/twoDiceTarget" }
+         },
+         "required": ["name", "movement", "attacks", "wounds", "save"],
+         "additionalProperties": false
+      },
+      "profileChange": {
+         "description": "How a wargear option changes a model profile. `set` replaces values; `increment` adds to them (negative to decrease).",
+         "type": "object",
+         "properties": {
+            "profile": { "description": "The profile's name; all profiles when left out.", "type": "string" },
+            "set": {
+               "type": "object",
+               "properties": {
+                  "movement": { "$ref": "#/$defs/movement" },
+                  "weaponSkill": { "$ref": "#/$defs/skillTarget" },
+                  "ballisticSkill": { "$ref": "#/$defs/skillTarget" },
+                  "attacks": { "type": "integer", "minimum": 0 },
+                  "wounds": { "type": "integer", "minimum": 1 },
+                  "leadership": { "type": "integer", "minimum": 1 },
+                  "save": { "$ref": "#/$defs/twoDiceTarget" }
+               },
+               "additionalProperties": false,
+               "minProperties": 1
+            },
+            "increment": {
+               "type": "object",
+               "properties": {
+                  "attacks": { "type": "integer" },
+                  "wounds": { "type": "integer" },
+                  "leadership": { "type": "integer" }
+               },
+               "additionalProperties": false,
+               "minProperties": 1
+            }
+         },
+         "anyOf": [
+            { "properties": { "set": true }, "required": ["set"] },
+            { "properties": { "increment": true }, "required": ["increment"] }
+         ],
+         "additionalProperties": false
+      },
+      "ability": {
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "text": { "type": "string", "minLength": 1 }
+         },
+         "required": ["name", "text"],
+         "additionalProperties": false
+      },
+      "weapon": {
+         "description": "A weapon profile. Range is left out for melee weapons; a damage roll printed as `-` is left out.",
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "type": { "$ref": "#/$defs/weaponType" },
+            "range": { "type": "integer", "minimum": 1 },
+            "attacks": { "$ref": "#/$defs/weaponAttacks" },
+            "antiPersonnel": { "description": "SAP: the roll to damage infantry-type targets.", "$ref": "#/$defs/twoDiceTarget" },
+            "antiTank": { "description": "SAT: the roll to damage vehicle-type targets.", "$ref": "#/$defs/twoDiceTarget" },
+            "text": { "description": "Any special rules printed with the weapon.", "type": "string" }
+         },
+         "required": ["name", "type", "attacks"],
+         "if": { "properties": { "type": { "const": "Melee" } } },
+         "then": { "not": { "properties": { "range": true }, "required": ["range"] } },
+         "else": { "properties": { "range": true }, "required": ["range"] },
+         "additionalProperties": false
+      },
+      "countTarget": {
+         "oneOf": [
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "Entry" }, "entry": { "$ref": "#/$defs/reference" } },
+               "required": ["kind", "entry"],
+               "additionalProperties": false
+            },
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "Keyword" }, "keyword": { "$ref": "#/$defs/keyword" } },
+               "required": ["kind", "keyword"],
+               "additionalProperties": false
+            },
+            {
+               "description": "A wargear option of the same datasheet, by its slug.",
+               "type": "object",
+               "properties": { "kind": { "const": "Option" }, "option": { "$ref": "#/$defs/slug" } },
+               "required": ["kind", "option"],
+               "additionalProperties": false
+            }
+         ]
+      },
+      "condition": {
+         "description": "When something is available or applies. Built from counts combined with All, Any and Not.",
+         "oneOf": [
+            {
+               "description": "How many of `of` the scope contains, within `minimum`..`maximum` (each optional).",
+               "type": "object",
+               "properties": {
+                  "kind": { "const": "Count" },
+                  "scope": { "enum": ["Unit", "Detachment", "Army"] },
+                  "of": { "$ref": "#/$defs/countTarget" },
+                  "minimum": { "type": "integer", "minimum": 0 },
+                  "maximum": { "type": "integer", "minimum": 0 }
+               },
+               "required": ["kind", "scope", "of"],
+               "anyOf": [
+                  { "properties": { "minimum": true }, "required": ["minimum"] },
+                  { "properties": { "maximum": true }, "required": ["maximum"] }
+               ],
+               "additionalProperties": false
+            },
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "PrimaryFaction" }, "faction": { "$ref": "#/$defs/slug" } },
+               "required": ["kind", "faction"],
+               "additionalProperties": false
+            },
+            {
+               "type": "object",
+               "properties": {
+                  "kind": { "enum": ["All", "Any"] },
+                  "conditions": { "type": "array", "items": { "$ref": "#/$defs/condition" }, "minItems": 2 }
+               },
+               "required": ["kind", "conditions"],
+               "additionalProperties": false
+            },
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "Not" }, "condition": { "$ref": "#/$defs/condition" } },
+               "required": ["kind", "condition"],
+               "additionalProperties": false
+            }
+         ]
+      }
+   }
+}

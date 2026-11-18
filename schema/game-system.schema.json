@@ -1,0 +1,63 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://github.com/normanthesquid/wh40k-fundapocalypse/schema/game-system.schema.json",
+   "title": "Fundapocalypse game system",
+   "type": "object",
+   "properties": {
+      "$schema": { "type": "string" },
+      "release": {
+         "description": "The release this data belongs to. Matches the git tag `v<release>`.",
+         "type": "string",
+         "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      },
+      "detachments": {
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "#/$defs/detachment" }
+      },
+      "abilities": {
+         "description": "Universal abilities shared by every catalogue, e.g. Deep Strike.",
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "common.schema.json#/$defs/ability" }
+      },
+      "warmasterTraits": {
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "common.schema.json#/$defs/ability" }
+      }
+   },
+   "required": ["release", "detachments"],
+   "additionalProperties": false,
+   "$defs": {
+      "slotLimit": {
+         "type": "object",
+         "properties": {
+            "minimum": { "type": "integer", "minimum": 0 },
+            "maximum": { "type": "integer", "minimum": 0 }
+         },
+         "additionalProperties": false,
+         "minProperties": 1
+      },
+      "detachment": {
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "slots": {
+               "description": "Unit limits per battlefield role. A role left out has no limit.",
+               "type": "object",
+               "propertyNames": { "$ref": "common.schema.json#/$defs/battlefieldRole" },
+               "additionalProperties": { "$ref": "#/$defs/slotLimit" }
+            },
+            "abilities": {
+               "description": "Rules the detachment grants, e.g. Objective Secured for its Troops.",
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/reference" },
+               "uniqueItems": true
+            }
+         },
+         "required": ["name", "slots"],
+         "additionalProperties": false
+      }
+   }
+}
