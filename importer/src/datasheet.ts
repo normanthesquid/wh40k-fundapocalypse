@@ -29,6 +29,19 @@ export function availabilityOf(hidden: boolean, modifiers: FlatModifier[]): Avai
    return hideWhen === undefined ? "Always" : not(hideWhen);
 }
 
+/** Where a category link sits: on the unit itself, on an entry inside it, or on a whole unit nested inside it as an option. */
+type CategoryHolder = "Unit" | "NestedEntry" | "NestedUnit";
+
+interface SecondaryRole {
+   readonly link: Element;
+   readonly role: BattlefieldRole;
+   readonly holder: CategoryHolder;
+}
+
+function nestedHolder(view: EntryView): CategoryHolder {
+   return attribute(view.target, "type") === "unit" ? "NestedUnit" : "NestedEntry";
+}
+
 export class DatasheetConverter {
    readonly context: ConditionContext;
    private readonly weapons: string[] = [];
@@ -43,6 +56,7 @@ export class DatasheetConverter {
    private readonly conditionalChanges = new Map<string, ConditionalChange>();
    private readonly unitProfiles: UnitProfiles;
    private readonly costChanges: CostChange[] = [];
+   private readonly secondaryRoles: SecondaryRole[] = [];
    private role: BattlefieldRole | undefined;
    private transport: string | undefined;
    private cost: number;
@@ -128,7 +142,7 @@ export class DatasheetConverter {
    convert(): Datasheet | undefined {
       const view = this.view;
       const modifiers = flatModifiers(view.modifiers, view.modifierGroups, this.context);
-      this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, true);
+      this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, "Unit");
       this.addProfiles(view, undefined);
       this.addChildren(view, undefined);
       this.unitProfiles.resolve();
@@ -138,6 +152,7 @@ export class DatasheetConverter {
       if (this.role === undefined) this.role = this.roleFromLinks();
       if (this.role === undefined) this.role = this.roleFromCorrections();
       if (this.role === undefined) this.unhandled(view.element, "no primary battlefield role");
+      this.resolveSecondaryRoles();
       const profiles = this.unitProfiles.profiles;
       if (profiles.length === 0) this.unitProfiles.checkProfileless();
       if (this.failed || this.role === undefined) return undefined;
@@ -185,13 +200,22 @@ export class DatasheetConverter {
       return missing?.role;
    }
 
-   private addCategories(links: Element[], keywords: Set<string>, factionKeywords: Set<string>, isUnit: boolean): void {
+   /** A role that repeats the unit's own, or belongs to a whole unit offered as an option, says nothing about this unit's role. */
+   private resolveSecondaryRoles(): void {
+      for (const { link, role, holder } of this.secondaryRoles) {
+         if (role === this.role) this.conversion.report.recordDropped(link, `battlefield role ${role} repeating the unit's own`);
+         else if (holder === "NestedUnit") this.conversion.report.recordDropped(link, `battlefield role ${role} of a unit offered as an option`);
+         else this.unhandled(link, "battlefield role that is not the unit's primary category");
+      }
+   }
+
+   private addCategories(links: Element[], keywords: Set<string>, factionKeywords: Set<string>, holder: CategoryHolder): void {
       for (const link of links) {
          if (link.children.length > 0) this.unhandled(link, "category link with modifiers or constraints");
          const category = this.conversion.registry.category(attribute(link, "targetId"));
          if (category === undefined) this.unhandled(link, "category link to a missing category");
-         else if (category.kind === "Role" && isUnit && link.attributes.primary === "true") this.role = category.role;
-         else if (category.kind === "Role") this.unhandled(link, "battlefield role that is not the unit's primary category");
+         else if (category.kind === "Role" && holder === "Unit" && link.attributes.primary === "true") this.role = category.role;
+         else if (category.kind === "Role") this.secondaryRoles.push({ link, role: category.role, holder });
          else if (category.kind === "FactionKeyword") factionKeywords.add(category.keyword);
          else if (category.kind === "Keyword") keywords.add(category.keyword);
          else this.unhandled(link, "List Configuration category on a unit");
@@ -384,7 +408,7 @@ export class DatasheetConverter {
 
    /** A mandatory entry is part of what holds it (the datasheet, or the option `parent`), with its own children. */
    private absorb(view: EntryView, parent: Option | undefined): void {
-      if (parent === undefined) this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, false);
+      if (parent === undefined) this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, nestedHolder(view));
       else this.addOptionCategories(view, parent);
       this.addProfiles(view, parent);
       this.addChildren(view, parent);
@@ -393,7 +417,7 @@ export class DatasheetConverter {
    private addOptionCategories(view: EntryView, option: Option): void {
       const keywords = new Set<string>(option.addsKeywords);
       const factionKeywords = new Set<string>(option.addsFactionKeywords);
-      this.addCategories(view.categoryLinks, keywords, factionKeywords, false);
+      this.addCategories(view.categoryLinks, keywords, factionKeywords, nestedHolder(view));
       if (keywords.size > 0) option.addsKeywords = [...keywords];
       if (factionKeywords.size > 0) option.addsFactionKeywords = [...factionKeywords];
    }
