@@ -44,6 +44,8 @@ export class Conversion {
    readonly options = new Map<string, LocatedOption>();
    readonly optionSlugs = new Map<string, OptionSlugs>();
    readonly choiceOptions = new Map<string, Located>();
+   /** Groups inside a detachment choice, by every id naming them, with the ids of the options they hold. */
+   readonly choiceGroups = new Map<string, string[]>();
    readonly profiles = new Map<string, Located>();
 
    readonly registry: Registry;
@@ -133,9 +135,27 @@ export class Conversion {
       return slugs;
    }
 
+   /** The count targets for a detachment choice's group, which counts as any of its options. */
+   choiceGroupTargets(from: OutputBuilder, childId: string): CountTarget[] | undefined {
+      return this.choiceGroups.get(childId)?.map((optionId) => ({ kind: "DetachmentChoice", option: this.reference(from, this.choiceOptions.get(optionId)!) }));
+   }
+
+   /** The universal option an id names, directly or through a link inside one unit, which narrows the count to that unit. */
+   private universalOptionTarget(from: OutputBuilder, childId: string): CountTarget | undefined {
+      const direct = this.gameSystem.universalOptionIds.get(childId);
+      if (direct !== undefined) return { kind: "UniversalOption", option: direct };
+      const link = this.registry.lookup(childId);
+      const option = link?.tag === "entryLink" ? this.gameSystem.universalOptionIds.get(attribute(link, "targetId")) : undefined;
+      if (option === undefined) return undefined;
+      let holder = link!.parent;
+      while (holder !== undefined && !(holder.tag === "selectionEntry" || holder.tag === "entryLink")) holder = holder.parent;
+      const unit = holder === undefined ? undefined : this.datasheets.get(attribute(holder, "id"));
+      return unit === undefined ? undefined : { kind: "UniversalOption", option, datasheet: this.reference(from, unit) };
+   }
+
    /** A count target for an id that isn't local to the datasheet being converted. */
    globalCountTarget(from: OutputBuilder, childId: string): CountTarget | undefined {
-      const fromIndex = this.gameSystemIndex.countTarget(childId);
+      const fromIndex = this.gameSystemIndex.countTarget(childId) ?? this.universalOptionTarget(from, childId);
       if (fromIndex !== undefined) return fromIndex;
       const choice = this.choiceOptions.get(childId);
       if (choice !== undefined) return { kind: "DetachmentChoice", option: this.reference(from, choice) };

@@ -58,6 +58,10 @@ export class CatalogueConversion {
          const view = this.conversion.view(element);
          if (view === undefined) continue;
          if (this.isListConfiguration(view)) this.planChoice(view);
+         else if (view.kind === "upgrade" && view.categoryLinks.length === 0 && !shared.includes(element)) {
+            this.conversion.report.recordCorrection(element, "root upgrade entry with no categories read as a detachment choice");
+            this.planChoice(view);
+         }
          else if (view.kind !== "unit" && !this.hasPrimaryRole(view)) {
             if (shared.includes(element)) continue;
             this.conversion.report.failUnhandled(element, `root entry of type ${view.kind}`);
@@ -72,7 +76,10 @@ export class CatalogueConversion {
          [...parent.childEntries, ...parent.childGroups].flatMap((child) => {
             const childView = this.conversion.view(child);
             if (childView === undefined) return [];
-            return childView.kind === "group" ? entries(childView) : [childView];
+            if (childView.kind !== "group") return [childView];
+            const inGroup = entries(childView);
+            for (const id of childView.ids) this.conversion.choiceGroups.set(id, inGroup.map((option) => option.ids[0]));
+            return inGroup;
          });
       for (const childView of entries(view)) {
          const optionSlug = this.builder.slugFor(childView.ids[0], childView.name);
@@ -151,6 +158,7 @@ export class CatalogueConversion {
          return undefined;
       }
       const context: ConditionContext = {
+         choiceGroupTargets: (childId) => this.conversion.choiceGroupTargets(this.builder, childId),
          countTarget: (childId) => {
             const option = targetSlugs.byId.get(childId);
             if (option !== undefined) return { kind: "Option", option };
@@ -242,6 +250,7 @@ export class CatalogueConversion {
          const located = this.conversion.profiles.get(attribute(rule, "id"))!;
          const context: ConditionContext = {
             countTarget: (childId) => this.localTarget(childId) ?? this.conversion.globalCountTarget(this.builder, childId),
+            choiceGroupTargets: (childId) => this.conversion.choiceGroupTargets(this.builder, childId),
             isUnitScope: () => false,
             isThisUnit: this.conversion.thisUnit([]),
             unitHasCategory: () => undefined,

@@ -52,8 +52,8 @@
          "enum": ["SmallArms", "Heavy", "Melee"]
       },
       "detachmentKind": {
-         "description": "Core detachments unlock Auxiliary ones.",
-         "enum": ["Core", "Auxiliary"]
+         "description": "Core detachments unlock Special ones.",
+         "enum": ["Core", "Special"]
       },
       "dice": {
          "description": "A dice roll, e.g. `2D3` is count 2, sides 3.",

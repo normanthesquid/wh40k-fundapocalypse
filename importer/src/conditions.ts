@@ -5,6 +5,8 @@ import { attribute, childrenOf, type Element } from "./xml.ts";
 export interface ConditionContext {
    /** A count target for a BattleScribe childId, or undefined when the id names nothing countable. */
    countTarget(childId: string, scope: CountScope): CountTarget | undefined;
+   /** The options of a detachment choice's group, which a condition counts as any of them. */
+   choiceGroupTargets(childId: string): CountTarget[] | undefined;
    /** True when a scope id names the unit being converted or one of its own selections. */
    isUnitScope(scopeId: string): boolean;
    detachmentSlug(forceEntryId: string): string | undefined;
@@ -123,6 +125,12 @@ export function convertCondition(element: Element, context: ConditionContext): F
       return undefined;
    }
    const target: CountTarget | undefined = childId === "unit" ? { kind: "AnyUnit" } : context.countTarget(childId, scope);
+   const groupTargets = target === undefined ? context.choiceGroupTargets(childId) : undefined;
+   if (groupTargets !== undefined) {
+      const condition = choiceGroupCondition(scope, groupTargets, bounds);
+      if (condition === undefined) context.unhandled(element, `condition ${type} ${threshold} on a detachment choice group`);
+      return condition;
+   }
    if (target === undefined) {
       context.unhandled(element, `condition counts unknown id ${childId} in scope ${scopeText}`);
       return undefined;
@@ -131,6 +139,17 @@ export function convertCondition(element: Element, context: ConditionContext): F
    if (bounds.minimum !== undefined) count.minimum = bounds.minimum;
    if (bounds.maximum !== undefined) count.maximum = bounds.maximum;
    return bounds.negate ? not(count) : count;
+}
+
+/** Taking a choice group is taking any one of its options, which the choice allows only one of. */
+function choiceGroupCondition(scope: CountScope, targets: CountTarget[], bounds: { minimum?: number; maximum?: number; negate: boolean }): Condition | undefined {
+   const counts = (minimum: number | undefined, maximum: number | undefined): Condition[] =>
+      targets.map((of) => ({ kind: "Count", scope, of, ...(minimum === undefined ? {} : { minimum }), ...(maximum === undefined ? {} : { maximum }) }));
+   let condition: Condition | undefined;
+   if (bounds.minimum === undefined && bounds.maximum === 0) condition = combine("All", counts(undefined, 0));
+   else if (bounds.minimum === 1 && (bounds.maximum === undefined || bounds.maximum === 1)) condition = combine("Any", counts(1, undefined));
+   if (condition === undefined) return undefined;
+   return bounds.negate ? not(condition) : condition;
 }
 
 function convertGroup(element: Element, context: ConditionContext): Folded | undefined {

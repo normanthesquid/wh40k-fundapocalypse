@@ -11,7 +11,7 @@ export type BattlefieldRole =
    | "NoForceOrgSlot";
 
 export type WeaponType = "SmallArms" | "Heavy" | "Melee";
-export type DetachmentKind = "Core" | "Auxiliary";
+export type DetachmentKind = "Core" | "Special";
 export type CountScope = "Unit" | "Detachment" | "Army";
 
 export interface Fixed {
@@ -87,7 +87,8 @@ export type CountTarget =
    | { kind: "DetachmentChoice"; option: string }
    | { kind: "Detachment"; detachment: string }
    | { kind: "DetachmentKind"; detachmentKind: DetachmentKind }
-   | { kind: "AnyUnit" };
+   | { kind: "AnyUnit" }
+   | { kind: "UniversalOption"; option: string; datasheet?: string };
 
 export type Condition =
    | { kind: "Count"; scope: CountScope; of: CountTarget; minimum?: number; maximum?: number }
@@ -111,12 +112,23 @@ export interface KeywordChanges {
    addsKeywords?: string[];
 }
 
+export interface CostChange {
+   when: Condition;
+   set?: number;
+   increment?: number;
+}
+
 export interface Option extends KeywordChanges {
    id?: string;
    name: string;
    cost?: number;
+   costChanges?: CostChange[];
    minimum?: number;
    maximum?: number;
+   maximumPerDetachment?: number;
+   minimumPerArmy?: number;
+   maximumPerArmy?: number;
+   addsProfiles?: ModelProfile[];
    addsWeapons?: string[];
    removesWeapons?: string[];
    addsAbilities?: string[];
@@ -127,10 +139,18 @@ export interface Option extends KeywordChanges {
 export interface OptionGroup {
    id: string;
    name: string;
-   minimum?: number;
-   maximum?: number;
+   minimum?: number | Limit;
+   maximum?: number | Limit;
    default?: string;
    options: Option[];
+}
+
+export interface ConditionalChange extends KeywordChanges {
+   when: Condition;
+   addsWeapons?: string[];
+   removesWeapons?: string[];
+   addsAbilities?: string[];
+   profileChanges?: ProfileChange[];
 }
 
 export interface AlternativeRole {
@@ -150,6 +170,7 @@ export interface Datasheet {
    abilities?: string[];
    transport?: string;
    wargear?: OptionGroup[];
+   conditionalChanges?: ConditionalChange[];
    availableWhen?: Condition;
    maximumPerDetachment?: number;
    maximumPerArmy?: number;

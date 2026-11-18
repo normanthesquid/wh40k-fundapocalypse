@@ -2,7 +2,7 @@ import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, type EntryView } from "./entries.ts";
-import type { BattlefieldRole, Condition, CountTarget, Datasheet, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
+import type { BattlefieldRole, Condition, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { CHARACTERISTIC_TYPE_IDS, parseCharacteristic, take, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
 import { attribute, type Element } from "./xml.ts";
@@ -61,6 +61,7 @@ export class DatasheetConverter {
       this.cost = powerLevel(view);
       this.context = {
          countTarget: (childId) => this.countTarget(childId),
+         choiceGroupTargets: (childId) => conversion.choiceGroupTargets(builder, childId),
          isUnitScope: (scopeId) => slugs.allIds.has(scopeId),
          isThisUnit: conversion.thisUnit(view.ids),
          unitHasCategory: conversion.unitCategory(view, slugs),
@@ -309,12 +310,24 @@ export class DatasheetConverter {
          }
       }
       if (minimum !== undefined && minimum > 0) option.minimum = minimum;
-      for (const key of constraints.keys()) if (!["parent min", "parent max"].includes(key)) this.unhandled(constraints.get(key)!, `option constraint ${key}`);
       const constraintIds = new Set(view.constraints.map((constraint) => attribute(constraint, "id")));
+      const wider = { "force max": "maximumPerDetachment", "roster max": "maximumPerArmy", "roster min": "minimumPerArmy" } as const;
+      for (const [key, constraint] of constraints) {
+         if (key === "parent min" || key === "parent max") continue;
+         const field = wider[key as keyof typeof wider];
+         const value = constraintValue(constraint);
+         const modified = modifiers.some((modifier) => modifier.field === attribute(constraint, "id"));
+         if (field === undefined || value === undefined || value < 1 || modified) this.unhandled(constraint, `option constraint ${key}${modified ? " with modifiers" : ""}`);
+         else option[field] = value;
+      }
       for (const modifier of modifiers) {
          if (modifier.field === "hidden" || constraintIds.has(modifier.field)) continue;
          if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.type === "set" && modifier.condition === null) option.cost = Number(modifier.value);
-         else if (modifier.field === "name" && modifier.condition === null) option.name = modifier.value;
+         else if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.condition !== null && modifier.condition !== undefined && modifier.repeats.length === 0) {
+            const amount = Number(modifier.value);
+            const change = modifier.type === "set" ? { when: modifier.condition, set: amount } : { when: modifier.condition, increment: modifier.type === "decrement" ? -amount : amount };
+            (option.costChanges ??= []).push(change);
+         } else if (modifier.field === "name" && modifier.condition === null) option.name = modifier.value;
          else this.unhandled(modifier.element, `option modifier ${modifier.type} ${modifier.field}${modifier.condition ? " with conditions" : ""}`);
       }
       if (option.cost === undefined && cost !== 0) option.cost = cost;
@@ -344,13 +357,21 @@ export class DatasheetConverter {
       const constraints = constraintsByScope(view);
       const minimum = constraintValue(constraints.get("parent min"));
       const maximum = constraintValue(constraints.get("parent max"));
-      if (minimum !== undefined && minimum > 0 && parent === undefined) group.minimum = minimum;
+      const minimumConstraint = constraints.get("parent min");
+      const maximumConstraint = constraints.get("parent max");
+      const boundIds = new Set([minimumConstraint, maximumConstraint].filter((constraint) => constraint !== undefined).map((constraint) => attribute(constraint, "id")));
+      const minimumModified = minimumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(minimumConstraint, "id"));
+      if (minimum !== undefined && minimum > 0 && parent === undefined && !minimumModified) group.minimum = minimum;
       if (minimum !== undefined && minimum > 0 && parent !== undefined) {
          this.conversion.report.recordCorrection(view.element, `minimum ${minimum} dropped: the group is only offered once ${parent.name} is taken`);
       }
       if (maximum !== undefined) group.maximum = maximum;
+      if (minimumModified && parent === undefined) this.deferred.push(() => this.setGroupBound(group, "minimum", minimumConstraint, modifiers));
+      if (maximumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(maximumConstraint, "id"))) {
+         this.deferred.push(() => this.setGroupBound(group, "maximum", maximumConstraint, modifiers));
+      }
       for (const key of constraints.keys()) if (!["parent min", "parent max"].includes(key)) this.unhandled(constraints.get(key)!, `option group constraint ${key}`);
-      for (const modifier of modifiers) if (modifier.field !== "hidden") this.unhandled(modifier.element, `option group modifier ${modifier.type} ${modifier.field}`);
+      for (const modifier of modifiers) if (modifier.field !== "hidden" && !boundIds.has(modifier.field)) this.unhandled(modifier.element, `option group modifier ${modifier.type} ${modifier.field}`);
       this.groupOf.set(group, view);
       for (const child of view.childEntries) {
          if (child.tag === "entryLink" && this.isPassThrough(attribute(child, "targetId"))) continue;
@@ -373,6 +394,80 @@ export class DatasheetConverter {
          return;
       }
       this.groups.push(group);
+   }
+
+   /** The options a condition requires, when it is one option taken or any of several. */
+   private optionsTaken(condition: Condition | null | undefined): string[] | undefined {
+      const single = this.optionTaken(condition);
+      if (single !== undefined) return [single];
+      if (condition?.kind !== "Any") return undefined;
+      const each = condition.conditions.map((part) => this.optionTaken(part));
+      return each.every((option) => option !== undefined) ? (each as string[]) : undefined;
+   }
+
+   /** The group holding an option, when that group lets the unit take only one of its options. */
+   private exclusiveGroupOf(optionSlug: string): OptionGroup | undefined {
+      const group = this.groups.find((candidate) => candidate.options.some((option) => option.id === optionSlug));
+      return group?.maximum === 1 ? group : undefined;
+   }
+
+   /** A group bound set or incremented by other options, as a limit counting them; a set needs options that exclude each other. */
+   private setGroupBound(group: OptionGroup, bound: "minimum" | "maximum", constraint: Element, modifiers: FlatModifier[]): void {
+      const constraintId = attribute(constraint, "id");
+      let base = Number(attribute(constraint, "value"));
+      const amounts = new Map<string, { set?: number; increment: number }>();
+      for (const modifier of modifiers.filter((candidate) => candidate.field === constraintId)) {
+         if (modifier.condition === undefined) {
+            this.failed = true;
+            return;
+         }
+         const signed = Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
+         if (modifier.condition === null && modifier.type === "set" && modifier.repeats.length === 0 && amounts.size === 0) {
+            base = signed;
+            continue;
+         }
+         const counted = modifier.condition === null ? this.repeatedOptions(modifier) : modifier.repeats.length === 0 ? this.optionsTaken(modifier.condition) : undefined;
+         if (counted === undefined || (modifier.type === "set" && modifier.condition === null)) {
+            this.unhandled(modifier.element, `option group ${bound} ${modifier.type} that does not count the unit's options`);
+            return;
+         }
+         for (const option of counted) {
+            const amount = amounts.get(option) ?? { increment: 0 };
+            if (modifier.type === "set") {
+               if (amount.increment !== 0) {
+                  this.unhandled(modifier.element, `option group ${bound} set after an increment for the same option`);
+                  return;
+               }
+               amount.set = signed;
+            } else amount.increment += signed;
+            amounts.set(option, amount);
+         }
+      }
+      const setOptions = [...amounts].filter(([, amount]) => amount.set !== undefined).map(([option]) => option);
+      const exclusive = new Set(setOptions.map((option) => this.exclusiveGroupOf(option)));
+      if (setOptions.length > 0 && (exclusive.size !== 1 || exclusive.has(undefined) || exclusive.has(group))) {
+         this.unhandled(constraint, `option group ${bound} set by options that do not exclude each other`);
+         return;
+      }
+      const terms: LimitTerm[] = [];
+      for (const [option, amount] of amounts) {
+         const total = (amount.set === undefined ? 0 : amount.set - base) + amount.increment;
+         if (total !== 0) terms.push({ per: { kind: "Option", option }, scope: "Unit", amount: total });
+      }
+      if (terms.length > 0) group[bound] = { base, terms };
+      else if (bound === "minimum" && base > 0) group.minimum = base;
+      else if (bound === "maximum") group.maximum = base;
+   }
+
+   /** The options a repeating increment counts in the unit, one per repeat. */
+   private repeatedOptions(modifier: FlatModifier): string[] | undefined {
+      if (modifier.repeats.length === 0) return undefined;
+      const options = modifier.repeats.map((repeat) => {
+         const scopeId = attribute(repeat, "scope");
+         const isUnit = scopeId === "parent" || this.slugs.allIds.has(scopeId);
+         return isUnit && attribute(repeat, "value") === "1.0" ? this.slugs.byId.get(attribute(repeat, "childId")) : undefined;
+      });
+      return options.every((option) => option !== undefined) ? (options as string[]) : undefined;
    }
 
    /** Unit-size options that each carry the whole unit's profile: the default size's becomes the datasheet's, the others change it. */

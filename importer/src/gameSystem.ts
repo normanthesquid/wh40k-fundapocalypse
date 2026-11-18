@@ -38,7 +38,7 @@ export class GameSystemIndex {
    }
 
    kindOf(slug: string): DetachmentKind {
-      return this.coreDetachments.has(slug) ? "Core" : "Auxiliary";
+      return this.coreDetachments.has(slug) ? "Core" : "Special";
    }
 
    /** Counts of each Core detachment collapse into one count of the Core kind. */
@@ -65,6 +65,8 @@ export class GameSystemConversion {
    readonly builder: OutputBuilder;
    private readonly detachments: Record<string, Detachment> = {};
    private readonly universalOptions: Record<string, Option> = {};
+   /** Universal option slugs by the BattleScribe id of their entry. */
+   readonly universalOptionIds = new Map<string, string>();
    private readonly armyKeywordLimits: Record<string, KeywordLimit> = {};
    readonly context: ConditionContext;
 
@@ -79,6 +81,7 @@ export class GameSystemConversion {
       this.builder = new OutputBuilder(registry.gameSystem, []);
       this.context = {
          countTarget: (childId) => index.countTarget(childId),
+         choiceGroupTargets: () => undefined,
          isUnitScope: () => false,
          isThisUnit: () => undefined,
          unitHasCategory: () => undefined,
@@ -232,7 +235,9 @@ export class GameSystemConversion {
       const needsParent = parentKeyword === undefined ? undefined : { kind: "Count" as const, scope: "Unit" as const, of: { kind: "Keyword" as const, keyword: parentKeyword }, minimum: 1 };
       const availableWhen = allOf(needsParent, ...visible);
       if (availableWhen !== undefined) option.availableWhen = availableWhen;
-      this.universalOptions[this.builder.slugFor(view.ids[0], view.name)] = option;
+      const slug = this.builder.slugFor(view.ids[0], view.name);
+      this.universalOptions[slug] = option;
+      for (const id of view.ids) this.universalOptionIds.set(id, slug);
       for (const modifier of flatModifiersOf(entry, this.context)) {
          if (modifier.field === "name") this.report.recordDropped(modifier.element, `conditional rename of ${view.name} to ${modifier.value}`);
          else if (modifier.field !== "hidden") this.recordForceMinimum(view.name, modifier, constraints, option);

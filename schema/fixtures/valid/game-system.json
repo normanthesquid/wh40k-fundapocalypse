@@ -29,7 +29,7 @@
       },
       "supreme-command": {
          "name": "Supreme Command Detachment",
-         "kind": "Auxiliary",
+         "kind": "Special",
          "availableWhen": {
             "kind": "Count",
             "scope": "Army",
@@ -45,7 +45,7 @@
       },
       "air-wing": {
          "name": "Air Wing Detachment",
-         "kind": "Auxiliary",
+         "kind": "Special",
          "maximumPerArmy": {
             "base": 0,
             "terms": [
@@ -58,10 +58,10 @@
          },
          "slots": { "Flyer": { "minimum": 1, "maximum": { "base": 5 } } }
       },
-      "patrol": { "name": "Patrol Detachment", "kind": "Core", "slots": {} },
+      "patrol": { "name": "Patrol Detachment", "kind": "Special", "slots": {} },
       "vanguard": { "name": "Vanguard Detachment", "kind": "Core", "slots": {} },
-      "super-heavy-auxiliary": { "name": "Super-heavy Auxiliary Detachment", "kind": "Auxiliary", "slots": {} },
-      "fortification-network": { "name": "Fortification Network Detachment", "kind": "Auxiliary", "slots": {} }
+      "super-heavy-auxiliary": { "name": "Super-heavy Auxiliary Detachment", "kind": "Special", "slots": {} },
+      "fortification-network": { "name": "Fortification Network Detachment", "kind": "Special", "slots": {} }
    },
    "universalOptions": {
       "warmaster": {
@@ -76,13 +76,7 @@
       },
       "commander": {
          "name": "Commander",
-         "addsKeywords": ["COMMANDER"],
-         "availableWhen": {
-            "kind": "Count",
-            "scope": "Unit",
-            "of": { "kind": "Keyword", "keyword": "CHARACTER" },
-            "minimum": 1
-         }
+         "addsKeywords": ["COMMANDER"]
       }
    },
    "armyKeywordLimits": { "WARMASTER": { "maximum": { "base": 1 } } },

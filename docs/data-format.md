@@ -72,7 +72,7 @@ Typos in the current data (`Mele`, `Smaill Arms`, a WS of `26`) are fixed by the
 
 BattleScribe hides and shows entries with modifiers and nested conditions. Here, a typed `condition` decides availability:
 
-* **`Count`:** how many of something the unit, detachment or army contains (counting a `Detachment` type in `Detachment` scope asks whether this detachment is of that type), between an optional `minimum` and `maximum`. It can count a datasheet, a keyword, a battlefield role, a wargear option, a detachment choice (e.g. a faction filter), a detachment type, a detachment kind, any unit, or units that took a universal option (`UniversalOption`, e.g. "this detachment's Commander is a Renegade Commander" when it also names a datasheet). "Not taken" is `maximum: 0`.
+* **`Count`:** how many of something the unit, detachment or army contains (counting a `Detachment` type in `Detachment` scope asks whether this detachment is of that type), between an optional `minimum` and `maximum`. It can count a datasheet, a keyword, a battlefield role, a wargear option, a detachment choice (e.g. a faction filter), a detachment type, a detachment kind (`Core`, or `Special` for the rulebook's Special Detachments, such as Patrol and Air Wing, that Core ones unlock), any unit, or units that took a universal option (`UniversalOption`, e.g. "this detachment's Commander is a Renegade Commander" when it also names a datasheet). "Not taken" is `maximum: 0`.
 * **`PrimaryFaction`:** the army's primary faction.
 * **`All`, `Any` and `Not`** combine conditions.
 
