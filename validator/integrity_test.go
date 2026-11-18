@@ -70,7 +70,10 @@ func TestIntegrityRules(t *testing.T) {
 			})
 		}, `wargear/1/maximum/terms/0/per: option "nope" is not an option of its datasheet`},
 		{"growing group minimum is not compared statically", func(dataset *Dataset) {
-			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = &Bound{Growing: &Limit{Base: 9}} })
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				term := LimitTerm{Per: CountTarget{Kind: CountTargetKindOption, Option: "psyker"}}
+				inquisitor.Wargear[1].Minimum = &Bound{Growing: &Limit{Base: 9, Terms: []LimitTerm{term}}}
+			})
 		}, ""},
 		{"cost change condition is checked", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) {
@@ -79,10 +82,24 @@ func TestIntegrityRules(t *testing.T) {
 		}, `costChanges/0/when/of: option "nope" is not an option of its datasheet`},
 		{"per-army minimum above maximum", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) { option.MinimumPerArmy, option.MaximumPerArmy = pointer(3), pointer(2) })
-		}, "minimum 3 is more than maximum 2"},
+		}, "minimumPerArmy: minimum 3 is more than maximum 2"},
 		{"added profile reuses a profile name", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Inquisitor"}} })
 		}, `addsProfiles/0: profile name "Inquisitor" is used twice`},
+		{"one option adds two models with one name", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Servitor"}, {Name: "Servitor"}} })
+		}, `addsProfiles/1: profile name "Servitor" is used twice`},
+		{"alternative options may add models with one name", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Servitor"}} })
+			editUpgrade(dataset, 1, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Servitor"}} })
+		}, ""},
+		{"conditional change cannot remove only what it adds", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Weapons = nil
+				weapon := []string{"weapons/master-crafted-weapons"}
+				inquisitor.ConditionalChanges = []ConditionalChange{{WargearChanges: WargearChanges{AddsWeapons: weapon, RemovesWeapons: weapon}}}
+			})
+		}, `conditionalChanges/0/removesWeapons: weapon "weapons/master-crafted-weapons" is not carried`},
 		{"profile change may name an added profile", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) {
 				option.AddsProfiles = []ModelProfile{{Name: "Servitor"}}

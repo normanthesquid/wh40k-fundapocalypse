@@ -126,14 +126,7 @@ func (check *checker) checkDatasheet(where scope) {
 	}
 	for groupIndex, group := range datasheet.Wargear {
 		for optionIndex, option := range group.Options {
-			for profileIndex, profile := range option.AddsProfiles {
-				profileScope := where.at("wargear/%d/options/%d/addsProfiles/%d", groupIndex, optionIndex, profileIndex)
-				if profileNames[profile.Name] {
-					check.report(profileScope, "profile name %q is used twice", profile.Name)
-				}
-				profileNames[profile.Name] = true
-				check.checkMovement(profileScope.at("movement"), profile.Movement)
-			}
+			check.checkAddedProfiles(where.at("wargear/%d/options/%d", groupIndex, optionIndex), option.AddsProfiles, profileNames)
 		}
 	}
 	for _, weapon := range datasheet.Weapons {
@@ -146,7 +139,7 @@ func (check *checker) checkDatasheet(where scope) {
 	check.checkCondition(where.at("availableWhen"), datasheet.AvailableWhen)
 	for index, change := range datasheet.ConditionalChanges {
 		changeScope := where.at("conditionalChanges/%d", index)
-		check.checkWargearChanges(changeScope, change.WargearChanges, "")
+		check.checkWargearChanges(changeScope, change.WargearChanges, carrier{conditionalChange: index})
 		check.checkCondition(changeScope.at("when"), &change.When)
 	}
 	seenIDs := map[string]bool{}
@@ -166,13 +159,28 @@ func (check *checker) checkDatasheet(where scope) {
 }
 
 // checkOptionGroup is rule 6: the default is an option, and the options can meet the minimum.
+// checkAddedProfiles keeps an option's added models apart from the datasheet's own profiles and from each other.
+// Alternative options may add models with the same name, e.g. two kinds of Sergeant.
+func (check *checker) checkAddedProfiles(where scope, profiles []ModelProfile, datasheetProfiles map[string]bool) {
+	added := map[string]bool{}
+	for index, profile := range profiles {
+		profileScope := where.at("addsProfiles/%d", index)
+		if datasheetProfiles[profile.Name] || added[profile.Name] {
+			check.report(profileScope, "profile name %q is used twice", profile.Name)
+		}
+		added[profile.Name] = true
+		check.checkMovement(profileScope.at("movement"), profile.Movement)
+	}
+}
+
 func (check *checker) checkOptionGroup(where scope, group OptionGroup) {
 	minimum, maximum := fixedBound(group.Minimum), fixedBound(group.Maximum)
 	check.checkBounds(where, minimum, maximum)
-	for name, bound := range map[string]*Bound{"minimum": group.Minimum, "maximum": group.Maximum} {
-		if bound != nil {
-			check.checkLimit(where.at("%s", name), bound.Growing)
-		}
+	if group.Minimum != nil {
+		check.checkLimit(where.at("minimum"), group.Minimum.Growing)
+	}
+	if group.Maximum != nil {
+		check.checkLimit(where.at("maximum"), group.Maximum.Growing)
 	}
 	if group.Default != nil && !slices.Contains(optionIDsOf(group), *group.Default) {
 		check.report(where, "default %q is not one of the group's options", *group.Default)
@@ -202,24 +210,33 @@ func fixedBound(bound *Bound) *int {
 
 func (check *checker) checkOption(where scope, option Option) {
 	check.checkBounds(where, option.Minimum, option.Maximum)
-	check.checkBounds(where, option.MinimumPerArmy, option.MaximumPerArmy)
+	check.checkBounds(where.at("minimumPerArmy"), option.MinimumPerArmy, option.MaximumPerArmy)
 	for index := range option.CostChanges {
 		check.checkCondition(where.at("costChanges/%d/when", index), &option.CostChanges[index].When)
 	}
-	check.checkWargearChanges(where, option.WargearChanges, option.ID)
+	check.checkWargearChanges(where, option.WargearChanges, carrier{option: option.ID, conditionalChange: noConditionalChange})
 	check.checkCondition(where.at("availableWhen"), option.AvailableWhen)
 }
 
-// checkWargearChanges checks what an option or a conditional change adds; excludedOptionID is the option itself, if any.
-func (check *checker) checkWargearChanges(where scope, changes WargearChanges, excludedOptionID string) {
+// noConditionalChange is a carrier index no conditional change has.
+const noConditionalChange = -1
+
+// carrier is the option or conditional change whose own added weapons don't count towards what it removes.
+type carrier struct {
+	option            string
+	conditionalChange int
+}
+
+// checkWargearChanges checks what an option or a conditional change adds and removes.
+func (check *checker) checkWargearChanges(where scope, changes WargearChanges, itself carrier) {
 	check.addKeywords(changes.KeywordChanges)
 	for _, weapon := range changes.AddsWeapons {
 		check.checkWeapon(where.at("addsWeapons"), weapon)
 	}
 	for _, weapon := range changes.RemovesWeapons {
 		check.checkWeapon(where.at("removesWeapons"), weapon)
-		if where.datasheet != nil && !slices.Contains(check.carriedWeapons(where, excludedOptionID), check.weaponID(where, weapon)) {
-			check.report(where.at("removesWeapons"), "weapon %q is not carried by the datasheet or added by another option", weapon)
+		if where.datasheet != nil && !slices.Contains(check.carriedWeapons(where, itself), check.weaponID(where, weapon)) {
+			check.report(where.at("removesWeapons"), "weapon %q is not carried by the datasheet or added by another option or conditional change", weapon)
 		}
 	}
 	for _, ability := range changes.AddsAbilities {
@@ -237,14 +254,14 @@ func (check *checker) checkWargearChanges(where scope, changes WargearChanges, e
 }
 
 // carriedWeapons is rule 7's set: the datasheet's weapons and those its other options add, as catalogue-id/slug.
-func (check *checker) carriedWeapons(where scope, excludedOptionID string) []string {
+func (check *checker) carriedWeapons(where scope, itself carrier) []string {
 	var weapons []string
 	for _, weapon := range where.datasheet.Weapons {
 		weapons = append(weapons, check.weaponID(where, weapon))
 	}
 	for _, group := range where.datasheet.Wargear {
 		for _, option := range group.Options {
-			if option.ID == excludedOptionID {
+			if option.ID == itself.option {
 				continue
 			}
 			for _, weapon := range option.AddsWeapons {
@@ -252,7 +269,10 @@ func (check *checker) carriedWeapons(where scope, excludedOptionID string) []str
 			}
 		}
 	}
-	for _, change := range where.datasheet.ConditionalChanges {
+	for index, change := range where.datasheet.ConditionalChanges {
+		if index == itself.conditionalChange {
+			continue
+		}
 		for _, weapon := range change.AddsWeapons {
 			weapons = append(weapons, check.weaponID(where, weapon))
 		}

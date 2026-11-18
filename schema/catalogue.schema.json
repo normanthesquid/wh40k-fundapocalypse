@@ -228,6 +228,11 @@
          "minProperties": 2,
          "unevaluatedProperties": false
       },
+      "growingBound": {
+         "description": "A bound that grows with the unit; a fixed one is written as a plain integer.",
+         "$ref": "common.schema.json#/$defs/limit",
+         "required": ["terms"]
+      },
       "costChange": {
          "description": "A change to an option's cost while `when` holds: `set` replaces it, `increment` adds to it. Changes apply in order.",
          "type": "object",
@@ -246,8 +251,8 @@
          "properties": {
             "id": { "$ref": "common.schema.json#/$defs/slug" },
             "name": { "type": "string", "minLength": 1 },
-            "minimum": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "$ref": "common.schema.json#/$defs/limit" }] },
-            "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "common.schema.json#/$defs/limit" }] },
+            "minimum": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "$ref": "#/$defs/growingBound" }] },
+            "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
             "default": {
                "description": "The id of the option picked when the unit is added; one of `options`.",
                "$ref": "common.schema.json#/$defs/slug"

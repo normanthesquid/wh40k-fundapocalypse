@@ -78,9 +78,11 @@ type Bound struct {
 	Growing *Limit
 }
 
+// UnmarshalJSON reads a number as fixed, including one written as 1.0, which JSON Schema counts as an integer.
 func (bound *Bound) UnmarshalJSON(content []byte) error {
-	var fixed int
-	if json.Unmarshal(content, &fixed) == nil {
+	var number float64
+	if json.Unmarshal(content, &number) == nil {
+		fixed := int(number)
 		bound.Fixed = &fixed
 		return nil
 	}
