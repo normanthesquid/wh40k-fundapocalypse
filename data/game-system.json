@@ -1,0 +1,99 @@
+{
+   "$schema": "../schema/game-system.schema.json",
+   "release": "2.0.0",
+   "detachments": {
+      "battalion": {
+         "name": "Battalion Detachment",
+         "kind": "Core",
+         "slots": {
+            "HQ": { "maximum": { "base": 3 } },
+            "Troops": { "minimum": 3, "maximum": { "base": 6 } },
+            "Elites": { "maximum": { "base": 6 } },
+            "FastAttack": { "maximum": { "base": 3 } },
+            "HeavySupport": { "maximum": { "base": 3 } },
+            "DedicatedTransport": {
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     { "per": { "kind": "Role", "battlefieldRole": "HQ" }, "scope": "Detachment", "amount": 1 },
+                     { "per": { "kind": "Role", "battlefieldRole": "Troops" }, "scope": "Detachment", "amount": 1 },
+                     { "per": { "kind": "Role", "battlefieldRole": "Elites" }, "scope": "Detachment", "amount": 1 },
+                     { "per": { "kind": "Role", "battlefieldRole": "FastAttack" }, "scope": "Detachment", "amount": 1 },
+                     { "per": { "kind": "Role", "battlefieldRole": "HeavySupport" }, "scope": "Detachment", "amount": 1 }
+                  ]
+               }
+            }
+         },
+         "keywordLimits": { "COMMANDER": { "maximum": { "base": 1 } } },
+         "abilities": ["objective-secured"]
+      },
+      "supreme-command": {
+         "name": "Supreme Command Detachment",
+         "kind": "Auxiliary",
+         "availableWhen": {
+            "kind": "Count",
+            "scope": "Army",
+            "of": { "kind": "DetachmentKind", "detachmentKind": "Core" },
+            "minimum": 1
+         },
+         "slots": {
+            "HQ": { "minimum": 3, "maximum": { "base": 5 } },
+            "Elites": { "maximum": { "base": 1 } },
+            "LordOfWar": { "maximum": { "base": 1 } }
+         },
+         "keywordLimits": { "WARMASTER": { "minimum": 1 } }
+      },
+      "air-wing": {
+         "name": "Air Wing Detachment",
+         "kind": "Auxiliary",
+         "maximumPerArmy": {
+            "base": 0,
+            "terms": [
+               { "per": { "kind": "DetachmentKind", "detachmentKind": "Core" }, "scope": "Army", "amount": 3 },
+               { "per": { "kind": "Detachment", "detachment": "supreme-command" }, "scope": "Army", "amount": -1 },
+               { "per": { "kind": "Detachment", "detachment": "super-heavy-auxiliary" }, "scope": "Army", "amount": -1 },
+               { "per": { "kind": "Detachment", "detachment": "patrol" }, "scope": "Army", "amount": -1 },
+               { "per": { "kind": "Detachment", "detachment": "fortification-network" }, "scope": "Army", "amount": -1 }
+            ]
+         },
+         "slots": { "Flyer": { "minimum": 1, "maximum": { "base": 5 } } }
+      },
+      "patrol": { "name": "Patrol Detachment", "kind": "Core", "slots": {} },
+      "vanguard": { "name": "Vanguard Detachment", "kind": "Core", "slots": {} },
+      "super-heavy-auxiliary": { "name": "Super-heavy Auxiliary Detachment", "kind": "Auxiliary", "slots": {} },
+      "fortification-network": { "name": "Fortification Network Detachment", "kind": "Auxiliary", "slots": {} }
+   },
+   "universalOptions": {
+      "warmaster": {
+         "name": "Warmaster",
+         "addsKeywords": ["WARMASTER"],
+         "availableWhen": {
+            "kind": "Count",
+            "scope": "Unit",
+            "of": { "kind": "Keyword", "keyword": "COMMANDER" },
+            "minimum": 1
+         }
+      },
+      "commander": {
+         "name": "Commander",
+         "addsKeywords": ["COMMANDER"],
+         "availableWhen": {
+            "kind": "Count",
+            "scope": "Unit",
+            "of": { "kind": "Keyword", "keyword": "CHARACTER" },
+            "minimum": 1
+         }
+      }
+   },
+   "armyKeywordLimits": { "WARMASTER": { "maximum": { "base": 1 } } },
+   "abilities": {
+      "objective-secured": {
+         "name": "Objective Secured",
+         "text": "If one or more units from your army with this ability are within 6\" of an objective marker, and no enemy units with this ability are within 6\" of the same objective marker, you control that objective marker."
+      },
+      "deep-strike": {
+         "name": "Deep Strike",
+         "text": "During deployment, this unit can be set up in Tactical Reserves instead of being set up on the battlefield. When this unit arrives as reinforcements, set it up anywhere on the battlefield that is more than 9\" from any enemy units. No more than half the total number of units in your army can be set up in Tactical Reserves, even if every unit in your army has this ability."
+      }
+   }
+}
