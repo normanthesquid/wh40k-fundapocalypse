@@ -92,7 +92,9 @@ func (check *checker) resolveDatasheet(where scope, reference string) *Datasheet
 			return &datasheet
 		}
 		if link, exists := target.DatasheetLinks[slug]; exists {
-			return check.linkedDatasheet(scope{catalogue: target, location: where.location}, link)
+			// The link's own check already reports a broken target, so report nothing twice here.
+			silent := &checker{dataset: check.dataset}
+			return silent.linkedDatasheet(scope{catalogue: target, location: where.location}, link)
 		}
 	}
 	check.report(where, "datasheet %q does not resolve", reference)

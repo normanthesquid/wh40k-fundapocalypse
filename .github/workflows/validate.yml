@@ -51,16 +51,3 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         run: go run . -release "${GITHUB_REF_NAME#v}"
 
-  release-branch:
-    name: Fast-forward the release branch
-    needs: validate
-    if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-      # A plain push refuses anything but a fast-forward, so a tag off the release line fails here.
-      - run: git push origin "HEAD:refs/heads/release"

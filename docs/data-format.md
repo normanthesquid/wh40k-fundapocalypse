@@ -108,7 +108,7 @@ Because the hashes are derived, nobody maintains them by hand, and a change to a
 
 ## Releases
 
-`game-system.json` carries `release`, which must match the git tag `v<release>`, and each release has a `CHANGELOG.md` entry. Pushing the tag runs CI, which checks the two match and then fast-forwards the `release` branch to it. fundamalleus pins this repo as a git submodule on that branch, so Dependabot's `gitsubmodule` updates (which follow a branch, not tags) propose each release exactly once.
+`game-system.json` carries `release`, which must match the git tag `v<release>`, and each release has a `CHANGELOG.md` entry. Pushing the tag runs CI, which checks the two match. The maintainer then fast-forwards the `release` branch to the tag (`git push origin v<release>^{commit}:refs/heads/release`); Actions' own token can't, since a release can change workflow files. fundamalleus pins this repo as a git submodule on that branch, so Dependabot's `gitsubmodule` updates (which follow a branch, not tags) propose each release exactly once.
 
 ## BattleScribe constructs
 

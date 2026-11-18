@@ -46,7 +46,12 @@ func (check *checker) checkGameSystem() {
 		}
 	}
 	for _, slug := range sortedKeys(gameSystem.UniversalOptions) {
-		check.checkOption(where.at("universalOptions/%s", slug), gameSystem.UniversalOptions[slug])
+		option := gameSystem.UniversalOptions[slug]
+		optionScope := where.at("universalOptions/%s", slug)
+		if option.ID != nil && *option.ID != slug {
+			check.report(optionScope, "id %q differs from its key", *option.ID)
+		}
+		check.checkOption(optionScope, option.Option)
 	}
 	check.checkKeywordLimits(where.at("armyKeywordLimits"), gameSystem.ArmyKeywordLimits)
 }
@@ -68,6 +73,9 @@ func (check *checker) checkCatalogue(catalogueID string, catalogue *Catalogue) {
 		target, exists := check.dataset.Catalogues[imported]
 		if !exists || target.Kind != CatalogueKindLibrary {
 			check.report(where.at("imports"), "%q is not a library catalogue", imported)
+		}
+		if imported == catalogueID {
+			check.report(where.at("imports"), "a catalogue does not import itself")
 		}
 	}
 	var choiceOptions []string

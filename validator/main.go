@@ -18,12 +18,7 @@ const (
 )
 
 func main() {
-	workingDirectory, err := os.Getwd()
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(exitUsage)
-	}
-	os.Exit(run(os.Args[1:], workingDirectory, os.Stdout, os.Stderr))
+	os.Exit(run(os.Args[1:], ".", os.Stdout, os.Stderr))
 }
 
 func run(arguments []string, workingDirectory string, stdout io.Writer, stderr io.Writer) int {

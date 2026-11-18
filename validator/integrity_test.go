@@ -335,7 +335,6 @@ func TestIntegrityRules(t *testing.T) {
 		{"link availability counting an unknown detachment", func(dataset *Dataset) {
 			link := dataset.Catalogues[factionID].DatasheetLinks[squadID]
 			link.AvailableWhen = count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"})
-			link.AddsAbilities = []string{"nope"}
 			dataset.Catalogues[factionID].DatasheetLinks[squadID] = link
 		}, `example-squad/availableWhen/of: detachment "nope"`},
 		{"link ability that does not resolve", func(dataset *Dataset) {
@@ -354,6 +353,19 @@ func TestIntegrityRules(t *testing.T) {
 			universal.AvailableWhen = count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"})
 			dataset.GameSystem.UniversalOptions["commander"] = universal
 		}, `universalOptions/commander/availableWhen/of: detachment "nope"`},
+		{"library importing itself", func(dataset *Dataset) {
+			dataset.Catalogues[libraryID].Imports = []string{libraryID}
+		}, "a catalogue does not import itself"},
+		{"universal option id differing from its key", func(dataset *Dataset) {
+			universal := dataset.GameSystem.UniversalOptions["commander"]
+			universal.ID = pointer("warlord")
+			dataset.GameSystem.UniversalOptions["commander"] = universal
+		}, `universalOptions/commander: id "warlord" differs from its key`},
+		{"universal option id matching its key", func(dataset *Dataset) {
+			universal := dataset.GameSystem.UniversalOptions["commander"]
+			universal.ID = pointer("commander")
+			dataset.GameSystem.UniversalOptions["commander"] = universal
+		}, ""},
 		{"universal option removing a weapon is not checked against a datasheet", func(dataset *Dataset) {
 			universal := dataset.GameSystem.UniversalOptions["commander"]
 			universal.RemovesWeapons = []string{"weapons/master-crafted-weapons"}
@@ -397,6 +409,18 @@ func TestEachDuplicateSlugIsReportedOnce(t *testing.T) {
 	dataset.Catalogues[agentsID].Abilities[inquisitorID] = NamedEntry{}
 	problems := checkIntegrity(dataset, nil)
 	if len(problems) != 1 {
+		t.Fatalf("want one problem, got %v", problems)
+	}
+}
+
+func TestBrokenLinkIsReportedOnce(t *testing.T) {
+	dataset := loadValidDataset(t)
+	dataset.Catalogues[factionID].DatasheetLinks[squadID] = DatasheetLink{Datasheet: libraryID + "/nope"}
+	dataset.Catalogues[factionID].DetachmentAbilities["example-rally-rule"] = DetachmentAbility{
+		Ability:       "example-rally",
+		AvailableWhen: count(CountTarget{Kind: CountTargetKindDatasheet, Datasheet: pointer(squadID)}),
+	}
+	if problems := checkIntegrity(dataset, nil); len(problems) != 1 {
 		t.Fatalf("want one problem, got %v", problems)
 	}
 }

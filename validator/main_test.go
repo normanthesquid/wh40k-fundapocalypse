@@ -51,8 +51,8 @@ func TestEveryInvalidFixtureIsRejected(t *testing.T) {
 			t.Fatal(err)
 		}
 		problems := checkFile(schemas.Catalogue, content, &Catalogue{})
-		if len(problems) == 0 {
-			t.Errorf("%s passed the schema", filepath.Base(path))
+		if len(problems) != 1 || !strings.HasPrefix(problems[0], "does not match the schema") {
+			t.Errorf("%s: want only a schema violation, got %v", filepath.Base(path), problems)
 		}
 	}
 }
@@ -88,6 +88,7 @@ func TestRunReportsProblems(t *testing.T) {
 		{"schema violation", `{"id": "agents-of-the-imperium", "name": "Agents", "kind": "Army"}`, "does not match the schema"},
 		{"duplicate key", `{"id": "agents-of-the-imperium", "id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction"}`, "duplicate key /id"},
 		{"broken JSON", `{"id": `, "not valid JSON"},
+		{"content after the JSON", agentsCatalogueContent + ` {}`, "not valid JSON"},
 		{"dangling import", `{"id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction", "imports": ["ghost"]}`, `"ghost" is not a library catalogue`},
 	}
 	for _, test := range tests {
@@ -116,8 +117,26 @@ func TestRunAcceptsAMinimalDataset(t *testing.T) {
 	}
 }
 
+func TestRunReportsAGameSystemProblem(t *testing.T) {
+	directory := writeDataset(t, map[string]string{agentsCatalogueFile: agentsCatalogueContent})
+	if err := os.WriteFile(filepath.Join(directory, gameSystemFileName), []byte(`{"release": "2.0.0"}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var stdout, stderr bytes.Buffer
+	if exitCode := run([]string{"-data", directory, "-schema", schemaDirectory}, ".", &stdout, &stderr); exitCode != exitProblem {
+		t.Fatalf("exit %d, want %d", exitCode, exitProblem)
+	}
+	if !strings.Contains(stdout.String(), gameSystemFileName+": does not match the schema") {
+		t.Errorf("stdout %q does not name the game system", stdout.String())
+	}
+}
+
 func TestRunUsageErrors(t *testing.T) {
 	outsideRepository := t.TempDir()
+	rootWithoutData := t.TempDir()
+	if err := os.CopyFS(filepath.Join(rootWithoutData, "schema"), os.DirFS(schemaDirectory)); err != nil {
+		t.Fatal(err)
+	}
 	tests := []struct {
 		name             string
 		arguments        []string
@@ -126,7 +145,7 @@ func TestRunUsageErrors(t *testing.T) {
 	}{
 		{"unknown flag", []string{"-unknown"}, ".", "flag provided but not defined"},
 		{"no repository root", nil, outsideRepository, "pass -data and -schema"},
-		{"default data directory missing", nil, ".", filepath.Join("data", gameSystemFileName)},
+		{"default data directory missing", nil, rootWithoutData, filepath.Join("data", gameSystemFileName)},
 		{"schema directory missing", []string{"-data", validFixtures, "-schema", outsideRepository}, ".", commonSchemaFile},
 		{"no catalogues directory needed but game system is", []string{"-data", outsideRepository, "-schema", schemaDirectory}, ".", gameSystemFileName},
 	}
