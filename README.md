@@ -1,7 +1,7 @@
 Warhammer 40,000 Fundapocalypse
 ===========================
 
-> **Format change in progress:** BSData has been taken down, so from `v2.0.0` this data moves from BattleScribe catalogues to a JSON format of our own. See [docs/data-format.md](docs/data-format.md). `v1.10.0` is the last BattleScribe release.
+> **BattleScribe support is legacy.** BSData has been taken down, so from `v2.0.0` this data moves from BattleScribe catalogues to a JSON format of our own; see [docs/data-format.md](docs/data-format.md). `v1.10.0` is the last BattleScribe release, and the BattleScribe data we host will get no further updates.
 
 
 [![GitHub release](https://img.shields.io/github/release/normanthesquid/wh40k-fundapocalypse.svg?style=flat-square)](https://github.com/normanthesquid/wh40k-fundapocalypse/releases/latest)
@@ -24,41 +24,24 @@ Warhammer 40,000 Fundapocalypse
 
 __What's this?__
 
-Fundamalleus Organization created this project. It's a GitHub repository of datafiles. It extends [Warhammer 40,000 Apocalypse](https://github.com/BSData/wh40k-apocalypse) and adds missing datasheets and rules from recent releases
+Fundamalleus Organization created this project: Fundapocalypse, a Warhammer 40,000 Apocalypse ruleset. It began as an extension of BSData's Warhammer 40,000 Apocalypse catalogues (since taken down) and adds datasheets and rules from later releases.
 
-__Okay, nice project. Is it actually working?__ _I just want those files..._
+__Where's the data?__
 
-Yes! For now we are hosting it ourselves. You will need to add the data source directly.
+From `v2.0.0`, the rules are JSON files in `data/`, checked against the schema in `schema/`. [docs/data-format.md](docs/data-format.md) describes the format.
 
-Data Url:
-https://www.fundamalleus.com/assets/battlescribe-data/index.bsi
+__Can I still use BattleScribe?__
 
-On PC you go Manage Data (three rectangles) -> Import Data -> Import Data from URL -> use our data URL.
+Only as a legacy option. The BattleScribe data at https://www.fundamalleus.com/assets/battlescribe-data/index.bsi stays frozen at `v1.10.0`, and the catalogues there will get no further updates. New datasheets and rule changes appear only in the JSON data.
 
-On Mobile go Manage Data (three rectangles) -> 3 dots -> Add data index url -> use our data URL.
-
-Hopefully, we will eventually have it hosted on AppSpot. Take a look: [BattleScribe Data on Appspot][]
+To add it to BattleScribe on PC, go to Manage Data (three rectangles) -> Import Data -> Import Data from URL, and enter the URL above. On mobile, go to Manage Data (three rectangles) -> three dots -> Add data index url.
 
 __I found a bug!__ / *I have another request*
 
-Great, thank you! Now, you have some options:
-
-1. Make sure it is an issue with this repo specifically - bugs with the base repo should be reported [there](https://github.com/BSData/wh40k-apocalypse).
-
-2. [Open issue directly][] (green `New Issue` in upper-right, GitHub account required) - you can track the progress, get notifications, help us by answering possibly follow-up questions and help us better!
+[Open an issue](https://github.com/normanthesquid/wh40k-fundapocalypse/issues) (the green `New Issue` button; a GitHub account is required). You can track its progress there and answer follow-up questions.
 
 ## Links ##
 [Links]: #links
 
-* [Project wiki][]
-* [BattleScribe homepage][]
-* [BattleScribe Data on Appspot][]
-<!-- * [Getting Started wiki][] -->
-
-[Report it on Appspot]: http://battlescribedata.appspot.com/#/repo/TemplateDataRepo
-[Open Issue directly]: https://github.com/normanthesquid/wh40k-fundapocalypse/issues
-[BattleScribe homepage]: http://www.battlescribe.net/
-[BattleScribe Data on Appspot]: http://battlescribedata.appspot.com/#/repos
-[Project wiki]: https://github.com/normanthesquid/wh40k-fundapocalypse/wiki
-<!-- [Getting Started wiki]: https://github.com/BSData/catalogue-development/wiki/Getting-Started#contributing -->
-
+* [Project wiki](https://github.com/normanthesquid/wh40k-fundapocalypse/wiki)
+* [Data format](docs/data-format.md)
