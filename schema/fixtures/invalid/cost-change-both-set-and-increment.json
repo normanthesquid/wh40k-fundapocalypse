@@ -1,0 +1,53 @@
+{
+   "id": "bad",
+   "name": "Bad",
+   "kind": "Library",
+   "datasheets": {
+      "squad": {
+         "name": "Squad",
+         "battlefieldRole": "Troops",
+         "cost": 1,
+         "keywords": [
+            "INFANTRY"
+         ],
+         "profiles": [
+            {
+               "name": "Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "wounds": 1,
+               "save": 6
+            }
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "banner",
+                     "name": "Banner",
+                     "cost": 1,
+                     "costChanges": [
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "AnyUnit"
+                              },
+                              "minimum": 1
+                           },
+                           "set": 2,
+                           "increment": 1
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   }
+}

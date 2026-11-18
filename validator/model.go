@@ -1,5 +1,7 @@
 package main
 
+import "encoding/json"
+
 // The JSON Schema has already checked each file's shape, so these types hold
 // only the fields the integrity rules in docs/data-format.md need.
 
@@ -31,6 +33,7 @@ const (
 	CountTargetKindDetachment       CountTargetKind = "Detachment"
 	CountTargetKindDetachmentKind   CountTargetKind = "DetachmentKind"
 	CountTargetKindAnyUnit          CountTargetKind = "AnyUnit"
+	CountTargetKindUniversalOption  CountTargetKind = "UniversalOption"
 )
 
 type MovementKind string
@@ -69,6 +72,22 @@ type Limit struct {
 	Terms []LimitTerm `json:"terms"`
 }
 
+// Bound is an option group's minimum or maximum: a fixed number, or a limit that grows with the unit.
+type Bound struct {
+	Fixed   *int
+	Growing *Limit
+}
+
+func (bound *Bound) UnmarshalJSON(content []byte) error {
+	var fixed int
+	if json.Unmarshal(content, &fixed) == nil {
+		bound.Fixed = &fixed
+		return nil
+	}
+	bound.Growing = &Limit{}
+	return json.Unmarshal(content, bound.Growing)
+}
+
 // BoundedLimit is a slot or keyword limit: a fixed minimum and a growing maximum.
 type BoundedLimit struct {
 	Minimum *int   `json:"minimum"`
@@ -100,16 +119,34 @@ type KeywordChanges struct {
 	AddsKeywords        []string `json:"addsKeywords"`
 }
 
-type Option struct {
+// WargearChanges are what an option, or a datasheet's conditional change, adds and removes.
+type WargearChanges struct {
 	KeywordChanges
-	ID             string          `json:"id"`
-	Minimum        *int            `json:"minimum"`
-	Maximum        *int            `json:"maximum"`
 	AddsWeapons    []string        `json:"addsWeapons"`
 	RemovesWeapons []string        `json:"removesWeapons"`
 	AddsAbilities  []string        `json:"addsAbilities"`
 	ProfileChanges []ProfileChange `json:"profileChanges"`
-	AvailableWhen  *Condition      `json:"availableWhen"`
+}
+
+type CostChange struct {
+	When Condition `json:"when"`
+}
+
+type Option struct {
+	WargearChanges
+	ID             string         `json:"id"`
+	Minimum        *int           `json:"minimum"`
+	Maximum        *int           `json:"maximum"`
+	MinimumPerArmy *int           `json:"minimumPerArmy"`
+	MaximumPerArmy *int           `json:"maximumPerArmy"`
+	CostChanges    []CostChange   `json:"costChanges"`
+	AddsProfiles   []ModelProfile `json:"addsProfiles"`
+	AvailableWhen  *Condition     `json:"availableWhen"`
+}
+
+type ConditionalChange struct {
+	WargearChanges
+	When Condition `json:"when"`
 }
 
 // UniversalOption takes its id from its key, so its own `id` is optional.
@@ -120,8 +157,8 @@ type UniversalOption struct {
 
 type OptionGroup struct {
 	ID      string   `json:"id"`
-	Minimum *int     `json:"minimum"`
-	Maximum *int     `json:"maximum"`
+	Minimum *Bound   `json:"minimum"`
+	Maximum *Bound   `json:"maximum"`
 	Default *string  `json:"default"`
 	Options []Option `json:"options"`
 }
@@ -131,14 +168,15 @@ type AlternativeRole struct {
 }
 
 type Datasheet struct {
-	FactionKeywords  []string          `json:"factionKeywords"`
-	Keywords         []string          `json:"keywords"`
-	Profiles         []ModelProfile    `json:"profiles"`
-	Weapons          []string          `json:"weapons"`
-	Abilities        []string          `json:"abilities"`
-	Wargear          []OptionGroup     `json:"wargear"`
-	AlternativeRoles []AlternativeRole `json:"alternativeRoles"`
-	AvailableWhen    *Condition        `json:"availableWhen"`
+	FactionKeywords    []string            `json:"factionKeywords"`
+	Keywords           []string            `json:"keywords"`
+	Profiles           []ModelProfile      `json:"profiles"`
+	Weapons            []string            `json:"weapons"`
+	Abilities          []string            `json:"abilities"`
+	Wargear            []OptionGroup       `json:"wargear"`
+	ConditionalChanges []ConditionalChange `json:"conditionalChanges"`
+	AlternativeRoles   []AlternativeRole   `json:"alternativeRoles"`
+	AvailableWhen      *Condition          `json:"availableWhen"`
 }
 
 type ConditionalKeywords struct {
