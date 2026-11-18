@@ -350,6 +350,10 @@ export class DatasheetConverter {
    }
 
    private addProfileChange(modifier: FlatModifier, profileName: string, required?: Condition): void {
+      if (modifier.field === "name") {
+         this.dropConditionalRename(modifier);
+         return;
+      }
       const field = CHARACTERISTIC_TYPE_IDS[modifier.field];
       const taken = required === undefined ? this.optionTaken(modifier.condition) : undefined;
       const option = taken === undefined ? undefined : this.optionsBySlug.get(taken);
@@ -467,6 +471,7 @@ export class DatasheetConverter {
             const change = modifier.type === "set" ? { when: modifier.condition, set: amount } : { when: modifier.condition, increment: modifier.type === "decrement" ? -amount : amount };
             (option.costChanges ??= []).push(change);
          } else if (modifier.field === "name" && modifier.condition === null) option.name = modifier.value;
+         else if (modifier.field === "name") this.dropConditionalRename(modifier);
          else this.unhandled(modifier.element, `option modifier ${modifier.type} ${modifier.field}${modifier.condition ? " with conditions" : ""}`);
       }
       if (option.cost === undefined && cost !== 0) option.cost = cost;
@@ -668,6 +673,11 @@ export class DatasheetConverter {
       }
    }
 
+   /** A name that changes under a condition only labels what the condition already shows, such as a mount or a model count. */
+   private dropConditionalRename(modifier: FlatModifier): void {
+      this.conversion.report.recordDropped(modifier.element, `display rename to "${modifier.value}" under a condition`);
+   }
+
    private applyUnitModifiers(modifiers: FlatModifier[]): void {
       const baseCost = this.cost;
       for (const modifier of modifiers) {
@@ -684,6 +694,10 @@ export class DatasheetConverter {
             continue;
          }
          if (modifier.field === "name" && modifier.condition === null) continue;
+         if (modifier.field === "name") {
+            this.dropConditionalRename(modifier);
+            continue;
+         }
          this.unhandled(modifier.element, `unit modifier ${modifier.type} ${modifier.field}${modifier.condition ? " with conditions" : ""}${modifier.repeats.length > 0 ? " with repeats" : ""}`);
       }
    }
