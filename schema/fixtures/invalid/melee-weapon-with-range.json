@@ -1,0 +1,8 @@
+{
+   "id": "bad",
+   "name": "Bad",
+   "kind": "Library",
+   "weapons": {
+      "sword": { "name": "Sword", "type": "Melee", "range": { "kind": "Inches", "inches": 1 }, "attacks": { "kind": "User" } }
+   }
+}

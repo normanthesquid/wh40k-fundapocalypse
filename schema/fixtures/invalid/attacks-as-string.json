@@ -1,0 +1,8 @@
+{
+   "id": "bad",
+   "name": "Bad",
+   "kind": "Library",
+   "weapons": {
+      "bolter": { "name": "Bolter", "type": "SmallArms", "range": { "kind": "Inches", "inches": 24 }, "attacks": "2" }
+   }
+}

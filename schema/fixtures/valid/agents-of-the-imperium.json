@@ -1,0 +1,155 @@
+{
+   "$schema": "../../catalogue.schema.json",
+   "id": "agents-of-the-imperium",
+   "name": "Imperium - Agents of the Imperium",
+   "kind": "Faction",
+   "imports": [
+      "weapons"
+   ],
+   "detachmentChoices": {
+      "faction-filter": {
+         "name": "Faction Filter",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "inquisition": {
+               "name": "Inquisition",
+               "addsFactionKeywords": [
+                  "INQUISITION"
+               ]
+            }
+         }
+      }
+   },
+   "datasheets": {
+      "inquisitor": {
+         "name": "Inquisitor",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION"
+         ],
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "INQUISITOR"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "weapons": [
+            "weapons/master-crafted-weapons"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition",
+            "unquestionable-wisdom"
+         ],
+         "wargear": [
+            {
+               "id": "ordo",
+               "name": "Ordo",
+               "minimum": 1,
+               "maximum": 1,
+               "default": "ordo-hereticus",
+               "options": [
+                  {
+                     "id": "ordo-hereticus",
+                     "name": "Ordo Hereticus"
+                  },
+                  {
+                     "id": "ordo-malleus",
+                     "name": "Ordo Malleus"
+                  },
+                  {
+                     "id": "ordo-xenos",
+                     "name": "Ordo Xenos"
+                  }
+               ]
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "psyker",
+                     "name": "Psyker",
+                     "cost": 1,
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "PSYKER"
+                     ]
+                  },
+                  {
+                     "id": "terminator-armour",
+                     "name": "Terminator Armour",
+                     "cost": 2,
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "TERMINATOR"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              },
+                              "save": 4
+                           }
+                        }
+                     ],
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "ordo-malleus"
+                        },
+                        "minimum": 1
+                     }
+                  }
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "DetachmentChoice",
+               "option": "inquisition"
+            },
+            "minimum": 1
+         }
+      }
+   },
+   "abilities": {
+      "authority-of-the-inquisition": {
+         "name": "Authority of the Inquisition",
+         "text": "This unit can embark aboard any IMPERIUM TRANSPORT, even though the transport in question might normally only permit models with other Faction keywords to do so. All other restrictions apply normally."
+      },
+      "unquestionable-wisdom": {
+         "name": "Unquestionable Wisdom",
+         "text": "Friendly IMPERIUM units can use this unit's Leadership characteristic instead of their own whilst they are within 6\" of this unit."
+      }
+   }
+}

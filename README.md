@@ -1,6 +1,8 @@
 Warhammer 40,000 Fundapocalypse
 ===========================
 
+> **Format change in progress:** BSData has been taken down, so from `v2.0.0` this data moves from BattleScribe catalogues to a JSON format of our own. See [docs/data-format.md](docs/data-format.md). `v1.10.0` is the last BattleScribe release.
+
 
 [![GitHub release](https://img.shields.io/github/release/normanthesquid/wh40k-fundapocalypse.svg?style=flat-square)](https://github.com/normanthesquid/wh40k-fundapocalypse/releases/latest)
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/normanthesquid/wh40k-fundapocalypse/latest.svg?style=flat-square)
