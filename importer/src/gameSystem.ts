@@ -247,6 +247,11 @@ export class GameSystemConversion {
       if (isHidden(entry)) this.report.failUnhandled(entry, "hidden universal option");
    }
 
+   /** The least number of units with `keyword` a detachment of this type must contain, if it sets one. */
+   keywordMinimum(detachment: string, keyword: string): number | undefined {
+      return this.detachments[detachment]?.keywordLimits?.[keyword]?.minimum;
+   }
+
    /** A `force min` raised to N inside one detachment type becomes that detachment's keyword minimum. */
    private recordForceMinimum(name: string, modifier: ReturnType<typeof flatModifiersOf>[number], constraints: Map<string, Element>, option: Option): void {
       const forceMinimum = constraints.get("force min");

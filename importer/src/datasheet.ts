@@ -379,7 +379,12 @@ export class DatasheetConverter {
          if (key === "parent min" || key === "parent max") continue;
          const field = wider[key as keyof typeof wider];
          const value = constraintValue(constraint);
-         const modified = modifiers.some((modifier) => modifier.field === attribute(constraint, "id"));
+         const constraintModifiers = modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
+         const modified = constraintModifiers.length > 0;
+         if (key === "roster min" && value === 0 && modified && this.isDetachmentKeywordMinimum(view, constraintModifiers)) {
+            for (const modifier of constraintModifiers) this.conversion.report.recordDropped(modifier.element, "army minimum the detachment's own keyword minimum already sets");
+            continue;
+         }
          if (field === undefined || value === undefined || value < 1 || modified) this.unhandled(constraint, `option constraint ${key}${modified ? " with modifiers" : ""}`);
          else option[field] = value;
       }
@@ -544,6 +549,18 @@ export class DatasheetConverter {
          return isUnit && attribute(repeat, "value") === "1.0" ? this.slugs.byId.get(attribute(repeat, "childId")) : undefined;
       });
       return options.every((option) => option !== undefined) ? (options as string[]) : undefined;
+   }
+
+   /** Whether every modifier raises the minimum only inside a detachment type whose keyword limits already require that many of a keyword the entry has. */
+   private isDetachmentKeywordMinimum(view: EntryView, modifiers: FlatModifier[]): boolean {
+      const keywords = view.categoryLinks.map((link) => this.conversion.registry.category(attribute(link, "targetId"))).flatMap((category) => (category?.kind === "Keyword" ? [category.keyword] : []));
+      return modifiers.every((modifier) => {
+         const condition = modifier.condition;
+         if (modifier.type !== "set" || condition?.kind !== "Count" || condition.scope !== "Detachment" || condition.of.kind !== "Detachment") return false;
+         const detachment = condition.of.detachment;
+         const required = Number(modifier.value);
+         return keywords.some((keyword) => (this.conversion.gameSystem.keywordMinimum(detachment, keyword) ?? 0) >= required);
+      });
    }
 
    /** A name that changes under a condition only labels what the condition already shows, such as a mount or a model count. */
