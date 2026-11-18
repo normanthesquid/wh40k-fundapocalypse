@@ -1,7 +1,7 @@
 import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
-import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, type EntryView } from "./entries.ts";
+import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { CHARACTERISTIC_TYPE_IDS, parseCharacteristic, take, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
@@ -39,7 +39,7 @@ export class DatasheetConverter {
    private readonly loose: Option[] = [];
    private readonly optionsBySlug = new Map<string, Option>();
    private readonly deferred: (() => void)[] = [];
-   private readonly optionProfiles: { option: Option; profile: ModelProfile; element: Element }[] = [];
+   private readonly optionProfiles: OptionProfile[] = [];
    private readonly groupOf = new Map<OptionGroup, EntryView>();
    private readonly conditionalChanges = new Map<string, ConditionalChange>();
    private role: BattlefieldRole | undefined;
@@ -80,7 +80,23 @@ export class DatasheetConverter {
    private countTarget(childId: string): CountTarget | undefined {
       const local = this.slugs.byId.get(childId);
       if (local !== undefined) return { kind: "Option", option: local };
+      if (childId === MODEL_COUNT_ID) return this.modelOption();
       return this.catalogueTarget(childId) ?? this.conversion.globalCountTarget(this.builder, childId);
+   }
+
+   /** Counting the unit's models counts its one model option; undefined when it has several, or none. */
+   private modelOption(): CountTarget | undefined {
+      const models = new Set<string>();
+      const walk = (view: EntryView) => {
+         for (const child of [...view.childEntries, ...view.childGroups]) {
+            const childView = viewOf(this.conversion.registry, child);
+            if (childView === undefined) continue;
+            if (childView.kind === "model") models.add(this.slugs.byId.get(childView.ids[0])!);
+            walk(childView);
+         }
+      };
+      walk(this.view);
+      return models.size === 1 ? { kind: "Option", option: [...models][0] } : undefined;
    }
 
    /** The local option a condition requires to be taken, if that is all it says. */
@@ -247,8 +263,7 @@ export class DatasheetConverter {
          return;
       }
       if (option !== undefined) {
-         if (conditional.length > 0) this.unhandled(target, "conditional modifiers on a unit profile inside an option");
-         this.optionProfiles.push({ option, profile, element: target });
+         this.optionProfiles.push({ option, profile, element: target, conditional });
          return;
       }
       this.profiles.push(profile);
@@ -259,12 +274,13 @@ export class DatasheetConverter {
       const field = CHARACTERISTIC_TYPE_IDS[modifier.field];
       const taken = this.optionTaken(modifier.condition);
       const option = taken === undefined ? undefined : this.optionsBySlug.get(taken);
-      if (field === undefined || option === undefined) {
+      if (field === undefined || modifier.condition === null || modifier.condition === undefined) {
          this.unhandled(modifier.element, `conditional unit profile modifier ${modifier.type} ${modifier.field}`);
          return;
       }
-      const changes = (option.profileChanges ??= []);
-      const forProfile = this.profiles.length > 1 ? profileName : undefined;
+      const changes = ((option ?? this.conditionalChange(modifier.condition)).profileChanges ??= []);
+      const isAdded = !this.profiles.some((profile) => profile.name === profileName);
+      const forProfile = this.profiles.length > 1 || isAdded ? profileName : undefined;
       let change = changes.find((existing) => existing.profile === forProfile);
       if (change === undefined) {
          change = forProfile === undefined ? {} : { profile: forProfile };
@@ -516,11 +532,12 @@ export class DatasheetConverter {
 
    /** Unit-size options that each carry the whole unit's profile: the default size's becomes the datasheet's, the others change it. */
    private resolveOptionProfiles(): void {
-      const byOption = new Map<Option, { profile: ModelProfile; element: Element }[]>();
+      const byOption = new Map<Option, OptionProfile[]>();
       for (const entry of this.optionProfiles) byOption.set(entry.option, [...(byOption.get(entry.option) ?? []), entry]);
       const isUnitSize = (group: OptionGroup) => group.options.every((option) => byOption.get(option)?.length === 1);
       for (const group of this.groups) {
          if (this.profiles.length > 0 || !isUnitSize(group)) continue;
+         for (const option of group.options) for (const { conditional } of byOption.get(option)!) for (const modifier of conditional) this.unhandled(modifier.element, "conditional modifier on a unit-size profile");
          const baseOption = group.options.find((option) => option.id === group.default) ?? group.options[0];
          const base = { ...byOption.get(baseOption)![0].profile, name: baseProfileName(byOption.get(baseOption)![0].profile.name) };
          this.profiles.push(base);
@@ -544,7 +561,8 @@ export class DatasheetConverter {
    }
 
    /** A model the unit must take (e.g. a squadron's first vehicle) is the datasheet's profile; an optional one is added by its option. */
-   private placeOptionProfiles(option: Option, entries: { profile: ModelProfile; element: Element }[]): void {
+   private placeOptionProfiles(option: Option, entries: OptionProfile[]): void {
+      for (const { profile, conditional } of entries) for (const modifier of conditional) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
       if (this.profiles.length === 0 && (option.minimum ?? 0) >= 1) {
          this.profiles.push(...entries.map((entry) => entry.profile));
          return;
@@ -578,6 +596,17 @@ export class DatasheetConverter {
    }
 }
 
+
+interface OptionProfile {
+   readonly option: Option;
+   readonly profile: ModelProfile;
+   readonly element: Element;
+   /** Its modifiers that apply only under a condition. */
+   readonly conditional: FlatModifier[];
+}
+
+/** The childId BattleScribe uses to count every model in a unit. */
+const MODEL_COUNT_ID = "model";
 
 const SIZE_SUFFIX = /\s*\(\s*\d+(\s*-\s*\d+)?\s+models?\s*\)\s*$/i;
 
