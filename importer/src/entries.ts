@@ -20,6 +20,7 @@ export interface EntryView {
    readonly categoryLinks: Element[];
    readonly profiles: Element[];
    readonly infoLinks: Element[];
+   readonly infoGroups: Element[];
    readonly rules: Element[];
    readonly costs: Element[];
    readonly childEntries: Element[];
@@ -58,6 +59,7 @@ export function viewOf(registry: Registry, element: Element): EntryView | undefi
       categoryLinks: both(link, target, "categoryLinks", "categoryLink"),
       profiles: both(link, target, "profiles", "profile"),
       infoLinks: both(link, target, "infoLinks", "infoLink"),
+      infoGroups: both(link, target, "infoGroups", "infoGroup"),
       rules: both(link, target, "rules", "rule"),
       costs,
       childEntries: [...nested("selectionEntries", "selectionEntry"), ...nested("entryLinks", "entryLink").filter((child) => !isGroupLink(child))],

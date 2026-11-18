@@ -2,10 +2,10 @@ import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, type EntryView } from "./entries.ts";
-import type { BattlefieldRole, Condition, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
+import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { CHARACTERISTIC_TYPE_IDS, parseCharacteristic, take, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
-import { attribute, type Element } from "./xml.ts";
+import { attribute, childrenOf, type Element } from "./xml.ts";
 
 /** Visibility from `hidden` and its modifiers: a condition, "Always", "Never", or undefined when a condition failed. */
 export type Availability = Condition | "Always" | "Never" | undefined;
@@ -41,6 +41,7 @@ export class DatasheetConverter {
    private readonly deferred: (() => void)[] = [];
    private readonly optionProfiles: { option: Option; profile: ModelProfile; element: Element }[] = [];
    private readonly groupOf = new Map<OptionGroup, EntryView>();
+   private readonly conditionalChanges = new Map<string, ConditionalChange>();
    private role: BattlefieldRole | undefined;
    private transport: string | undefined;
    private cost: number;
@@ -98,6 +99,7 @@ export class DatasheetConverter {
       this.resolveOptionProfiles();
       this.applyUnitModifiers(modifiers);
       for (const apply of this.deferred) apply();
+      if (this.role === undefined) this.role = this.roleFromLinks();
       if (this.role === undefined) this.unhandled(view.element, "no primary battlefield role");
       if (this.profiles.length === 0) this.unhandled(view.element, "no unit profile");
       if (this.failed || this.role === undefined) return undefined;
@@ -107,6 +109,7 @@ export class DatasheetConverter {
       if (this.weapons.length > 0) datasheet.weapons = this.weapons;
       if (this.abilities.size > 0) datasheet.abilities = [...this.abilities];
       if (this.transport !== undefined) datasheet.transport = this.transport;
+      if (this.conditionalChanges.size > 0) datasheet.conditionalChanges = [...this.conditionalChanges.values()];
       const wargear = [...this.groups];
       if (this.loose.length > 0) wargear.push({ id: this.slugs.optionsGroup, name: "Upgrades", options: this.loose });
       if (wargear.length > 0) datasheet.wargear = wargear;
@@ -125,6 +128,16 @@ export class DatasheetConverter {
       return datasheet;
    }
 
+   /** A library unit with no role of its own takes the one most of its faction links give it; the others override it. */
+   private roleFromLinks(): BattlefieldRole | undefined {
+      const roles = this.conversion.linkRoles.get(this.view.ids[this.view.ids.length - 1]) ?? [];
+      const tally = new Map<BattlefieldRole, number>();
+      for (const role of roles) tally.set(role, (tally.get(role) ?? 0) + 1);
+      const [mostCommon] = [...tally].sort((left, right) => right[1] - left[1]);
+      if (mostCommon !== undefined) this.conversion.report.recordCorrection(this.view.element, `no role of its own: takes ${mostCommon[0]} from its faction links`);
+      return mostCommon?.[0];
+   }
+
    private addCategories(links: Element[], keywords: Set<string>, factionKeywords: Set<string>, isUnit: boolean): void {
       for (const link of links) {
          if (link.children.length > 0) this.unhandled(link, "category link with modifiers or constraints");
@@ -140,9 +153,7 @@ export class DatasheetConverter {
 
    /** Adds the unit profiles, weapons and abilities of an entry; `option` is set when they come with taking an option. */
    private addProfiles(view: EntryView, option: Option | undefined): void {
-      const linked = view.infoLinks.map((link) => ({ link, target: this.conversion.registry.lookup(attribute(link, "targetId")) }));
-      const all = [...view.profiles.map((profile) => ({ link: undefined, target: profile })), ...linked];
-      for (const { link, target } of all) {
+      for (const { link, target } of this.infoTargets(view.profiles, view.rules, view.infoLinks, view.infoGroups)) {
          if (target === undefined) {
             this.unhandled(link!, "info link to a missing id");
             continue;
@@ -156,7 +167,25 @@ export class DatasheetConverter {
          else if (target.tag === "profile") this.addAbility(target, kept, option);
          else this.unhandled(link ?? target, `info link to a ${target.tag}`);
       }
-      for (const rule of view.rules) this.addAbility(rule, flatModifiersOf(rule, this.context), option);
+   }
+
+   /** Profiles, rules and info links, with each info group (linked or held directly) opened into its contents, which BattleScribe only groups for display. */
+   private infoTargets(profiles: Element[], rules: Element[], infoLinks: Element[], infoGroups: Element[]): { link: Element | undefined; target: Element | undefined }[] {
+      const targets: { link: Element | undefined; target: Element | undefined }[] = [...profiles, ...rules].map((target) => ({ link: undefined, target }));
+      const open = (group: Element, link: Element | undefined) => {
+         if (group.attributes.hidden === "true" || childrenOf(group, "modifiers", "modifier").length > 0 || (link !== undefined && childrenOf(link, "modifiers", "modifier").length > 0)) {
+            this.unhandled(link ?? group, "info group that is hidden or has modifiers");
+            return;
+         }
+         targets.push(...this.infoTargets(childrenOf(group, "profiles", "profile"), childrenOf(group, "rules", "rule"), childrenOf(group, "infoLinks", "infoLink"), childrenOf(group, "infoGroups", "infoGroup")));
+      };
+      for (const group of infoGroups) open(group, undefined);
+      for (const link of infoLinks) {
+         const target = this.conversion.registry.lookup(attribute(link, "targetId"));
+         if (target?.tag === "infoGroup") open(target, link);
+         else targets.push({ link, target });
+      }
+      return targets;
    }
 
    private addAbility(target: Element, modifiers: FlatModifier[], option: Option | undefined): void {
@@ -181,9 +210,24 @@ export class DatasheetConverter {
       else if (availability === "Never") this.conversion.report.recordDropped(target, "hidden with no condition that shows it");
       else if (availability !== undefined) {
          const taken = option === undefined ? this.optionTaken(availability) : undefined;
-         if (taken === undefined) this.unhandled(target, `${isWeapon ? "weapon" : "ability"} shown only under a condition`);
-         else this.deferred.push(() => add(this.optionsBySlug.get(taken)));
+         if (taken !== undefined) this.deferred.push(() => add(this.optionsBySlug.get(taken)));
+         else {
+            const change = this.conditionalChange(allOf(this.requires(option), availability)!);
+            if (isWeapon) (change.addsWeapons ??= []).push(reference);
+            else if (!(change.addsAbilities ??= []).includes(reference)) change.addsAbilities.push(reference);
+         }
       }
+   }
+
+   /** The datasheet's change for one condition, shared by everything that applies under it. */
+   private conditionalChange(when: Condition): ConditionalChange {
+      const key = JSON.stringify(when);
+      let change = this.conditionalChanges.get(key);
+      if (change === undefined) {
+         change = { when };
+         this.conditionalChanges.set(key, change);
+      }
+      return change;
    }
 
    private addUnitProfile(target: Element, modifiers: FlatModifier[], option: Option | undefined): void {
@@ -474,15 +518,9 @@ export class DatasheetConverter {
    private resolveOptionProfiles(): void {
       const byOption = new Map<Option, { profile: ModelProfile; element: Element }[]>();
       for (const entry of this.optionProfiles) byOption.set(entry.option, [...(byOption.get(entry.option) ?? []), entry]);
-      const groups = [...this.groups, { id: this.slugs.optionsGroup, name: "Upgrades", options: this.loose } as OptionGroup];
-      for (const group of groups) {
-         const carrying = group.options.filter((option) => byOption.has(option));
-         if (carrying.length === 0) continue;
-         const everyOptionOnce = carrying.length === group.options.length && carrying.every((option) => byOption.get(option)!.length === 1);
-         if (!everyOptionOnce || this.profiles.length > 0) {
-            for (const option of carrying) for (const entry of byOption.get(option)!) this.unhandled(entry.element, "unit profile that comes with an option");
-            continue;
-         }
+      const isUnitSize = (group: OptionGroup) => group.options.every((option) => byOption.get(option)?.length === 1);
+      for (const group of this.groups) {
+         if (this.profiles.length > 0 || !isUnitSize(group)) continue;
          const baseOption = group.options.find((option) => option.id === group.default) ?? group.options[0];
          const base = { ...byOption.get(baseOption)![0].profile, name: baseProfileName(byOption.get(baseOption)![0].profile.name) };
          this.profiles.push(base);
@@ -498,7 +536,24 @@ export class DatasheetConverter {
                else (set as Record<string, unknown>)[field] = profile[field];
             }
             if (Object.keys(set).length > 0) (option.profileChanges ??= []).push({ set });
+            byOption.delete(option);
          }
+         byOption.delete(baseOption);
+      }
+      for (const [option, entries] of byOption) this.placeOptionProfiles(option, entries);
+   }
+
+   /** A model the unit must take (e.g. a squadron's first vehicle) is the datasheet's profile; an optional one is added by its option. */
+   private placeOptionProfiles(option: Option, entries: { profile: ModelProfile; element: Element }[]): void {
+      if (this.profiles.length === 0 && (option.minimum ?? 0) >= 1) {
+         this.profiles.push(...entries.map((entry) => entry.profile));
+         return;
+      }
+      for (const { profile, element } of entries) {
+         const same = this.profiles.find((existing) => existing.name === profile.name);
+         if (same !== undefined && JSON.stringify(same) === JSON.stringify(profile)) continue;
+         if (same !== undefined || option.addsProfiles?.some((added) => added.name === profile.name)) this.unhandled(element, "option profile whose name the unit already uses");
+         else (option.addsProfiles ??= []).push(profile);
       }
    }
 

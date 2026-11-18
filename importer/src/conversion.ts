@@ -1,7 +1,7 @@
 import { OutputBuilder, referenceFrom } from "./builder.ts";
 import { viewOf, type EntryView } from "./entries.ts";
 import { GameSystemConversion, GameSystemIndex } from "./gameSystem.ts";
-import type { CountTarget } from "./model.ts";
+import type { BattlefieldRole, CountTarget } from "./model.ts";
 import { abilityFromProfile, abilityFromRule, UNIT_PROFILE, TRANSPORT_PROFILE, WEAPON_PROFILE, weaponFromProfile } from "./profiles.ts";
 import type { Registry, SourceDocument } from "./registry.ts";
 import type { Report } from "./report.ts";
@@ -47,6 +47,8 @@ export class Conversion {
    /** Groups inside a detachment choice, by every id naming them, with the ids of the options they hold. */
    readonly choiceGroups = new Map<string, string[]>();
    readonly profiles = new Map<string, Located>();
+   /** The roles faction links give each library unit, by the unit's id. */
+   readonly linkRoles = new Map<string, BattlefieldRole[]>();
 
    readonly registry: Registry;
    readonly report: Report;

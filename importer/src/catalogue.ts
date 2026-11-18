@@ -95,6 +95,7 @@ export class CatalogueConversion {
       const targetDocument = this.registry().documentContaining(view.target);
       const isLibraryLink = view.element.tag === "entryLink" && targetDocument !== this.document;
       for (const id of view.ids) this.localUnits.set(id, slug);
+      if (isLibraryLink) this.recordLinkRole(view);
       this.conversion.datasheets.set(view.ids[0], located);
       if (isLibraryLink && this.isPlainLink(view.element)) {
          this.links.push({ view, slug });
@@ -102,6 +103,15 @@ export class CatalogueConversion {
       }
       if (!isLibraryLink) for (const id of view.ids) this.conversion.datasheets.set(id, located);
       this.datasheets.push({ view, located, slugs: this.conversion.allocateOptions(`${this.document.slug}/${slug}`, located, view) });
+   }
+
+   /** The role a faction's link gives a library unit, which a library unit without its own role takes from its links. */
+   private recordLinkRole(view: EntryView): void {
+      const primary = view.element.children.flatMap((child) => (child.tag === "categoryLinks" ? child.children : [])).find((link) => link.attributes.primary === "true");
+      const category = primary === undefined ? undefined : this.registry().category(attribute(primary, "targetId"));
+      if (category?.kind !== "Role") return;
+      const targetId = view.ids[view.ids.length - 1];
+      this.conversion.linkRoles.set(targetId, [...(this.conversion.linkRoles.get(targetId) ?? []), category.role]);
    }
 
    private isPlainLink(link: Element): boolean {
