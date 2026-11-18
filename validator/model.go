@@ -140,12 +140,13 @@ type Option struct {
 	WargearChanges
 	ID             string         `json:"id"`
 	Minimum        *int           `json:"minimum"`
-	Maximum        *int           `json:"maximum"`
+	Maximum        *Bound         `json:"maximum"`
 	MinimumPerArmy *int           `json:"minimumPerArmy"`
 	MaximumPerArmy *int           `json:"maximumPerArmy"`
 	CostChanges    []CostChange   `json:"costChanges"`
 	AddsProfiles   []ModelProfile `json:"addsProfiles"`
 	AvailableWhen  *Condition     `json:"availableWhen"`
+	RequiredWhen   *Condition     `json:"requiredWhen"`
 }
 
 type ConditionalChange struct {

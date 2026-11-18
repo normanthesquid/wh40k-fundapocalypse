@@ -286,7 +286,7 @@
             },
             "costChanges": { "type": "array", "items": { "$ref": "#/$defs/costChange" } },
             "minimum": { "type": "integer", "minimum": 0 },
-            "maximum": { "type": "integer", "minimum": 1 },
+            "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
             "minimumPerArmy": { "type": "integer", "minimum": 1 },
             "maximumPerArmy": { "type": "integer", "minimum": 1 },
@@ -305,6 +305,10 @@
             },
             "profileChanges": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/profileChange" } },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "requiredWhen": {
+               "description": "The unit must take the option at least once while this holds, e.g. a mark that matches the detachment's chosen god.",
+               "$ref": "common.schema.json#/$defs/condition"
+            },
             "addsFactionKeywords": true,
             "addsKeywords": true
          },

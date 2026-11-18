@@ -318,7 +318,7 @@ export class DatasheetConverter {
          const childView = this.conversion.view(child);
          if (childView === undefined) continue;
          if (this.isMandatory(childView)) this.absorb(childView, parent);
-         else {
+         else if (!this.absorbUnlessDropped(childView, parent)) {
             const option = this.optionFrom(childView, this.requires(parent));
             if (option !== undefined) this.loose.push(option);
          }
@@ -335,6 +335,51 @@ export class DatasheetConverter {
       const exactlyOne = constraintValue(constraints.get("parent min")) === 1 && constraintValue(constraints.get("parent max")) === 1;
       const plain = view.modifiers.length === 0 && view.modifierGroups.length === 0 && !view.hidden;
       return exactlyOne && plain && powerLevel(view) === 0;
+   }
+
+   /** An entry carried until a condition zeroes both its bounds: its weapons, removed while that condition holds, and its rules while it does not. */
+   private absorbUnlessDropped(view: EntryView, parent: Option | undefined): boolean {
+      if (!this.isDroppableWeapons(view)) return false;
+      const [first, second] = flatModifiers(view.modifiers, [], this.context);
+      if (first.condition === undefined || second.condition === undefined) {
+         this.failed = true;
+         return true;
+      }
+      if (first.condition === null || JSON.stringify(first.condition) !== JSON.stringify(second.condition)) {
+         this.unhandled(view.element, "mandatory entry whose bounds are zeroed under different conditions");
+         return true;
+      }
+      const holder: Option = { name: view.name };
+      this.addProfiles(view, holder);
+      const weapons = holder.addsWeapons ?? [];
+      if (parent === undefined) this.weapons.push(...weapons);
+      else (parent.addsWeapons ??= []).push(...weapons);
+      const change = this.conditionalChange(allOf(this.requires(parent), first.condition)!);
+      (change.removesWeapons ??= []).push(...weapons);
+      if (holder.addsAbilities !== undefined) {
+         const carried = this.conditionalChange(allOf(this.requires(parent), not(first.condition))!);
+         for (const ability of holder.addsAbilities) if (!(carried.addsAbilities ??= []).includes(ability)) carried.addsAbilities.push(ability);
+      }
+      return true;
+   }
+
+   /** Exactly one, always shown, free, holding only plain weapon profiles and rules, with both bounds set to 0 by one modifier each. */
+   private isDroppableWeapons(view: EntryView): boolean {
+      const constraints = constraintsByScope(view);
+      const minimum = constraints.get("parent min");
+      const maximum = constraints.get("parent max");
+      if (minimum === undefined || maximum === undefined || constraints.size !== 2) return false;
+      if (constraintValue(minimum) !== 1 || constraintValue(maximum) !== 1 || view.hidden || powerLevel(view) !== 0) return false;
+      if (view.childEntries.length > 0 || view.childGroups.length > 0 || view.categoryLinks.length > 0 || view.modifierGroups.length > 0) return false;
+      const bounds = new Set([attribute(minimum, "id"), attribute(maximum, "id")]);
+      const zeroesBound = (modifier: Element) =>
+         attribute(modifier, "type") === "set" && Number(attribute(modifier, "value")) === 0 && bounds.delete(attribute(modifier, "field")) && childrenOf(modifier, "repeats", "repeat").length === 0;
+      if (view.modifiers.length !== 2 || !view.modifiers.every(zeroesBound)) return false;
+      const isWeaponOrRule = (target: Element) => target.tag === "rule" || (target.tag === "profile" && attribute(target, "typeName") === WEAPON_PROFILE);
+      const isPlain = (element: Element | undefined) => element === undefined || childrenOf(element, "modifiers", "modifier").length === 0;
+      return this.infoTargets(view.profiles, view.rules, view.infoLinks, view.infoGroups).every(
+         ({ link, target }) => target !== undefined && isWeaponOrRule(target) && target.attributes.hidden !== "true" && isPlain(link) && isPlain(target),
+      );
    }
 
    /** A mandatory entry is part of what holds it (the datasheet, or the option `parent`), with its own children. */
@@ -363,7 +408,22 @@ export class DatasheetConverter {
       const minimum = constraintValue(constraints.get("parent min"));
       const maximumConstraint = constraints.get("parent max");
       let availableWhen = inherited;
-      if (maximumConstraint !== undefined) {
+      const maximumModifiers = maximumConstraint === undefined ? [] : modifiers.filter((modifier) => modifier.field === attribute(maximumConstraint, "id"));
+      const maximumBase = constraintValue(maximumConstraint) ?? 0;
+      const isZeroedWhen = (modifier: FlatModifier) => modifier.type === "set" && Number(modifier.value) === 0 && modifier.condition !== null && modifier.repeats.length === 0;
+      const isUnconditionalSet = (modifier: FlatModifier) => modifier.type === "set" && modifier.condition === null && modifier.repeats.length === 0;
+      const isAvailabilitySet = maximumModifiers.length === 1 && maximumBase === 0 && maximumModifiers[0].type === "set" && maximumModifiers[0].condition !== null;
+      const isSimple = maximumModifiers.length === 0 || isAvailabilitySet || maximumModifiers.some((modifier) => modifier.repeats.length > 0);
+      if (maximumModifiers.some((modifier) => modifier.condition === undefined)) this.failed = true;
+      else if (!isSimple && maximumBase > 0 && maximumModifiers.every(isZeroedWhen)) {
+         option.maximum = maximumBase;
+         availableWhen = allOf(availableWhen, not(combine("Any", maximumModifiers.map((modifier) => modifier.condition as Condition))!));
+      } else if (!isSimple && maximumModifiers.length === 1 && isUnconditionalSet(maximumModifiers[0]) && Number(maximumModifiers[0].value) > 0) {
+         option.maximum = Number(maximumModifiers[0].value);
+      } else if (!isSimple) {
+         option.maximum = maximumBase;
+         this.deferred.push(() => this.setBound(option, "maximum", maximumConstraint!, modifiers, "option"));
+      } else if (maximumConstraint !== undefined) {
          const converted = limitFrom(maximumConstraint, modifiers, { target: () => undefined, simplify: (terms) => terms }, this.context);
          if (converted === undefined) this.failed = true;
          else if (converted.limit.terms !== undefined) this.unhandled(maximumConstraint, "option maximum that grows");
@@ -375,7 +435,20 @@ export class DatasheetConverter {
             availableWhen = allOf(availableWhen, converted.availableWhen);
          }
       }
-      if (minimum !== undefined && minimum > 0) option.minimum = minimum;
+      const minimumConstraint = constraints.get("parent min");
+      const minimumModifiers = minimumConstraint === undefined ? [] : modifiers.filter((modifier) => modifier.field === attribute(minimumConstraint, "id"));
+      const isDroppedWithMaximum = (modifier: FlatModifier) => modifier.type === "set" && Number(modifier.value) === 0 && maximumModifiers.some((maximumModifier) => JSON.stringify(maximumModifier.condition) === JSON.stringify(modifier.condition));
+      let minimumValue = minimum ?? 0;
+      const requiredWhen: Condition[] = [];
+      for (const modifier of minimumModifiers.filter((candidate) => !isDroppedWithMaximum(candidate))) {
+         if (modifier.condition === undefined) this.failed = true;
+         else if (modifier.repeats.length > 0 || modifier.type !== "set") this.unhandled(modifier.element, `option minimum ${modifier.type}`);
+         else if (modifier.condition === null) minimumValue = Number(modifier.value);
+         else if (Number(modifier.value) === 1 && minimumValue <= 0) requiredWhen.push(modifier.condition);
+         else this.unhandled(modifier.element, "option minimum set with conditions to more than 1");
+      }
+      if (minimumValue > 0) option.minimum = minimumValue;
+      if (requiredWhen.length > 0) option.requiredWhen = combine("Any", requiredWhen)!;
       const constraintIds = new Set(view.constraints.map((constraint) => attribute(constraint, "id")));
       const wider = { "force max": "maximumPerDetachment", "roster max": "maximumPerArmy", "roster min": "minimumPerArmy" } as const;
       for (const [key, constraint] of constraints) {
@@ -438,9 +511,9 @@ export class DatasheetConverter {
          this.conversion.report.recordCorrection(view.element, `minimum ${minimum} dropped: the group is only offered once ${parent.name} is taken`);
       }
       if (maximum !== undefined) group.maximum = maximum;
-      if (minimumModified && parent === undefined) this.deferred.push(() => this.setGroupBound(group, "minimum", minimumConstraint, modifiers));
+      if (minimumModified && parent === undefined) this.deferred.push(() => this.setBound(group, "minimum", minimumConstraint, modifiers, "option group"));
       if (maximumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(maximumConstraint, "id"))) {
-         this.deferred.push(() => this.setGroupBound(group, "maximum", maximumConstraint, modifiers));
+         this.deferred.push(() => this.setBound(group, "maximum", maximumConstraint, modifiers, "option group"));
       }
       for (const key of constraints.keys()) if (!["parent min", "parent max"].includes(key)) this.unhandled(constraints.get(key)!, `option group constraint ${key}`);
       for (const modifier of modifiers) if (modifier.field !== "hidden" && !boundIds.has(modifier.field)) this.unhandled(modifier.element, `option group modifier ${modifier.type} ${modifier.field}`);
@@ -489,8 +562,9 @@ export class DatasheetConverter {
       return isRequired && group.options.every((option) => options.includes(option.id!));
    }
 
-   /** A group bound set or incremented by other options, as a limit counting them; a set needs options that exclude each other. */
-   private setGroupBound(group: OptionGroup, bound: "minimum" | "maximum", constraint: Element, modifiers: FlatModifier[]): void {
+   /** A group's or option's bound set or incremented by other options, as a limit counting them; a set needs options that exclude each other. */
+   private setBound(holder: OptionGroup | Option, bound: "minimum" | "maximum", constraint: Element, modifiers: FlatModifier[], label: string): void {
+      const owner = "options" in holder ? holder : this.groups.find((candidate) => candidate.options.includes(holder));
       const constraintId = attribute(constraint, "id");
       let base = Number(attribute(constraint, "value"));
       const amounts = new Map<string, { set?: number; increment: number }>();
@@ -506,14 +580,14 @@ export class DatasheetConverter {
          }
          const counted = modifier.condition === null ? this.repeatedOptions(modifier) : modifier.repeats.length === 0 ? this.optionsTaken(modifier.condition) : undefined;
          if (counted === undefined || (modifier.type === "set" && modifier.condition === null)) {
-            this.unhandled(modifier.element, `option group ${bound} ${modifier.type} that does not count the unit's options`);
+            this.unhandled(modifier.element, `${label} ${bound} ${modifier.type} that does not count the unit's options`);
             return;
          }
          for (const option of counted) {
             const amount = amounts.get(option) ?? { increment: 0 };
             if (modifier.type === "set") {
                if (amount.increment !== 0) {
-                  this.unhandled(modifier.element, `option group ${bound} set after an increment for the same option`);
+                  this.unhandled(modifier.element, `${label} ${bound} set after an increment for the same option`);
                   return;
                }
                amount.set = signed;
@@ -523,14 +597,14 @@ export class DatasheetConverter {
       }
       const setOptions = [...amounts].filter(([, amount]) => amount.set !== undefined).map(([option]) => option);
       const exclusive = new Set(setOptions.map((option) => this.exclusiveGroupOf(option)));
-      if (setOptions.length > 0 && (exclusive.size !== 1 || exclusive.has(undefined) || exclusive.has(group))) {
-         this.unhandled(constraint, `option group ${bound} set by options that do not exclude each other`);
+      if (setOptions.length > 0 && (exclusive.size !== 1 || exclusive.has(undefined) || (owner !== undefined && exclusive.has(owner)))) {
+         this.unhandled(constraint, `${label} ${bound} set by options that do not exclude each other`);
          return;
       }
       const [setGroup] = exclusive;
       if (setGroup !== undefined && this.alwaysTakesOneOf(setGroup, setOptions)) base = 0;
       if (base < 0) {
-         this.unhandled(constraint, `option group ${bound} with a negative base`);
+         this.unhandled(constraint, `${label} ${bound} with a negative base`);
          return;
       }
       const terms: LimitTerm[] = [];
@@ -538,9 +612,9 @@ export class DatasheetConverter {
          const total = (amount.set === undefined ? 0 : amount.set - base) + amount.increment;
          if (total !== 0) terms.push({ per: { kind: "Option", option }, scope: "Unit", amount: total });
       }
-      if (terms.length > 0) group[bound] = { base, terms };
-      else if (bound === "minimum" && base > 0) group.minimum = base;
-      else if (bound === "maximum") group.maximum = base;
+      if (terms.length > 0) holder[bound] = { base, terms };
+      else if (bound === "minimum" && base > 0) holder.minimum = base;
+      else if (bound === "maximum") holder.maximum = base;
    }
 
    /** The options a repeating increment counts in the unit, one per repeat. */

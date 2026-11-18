@@ -78,6 +78,19 @@
                      "id": "example-cannon",
                      "name": "Example cannon",
                      "cost": 1,
+                     "maximum": {
+                        "base": 1,
+                        "terms": [
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "ten-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 1
+                           }
+                        ]
+                     },
                      "addsWeapons": [
                         "example-cannon"
                      ],
@@ -110,6 +123,15 @@
                      "id": "example-sergeant",
                      "name": "Example Sergeant",
                      "cost": 1,
+                     "requiredWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "ten-models"
+                        },
+                        "minimum": 1
+                     },
                      "maximumPerDetachment": 1,
                      "maximumPerArmy": 3,
                      "addsProfiles": [

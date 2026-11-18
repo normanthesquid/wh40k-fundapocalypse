@@ -125,7 +125,7 @@ export interface Option extends KeywordChanges {
    cost?: number;
    costChanges?: CostChange[];
    minimum?: number;
-   maximum?: number;
+   maximum?: number | Limit;
    maximumPerDetachment?: number;
    minimumPerArmy?: number;
    maximumPerArmy?: number;
@@ -135,6 +135,7 @@ export interface Option extends KeywordChanges {
    addsAbilities?: string[];
    profileChanges?: ProfileChange[];
    availableWhen?: Condition;
+   requiredWhen?: Condition;
 }
 
 export interface OptionGroup {

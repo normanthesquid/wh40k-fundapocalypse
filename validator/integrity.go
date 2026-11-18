@@ -193,10 +193,11 @@ func (check *checker) checkOptionGroup(where scope, group OptionGroup) {
 	}
 	available := 0
 	for _, option := range group.Options {
-		if option.Maximum == nil {
+		maximum := fixedBound(option.Maximum)
+		if maximum == nil {
 			return
 		}
-		available += *option.Maximum
+		available += *maximum
 	}
 	if *minimum > available {
 		check.report(where, "minimum %d is more than the %d its options allow", *minimum, available)
@@ -212,13 +213,17 @@ func fixedBound(bound *Bound) *int {
 }
 
 func (check *checker) checkOption(where scope, option Option) {
-	check.checkBounds(where, option.Minimum, option.Maximum)
+	check.checkBounds(where, option.Minimum, fixedBound(option.Maximum))
+	if option.Maximum != nil {
+		check.checkLimit(where.at("maximum"), option.Maximum.Growing)
+	}
 	check.checkBounds(where.at("minimumPerArmy"), option.MinimumPerArmy, option.MaximumPerArmy)
 	for index := range option.CostChanges {
 		check.checkCondition(where.at("costChanges/%d/when", index), &option.CostChanges[index].When)
 	}
 	check.checkWargearChanges(where, option.WargearChanges, carrier{option: option.ID, conditionalChange: noConditionalChange})
 	check.checkCondition(where.at("availableWhen"), option.AvailableWhen)
+	check.checkCondition(where.at("requiredWhen"), option.RequiredWhen)
 }
 
 // noConditionalChange is a carrier index no conditional change has.
