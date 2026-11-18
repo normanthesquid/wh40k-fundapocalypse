@@ -9,3 +9,8 @@ updates:
     directory: /validator
     schedule:
       interval: weekly
+
+  - package-ecosystem: npm
+    directory: /importer
+    schedule:
+      interval: weekly
