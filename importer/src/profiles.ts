@@ -45,13 +45,18 @@ export function isDroppedProfile(profile: Element): boolean {
    return droppedIds.has(attribute(profile, "id"));
 }
 
-/** The profile's characteristics with the correction table's values in place of wrong or missing ones. */
-function correctedCharacteristics(profile: Element, report: Report): Characteristics {
+/** Characteristic names by type id, which modifiers name in `field`. */
+export function characteristicNamesById(profile: Element): Map<string, string> {
+   return new Map(childrenOf(profile, "characteristics", "characteristic").map((characteristic) => [attribute(characteristic, "typeId"), attribute(characteristic, "name")]));
+}
+
+/** The profile's characteristics with the correction table's values in place of wrong or missing ones; a report records each correction. */
+export function correctedCharacteristics(profile: Element, report: Report | undefined): Characteristics {
    const characteristics = characteristicsOf(profile);
    const correction = correctionsById.get(attribute(profile, "id"));
    if (correction === undefined) return characteristics;
    for (const [name, printed] of Object.entries(correction.printed)) {
-      report.recordCorrection(profile, `${name}: "${characteristics.get(name) ?? ""}" set to "${printed}" (${describeSource(correction.source)})`);
+      report?.recordCorrection(profile, `${name}: "${characteristics.get(name) ?? ""}" set to "${printed}" (${describeSource(correction.source)})`);
       characteristics.set(name, printed);
    }
    return characteristics;
@@ -130,10 +135,14 @@ export function weaponFromProfile(profile: Element, report: Report): Weapon | un
       report.recordDropped(profile, "blank placeholder profile of the wrong type");
       return undefined;
    }
-   const characteristics = correctedCharacteristics(profile, report);
+   return weaponFromCharacteristics(correctedCharacteristics(profile, report), profile, attribute(profile, "name").trim(), report);
+}
+
+/** A weapon from characteristics, reporting parse failures against the profile they came from. */
+export function weaponFromCharacteristics(characteristics: Characteristics, profile: Element, name: string, report: Report): Weapon | undefined {
    const type = take(parseWeaponType(characteristics.get("Type") ?? ""), profile, "Type", report);
    if (type === null || type === undefined) return undefined;
-   const weapon: Weapon = { name: attribute(profile, "name").trim(), type };
+   const weapon: Weapon = { name, type };
    const range = take(parseWeaponRange(characteristics.get("Range") ?? ""), profile, "Range", report);
    const attacks = take(parseWeaponAttacks(characteristics.get("A") ?? "-"), profile, "A", report);
    const antiPersonnel = take(parseTwoDiceTarget(characteristics.get("SAP") ?? "-"), profile, "SAP", report);

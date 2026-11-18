@@ -5,7 +5,8 @@ import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, v
 import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { describeSource, MISSING_PROFILES, MISSING_ROLES, PROFILELESS_DATASHEETS, SIZED_PROFILES } from "./corrections.ts";
-import { CHARACTERISTIC_TYPE_IDS, isDroppedProfile, parseCharacteristic, profileFromCharacteristics, take, UNIT_CHARACTERISTICS, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
+import { addWeaponVariants, carriedWeapon, type VariantContext } from "./weaponVariants.ts";
+import { characteristicNamesById, CHARACTERISTIC_TYPE_IDS, isDroppedProfile, parseCharacteristic, profileFromCharacteristics, take, UNIT_CHARACTERISTICS, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
 
 /** Visibility from `hidden` and its modifiers: a condition, "Always", "Never", or undefined when a condition failed. */
@@ -223,11 +224,18 @@ export class DatasheetConverter {
          this.unhandled(target, "profile that was not converted");
          return;
       }
-      const reference = this.conversion.reference(this.builder, located);
+      const original = this.conversion.reference(this.builder, located);
       const isWeapon = target.tag === "profile" && attribute(target, "typeName") === WEAPON_PROFILE;
       for (const renamed of modifiers.filter((modifier) => modifier.field === "name")) this.conversion.report.recordDropped(renamed.element, `display rename to "${renamed.value}"`);
       const rest = modifiers.filter((modifier) => modifier.field !== "name" && modifier.field !== "hidden");
-      for (const modifier of rest) this.unhandled(modifier.element, `${isWeapon ? "weapon" : "ability"} modifier ${modifier.type} ${modifier.field}`);
+      const characteristicNames = characteristicNamesById(target);
+      const characteristicChanges = isWeapon ? rest.filter((modifier) => modifier.type === "set" && modifier.repeats.length === 0 && characteristicNames.has(modifier.field)) : [];
+      const renames = modifiers.filter((modifier) => modifier.field === "name");
+      const reference = characteristicChanges.length === 0 ? original : carriedWeapon(this.variantContext, target, original, characteristicChanges, renames);
+      const addVariants = (required: Condition | undefined) => {
+         if (characteristicChanges.length > 0) addWeaponVariants(this.variantContext, target, reference, characteristicChanges, renames, required);
+      };
+      for (const modifier of rest.filter((candidate) => !characteristicChanges.includes(candidate))) this.unhandled(modifier.element, `${isWeapon ? "weapon" : "ability"} modifier ${modifier.type} ${modifier.field}`);
       const availability = availabilityOf(target.attributes.hidden === "true", modifiers);
       const add = (to: Option | undefined) => {
          if (to === undefined && isWeapon) this.weapons.push(reference);
@@ -235,13 +243,22 @@ export class DatasheetConverter {
          else if (isWeapon) (to.addsWeapons ??= []).push(reference);
          else if (!(to.addsAbilities ??= []).includes(reference)) to.addsAbilities.push(reference);
       };
-      if (availability === "Always") add(option);
-      else if (availability === "Never") this.conversion.report.recordDropped(target, "hidden with no condition that shows it");
+      if (availability === "Always") {
+         add(option);
+         addVariants(this.requires(option));
+      } else if (availability === "Never") this.conversion.report.recordDropped(target, "hidden with no condition that shows it");
       else if (availability !== undefined) {
          const taken = option === undefined ? this.optionTaken(availability) : undefined;
-         if (taken !== undefined) this.deferred.push(() => add(this.optionsBySlug.get(taken)));
-         else {
-            const change = this.conditionalChange(allOf(this.requires(option), availability)!);
+         if (taken !== undefined) {
+            this.deferred.push(() => {
+               const takenOption = this.optionsBySlug.get(taken);
+               add(takenOption);
+               addVariants(this.requires(takenOption));
+            });
+         } else {
+            const required = allOf(this.requires(option), availability)!;
+            addVariants(required);
+            const change = this.conditionalChange(required);
             if (isWeapon) (change.addsWeapons ??= []).push(reference);
             else if (!(change.addsAbilities ??= []).includes(reference)) change.addsAbilities.push(reference);
          }
@@ -286,6 +303,15 @@ export class DatasheetConverter {
          (this.conditionalChange(when).profileChanges ??= []).push({ set });
       }
       this.conversion.report.recordCorrection(this.view.element, `profile by model count added (${describeSource(sized.source)})`);
+   }
+
+   private get variantContext(): VariantContext {
+      return {
+         conversion: this.conversion,
+         builder: this.builder,
+         conditionalChange: (when) => this.conditionalChange(when),
+         unhandled: (element, message) => this.unhandled(element, message),
+      };
    }
 
    /** The datasheet's change for one condition, shared by everything that applies under it. */
