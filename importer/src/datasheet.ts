@@ -279,7 +279,6 @@ export class DatasheetConverter {
       }
    }
 
-
    private get variantContext(): VariantContext {
       return {
          conversion: this.conversion,
@@ -299,7 +298,6 @@ export class DatasheetConverter {
       }
       return change;
    }
-
 
    private isPassThrough(childId: string): boolean {
       return childId === COMMANDER_ENTRY_ID || childId === WARMASTER_TRAITS_GROUP_ID;
@@ -548,7 +546,6 @@ export class DatasheetConverter {
       return options.every((option) => option !== undefined) ? (options as string[]) : undefined;
    }
 
-
    /** A name that changes under a condition only labels what the condition already shows, such as a mount or a model count. */
    private dropConditionalRename(modifier: FlatModifier): void {
       this.conversion.report.recordDropped(modifier.element, `display rename to "${modifier.value}" under a condition`);
@@ -579,8 +576,5 @@ export class DatasheetConverter {
    }
 }
 
-
-
 /** The childId BattleScribe uses to count every model in a unit. */
 const MODEL_COUNT_ID = "model";
-
