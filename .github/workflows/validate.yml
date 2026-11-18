@@ -1,0 +1,53 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+    tags: ["v*"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validator and data
+    # GitHub-hosted on purpose: org runners can't serve this personal-account repo,
+    # and fork PRs on a public repo must not run on our host (Pragmatik FUN-71).
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: validator
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: validator/go.mod
+          cache-dependency-path: validator/go.sum
+
+      - name: gofmt
+        run: |
+          unformatted="$(gofmt -l .)"
+          if [ -n "$unformatted" ]; then echo "gofmt needed:"; echo "$unformatted"; exit 1; fi
+
+      - run: go vet ./...
+      - run: go tool staticcheck ./...
+      - run: go test ./...
+
+      - name: Validate the fixture data set
+        run: go run . -data ../schema/fixtures/valid
+
+      # data/ arrives with the stage 3 importer; until then only the fixtures exist.
+      - name: Validate data/
+        if: hashFiles('data/game-system.json') != '' && !startsWith(github.ref, 'refs/tags/')
+        run: go run .
+
+      - name: Validate data/ against the tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: go run . -release "${GITHUB_REF_NAME#v}"
+

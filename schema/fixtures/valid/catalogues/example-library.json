@@ -1,5 +1,5 @@
 {
-   "$schema": "../../catalogue.schema.json",
+   "$schema": "../../../catalogue.schema.json",
    "id": "example-library",
    "name": "Example library (illustrative values, not real data)",
    "kind": "Library",

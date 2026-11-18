@@ -57,9 +57,23 @@
             ]
          },
          "slots": { "Flyer": { "minimum": 1, "maximum": { "base": 5 } } }
-      }
+      },
+      "patrol": { "name": "Patrol Detachment", "kind": "Core", "slots": {} },
+      "vanguard": { "name": "Vanguard Detachment", "kind": "Core", "slots": {} },
+      "super-heavy-auxiliary": { "name": "Super-heavy Auxiliary Detachment", "kind": "Auxiliary", "slots": {} },
+      "fortification-network": { "name": "Fortification Network Detachment", "kind": "Auxiliary", "slots": {} }
    },
    "universalOptions": {
+      "warmaster": {
+         "name": "Warmaster",
+         "addsKeywords": ["WARMASTER"],
+         "availableWhen": {
+            "kind": "Count",
+            "scope": "Unit",
+            "of": { "kind": "Keyword", "keyword": "COMMANDER" },
+            "minimum": 1
+         }
+      },
       "commander": {
          "name": "Commander",
          "addsKeywords": ["COMMANDER"],
