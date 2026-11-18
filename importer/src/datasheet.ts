@@ -550,6 +550,12 @@ export class DatasheetConverter {
       return group?.maximum === 1 ? group : undefined;
    }
 
+   /** Whether the unit must take exactly one of the group's options and each is one of these, so a set always replaces the base. */
+   private alwaysTakesOneOf(group: OptionGroup, options: string[]): boolean {
+      const isRequired = typeof group.minimum === "number" && group.minimum >= 1;
+      return isRequired && group.options.every((option) => options.includes(option.id!));
+   }
+
    /** A group bound set or incremented by other options, as a limit counting them; a set needs options that exclude each other. */
    private setGroupBound(group: OptionGroup, bound: "minimum" | "maximum", constraint: Element, modifiers: FlatModifier[]): void {
       const constraintId = attribute(constraint, "id");
@@ -586,6 +592,12 @@ export class DatasheetConverter {
       const exclusive = new Set(setOptions.map((option) => this.exclusiveGroupOf(option)));
       if (setOptions.length > 0 && (exclusive.size !== 1 || exclusive.has(undefined) || exclusive.has(group))) {
          this.unhandled(constraint, `option group ${bound} set by options that do not exclude each other`);
+         return;
+      }
+      const [setGroup] = exclusive;
+      if (setGroup !== undefined && this.alwaysTakesOneOf(setGroup, setOptions)) base = 0;
+      if (base < 0) {
+         this.unhandled(constraint, `option group ${bound} with a negative base`);
          return;
       }
       const terms: LimitTerm[] = [];
