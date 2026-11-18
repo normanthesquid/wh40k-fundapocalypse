@@ -133,7 +133,7 @@ export function convertCondition(element: Element, context: ConditionContext): F
    const groupTargets = target === undefined ? context.choiceGroupTargets(childId) : undefined;
    if (groupTargets !== undefined) {
       const condition = choiceGroupCondition(scope, groupTargets, bounds);
-      if (condition === undefined) context.unhandled(element, `condition ${type} ${threshold} on a detachment choice group`);
+      if (condition === undefined) context.unhandled(element, `condition ${type} ${threshold} on a choice or option group`);
       return condition;
    }
    if (target === undefined) {
@@ -146,7 +146,7 @@ export function convertCondition(element: Element, context: ConditionContext): F
    return bounds.negate ? not(count) : count;
 }
 
-/** Taking a choice group is taking any one of its options, which the choice allows only one of. */
+/** Taking from a group is taking any one of its options; taking none is taking none of them. */
 function choiceGroupCondition(scope: CountScope, targets: CountTarget[], bounds: { minimum?: number; maximum?: number; negate: boolean }): Condition | undefined {
    const counts = (minimum: number | undefined, maximum: number | undefined): Condition[] =>
       targets.map((of) => ({ kind: "Count", scope, of, ...(minimum === undefined ? {} : { minimum }), ...(maximum === undefined ? {} : { maximum }) }));

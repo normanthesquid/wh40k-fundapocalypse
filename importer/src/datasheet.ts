@@ -2,7 +2,7 @@ import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
-import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, Option, OptionGroup } from "./model.ts";
+import type { BattlefieldRole, Condition, ConditionalChange, CostChange, CountTarget, Datasheet, LimitTerm, Option, OptionGroup } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { describeSource, MISSING_ROLES } from "./corrections.ts";
 import { UnitProfiles } from "./unitProfiles.ts";
@@ -42,6 +42,7 @@ export class DatasheetConverter {
    private readonly groupOf = new Map<OptionGroup, EntryView>();
    private readonly conditionalChanges = new Map<string, ConditionalChange>();
    private readonly unitProfiles: UnitProfiles;
+   private readonly costChanges: CostChange[] = [];
    private role: BattlefieldRole | undefined;
    private transport: string | undefined;
    private cost: number;
@@ -96,6 +97,7 @@ export class DatasheetConverter {
 
    private countTarget(childId: string): CountTarget | undefined {
       const local = this.slugs.byId.get(childId);
+      if (local !== undefined && this.slugs.groups.has(local)) return { kind: "OptionGroup", group: local };
       if (local !== undefined) return { kind: "Option", option: local };
       if (childId === MODEL_COUNT_ID) return this.modelOption();
       return this.catalogueTarget(childId) ?? this.conversion.globalCountTarget(this.builder, childId);
@@ -147,6 +149,7 @@ export class DatasheetConverter {
       if (this.abilities.size > 0) datasheet.abilities = [...this.abilities];
       if (this.transport !== undefined) datasheet.transport = this.transport;
       if (this.conditionalChanges.size > 0) datasheet.conditionalChanges = [...this.conditionalChanges.values()];
+      if (this.costChanges.length > 0) datasheet.costChanges = this.costChanges;
       const wargear = [...this.groups];
       if (this.loose.length > 0) wargear.push({ id: this.slugs.optionsGroup, name: "Upgrades", options: this.loose });
       if (wargear.length > 0) datasheet.wargear = wargear;
@@ -581,6 +584,16 @@ export class DatasheetConverter {
          if (modifier.field === POWER_LEVEL_TYPE_ID && option !== undefined && modifier.repeats.length === 0) {
             const delta = modifier.type === "set" ? Number(modifier.value) - baseCost : Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
             option.cost = (option.cost ?? 0) + delta;
+            continue;
+         }
+         if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.repeats.length === 0 && modifier.type !== "set") {
+            const amount = Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
+            if (modifier.condition === null) this.cost += amount;
+            else this.costChanges.push({ when: modifier.condition, increment: amount });
+            continue;
+         }
+         if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.repeats.length === 0 && modifier.condition !== null) {
+            this.costChanges.push({ when: modifier.condition, set: Number(modifier.value) });
             continue;
          }
          if (modifier.field === "name" && modifier.condition === null) continue;

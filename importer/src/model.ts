@@ -84,6 +84,7 @@ export type CountTarget =
    | { kind: "Keyword"; keyword: string }
    | { kind: "Role"; battlefieldRole: BattlefieldRole }
    | { kind: "Option"; option: string; datasheet?: string }
+   | { kind: "OptionGroup"; group: string }
    | { kind: "DetachmentChoice"; option: string }
    | { kind: "Detachment"; detachment: string }
    | { kind: "DetachmentKind"; detachmentKind: DetachmentKind }
@@ -171,6 +172,7 @@ export interface Datasheet {
    transport?: string;
    wargear?: OptionGroup[];
    conditionalChanges?: ConditionalChange[];
+   costChanges?: CostChange[];
    availableWhen?: Condition;
    maximumPerDetachment?: number;
    maximumPerArmy?: number;

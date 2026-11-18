@@ -29,6 +29,7 @@ const (
 	CountTargetKindKeyword          CountTargetKind = "Keyword"
 	CountTargetKindRole             CountTargetKind = "Role"
 	CountTargetKindOption           CountTargetKind = "Option"
+	CountTargetKindOptionGroup      CountTargetKind = "OptionGroup"
 	CountTargetKindDetachmentChoice CountTargetKind = "DetachmentChoice"
 	CountTargetKindDetachment       CountTargetKind = "Detachment"
 	CountTargetKindDetachmentKind   CountTargetKind = "DetachmentKind"
@@ -50,6 +51,7 @@ type CountTarget struct {
 	Datasheet  *string         `json:"datasheet"`
 	Keyword    string          `json:"keyword"`
 	Option     string          `json:"option"`
+	Group      string          `json:"group"`
 	Detachment string          `json:"detachment"`
 }
 
@@ -177,6 +179,7 @@ type Datasheet struct {
 	Abilities          []string            `json:"abilities"`
 	Wargear            []OptionGroup       `json:"wargear"`
 	ConditionalChanges []ConditionalChange `json:"conditionalChanges"`
+	CostChanges        []CostChange        `json:"costChanges"`
 	AlternativeRoles   []AlternativeRole   `json:"alternativeRoles"`
 	AvailableWhen      *Condition          `json:"availableWhen"`
 }

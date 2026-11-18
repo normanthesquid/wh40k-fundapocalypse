@@ -137,6 +137,9 @@ func (check *checker) checkDatasheet(where scope) {
 	}
 	check.checkAlternativeRoles(where, datasheet.AlternativeRoles)
 	check.checkCondition(where.at("availableWhen"), datasheet.AvailableWhen)
+	for index := range datasheet.CostChanges {
+		check.checkCondition(where.at("costChanges/%d/when", index), &datasheet.CostChanges[index].When)
+	}
 	for index, change := range datasheet.ConditionalChanges {
 		changeScope := where.at("conditionalChanges/%d", index)
 		check.checkWargearChanges(changeScope, change.WargearChanges, carrier{conditionalChange: index})

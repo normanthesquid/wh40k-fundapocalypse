@@ -80,6 +80,14 @@ func TestIntegrityRules(t *testing.T) {
 				option.CostChanges = []CostChange{{When: *count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})}}
 			})
 		}, `costChanges/0/when/of: option "nope" is not an option of its datasheet`},
+		{"option group target resolves", func(dataset *Dataset) {
+			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindOptionGroup, Group: "nope"}))
+		}, `option group "nope" is not an option group of its datasheet`},
+		{"datasheet cost change condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.CostChanges = []CostChange{{When: *count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})}}
+			})
+		}, `costChanges/0/when/of: option "nope" is not an option of its datasheet`},
 		{"per-army minimum above maximum", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) { option.MinimumPerArmy, option.MaximumPerArmy = pointer(3), pointer(2) })
 		}, "minimumPerArmy: minimum 3 is more than maximum 2"},

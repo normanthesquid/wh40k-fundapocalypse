@@ -28,6 +28,8 @@ export class OptionSlugs {
    readonly allIds = new Set<string>();
    /** Categories some entry below the unit adds, so the unit only has them when that entry is taken. */
    readonly optionalCategories = new Set<string>();
+   /** The slugs that name option groups rather than options. */
+   readonly groups = new Set<string>();
    readonly allocator = new SlugAllocator();
    readonly optionsGroup: string;
 
@@ -124,6 +126,7 @@ export class Conversion {
             for (const link of childView.categoryLinks) slugs.optionalCategories.add(attribute(link, "targetId"));
             const slug = slugs.allocator.allocate(childView.name);
             slugs.byId.set(childView.ids[0], slug);
+            if (childView.kind === "group") slugs.groups.add(slug);
             const target = childView.ids[childView.ids.length - 1];
             targetUses.set(target, (targetUses.get(target) ?? 0) + 1);
             if (!slugs.byId.has(target)) slugs.byId.set(target, slug);

@@ -252,6 +252,13 @@
                "additionalProperties": false
             },
             {
+               "description": "Everything taken from one of the same datasheet's option groups, e.g. its sponsons.",
+               "type": "object",
+               "properties": { "kind": { "const": "OptionGroup" }, "group": { "$ref": "#/$defs/slug" } },
+               "required": ["kind", "group"],
+               "additionalProperties": false
+            },
+            {
                "description": "An option of a catalogue's detachment choice, e.g. a faction filter.",
                "type": "object",
                "properties": { "kind": { "const": "DetachmentChoice" }, "option": { "$ref": "#/$defs/reference" } },

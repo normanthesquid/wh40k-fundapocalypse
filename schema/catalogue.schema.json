@@ -128,6 +128,11 @@
                "type": "array",
                "items": { "$ref": "#/$defs/conditionalChange" }
             },
+            "costChanges": {
+               "description": "Changes to the unit's cost while a condition holds, e.g. a power rating that rises once it takes any drones.",
+               "type": "array",
+               "items": { "$ref": "#/$defs/costChange" }
+            },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
             "maximumPerArmy": {
@@ -235,7 +240,7 @@
          "required": ["terms"]
       },
       "costChange": {
-         "description": "A change to an option's cost while `when` holds: `set` replaces it, `increment` adds to it. Changes apply in order.",
+         "description": "A change to a datasheet's or option's cost while `when` holds: `set` replaces it, `increment` adds to it. Changes apply in order.",
          "type": "object",
          "properties": {
             "when": { "$ref": "common.schema.json#/$defs/condition" },
