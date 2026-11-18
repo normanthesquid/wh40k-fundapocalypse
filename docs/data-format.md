@@ -77,7 +77,7 @@ BattleScribe hides and shows entries with modifiers and nested conditions. Here,
 
 It's used by `availableWhen` on datasheets, links, options, detachments and detachment abilities, and by `alternativeRoles` (e.g. Khorne Berserkers becoming Troops).
 
-A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Auxiliary detachment. Slot maximums, detachments per army, and keyword maximums (one Commander per detachment, one Warmaster per army) are all limits. A keyword limit can also set a `minimum`, e.g. a Supreme Command must include a WARMASTER.
+A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Supreme Command, Super-heavy Auxiliary, Patrol or Fortification Network detachment. Slot maximums, detachments per army, and keyword maximums (one Commander per detachment, one Warmaster per army) are all limits. A keyword limit can also set a `minimum`, e.g. a Supreme Command must include a WARMASTER.
 
 `game-system.schema.json` reuses the catalogue's `option` for universal options, so a validator loads all three schemas together.
 
