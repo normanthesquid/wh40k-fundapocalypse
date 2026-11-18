@@ -42,6 +42,8 @@ export class DatasheetConverter {
    private readonly optionsBySlug = new Map<string, Option>();
    private readonly deferred: (() => void)[] = [];
    private readonly optionProfiles: OptionProfile[] = [];
+   /** The unit's own profiles that are hidden while a condition holds. */
+   private readonly hiddenProfiles: { profile: ModelProfile; hiddenWhen: Condition }[] = [];
    private readonly groupOf = new Map<OptionGroup, EntryView>();
    private readonly conditionalChanges = new Map<string, ConditionalChange>();
    private role: BattlefieldRole | undefined;
@@ -115,6 +117,7 @@ export class DatasheetConverter {
       this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, true);
       this.addProfiles(view, undefined);
       this.addChildren(view, undefined);
+      this.resolveHiddenProfiles();
       this.resolveOptionProfiles();
       if (this.profiles.length === 0) this.addMissingProfile();
       this.applyUnitModifiers(modifiers);
@@ -345,8 +348,46 @@ export class DatasheetConverter {
          this.optionProfiles.push({ option, profile, element: target, conditional });
          return;
       }
-      this.profiles.push(profile);
-      for (const modifier of conditional) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
+      const hiding = conditional.filter((modifier) => modifier.field === "hidden" && modifier.type === "set" && modifier.value === "true");
+      if (hiding.length === 1) this.hiddenProfiles.push({ profile, hiddenWhen: hiding[0].condition! });
+      else this.profiles.push(profile);
+      for (const modifier of conditional.filter((candidate) => !hiding.includes(candidate))) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
+   }
+
+   /** The option whose taking hides `profile` changes it to the option's own profile instead of adding that as another model. */
+   private replaceHiddenProfile(profile: ModelProfile, hiddenWhen: Condition, element: Element): void {
+      const taken = this.optionTaken(hiddenWhen);
+      const replacements = this.optionProfiles.filter((entry) => entry.option.id === taken);
+      if (replacements.length !== 1) {
+         this.unhandled(element, "profile hidden by a condition that is not one option with its own profile");
+         return;
+      }
+      const [replacement] = replacements;
+      this.optionProfiles.splice(this.optionProfiles.indexOf(replacement), 1);
+      const set = profileDifferences(profile, replacement.profile, (field) => this.unhandled(replacement.element, `replacement profile without the ${field} it replaces`));
+      this.deferred.push(() => {
+         const forProfile = this.profiles.length > 1 || !this.profiles.some((existing) => existing.name === profile.name) ? profile.name : undefined;
+         if (Object.keys(set).length > 0) (replacement.option.profileChanges ??= []).push(forProfile === undefined ? { set } : { profile: forProfile, set });
+      });
+      for (const modifier of replacement.conditional) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
+   }
+
+   /** A profile hidden while an option is taken gives way to that option's own profile; several hidden in turn are one profile per model count. */
+   private resolveHiddenProfiles(): void {
+      if (this.hiddenProfiles.length === 0) return;
+      if (this.hiddenProfiles.length === 1) {
+         const [{ profile, hiddenWhen }] = this.hiddenProfiles;
+         this.profiles.push(profile);
+         this.replaceHiddenProfile(profile, hiddenWhen, this.view.element);
+         return;
+      }
+      const [first, ...others] = this.hiddenProfiles;
+      const base = { ...first.profile, name: baseProfileName(first.profile.name) };
+      this.profiles.push(base);
+      for (const { profile, hiddenWhen } of others) {
+         const set = profileDifferences(base, profile, (field) => this.unhandled(this.view.element, `profile ${profile.name} without the ${field} the others have`));
+         if (Object.keys(set).length > 0) (this.conditionalChange(not(hiddenWhen)).profileChanges ??= []).push({ set });
+      }
    }
 
    private addProfileChange(modifier: FlatModifier, profileName: string, required?: Condition): void {
@@ -628,6 +669,12 @@ export class DatasheetConverter {
 
    /** Unit-size options that each carry the whole unit's profile: the default size's becomes the datasheet's, the others change it. */
    private resolveOptionProfiles(): void {
+      for (const entry of [...this.optionProfiles]) {
+         const hiding = entry.conditional.filter((modifier) => modifier.field === "hidden" && modifier.type === "set" && modifier.value === "true");
+         if (hiding.length !== 1 || !this.optionProfiles.includes(entry)) continue;
+         this.optionProfiles[this.optionProfiles.indexOf(entry)] = { ...entry, conditional: entry.conditional.filter((modifier) => modifier !== hiding[0]) };
+         this.replaceHiddenProfile(entry.profile, hiding[0].condition!, entry.element);
+      }
       const byOption = new Map<Option, OptionProfile[]>();
       for (const entry of this.optionProfiles) byOption.set(entry.option, [...(byOption.get(entry.option) ?? []), entry]);
       const isUnitSize = (group: OptionGroup) => group.options.every((option) => byOption.get(option)?.length === 1);
@@ -642,14 +689,7 @@ export class DatasheetConverter {
          for (const option of group.options) {
             if (option === baseOption) continue;
             const { profile, element } = byOption.get(option)![0];
-            const set: ProfileValues = {};
-            for (const key of new Set([...Object.keys(base), ...Object.keys(profile)])) {
-               if (key === "name") continue;
-               const field = key as keyof ProfileValues;
-               if (JSON.stringify(base[field]) === JSON.stringify(profile[field])) continue;
-               if (profile[field] === undefined) this.unhandled(element, `unit-size profile without the ${field} the default size has`);
-               else (set as Record<string, unknown>)[field] = profile[field];
-            }
+            const set = profileDifferences(base, profile, (field) => this.unhandled(element, `unit-size profile without the ${field} the default size has`));
             if (Object.keys(set).length > 0) (option.profileChanges ??= []).push({ set });
             byOption.delete(option);
          }
@@ -716,6 +756,19 @@ interface OptionProfile {
 const MODEL_COUNT_ID = "model";
 
 const SIZE_SUFFIX = /\s*\(\s*\d+(\s*-\s*\d+)?\s+models?\s*\)\s*$/i;
+
+/** The characteristics `other` gives differently from `base`, reporting any it lacks. */
+function profileDifferences(base: ModelProfile, other: ModelProfile, reportMissing: (field: keyof ProfileValues) => void): ProfileValues {
+   const set: ProfileValues = {};
+   for (const key of new Set([...Object.keys(base), ...Object.keys(other)])) {
+      if (key === "name") continue;
+      const field = key as keyof ProfileValues;
+      if (JSON.stringify(base[field]) === JSON.stringify(other[field])) continue;
+      if (other[field] === undefined) reportMissing(field);
+      else (set as Record<string, unknown>)[field] = other[field];
+   }
+   return set;
+}
 
 function baseProfileName(name: string): string {
    return name.replace(SIZE_SUFFIX, "");
