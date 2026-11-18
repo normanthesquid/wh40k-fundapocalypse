@@ -1,5 +1,7 @@
 /** Values the v1.10.0 data has wrong or lacks, taken from the official Apocalypse datasheets and the maintainer's checks of them. */
 
+import type { BattlefieldRole } from "./model.ts";
+
 export type UnitCharacteristic = "M" | "WS" | "BS" | "A" | "W" | "Ld" | "Sv";
 export type WeaponCharacteristic = "Type" | "Range" | "A" | "SAP" | "SAT";
 
@@ -138,6 +140,19 @@ export const PROFILELESS_DATASHEETS: readonly { readonly unitId: string; readonl
    { unitId: "5667-2d59-4000-4303", name: "Tectonic Fragdrill", source: pdf("Genestealers", 29) },
    { unitId: "646a-f716-9cdf-247b", name: "Feculent Gnarlmaw", source: pdf("Legiones_Daemonica", 49) },
    { unitId: "03eb-2033-4a6c-669a", name: "Skull Altar", source: pdf("Legiones_Daemonica", 50) },
+];
+
+const MINISTORUM: Source = { document: "f803d0c4.pdf (Adeptus Ministorum)" };
+const ministorum = (page: number): Source => ({ ...MINISTORUM, page });
+
+/** Battlefield roles the data lacks, read from the role icon on the official datasheet. */
+export const MISSING_ROLES: readonly { readonly unitId: string; readonly name: string; readonly role: BattlefieldRole; readonly source: Source }[] = [
+   { unitId: "ef0f-f67c-da10-8dcf", name: "Geminae Superia", role: "Elites", source: ministorum(3) },
+   { unitId: "4c42-09d7-f233-74e0", name: "Mistress of Repentance", role: "Elites", source: ministorum(14) },
+   { unitId: "0e13-ead1-f97f-e444", name: "Crusaders", role: "Elites", source: ministorum(24) },
+   { unitId: "428a-591c-d180-58b4", name: "Death Cult Assassins", role: "Elites", source: ministorum(25) },
+   { unitId: "9767-fee3-b260-d67f", name: "Arco-flagellants", role: "Elites", source: ministorum(26) },
+   { unitId: "d968-ea96-4863-9ddf", name: "Mutoid Vermin", role: "FastAttack", source: pdf("Gellerpox_Infected", 5) },
 ];
 
 export function describeSource(source: Source): string {

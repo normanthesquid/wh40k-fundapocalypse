@@ -4,7 +4,7 @@ import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type Op
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { describeSource, MISSING_PROFILES, PROFILELESS_DATASHEETS, SIZED_PROFILES } from "./corrections.ts";
+import { describeSource, MISSING_PROFILES, MISSING_ROLES, PROFILELESS_DATASHEETS, SIZED_PROFILES } from "./corrections.ts";
 import { CHARACTERISTIC_TYPE_IDS, isDroppedProfile, parseCharacteristic, profileFromCharacteristics, take, UNIT_CHARACTERISTICS, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
 
@@ -120,6 +120,7 @@ export class DatasheetConverter {
       for (const apply of this.deferred) apply();
       this.addSizedProfiles();
       if (this.role === undefined) this.role = this.roleFromLinks();
+      if (this.role === undefined) this.role = this.roleFromCorrections();
       if (this.role === undefined) this.unhandled(view.element, "no primary battlefield role");
       if (this.profiles.length === 0) this.checkProfileless();
       if (this.failed || this.role === undefined) return undefined;
@@ -157,6 +158,13 @@ export class DatasheetConverter {
       const [mostCommon] = [...tally].sort((left, right) => right[1] - left[1]);
       if (mostCommon !== undefined) this.conversion.report.recordCorrection(this.view.element, `no role of its own: takes ${mostCommon[0]} from its faction links`);
       return mostCommon?.[0];
+   }
+
+   /** The correction table's role for a unit neither it nor its links give one. */
+   private roleFromCorrections(): BattlefieldRole | undefined {
+      const missing = MISSING_ROLES.find((entry) => this.view.ids.includes(entry.unitId));
+      if (missing !== undefined) this.conversion.report.recordCorrection(this.view.element, `battlefield role ${missing.role} added (${describeSource(missing.source)})`);
+      return missing?.role;
    }
 
    private addCategories(links: Element[], keywords: Set<string>, factionKeywords: Set<string>, isUnit: boolean): void {
