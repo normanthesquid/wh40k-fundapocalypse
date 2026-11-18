@@ -4,19 +4,19 @@
    "title": "Shared Fundapocalypse definitions",
    "$defs": {
       "slug": {
-         "description": "A stable id, unique within its kind in one catalogue. Never changes on rename.",
+         "description": "A stable id. Unique across every kind of entry in one catalogue (or the game system); never changes on rename.",
          "type": "string",
          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
       },
       "reference": {
-         "description": "A reference to an entry: a bare slug in the same catalogue (or the game system), or `catalogue-id/slug` in another.",
+         "description": "A bare slug in the same catalogue or the game system, or `catalogue-id/slug` in an imported catalogue.",
          "type": "string",
          "pattern": "^([a-z0-9]+(-[a-z0-9]+)*/)?[a-z0-9]+(-[a-z0-9]+)*$"
       },
       "keyword": {
-         "description": "A keyword as printed, e.g. `INFANTRY` or `<CHAPTER>`.",
+         "description": "A keyword as printed, e.g. `INFANTRY`, `<CHAPTER>` or `Commander (T'au)`.",
          "type": "string",
-         "pattern": "^[A-Z0-9<>'’ -]+$"
+         "pattern": "^\\S(.*\\S)?$"
       },
       "skillTarget": {
          "description": "The D6 result needed to hit (WS, BS), e.g. 3 for `3+`.",
@@ -51,6 +51,27 @@
       "weaponType": {
          "enum": ["SmallArms", "Heavy", "Melee"]
       },
+      "detachmentKind": {
+         "description": "Core detachments unlock Auxiliary ones.",
+         "enum": ["Core", "Auxiliary"]
+      },
+      "dice": {
+         "description": "A dice roll, e.g. `2D3` is count 2, sides 3.",
+         "type": "object",
+         "properties": {
+            "kind": { "const": "Dice" },
+            "count": { "type": "integer", "minimum": 1 },
+            "sides": { "enum": [3, 6] }
+         },
+         "required": ["kind", "count", "sides"],
+         "additionalProperties": false
+      },
+      "fixed": {
+         "type": "object",
+         "properties": { "kind": { "const": "Fixed" }, "value": { "type": "integer", "minimum": 0 } },
+         "required": ["kind", "value"],
+         "additionalProperties": false
+      },
       "movement": {
          "oneOf": [
             {
@@ -79,14 +100,13 @@
             }
          ]
       },
+      "unitAttacks": {
+         "oneOf": [{ "$ref": "#/$defs/fixed" }, { "$ref": "#/$defs/dice" }]
+      },
       "weaponAttacks": {
          "oneOf": [
-            {
-               "type": "object",
-               "properties": { "kind": { "const": "Fixed" }, "value": { "type": "integer", "minimum": 0 } },
-               "required": ["kind", "value"],
-               "additionalProperties": false
-            },
+            { "$ref": "#/$defs/fixed" },
+            { "$ref": "#/$defs/dice" },
             {
                "description": "Printed as `User`: the bearer's own Attacks.",
                "type": "object",
@@ -100,48 +120,54 @@
                "properties": { "kind": { "const": "UserMultiplied" }, "multiplier": { "type": "integer", "minimum": 2 } },
                "required": ["kind", "multiplier"],
                "additionalProperties": false
+            }
+         ]
+      },
+      "weaponRange": {
+         "oneOf": [
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "Inches" }, "inches": { "type": "integer", "minimum": 1 } },
+               "required": ["kind", "inches"],
+               "additionalProperties": false
             },
             {
-               "description": "Printed as `2D6`.",
+               "description": "Printed as `*`: the weapon's text gives the range.",
                "type": "object",
-               "properties": {
-                  "kind": { "const": "Dice" },
-                  "count": { "type": "integer", "minimum": 1 },
-                  "sides": { "enum": [3, 6] }
-               },
-               "required": ["kind", "count", "sides"],
+               "properties": { "kind": { "const": "Special" } },
+               "required": ["kind"],
                "additionalProperties": false
             }
          ]
       },
       "modelProfile": {
-         "description": "One model profile. A skill or Leadership printed as `-` is left out.",
+         "description": "One model profile. A characteristic printed as `-` is left out.",
          "type": "object",
          "properties": {
             "name": { "type": "string", "minLength": 1 },
             "movement": { "$ref": "#/$defs/movement" },
             "weaponSkill": { "$ref": "#/$defs/skillTarget" },
             "ballisticSkill": { "$ref": "#/$defs/skillTarget" },
-            "attacks": { "type": "integer", "minimum": 0 },
+            "attacks": { "$ref": "#/$defs/unitAttacks" },
             "wounds": { "type": "integer", "minimum": 1 },
             "leadership": { "type": "integer", "minimum": 1 },
             "save": { "$ref": "#/$defs/twoDiceTarget" }
          },
-         "required": ["name", "movement", "attacks", "wounds", "save"],
+         "required": ["name", "movement", "wounds", "save"],
          "additionalProperties": false
       },
       "profileChange": {
          "description": "How a wargear option changes a model profile. `set` replaces values; `increment` adds to them (negative to decrease).",
          "type": "object",
          "properties": {
-            "profile": { "description": "The profile's name; all profiles when left out.", "type": "string" },
+            "profile": { "description": "The profile's name; every profile when left out.", "type": "string" },
             "set": {
                "type": "object",
                "properties": {
                   "movement": { "$ref": "#/$defs/movement" },
                   "weaponSkill": { "$ref": "#/$defs/skillTarget" },
                   "ballisticSkill": { "$ref": "#/$defs/skillTarget" },
-                  "attacks": { "type": "integer", "minimum": 0 },
+                  "attacks": { "$ref": "#/$defs/unitAttacks" },
                   "wounds": { "type": "integer", "minimum": 1 },
                   "leadership": { "type": "integer", "minimum": 1 },
                   "save": { "$ref": "#/$defs/twoDiceTarget" }
@@ -176,29 +202,30 @@
          "additionalProperties": false
       },
       "weapon": {
-         "description": "A weapon profile. Range is left out for melee weapons; a damage roll printed as `-` is left out.",
+         "description": "A weapon profile. Range is left out for melee weapons; a value printed as `-` is left out.",
          "type": "object",
          "properties": {
             "name": { "type": "string", "minLength": 1 },
             "type": { "$ref": "#/$defs/weaponType" },
-            "range": { "type": "integer", "minimum": 1 },
+            "range": { "$ref": "#/$defs/weaponRange" },
             "attacks": { "$ref": "#/$defs/weaponAttacks" },
             "antiPersonnel": { "description": "SAP: the roll to damage infantry-type targets.", "$ref": "#/$defs/twoDiceTarget" },
             "antiTank": { "description": "SAT: the roll to damage vehicle-type targets.", "$ref": "#/$defs/twoDiceTarget" },
-            "text": { "description": "Any special rules printed with the weapon.", "type": "string" }
+            "text": { "description": "Special rules printed with the weapon.", "type": "string", "minLength": 1 }
          },
-         "required": ["name", "type", "attacks"],
+         "required": ["name", "type"],
          "if": { "properties": { "type": { "const": "Melee" } } },
          "then": { "not": { "properties": { "range": true }, "required": ["range"] } },
          "else": { "properties": { "range": true }, "required": ["range"] },
          "additionalProperties": false
       },
       "countTarget": {
+         "description": "What a condition or a limit counts.",
          "oneOf": [
             {
                "type": "object",
-               "properties": { "kind": { "const": "Entry" }, "entry": { "$ref": "#/$defs/reference" } },
-               "required": ["kind", "entry"],
+               "properties": { "kind": { "const": "Datasheet" }, "datasheet": { "$ref": "#/$defs/reference" } },
+               "required": ["kind", "datasheet"],
                "additionalProperties": false
             },
             {
@@ -208,13 +235,51 @@
                "additionalProperties": false
             },
             {
-               "description": "A wargear option of the same datasheet, by its slug.",
                "type": "object",
-               "properties": { "kind": { "const": "Option" }, "option": { "$ref": "#/$defs/slug" } },
+               "properties": { "kind": { "const": "Role" }, "battlefieldRole": { "$ref": "#/$defs/battlefieldRole" } },
+               "required": ["kind", "battlefieldRole"],
+               "additionalProperties": false
+            },
+            {
+               "description": "A wargear option. Without `datasheet`, an option of the same datasheet.",
+               "type": "object",
+               "properties": {
+                  "kind": { "const": "Option" },
+                  "option": { "$ref": "#/$defs/slug" },
+                  "datasheet": { "$ref": "#/$defs/reference" }
+               },
                "required": ["kind", "option"],
+               "additionalProperties": false
+            },
+            {
+               "description": "An option of a catalogue's detachment choice, e.g. a faction filter.",
+               "type": "object",
+               "properties": { "kind": { "const": "DetachmentChoice" }, "option": { "$ref": "#/$defs/reference" } },
+               "required": ["kind", "option"],
+               "additionalProperties": false
+            },
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "Detachment" }, "detachment": { "$ref": "#/$defs/slug" } },
+               "required": ["kind", "detachment"],
+               "additionalProperties": false
+            },
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "DetachmentKind" }, "detachmentKind": { "$ref": "#/$defs/detachmentKind" } },
+               "required": ["kind", "detachmentKind"],
+               "additionalProperties": false
+            },
+            {
+               "type": "object",
+               "properties": { "kind": { "const": "AnyUnit" } },
+               "required": ["kind"],
                "additionalProperties": false
             }
          ]
+      },
+      "countScope": {
+         "enum": ["Unit", "Detachment", "Army"]
       },
       "condition": {
          "description": "When something is available or applies. Built from counts combined with All, Any and Not.",
@@ -224,7 +289,7 @@
                "type": "object",
                "properties": {
                   "kind": { "const": "Count" },
-                  "scope": { "enum": ["Unit", "Detachment", "Army"] },
+                  "scope": { "$ref": "#/$defs/countScope" },
                   "of": { "$ref": "#/$defs/countTarget" },
                   "minimum": { "type": "integer", "minimum": 0 },
                   "maximum": { "type": "integer", "minimum": 0 }
@@ -258,6 +323,37 @@
                "additionalProperties": false
             }
          ]
+      },
+      "limit": {
+         "description": "A number that can grow or shrink with the army: `base` plus `amount` for each `per` counted in `scope`, never below 0.",
+         "type": "object",
+         "properties": {
+            "base": { "type": "integer", "minimum": 0 },
+            "terms": {
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "properties": {
+                     "per": { "$ref": "#/$defs/countTarget" },
+                     "scope": { "$ref": "#/$defs/countScope" },
+                     "amount": { "type": "integer" }
+                  },
+                  "required": ["per", "scope", "amount"],
+                  "additionalProperties": false
+               },
+               "minItems": 1
+            }
+         },
+         "required": ["base"],
+         "additionalProperties": false
+      },
+      "keywordChanges": {
+         "description": "Keywords an option, a link or a choice adds.",
+         "type": "object",
+         "properties": {
+            "addsFactionKeywords": { "type": "array", "items": { "$ref": "#/$defs/keyword" }, "uniqueItems": true },
+            "addsKeywords": { "type": "array", "items": { "$ref": "#/$defs/keyword" }, "uniqueItems": true }
+         }
       }
    }
 }

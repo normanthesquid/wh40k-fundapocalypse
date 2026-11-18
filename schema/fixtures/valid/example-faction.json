@@ -1,0 +1,35 @@
+{
+   "$schema": "../../catalogue.schema.json",
+   "id": "example-faction",
+   "name": "Example faction (illustrative values, not real data)",
+   "kind": "Faction",
+   "imports": ["example-library"],
+   "datasheetLinks": {
+      "example-squad": {
+         "datasheet": "example-library/example-squad",
+         "battlefieldRole": "Troops",
+         "addsFactionKeywords": ["EXAMPLE CHAPTER"],
+         "alternativeRoles": [
+            {
+               "battlefieldRole": "Elites",
+               "when": { "kind": "Count", "scope": "Detachment", "of": { "kind": "Detachment", "detachment": "vanguard" }, "minimum": 1 }
+            }
+         ]
+      }
+   },
+   "detachmentAbilities": {
+      "example-rally": {
+         "ability": "example-rally",
+         "availableWhen": {
+            "kind": "All",
+            "conditions": [
+               { "kind": "Count", "scope": "Detachment", "of": { "kind": "Detachment", "detachment": "battalion" }, "minimum": 1 },
+               { "kind": "Count", "scope": "Detachment", "of": { "kind": "AnyUnit" }, "minimum": 3 }
+            ]
+         }
+      }
+   },
+   "abilities": {
+      "example-rally": { "name": "Example Rally", "text": "An illustrative detachment rule." }
+   }
+}

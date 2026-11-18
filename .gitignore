@@ -19,8 +19,10 @@
 # Don't ignore .yml for CI build definitions
 !*.yml
 
-# Don't ignore the JSON schema, its fixtures and the format docs (FUN-70)
+# Don't ignore the JSON schema and fixtures, the format docs and the converted data (FUN-70)
 !/schema/
 !/schema/**
 !/docs/
 !/docs/**
+!/data/
+!/data/**

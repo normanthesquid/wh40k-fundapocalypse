@@ -1,6 +1,6 @@
 # Fundapocalypse data format
 
-BSData, the upstream of these catalogues, has been taken down. That frees Fundapocalypse from BattleScribe's format and tools, so from `v2.0.0` onwards the rules are plain JSON validated by JSON Schema (draft 2020-12). This document describes that format and how each BattleScribe construct maps onto it. The plan is tracked in fundamalleus's Pragmatik project, under initiative `006 - Fundapocalypse rules data format` (stage 1 is FUN-70).
+BSData, the upstream of these catalogues, has been taken down. That frees Fundapocalypse from BattleScribe's format and tools, so from `v2.0.0` onwards the rules are plain JSON validated by JSON Schema (draft 2020-12). This document describes that format and how each BattleScribe construct maps onto it. The plan is tracked in fundamalleus's Pragmatik project, under initiative `006 - Fundapocalypse rules data format` (this stage is FUN-70).
 
 `v1.10.0` is the last BattleScribe release and stays tagged as the rollback point.
 
@@ -8,23 +8,38 @@ BSData, the upstream of these catalogues, has been taken down. That frees Fundap
 
 ```
 schema/
-  common.schema.json       shared types: ids, profiles, weapons, conditions
-  game-system.schema.json  detachments, universal abilities, release version
+  common.schema.json       shared types: ids, profiles, weapons, conditions, limits
+  game-system.schema.json  detachments, universal options, keyword limits, release version
   catalogue.schema.json    a faction or a shared library
-  fixtures/valid/          hand-converted examples that must validate
-  fixtures/invalid/        examples that must be rejected
+  fixtures/valid/          examples that must validate
+  fixtures/invalid/        examples that must be rejected, each for the reason in its name
 data/                      (from v2.0.0, written by the one-time importer in stage 3)
   game-system.json
   catalogues/<catalogue-id>.json
 ```
 
+In `fixtures/valid/`, `agents-of-the-imperium.json`, `weapons.json` and `game-system.json` are converted by hand from `v1.10.0`, with the real values. `example-library.json` and `example-faction.json` are illustrative and exist to exercise library links, alternative roles and detachment abilities.
+
 ## Ids and references
 
-Every datasheet, weapon, ability, warmaster trait, detachment and wargear option has a **slug** (`lascannon`, `ordo-hereticus`). It is unique within its kind in one catalogue, and **it never changes**, even when the name does, because army lists and rules proposals in fundamalleus store it. Retiring an entry removes the slug; it is never reused for something else.
+Every entry has a **slug** (`lascannon`, `ordo-malleus`):
+* datasheets, datasheet links, weapons, abilities, warmaster traits and detachment choices in a catalogue;
+* detachments and universal options in the game system;
+* option groups and options within a datasheet.
 
-A **reference** is a bare slug when the target is in the same catalogue or in the game system, and `catalogue-id/slug` when it's in another catalogue. That other catalogue must be listed in `imports`. The global id of an entry, as stored by fundamalleus, is always `catalogue-id/slug`.
+**A slug never changes**, even when the name does, because army lists and rules proposals in fundamalleus store it. Retiring an entry removes its slug; it is never reused.
 
-Keyed objects (`"datasheets": { "inquisitor": { ... } }`) make duplicate ids impossible by construction.
+| What | Unique within | Global id stored by fundamalleus |
+|---|---|---|
+| Catalogue entries (all kinds together) | the catalogue | `catalogue-id/slug` |
+| Game-system entries (all kinds together) | the game system | `slug` |
+| Option groups and options (all groups together) | the datasheet | the datasheet's id plus the option slug |
+
+A **reference** is a bare slug when the target is in the same catalogue or the game system, and `catalogue-id/slug` when it's in another catalogue, which must be listed in `imports`.
+
+### Library datasheets
+
+`imports` makes a library's entries referenceable but fields no units by itself. A faction lists each library datasheet it fields in `datasheetLinks`. The link can replace the battlefield role or cost and add faction keywords, keywords, abilities, alternative roles and an `availableWhen`. The link's own slug is the unit's id in that faction, so `dark-angels/tactical-squad` and `space-wolves/tactical-squad` stay distinct while sharing one library datasheet. A change to that library datasheet reaches every faction that links it.
 
 ## Typed values
 
@@ -37,33 +52,46 @@ The printed characteristics become typed values, so tools never parse text:
 | `-` for M | `{ "kind": "Immobile" }` |
 | `3+` for WS or BS | `3` (a D6 roll, 2–6) |
 | `8+` for Sv, SAP or SAT | `8` (a 2D6 roll, 2–12) |
-| `-` for a skill, Leadership, SAP or SAT | the field is left out, never a placeholder |
-| Weapon `A`: `2`, `User`, `x2`, `2D6` | `Fixed`, `User`, `UserMultiplied`, `Dice` |
+| Unit `A`: `3`, `D3`, `2D3` | `{ "kind": "Fixed", "value": 3 }`, `{ "kind": "Dice", "count": 1, "sides": 3 }`, ... |
+| Weapon `A`: `2`, `User`, `x2` | `Fixed`, `User`, `UserMultiplied` (`Dice` is allowed; no weapon used it in `v1.10.0`) |
+| Weapon `Range`: `48"`, `*`, `Melee` | `{ "kind": "Inches", "inches": 48 }`, `{ "kind": "Special" }` (see the weapon's text), left out for melee |
+| `-` for a skill, Attacks, Leadership, SAP or SAT | the field is left out, never a placeholder value |
 | Weapon `Type` | `SmallArms`, `Heavy` or `Melee` |
-| Weapon `Range` | inches; left out for melee weapons |
 | Battlefield role | `HQ`, `Troops`, `Elites`, `FastAttack`, `HeavySupport`, `Flyer`, `DedicatedTransport`, `LordOfWar`, `Fortification`, `NoForceOrgSlot` |
 
 Typos in the current data (`Mele`, `Smaill Arms`, a WS of `26`) are fixed by the importer and listed in its fidelity report.
 
-## Conditions
+## Conditions and limits
 
-BattleScribe hides and shows entries with modifiers and nested conditions. Here, availability is a small typed `condition`:
+BattleScribe hides and shows entries with modifiers and nested conditions. Here, a typed `condition` decides availability:
 
-* `Count`: how many of an entry, a keyword or a wargear option the unit, detachment or army contains, between an optional `minimum` and `maximum`. "Not taken" is `maximum: 0`.
-* `PrimaryFaction`: the army's primary faction.
-* `All`, `Any` and `Not` combine conditions.
+* **`Count`:** how many of something the unit, detachment or army contains, between an optional `minimum` and `maximum`. It can count a datasheet, a keyword, a battlefield role, a wargear option, a detachment choice (e.g. a faction filter), a detachment type, a detachment kind, or any unit. "Not taken" is `maximum: 0`.
+* **`PrimaryFaction`:** the army's primary faction.
+* **`All`, `Any` and `Not`** combine conditions.
 
-`availableWhen` on a datasheet or a wargear option uses it. For example, Terminator Armour is only available when the unit hasn't taken Ordo Hereticus.
+It's used by `availableWhen` on datasheets, links, options, detachments and detachment abilities, and by `alternativeRoles` (e.g. Khorne Berserkers becoming Troops).
+
+A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Auxiliary detachment. Slot maximums, detachments per army, and keyword limits (one Commander per detachment, one Warmaster per army) are all limits.
+
+## Integrity rules
+
+JSON Schema checks each file's shape. These rules span entries or files, so stage 2's CI checks them in its own validator:
+
+1. Slugs are unique across every kind within a catalogue, and within the game system. Option slugs are unique across all option groups of a datasheet. Profile names are unique within a datasheet.
+2. Every reference resolves. A `catalogue-id/` reference only points into an imported catalogue, and a `datasheetLinks` target is a library datasheet.
+3. An option group's `default` is one of its options.
+4. `minimum` ≤ `maximum` wherever both appear, including movement ranges.
+5. `game-system.json`'s `release` matches the tag being released.
 
 ## Revisions are computed, not stored
 
-fundamalleus flags saved army lists whose units changed in a new release (007 Stage 5). It does this with a hash of each datasheet section, computed by tooling from the canonical JSON (keys sorted, references resolved):
+fundamalleus flags saved army lists whose units changed in a new release (007 Stage 5). It does this with a hash of each datasheet section. Tooling computes the hash from the canonical JSON: references are resolved to their full content (weapon profiles, ability text), library links are merged, keys are sorted, and keyword and ability lists are sorted, so reordering them is not a change.
 
-* **profile:** profiles, keywords, faction keywords, abilities, and the resolved default weapons;
-* **wargear:** the option groups, with their resolved weapons and abilities;
-* **cost:** the base cost and every option cost.
+* **cost:** the base cost, and every option's cost.
+* **wargear:** the option groups and options, without their costs.
+* **profile:** everything else: profiles, keywords, abilities, default weapons, transport, battlefield role, alternative roles, availability and limits.
 
-Because the hashes are derived, nobody maintains them by hand, and a change to a shared library weapon changes the hash of every datasheet that uses it.
+Because the hashes are derived, nobody maintains them by hand, and a change to a shared library weapon or ability changes the hash of every datasheet that uses it.
 
 ## Releases
 
@@ -73,34 +101,37 @@ Because the hashes are derived, nobody maintains them by hand, and a change to a
 
 From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 
-| BattleScribe construct | Count (— where the survey grouped it differently) | In this format |
+| BattleScribe construct | Count | In this format |
 |---|---|---|
 | `gameSystem` | 1 | `game-system.json` |
 | `catalogue` | 38 | one file each under `data/catalogues/`; the 5 `Library - *` files become `kind: Library` |
-| `catalogueLink` | 35 | `imports` |
+| `catalogueLink` (all `importRootEntries`) | 35 | `imports`, plus a `datasheetLinks` entry for each library datasheet the faction fields |
 | `costType` (PL only) | 1 | `cost` (an integer Power Level) |
-| `profileType` Unit | — | `profiles` (`modelProfile`) |
-| `profileType` Weapons | — | `weapons` map, referenced by slug |
-| `profileType` Abilities | — | `abilities` map, referenced by slug |
+| `profileType` Unit / Weapons / Abilities | — | `profiles` / `weapons` / `abilities` |
 | `profileType` Transport | — | `transport` (the printed rule as text) |
 | `profileType` Warmaster Trait | — | `warmasterTraits` |
 | `characteristic` | 25,806 | typed fields (see "Typed values") |
-| `forceEntry` | 21 | `detachments`, with `slots` per battlefield role |
+| `forceEntry` | 21 | 11 `detachments`; the other 10 are each detachment's nested child force of the same name, merged into it |
+| Detachment `rule` (e.g. Objective Secured) | — | detachment `abilities` |
+| `.gst` upgrades Commander, Warmaster, Warlord | 14 | `universalOptions`, capped by `keywordLimits` / `armyKeywordLimits` |
 | `categoryEntry` / `categoryLink` | 1,583 / 12,191 | battlefield-role categories become `battlefieldRole`; `Faction: *` become `factionKeywords`; the rest become `keywords` |
-| `selectionEntry` type `unit` or `model` | 1,459 | `datasheets` |
+| `categoryLink` changed by `add`/`remove`/`set-primary` modifiers | 10 | `alternativeRoles` or `addsKeywords` |
+| `selectionEntry` type `unit` | 1,235 | `datasheets` |
+| `selectionEntry` type `model` | 224 | per-model and unit-size options inside a datasheet (e.g. a `unit-size` option group), or a profile |
 | `selectionEntry` type `upgrade` | 3,241 | wargear `option`s |
 | `selectionEntryGroup` | 917 | wargear `optionGroup`s |
-| `entryLink` | 5,591 | references; links to shared entries become references to the library slug |
-| `constraint` min/max, scope parent | 7,382 | `minimum`/`maximum` on option groups and options |
+| "Chapter Filter", "Faction Filter" and similar `List Configuration` entries | — | `detachmentChoices` |
+| `entryLink` | 5,591 | references to shared entries; root-level links to library units become `datasheetLinks` |
+| `constraint` min/max, scope parent | 7,382 | `minimum`/`maximum` on option groups and options; no max constraint means `maximum` is left out |
 | `constraint` max, scope roster | 203 | `maximumPerArmy` |
 | `constraint` max, scope force | 20 | `maximumPerDetachment` |
-| `modifier` set PL, unconditional (on a link) | 407 | resolved into that context's `cost` |
-| `modifier` set PL by unit size, or increment PL per model | 98 | a "unit size" option group whose options carry the cost |
-| `modifier` set M/A/W/Sv when an option is taken | — | `profileChanges` on that option |
-| `modifier` set M/A/W/Sv/name, unconditional (on a link) | — | a catalogue-local entry with its own slug, in place of a link with overrides |
+| `modifier` on PL | 535 | 407 unconditional ones become the cost in that context; 98 by unit size or per model become option costs; the 30 other conditional ones are mapped one by one by the importer |
+| `modifier` on M/A/W/Sv, when an option is taken | — | `profileChanges` on that option |
+| `modifier` on M/A/W/Sv/name, unconditional (on a link) | — | a catalogue-local entry with its own slug, in place of a link with overrides |
 | `modifier` set hidden, with conditions | — | `availableWhen` |
+| `modifier` on a detachment's slot constraint (`increment`/`decrement` with `repeat`) | 66 repeats | `limit` terms |
+| `repeat` in catalogues | 12 | per-model costs, as an option with a `cost` and a `maximum` |
 | `condition`, `conditionGroup` (and/or) | 1,290 / 265 | `Count`, `All`, `Any`, `Not`, `PrimaryFaction` |
-| `repeat` | 78 | per-model costs, as a repeatable option with `maximum` |
 | `infoLink` to a profile or rule | 1,993 | `abilities` references |
 | `rule` / `sharedRules` | 44 | game-system or catalogue `abilities` |
 
@@ -109,7 +140,6 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | BattleScribe construct | Why |
 |---|---|
 | `publication`, `page` modifiers | source references for BattleScribe's UI; Fundapocalypse is its own source now |
-| `List Configuration` category | a BattleScribe roster-setup device, not a rule |
 | `readme`, `comment` | authoring notes; anything still useful moves to this document or the wiki |
 | `infoGroup` | grouping for BattleScribe's display only |
 | `modifier` set name on an `infoLink` | display renames of a linked rule; the referenced ability carries the right name |

@@ -15,6 +15,16 @@
          "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
          "additionalProperties": { "$ref": "#/$defs/detachment" }
       },
+      "universalOptions": {
+         "description": "Options any unit can take when `availableWhen` holds, e.g. making a CHARACTER the detachment's Commander. Their keywords are then capped by `keywordLimits`.",
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "catalogue.schema.json#/$defs/option" }
+      },
+      "armyKeywordLimits": {
+         "description": "How many units with a keyword the whole army may include, e.g. one WARMASTER.",
+         "$ref": "#/$defs/keywordLimits"
+      },
       "abilities": {
          "description": "Universal abilities shared by every catalogue, e.g. Deep Strike.",
          "type": "object",
@@ -30,11 +40,16 @@
    "required": ["release", "detachments"],
    "additionalProperties": false,
    "$defs": {
+      "keywordLimits": {
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/keyword" },
+         "additionalProperties": { "$ref": "common.schema.json#/$defs/limit" }
+      },
       "slotLimit": {
          "type": "object",
          "properties": {
             "minimum": { "type": "integer", "minimum": 0 },
-            "maximum": { "type": "integer", "minimum": 0 }
+            "maximum": { "$ref": "common.schema.json#/$defs/limit" }
          },
          "additionalProperties": false,
          "minProperties": 1
@@ -43,11 +58,21 @@
          "type": "object",
          "properties": {
             "name": { "type": "string", "minLength": 1 },
+            "kind": { "$ref": "common.schema.json#/$defs/detachmentKind" },
+            "maximumPerArmy": {
+               "description": "How many of this detachment an army may include; no limit when left out.",
+               "$ref": "common.schema.json#/$defs/limit"
+            },
+            "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
             "slots": {
                "description": "Unit limits per battlefield role. A role left out has no limit.",
                "type": "object",
                "propertyNames": { "$ref": "common.schema.json#/$defs/battlefieldRole" },
                "additionalProperties": { "$ref": "#/$defs/slotLimit" }
+            },
+            "keywordLimits": {
+               "description": "How many units with a keyword this detachment may include, e.g. one COMMANDER.",
+               "$ref": "#/$defs/keywordLimits"
             },
             "abilities": {
                "description": "Rules the detachment grants, e.g. Objective Secured for its Troops.",
@@ -56,7 +81,7 @@
                "uniqueItems": true
             }
          },
-         "required": ["name", "slots"],
+         "required": ["name", "kind", "slots"],
          "additionalProperties": false
       }
    }

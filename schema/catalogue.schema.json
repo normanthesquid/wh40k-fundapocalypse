@@ -12,7 +12,7 @@
          "enum": ["Faction", "Library"]
       },
       "imports": {
-         "description": "Catalogues whose entries this one may reference with `catalogue-id/slug`.",
+         "description": "Catalogues whose entries this one may reference with `catalogue-id/slug`. Importing makes nothing available on its own: a faction lists the library datasheets it fields in `datasheetLinks`.",
          "type": "array",
          "items": { "$ref": "common.schema.json#/$defs/slug" },
          "uniqueItems": true
@@ -21,6 +21,32 @@
          "type": "object",
          "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
          "additionalProperties": { "$ref": "#/$defs/datasheet" }
+      },
+      "datasheetLinks": {
+         "description": "Library datasheets this faction fields, with what the faction adds to them. The link's own slug is the unit's id in this faction.",
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "#/$defs/datasheetLink" }
+      },
+      "detachmentChoices": {
+         "description": "Choices made once for each detachment of this faction, e.g. a Chapter or a faction filter.",
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": { "$ref": "#/$defs/detachmentChoice" }
+      },
+      "detachmentAbilities": {
+         "description": "Abilities this faction's detachments gain, e.g. Waaagh!, each optionally conditional.",
+         "type": "object",
+         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+         "additionalProperties": {
+            "type": "object",
+            "properties": {
+               "ability": { "$ref": "common.schema.json#/$defs/reference" },
+               "availableWhen": { "$ref": "common.schema.json#/$defs/condition" }
+            },
+            "required": ["ability"],
+            "additionalProperties": false
+         }
       },
       "weapons": {
          "type": "object",
@@ -41,11 +67,22 @@
    "required": ["id", "name", "kind"],
    "additionalProperties": false,
    "$defs": {
+      "alternativeRole": {
+         "description": "A battlefield role the unit takes instead when `when` holds, e.g. Troops for a cult unit.",
+         "type": "object",
+         "properties": {
+            "battlefieldRole": { "$ref": "common.schema.json#/$defs/battlefieldRole" },
+            "when": { "$ref": "common.schema.json#/$defs/condition" }
+         },
+         "required": ["battlefieldRole", "when"],
+         "additionalProperties": false
+      },
       "datasheet": {
          "type": "object",
          "properties": {
             "name": { "type": "string", "minLength": 1 },
             "battlefieldRole": { "$ref": "common.schema.json#/$defs/battlefieldRole" },
+            "alternativeRoles": { "type": "array", "items": { "$ref": "#/$defs/alternativeRole" } },
             "cost": {
                "description": "Power Level of the unit with no options chosen.",
                "$ref": "common.schema.json#/$defs/powerLevel"
@@ -81,9 +118,10 @@
                "minLength": 1
             },
             "wargear": {
-               "description": "Option groups, in the order they are shown.",
-               "type": "array",
-               "items": { "$ref": "#/$defs/optionGroup" }
+               "description": "Option groups, keyed by slug, in the order they are shown. Option slugs are unique across all groups of one datasheet.",
+               "type": "object",
+               "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+               "additionalProperties": { "$ref": "#/$defs/optionGroup" }
             },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
@@ -96,15 +134,67 @@
          "required": ["name", "battlefieldRole", "cost", "keywords", "profiles"],
          "additionalProperties": false
       },
-      "optionGroup": {
-         "description": "A choice of options, e.g. a weapon swap or the unit's size. Each option counts toward `minimum`..`maximum`.",
+      "datasheetLink": {
+         "type": "object",
+         "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
+         "properties": {
+            "datasheet": { "$ref": "common.schema.json#/$defs/reference" },
+            "battlefieldRole": {
+               "description": "Replaces the library datasheet's role in this faction.",
+               "$ref": "common.schema.json#/$defs/battlefieldRole"
+            },
+            "alternativeRoles": { "type": "array", "items": { "$ref": "#/$defs/alternativeRole" } },
+            "cost": {
+               "description": "Replaces the library datasheet's cost in this faction.",
+               "$ref": "common.schema.json#/$defs/powerLevel"
+            },
+            "addsAbilities": {
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/reference" },
+               "uniqueItems": true
+            },
+            "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "addsFactionKeywords": true,
+            "addsKeywords": true
+         },
+         "required": ["datasheet"],
+         "unevaluatedProperties": false
+      },
+      "detachmentChoice": {
          "type": "object",
          "properties": {
             "name": { "type": "string", "minLength": 1 },
-            "minimum": { "type": "integer", "minimum": 0, "default": 0 },
+            "minimum": { "type": "integer", "minimum": 0 },
+            "maximum": { "type": "integer", "minimum": 1 },
+            "options": {
+               "type": "object",
+               "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
+               "additionalProperties": {
+                  "type": "object",
+                  "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
+                  "properties": {
+                     "name": { "type": "string", "minLength": 1 },
+                     "addsFactionKeywords": true,
+                     "addsKeywords": true
+                  },
+                  "required": ["name"],
+                  "unevaluatedProperties": false
+               },
+               "minProperties": 1
+            }
+         },
+         "required": ["name", "options"],
+         "additionalProperties": false
+      },
+      "optionGroup": {
+         "description": "A choice of options, e.g. a weapon swap or the unit's size. Leaving out `maximum` means no limit.",
+         "type": "object",
+         "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "type": "integer", "minimum": 1 },
             "default": {
-               "description": "The option picked when the unit is added.",
+               "description": "The option picked when the unit is added; one of `options`.",
                "$ref": "common.schema.json#/$defs/slug"
             },
             "options": {
@@ -118,28 +208,31 @@
          "additionalProperties": false
       },
       "option": {
+         "description": "One wargear option. Leaving out `maximum` means no limit beyond the group's.",
          "type": "object",
+         "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
          "properties": {
             "name": { "type": "string", "minLength": 1 },
             "cost": {
-               "description": "Power Level added each time the option is taken.",
-               "$ref": "common.schema.json#/$defs/powerLevel"
+               "description": "Power Level added (or, if negative, removed) each time the option is taken.",
+               "type": "integer"
             },
-            "maximum": {
-               "description": "How many times this one option may be taken.",
-               "type": "integer",
-               "minimum": 1,
-               "default": 1
-            },
+            "minimum": { "type": "integer", "minimum": 0 },
+            "maximum": { "type": "integer", "minimum": 1 },
             "addsWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
             "removesWeapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
-            "addsAbilities": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/reference" } },
-            "addsKeywords": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/keyword" } },
+            "addsAbilities": {
+               "type": "array",
+               "items": { "$ref": "common.schema.json#/$defs/reference" },
+               "uniqueItems": true
+            },
             "profileChanges": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/profileChange" } },
-            "availableWhen": { "$ref": "common.schema.json#/$defs/condition" }
+            "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "addsFactionKeywords": true,
+            "addsKeywords": true
          },
          "required": ["name"],
-         "additionalProperties": false
+         "unevaluatedProperties": false
       }
    }
 }

@@ -9,14 +9,7 @@
          "cost": 1,
          "keywords": [],
          "profiles": [
-            {
-               "name": "Unit",
-               "movement": { "kind": "Inches", "inches": 6 },
-               "weaponSkill": "-",
-               "attacks": 1,
-               "wounds": 1,
-               "save": 4
-            }
+            { "name": "Unit", "movement": { "kind": "Inches", "inches": 6 }, "attacks": "-", "wounds": 1, "save": 4 }
          ]
       }
    }
