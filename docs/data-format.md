@@ -11,14 +11,15 @@ schema/
   common.schema.json       shared types: ids, profiles, weapons, conditions, limits
   game-system.schema.json  detachments, universal options, keyword limits, release version
   catalogue.schema.json    a faction or a shared library
-  fixtures/valid/          examples that must validate
-  fixtures/invalid/        examples that must be rejected, each for the reason in its name
+  fixtures/valid/          a small data set that must pass, laid out like data/
+  fixtures/invalid/        catalogues the schema must reject, each for the reason in its name
 data/                      (from v2.0.0, written by the one-time importer in stage 3)
   game-system.json
   catalogues/<catalogue-id>.json
+validator/                 the Go validator CI runs: the schema plus the integrity rules below
 ```
 
-In `fixtures/valid/`, `agents-of-the-imperium.json`, `weapons.json` and `game-system.json` are converted by hand from `v1.10.0`, with the real values for the entries they include (Supreme Command's Dedicated Transport rule is left out for brevity). `example-library.json` and `example-faction.json` are illustrative and exist to exercise library links, alternative roles and detachment abilities.
+In `fixtures/valid/`, `catalogues/agents-of-the-imperium.json`, `catalogues/weapons.json` and `game-system.json` are converted by hand from `v1.10.0`, with the real values for the entries they include (Supreme Command's Dedicated Transport rule is left out for brevity). The Patrol, Vanguard, Super-heavy Auxiliary and Fortification Network detachments are stubs with no slots, there only so the references to them resolve. `catalogues/example-library.json` and `catalogues/example-faction.json` are illustrative and exist to exercise library links, alternative roles and detachment abilities.
 
 ## Ids and references
 
@@ -35,7 +36,7 @@ Every entry has a **slug** (`lascannon`, `ordo-malleus`):
 | Game-system entries (all kinds together) | the game system | `slug` |
 | Option groups and options (all groups together) | the datasheet | the datasheet's id plus the option slug |
 
-A **reference** is a bare slug when the target is in the same catalogue or the game system, and `catalogue-id/slug` when it's in another catalogue, which must be listed in `imports`.
+A **reference** is a bare slug when the target is in the same catalogue or the game system, and `catalogue-id/slug` when it's in another catalogue, which must be listed in `imports`. A catalogue never prefixes its own entries. The game system has no `imports`, so its prefixed references may name any catalogue.
 
 ### Library datasheets
 
@@ -83,17 +84,17 @@ A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `a
 
 ## Integrity rules
 
-JSON Schema checks each file's shape. These rules span entries or files, so stage 2's CI checks them in its own validator:
+JSON Schema checks each file's shape. These rules span entries or files, so `validator/` checks them after every file passes the schema. It also rejects a key repeated within one JSON object, which a JSON parser would otherwise silently merge:
 
 1. Slugs are unique as listed under "Ids and references". Profile names are unique within a datasheet.
 2. Every reference resolves. A `catalogue-id/` reference only points into an imported catalogue; `imports` only names `kind: Library` catalogues that exist; a catalogue's `id` matches its file name.
 3. `datasheetLinks`, `detachmentChoices` and `detachmentAbilities` appear only in `kind: Faction` catalogues, and a `datasheetLinks` target is a library datasheet.
 4. Count targets resolve: a `Detachment` names a game-system detachment; a `DetachmentChoice` names an option of some `detachmentChoices` entry; an `Option` names an option of its datasheet (or of `datasheet`, when given); `PrimaryFaction` names a `kind: Faction` catalogue.
 5. Every keyword used in a count target or a keyword limit is a keyword some datasheet, option, link or choice actually adds, which catches typos.
-6. An option group's `default` is one of its options, and its `minimum` is no more than the number of options it offers.
-7. `removesWeapons` only names weapons the datasheet carries or another of its options adds, and `profileChange.profile` names one of the datasheet's profiles.
-8. `minimum` ≤ `maximum` wherever both appear, including movement ranges.
-9. `game-system.json`'s `release` matches the tag being released.
+6. An option group's `default` is one of its options, and its `minimum` is no more than its options' `maximum`s add up to (any option without a `maximum` lifts the cap).
+7. `removesWeapons` only names weapons the datasheet carries or another of its options adds, and `profileChange.profile` names one of the datasheet's profiles. Universal options belong to no datasheet, so this rule skips them.
+8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot or keyword limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.
+9. `game-system.json`'s `release` matches the tag being released (`go run . -release 2.0.0`; CI passes it on a tag push).
 
 ## Revisions are computed, not stored
 
@@ -107,7 +108,7 @@ Because the hashes are derived, nobody maintains them by hand, and a change to a
 
 ## Releases
 
-`game-system.json` carries `release`, which must match the git tag `v<release>`. Each release also fast-forwards the `release` branch. fundamalleus pins this repo as a git submodule on that branch, so Dependabot's `gitsubmodule` updates (which follow a branch, not tags) propose each release exactly once.
+`game-system.json` carries `release`, which must match the git tag `v<release>`, and each release has a `CHANGELOG.md` entry. Pushing the tag runs CI, which checks the two match and then fast-forwards the `release` branch to it. fundamalleus pins this repo as a git submodule on that branch, so Dependabot's `gitsubmodule` updates (which follow a branch, not tags) propose each release exactly once.
 
 ## BattleScribe constructs
 

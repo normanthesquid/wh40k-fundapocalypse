@@ -26,3 +26,7 @@
 !/docs/**
 !/data/
 !/data/**
+
+# The validator and the repo's conventions (FUN-71)
+!/validator/
+!/validator/**
