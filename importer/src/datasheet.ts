@@ -2,11 +2,12 @@ import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
-import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, ModelProfile, Option, OptionGroup, ProfileValues } from "./model.ts";
+import type { BattlefieldRole, Condition, ConditionalChange, CountTarget, Datasheet, LimitTerm, Option, OptionGroup } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { describeSource, MISSING_PROFILES, MISSING_ROLES, PROFILELESS_DATASHEETS, SIZED_PROFILES } from "./corrections.ts";
+import { describeSource, MISSING_ROLES } from "./corrections.ts";
+import { UnitProfiles } from "./unitProfiles.ts";
 import { addWeaponVariants, carriedWeapon, type VariantContext } from "./weaponVariants.ts";
-import { characteristicNamesById, CHARACTERISTIC_TYPE_IDS, isDroppedProfile, parseCharacteristic, profileFromCharacteristics, take, UNIT_CHARACTERISTICS, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, unitProfile, WEAPON_PROFILE } from "./profiles.ts";
+import { characteristicNamesById, isDroppedProfile, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, WEAPON_PROFILE } from "./profiles.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
 
 /** Visibility from `hidden` and its modifiers: a condition, "Always", "Never", or undefined when a condition failed. */
@@ -28,11 +29,8 @@ export function availabilityOf(hidden: boolean, modifiers: FlatModifier[]): Avai
    return hideWhen === undefined ? "Always" : not(hideWhen);
 }
 
-const INCREMENTABLE: ReadonlySet<keyof ProfileValues> = new Set(["attacks", "wounds", "leadership"]);
-
 export class DatasheetConverter {
    readonly context: ConditionContext;
-   private readonly profiles: ModelProfile[] = [];
    private readonly weapons: string[] = [];
    private readonly abilities = new Set<string>();
    private readonly keywords = new Set<string>();
@@ -41,11 +39,9 @@ export class DatasheetConverter {
    private readonly loose: Option[] = [];
    private readonly optionsBySlug = new Map<string, Option>();
    private readonly deferred: (() => void)[] = [];
-   private readonly optionProfiles: OptionProfile[] = [];
-   /** The unit's own profiles that are hidden while a condition holds. */
-   private readonly hiddenProfiles: { profile: ModelProfile; hiddenWhen: Condition }[] = [];
    private readonly groupOf = new Map<OptionGroup, EntryView>();
    private readonly conditionalChanges = new Map<string, ConditionalChange>();
+   private readonly unitProfiles: UnitProfiles;
    private role: BattlefieldRole | undefined;
    private transport: string | undefined;
    private cost: number;
@@ -75,6 +71,22 @@ export class DatasheetConverter {
          unhandled: (element, message) => this.unhandled(element, message),
          recordCorrection: (element, message) => conversion.report.recordCorrection(element, message),
       };
+      this.unitProfiles = new UnitProfiles({
+         conversion,
+         view,
+         groups: this.groups,
+         optionsBySlug: this.optionsBySlug,
+         defer: (apply) => this.deferred.push(apply),
+         optionTaken: (condition) => this.optionTaken(condition),
+         requires: (option) => this.requires(option),
+         conditionalChange: (when) => this.conditionalChange(when),
+         modelOption: () => this.modelOption(),
+         unhandled: (element, message) => this.unhandled(element, message),
+         fail: () => {
+            this.failed = true;
+         },
+         dropConditionalRename: (modifier) => this.dropConditionalRename(modifier),
+      });
    }
 
    private unhandled(element: Element, message: string): void {
@@ -117,20 +129,19 @@ export class DatasheetConverter {
       this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, true);
       this.addProfiles(view, undefined);
       this.addChildren(view, undefined);
-      this.resolveHiddenProfiles();
-      this.resolveOptionProfiles();
-      if (this.profiles.length === 0) this.addMissingProfile();
+      this.unitProfiles.resolve();
       this.applyUnitModifiers(modifiers);
       for (const apply of this.deferred) apply();
-      this.addSizedProfiles();
+      this.unitProfiles.addSizedProfiles();
       if (this.role === undefined) this.role = this.roleFromLinks();
       if (this.role === undefined) this.role = this.roleFromCorrections();
       if (this.role === undefined) this.unhandled(view.element, "no primary battlefield role");
-      if (this.profiles.length === 0) this.checkProfileless();
+      const profiles = this.unitProfiles.profiles;
+      if (profiles.length === 0) this.unitProfiles.checkProfileless();
       if (this.failed || this.role === undefined) return undefined;
       const renamed = modifiers.find((modifier) => modifier.field === "name" && modifier.type === "set" && modifier.condition === null);
       const datasheet: Datasheet = { name: renamed?.value ?? view.name, battlefieldRole: this.role, cost: this.cost, keywords: [...this.keywords] };
-      if (this.profiles.length > 0) datasheet.profiles = this.profiles;
+      if (profiles.length > 0) datasheet.profiles = profiles;
       if (this.factionKeywords.size > 0) datasheet.factionKeywords = [...this.factionKeywords];
       if (this.weapons.length > 0) datasheet.weapons = this.weapons;
       if (this.abilities.size > 0) datasheet.abilities = [...this.abilities];
@@ -195,7 +206,7 @@ export class DatasheetConverter {
          if (link !== undefined) for (const dropped of modifiers.filter((modifier) => modifier.field === "page")) this.conversion.report.recordDropped(dropped.element, "page reference");
          const kept = modifiers.filter((modifier) => modifier.field !== "page");
          if (target.tag === "rule") this.addAbility(target, kept, option);
-         else if (target.tag === "profile" && attribute(target, "typeName") === UNIT_PROFILE) this.addUnitProfile(target, kept, option);
+         else if (target.tag === "profile" && attribute(target, "typeName") === UNIT_PROFILE) this.unitProfiles.add(target, kept, option);
          else if (target.tag === "profile" && attribute(target, "typeName") === TRANSPORT_PROFILE) this.transport = transportFromProfile(target);
          else if (target.tag === "profile") this.addAbility(target, kept, option);
          else this.unhandled(link ?? target, `info link to a ${target.tag}`);
@@ -268,45 +279,6 @@ export class DatasheetConverter {
       }
    }
 
-   /** The correction table's profile for a unit the data gives none. */
-   private addMissingProfile(): void {
-      const missing = MISSING_PROFILES.find((entry) => this.view.ids.includes(entry.unitId));
-      if (missing === undefined) return;
-      const profile = profileFromCharacteristics(new Map(Object.entries(missing.printed)), this.view.element, missing.name, new Map(), this.conversion.report);
-      if (profile === undefined) return;
-      this.conversion.report.recordCorrection(this.view.element, `profile ${missing.name} added (${describeSource(missing.source)})`);
-      this.profiles.push(profile);
-   }
-
-   /** A datasheet without a stat line is right only where the official datasheet prints none. */
-   private checkProfileless(): void {
-      const profileless = PROFILELESS_DATASHEETS.find((entry) => this.view.ids.includes(entry.unitId));
-      if (profileless === undefined) this.unhandled(this.view.element, "no unit profile");
-      else this.conversion.report.recordCorrection(this.view.element, `no stat line, as printed (${describeSource(profileless.source)})`);
-   }
-
-   /** Characteristics that grow with the unit's models, as changes while it has that many. */
-   private addSizedProfiles(): void {
-      const sized = SIZED_PROFILES.find((entry) => this.view.ids.includes(entry.unitId));
-      if (sized === undefined) return;
-      const models = this.modelOption();
-      if (models === undefined || this.profiles.length !== 1) {
-         this.unhandled(this.view.element, "sized profile without one model option and one profile");
-         return;
-      }
-      for (const { models: count, printed } of sized.sizes) {
-         const set: ProfileValues = {};
-         for (const [characteristic, field] of UNIT_CHARACTERISTICS) {
-            const value = printed[characteristic];
-            if (value === undefined) continue;
-            const parsed = take(parseCharacteristic(field, value), this.view.element, characteristic, this.conversion.report);
-            if (parsed !== null && parsed !== undefined) (set as Record<string, unknown>)[field] = parsed;
-         }
-         const when: Condition = { kind: "Count", scope: "Unit", of: models, minimum: count, maximum: count };
-         (this.conditionalChange(when).profileChanges ??= []).push({ set });
-      }
-      this.conversion.report.recordCorrection(this.view.element, `profile by model count added (${describeSource(sized.source)})`);
-   }
 
    private get variantContext(): VariantContext {
       return {
@@ -328,97 +300,6 @@ export class DatasheetConverter {
       return change;
    }
 
-   private addUnitProfile(target: Element, modifiers: FlatModifier[], option: Option | undefined): void {
-      let name = attribute(target, "name").trim();
-      const overrides = new Map<keyof ProfileValues, string>();
-      const conditional: FlatModifier[] = [];
-      for (const modifier of modifiers) {
-         if (modifier.condition === undefined) return;
-         if (modifier.condition !== null) conditional.push(modifier);
-         else if (modifier.field === "name" && modifier.type === "set") name = modifier.value;
-         else if (modifier.type === "set" && CHARACTERISTIC_TYPE_IDS[modifier.field] !== undefined) overrides.set(CHARACTERISTIC_TYPE_IDS[modifier.field], modifier.value);
-         else this.unhandled(modifier.element, `unit profile modifier ${modifier.type} ${modifier.field}`);
-      }
-      const profile = unitProfile(target, name, overrides, this.conversion.report);
-      if (profile === undefined) {
-         this.failed = true;
-         return;
-      }
-      if (option !== undefined) {
-         this.optionProfiles.push({ option, profile, element: target, conditional });
-         return;
-      }
-      const hiding = conditional.filter((modifier) => modifier.field === "hidden" && modifier.type === "set" && modifier.value === "true");
-      if (hiding.length === 1) this.hiddenProfiles.push({ profile, hiddenWhen: hiding[0].condition! });
-      else this.profiles.push(profile);
-      for (const modifier of conditional.filter((candidate) => !hiding.includes(candidate))) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
-   }
-
-   /** The option whose taking hides `profile` changes it to the option's own profile instead of adding that as another model. */
-   private replaceHiddenProfile(profile: ModelProfile, hiddenWhen: Condition, element: Element): void {
-      const taken = this.optionTaken(hiddenWhen);
-      const replacements = this.optionProfiles.filter((entry) => entry.option.id === taken);
-      if (replacements.length !== 1) {
-         this.unhandled(element, "profile hidden by a condition that is not one option with its own profile");
-         return;
-      }
-      const [replacement] = replacements;
-      this.optionProfiles.splice(this.optionProfiles.indexOf(replacement), 1);
-      const set = profileDifferences(profile, replacement.profile, (field) => this.unhandled(replacement.element, `replacement profile without the ${field} it replaces`));
-      this.deferred.push(() => {
-         const forProfile = this.profiles.length > 1 || !this.profiles.some((existing) => existing.name === profile.name) ? profile.name : undefined;
-         if (Object.keys(set).length > 0) (replacement.option.profileChanges ??= []).push(forProfile === undefined ? { set } : { profile: forProfile, set });
-      });
-      for (const modifier of replacement.conditional) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
-   }
-
-   /** A profile hidden while an option is taken gives way to that option's own profile; several hidden in turn are one profile per model count. */
-   private resolveHiddenProfiles(): void {
-      if (this.hiddenProfiles.length === 0) return;
-      if (this.hiddenProfiles.length === 1) {
-         const [{ profile, hiddenWhen }] = this.hiddenProfiles;
-         this.profiles.push(profile);
-         this.replaceHiddenProfile(profile, hiddenWhen, this.view.element);
-         return;
-      }
-      const [first, ...others] = this.hiddenProfiles;
-      const base = { ...first.profile, name: baseProfileName(first.profile.name) };
-      this.profiles.push(base);
-      for (const { profile, hiddenWhen } of others) {
-         const set = profileDifferences(base, profile, (field) => this.unhandled(this.view.element, `profile ${profile.name} without the ${field} the others have`));
-         if (Object.keys(set).length > 0) (this.conditionalChange(not(hiddenWhen)).profileChanges ??= []).push({ set });
-      }
-   }
-
-   private addProfileChange(modifier: FlatModifier, profileName: string, required?: Condition): void {
-      if (modifier.field === "name") {
-         this.dropConditionalRename(modifier);
-         return;
-      }
-      const field = CHARACTERISTIC_TYPE_IDS[modifier.field];
-      const taken = required === undefined ? this.optionTaken(modifier.condition) : undefined;
-      const option = taken === undefined ? undefined : this.optionsBySlug.get(taken);
-      if (field === undefined || modifier.condition === null || modifier.condition === undefined) {
-         this.unhandled(modifier.element, `conditional unit profile modifier ${modifier.type} ${modifier.field}`);
-         return;
-      }
-      const changes = ((option ?? this.conditionalChange(allOf(required, modifier.condition)!)).profileChanges ??= []);
-      const isAdded = !this.profiles.some((profile) => profile.name === profileName);
-      const forProfile = this.profiles.length > 1 || isAdded ? profileName : undefined;
-      let change = changes.find((existing) => existing.profile === forProfile);
-      if (change === undefined) {
-         change = forProfile === undefined ? {} : { profile: forProfile };
-         changes.push(change);
-      }
-      if (modifier.type === "set") {
-         const parsed = take(parseCharacteristic(field, modifier.value), modifier.element, field, this.conversion.report);
-         if (parsed === null || parsed === undefined) this.failed = true;
-         else (change.set ??= {})[field] = parsed as never;
-      } else if ((modifier.type === "increment" || modifier.type === "decrement") && INCREMENTABLE.has(field)) {
-         const amount = Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
-         (change.increment ??= {})[field as "attacks" | "wounds" | "leadership"] = amount;
-      } else this.unhandled(modifier.element, `profile ${modifier.type} on ${field}`);
-   }
 
    private isPassThrough(childId: string): boolean {
       return childId === COMMANDER_ENTRY_ID || childId === WARMASTER_TRAITS_GROUP_ID;
@@ -667,51 +548,6 @@ export class DatasheetConverter {
       return options.every((option) => option !== undefined) ? (options as string[]) : undefined;
    }
 
-   /** Unit-size options that each carry the whole unit's profile: the default size's becomes the datasheet's, the others change it. */
-   private resolveOptionProfiles(): void {
-      for (const entry of [...this.optionProfiles]) {
-         const hiding = entry.conditional.filter((modifier) => modifier.field === "hidden" && modifier.type === "set" && modifier.value === "true");
-         if (hiding.length !== 1 || !this.optionProfiles.includes(entry)) continue;
-         this.optionProfiles[this.optionProfiles.indexOf(entry)] = { ...entry, conditional: entry.conditional.filter((modifier) => modifier !== hiding[0]) };
-         this.replaceHiddenProfile(entry.profile, hiding[0].condition!, entry.element);
-      }
-      const byOption = new Map<Option, OptionProfile[]>();
-      for (const entry of this.optionProfiles) byOption.set(entry.option, [...(byOption.get(entry.option) ?? []), entry]);
-      const isUnitSize = (group: OptionGroup) => group.options.every((option) => byOption.get(option)?.length === 1);
-      for (const group of this.groups) {
-         if (this.profiles.length > 0 || !isUnitSize(group)) continue;
-         const baseOption = group.options.find((option) => option.id === group.default) ?? group.options[0];
-         const base = { ...byOption.get(baseOption)![0].profile, name: baseProfileName(byOption.get(baseOption)![0].profile.name) };
-         this.profiles.push(base);
-         for (const option of group.options) {
-            for (const { conditional } of byOption.get(option)!) for (const modifier of conditional) this.deferred.push(() => this.addProfileChange(modifier, base.name, this.requires(option)));
-         }
-         for (const option of group.options) {
-            if (option === baseOption) continue;
-            const { profile, element } = byOption.get(option)![0];
-            const set = profileDifferences(base, profile, (field) => this.unhandled(element, `unit-size profile without the ${field} the default size has`));
-            if (Object.keys(set).length > 0) (option.profileChanges ??= []).push({ set });
-            byOption.delete(option);
-         }
-         byOption.delete(baseOption);
-      }
-      for (const [option, entries] of byOption) this.placeOptionProfiles(option, entries);
-   }
-
-   /** A model the unit must take (e.g. a squadron's first vehicle) is the datasheet's profile; an optional one is added by its option. */
-   private placeOptionProfiles(option: Option, entries: OptionProfile[]): void {
-      for (const { profile, conditional } of entries) for (const modifier of conditional) this.deferred.push(() => this.addProfileChange(modifier, profile.name));
-      if (this.profiles.length === 0 && (option.minimum ?? 0) >= 1) {
-         this.profiles.push(...entries.map((entry) => entry.profile));
-         return;
-      }
-      for (const { profile, element } of entries) {
-         const same = this.profiles.find((existing) => existing.name === profile.name);
-         if (same !== undefined && JSON.stringify(same) === JSON.stringify(profile)) continue;
-         if (same !== undefined || option.addsProfiles?.some((added) => added.name === profile.name)) this.unhandled(element, "option profile whose name the unit already uses");
-         else (option.addsProfiles ??= []).push(profile);
-      }
-   }
 
    /** A name that changes under a condition only labels what the condition already shows, such as a mount or a model count. */
    private dropConditionalRename(modifier: FlatModifier): void {
@@ -744,32 +580,7 @@ export class DatasheetConverter {
 }
 
 
-interface OptionProfile {
-   readonly option: Option;
-   readonly profile: ModelProfile;
-   readonly element: Element;
-   /** Its modifiers that apply only under a condition. */
-   readonly conditional: FlatModifier[];
-}
 
 /** The childId BattleScribe uses to count every model in a unit. */
 const MODEL_COUNT_ID = "model";
 
-const SIZE_SUFFIX = /\s*\(\s*\d+(\s*-\s*\d+)?\s+models?\s*\)\s*$/i;
-
-/** The characteristics `other` gives differently from `base`, reporting any it lacks. */
-function profileDifferences(base: ModelProfile, other: ModelProfile, reportMissing: (field: keyof ProfileValues) => void): ProfileValues {
-   const set: ProfileValues = {};
-   for (const key of new Set([...Object.keys(base), ...Object.keys(other)])) {
-      if (key === "name") continue;
-      const field = key as keyof ProfileValues;
-      if (JSON.stringify(base[field]) === JSON.stringify(other[field])) continue;
-      if (other[field] === undefined) reportMissing(field);
-      else (set as Record<string, unknown>)[field] = other[field];
-   }
-   return set;
-}
-
-function baseProfileName(name: string): string {
-   return name.replace(SIZE_SUFFIX, "");
-}
