@@ -169,7 +169,32 @@
                      ]
                   }
                ],
-               "maximum": 2
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -402,7 +427,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-stubber"
             },
             {
@@ -594,7 +644,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-warglaive"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-warglaive"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-stubber"
             },
             {

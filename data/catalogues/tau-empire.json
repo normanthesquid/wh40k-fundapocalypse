@@ -5007,7 +5007,19 @@
                      ]
                   }
                ],
-               "maximum": 2
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "cadre-fireblade"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -5180,7 +5192,19 @@
                      ]
                   }
                ],
-               "maximum": 2
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "cadre-fireblade"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -6076,7 +6100,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "drone-sentry-turret"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "drone-sentry-turret"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "2-burst-cannons"
             },
             {

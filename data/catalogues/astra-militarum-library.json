@@ -369,7 +369,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "hull-weapon",
@@ -411,7 +423,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -501,7 +538,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -546,7 +608,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -635,7 +709,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -680,7 +779,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -1009,7 +1120,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "multi-laser"
             },
             {
@@ -1049,7 +1185,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "hellstrike-missiles"
             },
             {
@@ -1347,7 +1508,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "salamander-scout-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -1437,7 +1610,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-assault-vehicle"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-assault-vehicle"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "tauros-grenade-launcher"
             },
             {
@@ -1522,7 +1720,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-venator"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-venator"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "twin-multi-laser"
             },
             {
@@ -1610,7 +1833,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -1655,7 +1903,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -1744,7 +2004,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -1789,7 +2074,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -1976,7 +2273,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -2021,7 +2343,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2765,7 +3099,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "stygies-destroyer-tank-hunter"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2856,7 +3202,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "stygies-thunderer-siege-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2941,7 +3299,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tarantula-sentry-gun"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tarantula-sentry-gun"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "twin-heavy-bolter"
             },
             {
@@ -4013,7 +4396,19 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "2x-multiple-rocket-pod"
             },
             {
@@ -4073,7 +4468,19 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "2x-multiple-rocket-pod-2"
             },
             {
@@ -4185,6 +4592,48 @@
                "save": 8
             }
          ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "scout-sentinel"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "increment": {
+                        "wounds": 1,
+                        "attacks": 1
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "scout-sentinel"
+                  },
+                  "minimum": 3,
+                  "maximum": 3
+               },
+               "profileChanges": [
+                  {
+                     "increment": {
+                        "attacks": 2,
+                        "wounds": 2
+                     }
+                  }
+               ]
+            }
+         ],
          "wargear": [
             {
                "id": "cannon",
@@ -4279,7 +4728,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "scout-sentinel"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "scout-sentinel"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "autocannon"
             },
             {
@@ -4297,14 +4771,6 @@
                      ],
                      "addsWeapons": [
                         "armoured-feet"
-                     ],
-                     "profileChanges": [
-                        {
-                           "increment": {
-                              "wounds": 2,
-                              "attacks": 2
-                           }
-                        }
                      ]
                   }
                ]
@@ -4332,6 +4798,48 @@
                "wounds": 1,
                "leadership": 5,
                "save": 8
+            }
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "armoured-sentinel"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "increment": {
+                        "wounds": 1,
+                        "attacks": 1
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "armoured-sentinel"
+                  },
+                  "minimum": 3,
+                  "maximum": 3
+               },
+               "profileChanges": [
+                  {
+                     "increment": {
+                        "attacks": 2,
+                        "wounds": 2
+                     }
+                  }
+               ]
             }
          ],
          "wargear": [
@@ -4448,7 +4956,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armoured-sentinel"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armoured-sentinel"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "autocannon"
             },
             {
@@ -4466,14 +4999,6 @@
                      ],
                      "addsWeapons": [
                         "armoured-feet"
-                     ],
-                     "profileChanges": [
-                        {
-                           "increment": {
-                              "wounds": 2,
-                              "attacks": 2
-                           }
-                        }
                      ]
                   }
                ]
@@ -4544,7 +5069,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "wyvern"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "wyvern"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -4589,7 +5139,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "wyvern"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -4800,7 +5362,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "leman-russ-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "leman-russ-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "battle-cannon"
             },
             {
@@ -4843,7 +5430,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "leman-russ-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "leman-russ-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -4929,7 +5541,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "leman-russ-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "pintle-weapon",
@@ -4973,7 +5597,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "leman-russ-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",

@@ -2879,7 +2879,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "weapons",
@@ -2937,7 +2949,32 @@
                      ]
                   }
                ],
-               "maximum": 2
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -3147,7 +3184,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "devourers-with-brainleech-worms"
             },
             {
@@ -3187,7 +3249,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "monstrous-scything-talons"
             },
             {
@@ -3476,7 +3563,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "stone-crusher-carnifex"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "stone-crusher-carnifex"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "2x-wrecker-claw"
             },
             {

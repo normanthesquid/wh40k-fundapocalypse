@@ -347,6 +347,23 @@
             "destroyed",
             "engines-of-war"
          ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "arioch-power-claw-w-titan-volcan-mega-bolter"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "addsAbilities": [
+                  "wrecker"
+               ]
+            }
+         ],
          "wargear": [
             {
                "id": "primary-weapon-mounts",
@@ -373,8 +390,7 @@
                         "titan-vulcan-mega-bolter"
                      ],
                      "addsAbilities": [
-                        "apocalyptic-destroyer",
-                        "wrecker"
+                        "apocalyptic-destroyer"
                      ]
                   },
                   {

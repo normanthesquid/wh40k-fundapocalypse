@@ -489,7 +489,32 @@
                      ]
                   }
                ],
-               "maximum": 2
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -698,7 +723,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "two-wardog-autocannons"
             },
             {
@@ -738,7 +788,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-stubber"
             },
             {

@@ -1652,7 +1652,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellforged-rapier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellforged-rapier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "ectoplasma-cannon"
             },
             {
@@ -4648,6 +4673,154 @@
             "3-toxic-haemorrhage",
             "terror-troops"
          ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 3,
+                  "maximum": 3
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "wounds": 3,
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 3
+                        }
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "wounds": 2,
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 2
+                        }
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 4,
+                  "maximum": 4
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 4
+                        },
+                        "wounds": 4
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 5,
+                  "maximum": 5
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 5
+                        },
+                        "wounds": 5
+                     }
+                  }
+               ]
+            }
+         ],
+         "costChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 3,
+                  "maximum": 3
+               },
+               "set": 7
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 4,
+                  "maximum": 4
+               },
+               "set": 9
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 5,
+                  "maximum": 5
+               },
+               "set": 11
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "chaos-spawn"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "set": 4
+            }
+         ],
          "wargear": [
             {
                "id": "upgrades",
@@ -4660,18 +4833,6 @@
                      "minimum": 1,
                      "addsWeapons": [
                         "hideous-mutations"
-                     ],
-                     "cost": 19,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "wounds": 5,
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 5
-                              }
-                           }
-                        }
                      ]
                   }
                ]

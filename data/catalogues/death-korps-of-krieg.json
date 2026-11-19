@@ -606,7 +606,32 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -916,6 +941,31 @@
          "abilities": [
             "augmented-mount"
          ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "5-additional-riders"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 2
+                        },
+                        "wounds": 2
+                     }
+                  }
+               ]
+            }
+         ],
          "wargear": [
             {
                "id": "upgrades",
@@ -924,18 +974,7 @@
                   {
                      "id": "5-additional-riders",
                      "name": "5 Additional Riders",
-                     "cost": 5,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 2
-                              },
-                              "wounds": 2
-                           }
-                        }
-                     ]
+                     "cost": 5
                   }
                ]
             }
@@ -1098,7 +1137,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -1352,7 +1416,32 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "hull-weapon",
@@ -1471,7 +1560,32 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "sponsons",
@@ -1556,7 +1670,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "pintle-weapon",
@@ -1600,7 +1726,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2066,7 +2204,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "hull-weapon",
@@ -2125,7 +2275,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -2227,7 +2402,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "salamander-scout-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2327,7 +2514,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -2372,7 +2584,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2470,7 +2694,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -2515,7 +2764,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2613,7 +2874,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -2658,7 +2944,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -2872,7 +3170,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -2917,7 +3240,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -3133,7 +3468,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "heavy-bolter"
             },
             {
@@ -3178,7 +3538,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -3893,7 +4265,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "stygies-destroyer-tank-hunter"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -3993,7 +4377,19 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "stygies-thunderer-siege-tank"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",

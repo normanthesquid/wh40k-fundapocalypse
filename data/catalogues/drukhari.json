@@ -2084,7 +2084,32 @@
                      ]
                   }
                ],
-               "maximum": 2,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
                "default": "gruesome-combat-weapon"
             },
             {
@@ -2156,7 +2181,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "splinter-cannon"
             },
             {

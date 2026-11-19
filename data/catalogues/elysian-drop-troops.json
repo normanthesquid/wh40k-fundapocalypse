@@ -267,7 +267,32 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -388,7 +413,32 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -444,6 +494,48 @@
             "ASTRA MILITARUM",
             "ELYSIAN DROP TROOPS",
             "IMPERIUM"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "elysian-drop-sentinel"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "increment": {
+                        "wounds": 1,
+                        "attacks": 1
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "elysian-drop-sentinel"
+                  },
+                  "minimum": 3,
+                  "maximum": 3
+               },
+               "profileChanges": [
+                  {
+                     "increment": {
+                        "attacks": 2,
+                        "wounds": 2
+                     }
+                  }
+               ]
+            }
          ],
          "wargear": [
             {
@@ -502,7 +594,32 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "elysian-drop-sentinel"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "elysian-drop-sentinel"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -519,14 +636,6 @@
                      ],
                      "addsAbilities": [
                         "deep-strike"
-                     ],
-                     "profileChanges": [
-                        {
-                           "increment": {
-                              "wounds": 2,
-                              "attacks": 2
-                           }
-                        }
                      ]
                   }
                ]
@@ -705,7 +814,32 @@
                      ]
                   }
                ],
-               "maximum": 1
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
             },
             {
                "id": "upgrades",
@@ -914,7 +1048,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-assault-vehicle"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-assault-vehicle"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "tauros-grenade-launcher"
             },
             {
@@ -1009,7 +1168,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-venator"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tauros-venator"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "twin-multi-laser"
             },
             {
@@ -1158,7 +1342,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tarantula-sentry-gun"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "tarantula-sentry-gun"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "twin-heavy-bolter"
             },
             {
@@ -1540,7 +1749,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "multi-laser"
             },
             {
@@ -1580,7 +1814,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "hellstrike-missiles"
             },
             {
@@ -1841,7 +2100,19 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "2x-multiple-rocket-pod"
             },
             {
@@ -1901,7 +2172,19 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "2x-multiple-rocket-pod-2"
             },
             {

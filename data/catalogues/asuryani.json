@@ -2188,7 +2188,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "support-weapon"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "support-weapon"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "shadow-weaver"
             },
             {
@@ -4778,6 +4803,26 @@
             "webway-rupture",
             "deep-strike"
          ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "scattershield"
+                  },
+                  "minimum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "save": 5
+                     }
+                  }
+               ]
+            }
+         ],
          "wargear": [
             {
                "id": "secondary-weapon-options",
@@ -4835,14 +4880,7 @@
                   },
                   {
                      "id": "scattershield",
-                     "name": "Scattershield",
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "save": 5
-                           }
-                        }
-                     ]
+                     "name": "Scattershield"
                   }
                ],
                "minimum": 2,
@@ -5071,7 +5109,32 @@
                      ]
                   }
                ],
-               "maximum": 1,
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "wraith-glaive-option"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "wraith-glaive-option"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
                "default": "starcannon"
             },
             {

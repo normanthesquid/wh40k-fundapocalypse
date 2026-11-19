@@ -1691,6 +1691,32 @@
             "infiltrators",
             "rapid-fire"
          ],
+         "costChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "incursor"
+                  },
+                  "minimum": 1
+               },
+               "increment": 1
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "reiver"
+                  },
+                  "minimum": 1
+               },
+               "increment": 1
+            }
+         ],
          "wargear": [
             {
                "id": "5-10-models",
@@ -1732,8 +1758,7 @@
                      "addsAbilities": [
                         "haywire-mine",
                         "multi-spectrum-gunsights"
-                     ],
-                     "cost": 1
+                     ]
                   },
                   {
                      "id": "reiver",
@@ -1741,8 +1766,7 @@
                      "maximum": 5,
                      "addsAbilities": [
                         "terror-troops"
-                     ],
-                     "cost": 1
+                     ]
                   },
                   {
                      "id": "eliminator-with-bolt-sniper-rifle",
