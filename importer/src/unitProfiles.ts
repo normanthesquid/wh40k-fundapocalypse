@@ -69,7 +69,9 @@ export class UnitProfiles {
          return;
       }
       const hiding = conditional.filter(isHiding);
+      const isRepeat = hiding.length === 0 && this.profiles.some((existing) => JSON.stringify(existing) === JSON.stringify(profile));
       if (hiding.length === 1) this.hiddenProfiles.push({ profile, hiddenWhen: hiding[0].condition! });
+      else if (isRepeat) this.host.conversion.report.recordDropped(target, "profile repeating one the unit already has");
       else this.profiles.push(profile);
       for (const modifier of conditional.filter((candidate) => !hiding.includes(candidate))) this.host.defer(() => this.addProfileChange(modifier, profile.name));
    }
