@@ -162,7 +162,8 @@ export class GameSystemConversion {
       const abilities = childrenOf(force, "rules", "rule").map((rule) => this.builder.findAbility(abilityFromRule(rule))!);
       if (abilities.length > 0) detachment.abilities = abilities;
       for (const child of childrenOf(force, "forceEntries", "forceEntry")) {
-         if (child.children.some((element) => !["categoryLinks"].includes(element.tag))) this.report.failUnhandled(child, "child force entry with more than category links");
+         if (isNeverAdded(child)) this.report.recordDropped(child, "child force entry with an army maximum of 0");
+         else if (child.children.some((element) => !["categoryLinks"].includes(element.tag))) this.report.failUnhandled(child, "child force entry with more than category links");
       }
       this.detachments[slug] = detachment;
    }
@@ -265,4 +266,11 @@ export class GameSystemConversion {
       const detachment = this.detachments[inDetachment];
       detachment.keywordLimits = { ...detachment.keywordLimits, [keyword]: { ...detachment.keywordLimits?.[keyword], minimum: Number(modifier.value) } };
    }
+}
+
+/** A force whose only constraint caps it at 0 per army, so it can never be added. */
+function isNeverAdded(force: Element): boolean {
+   const constraints = childrenOf(force, "constraints", "constraint");
+   const isZeroCap = (constraint: Element) => attribute(constraint, "field") === "forces" && attribute(constraint, "type") === "max" && Number(attribute(constraint, "value")) === 0;
+   return constraints.length === 1 && isZeroCap(constraints[0]) && force.children.every((element) => ["constraints", "categoryLinks"].includes(element.tag));
 }
