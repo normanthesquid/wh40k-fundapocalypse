@@ -1,0 +1,275 @@
+/** Values the v1.10.0 data has wrong or lacks, taken from the official Apocalypse datasheets and the maintainer's checks of them. */
+
+import type { BattlefieldRole, Limit, ProfileChange, Weapon } from "./model.ts";
+
+export type UnitCharacteristic = "M" | "WS" | "BS" | "A" | "W" | "Ld" | "Sv";
+export type WeaponCharacteristic = "Type" | "Range" | "A" | "SAP" | "SAT";
+
+/** Where a value comes from: a datasheet PDF and its page, or the maintainer's ruling. */
+export interface Source {
+   readonly document: string;
+   readonly page?: number;
+}
+
+const MAINTAINER: Source = { document: "maintainer ruling" };
+
+/** Printed characteristics replacing what a BattleScribe profile has, keyed by the profile's id. */
+export interface ProfileCorrection {
+   readonly profileId: string;
+   readonly name: string;
+   readonly printed: Partial<Record<UnitCharacteristic | WeaponCharacteristic, string>>;
+   readonly source: Source;
+}
+
+/** A Unit profile the data has none of, for the unit with this id (its definition, which every link to it shares). */
+export interface MissingProfile {
+   readonly unitId: string;
+   readonly name: string;
+   readonly printed: Record<UnitCharacteristic, string>;
+   readonly source: Source;
+}
+
+/** A profile that changes with the number of models, e.g. a squadron's Attacks and Wounds. */
+export interface SizedProfile {
+   readonly unitId: string;
+   readonly sizes: readonly { readonly models: number; readonly printed: Partial<Record<UnitCharacteristic, string>> }[];
+   readonly source: Source;
+}
+
+/** Blank profiles of the wrong type, named after their unit, which carry nothing. */
+export interface DroppedProfile {
+   readonly profileId: string;
+   readonly name: string;
+}
+
+const pdf = (document: string, page: number): Source => ({ document: `Apoc_Datasheet_${document}_web.pdf`, page });
+
+export const PROFILE_CORRECTIONS: readonly ProfileCorrection[] = [
+   { profileId: "570a-c6dd-0607-5609", name: "Azrael", printed: { WS: "2+", BS: "2+" }, source: MAINTAINER },
+   { profileId: "f405-3074-6728-00ed", name: "Electrostatic Gauntlets (Ranged)", printed: { A: "x3" }, source: MAINTAINER },
+   { profileId: "df05-4c61-44c0-a2fa", name: "Inquisitor-Lord Hector Rex", printed: { W: "1" }, source: pdf("FW_Inquisition", 2) },
+   { profileId: "c189-6c71-4909-ff22", name: "Victrix Honour Guard (2 models)", printed: { Ld: "7" }, source: pdf("Adeptus_Astartes", 69) },
+   { profileId: "c6aa-85d2-5df7-30fb", name: "Captain-General Trajann Valoris", printed: { M: "6\"" }, source: MAINTAINER },
+   { profileId: "674b-e3c2-cbd0-3f80", name: "Paladin Ancient", printed: { M: "5\"" }, source: MAINTAINER },
+   { profileId: "3730-5305-f0a5-8b2d", name: "Imperial Fortress Wall", printed: { WS: "-" }, source: pdf("FW_Astra_Militarum", 63) },
+   {
+      profileId: "36b4-9f09-2ea9-58f0",
+      name: "Imperial Space Marine",
+      printed: { M: "6\"", WS: "3+", BS: "3+", A: "1", W: "1", Ld: "6", Sv: "6+" },
+      source: pdf("Adeptus_Astartes", 63),
+   },
+   {
+      profileId: "9afb-27a3-1fe8-19d3",
+      name: "Elysian Sniper Squad (3 models)",
+      printed: { M: "6\"", WS: "4+", BS: "3+", A: "1", W: "1", Ld: "5", Sv: "10+" },
+      source: pdf("FW_Elysian_Drop_Troops", 9),
+   },
+   { profileId: "ddc9-60e5-6c49-99a1", name: "Cyberwolf", printed: { M: "11\"", WS: "3+", BS: "-", A: "1", W: "1", Ld: "4", Sv: "7+" }, source: pdf("Space_Wolves", 51) },
+   { profileId: "4d58-264e-052e-1312", name: "Stormhammer Cannon", printed: { Type: "Heavy", Range: "60\"", A: "4", SAP: "7+", SAT: "4+" }, source: pdf("FW_Astra_Militarum", 40) },
+   { profileId: "4ded-f0cc-8dd9-1c09", name: "Twin Battle Cannon", printed: { Type: "Heavy", Range: "72\"", A: "2", SAP: "6+", SAT: "6+" }, source: pdf("FW_Astra_Militarum", 40) },
+   { profileId: "cbd4-005f-07e1-da33", name: "Allarus Weapons (Ranged)", printed: { Range: "24\"" }, source: pdf("Adeptus_Custodes", 6) },
+   { profileId: "5b68-6d2d-5960-e0d2", name: "Avenger Gatling Cannon", printed: { SAT: "8+" }, source: pdf("Chaos_Knights", 3) },
+   { profileId: "4d80-7c62-8d89-cb86", name: "Rubric Marines (5 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "5a5c-39b6-3109-319b", name: "Rubric Marines (10 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "0f1e-5a06-3782-644d", name: "Rubric Marines (15 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "8fae-b1ab-69ce-f599", name: "Rubric Marines (20 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "45de-50d8-bc1c-e2d4", name: "Troupe (12 models)", printed: { A: "3" }, source: pdf("Harlequins", 4) },
+];
+
+const statLine = (M: string, WS: string, BS: string, A: string, W: string, Ld: string, Sv: string): Record<UnitCharacteristic, string> => ({ M, WS, BS, A, W, Ld, Sv });
+
+export const MISSING_PROFILES: readonly MissingProfile[] = [
+   { unitId: "65be-9a08-e178-9ce9", name: "Deathstrike", printed: statLine("12\"", "6+", "4+", "1", "2", "5", "6+"), source: pdf("Astra_Militarum", 45) },
+   { unitId: "a715-ef27-e673-9234", name: "Captain Corien Sumatris", printed: statLine("6\"", "2+", "2+", "1", "1", "7", "5+"), source: pdf("FW_Adeptus_Astartes", 59) },
+   { unitId: "7a88-172e-ca96-4246", name: "Chaplain Dreadnought Titus", printed: statLine("6\"", "2+", "2+", "2", "2", "8", "5+"), source: pdf("FW_Adeptus_Astartes", 65) },
+   { unitId: "8590-d531-d2f4-f0d5", name: "Vaylund Cal", printed: statLine("5\"", "2+", "2+", "1", "1", "7", "4+"), source: pdf("FW_Adeptus_Astartes", 78) },
+   { unitId: "68a3-54e1-9063-9a5a", name: "Elucia Vhane", printed: statLine("6\"", "3+", "3+", "1", "1", "7", "6+"), source: pdf("Agents_of_the_Imperium", 20) },
+   { unitId: "6435-f40e-7cff-3d10", name: "Jokaero Weaponsmith", printed: statLine("6\"", "6+", "4+", "1", "1", "5", "10+"), source: pdf("Agents_of_the_Imperium", 17) },
+   { unitId: "ed7d-3992-a081-bc89", name: "Gryphonne Pattern Chimera", printed: statLine("12\"", "6+", "4+", "1", "2", "5", "6+"), source: pdf("FW_Astra_Militarum", 6) },
+   { unitId: "fd5f-3162-4a1d-fd66", name: "Salamander Command Vehicle", printed: statLine("12\"", "6+", "3+", "1", "2", "6", "6+"), source: pdf("FW_Astra_Militarum", 3) },
+   { unitId: "6442-06e8-4d19-262c", name: "Valdor Tank Hunter", printed: statLine("10\"", "6+", "4+", "1", "4", "6", "6+"), source: pdf("FW_Astra_Militarum", 54) },
+   { unitId: "c003-0b9a-1ccc-b5e4", name: "Ryza Pattern Leman Russ Vanquisher", printed: statLine("10\"", "6+", "4+", "1", "2", "5", "6+"), source: pdf("FW_Astra_Militarum", 25) },
+   { unitId: "08da-6346-ad66-be8f", name: "Bane Wolf", printed: statLine("12\"", "6+", "4+", "1", "2", "5", "6+"), source: pdf("Astra_Militarum", 39) },
+   { unitId: "10e7-ff85-0ce0-ecdf", name: "Devil Dog", printed: statLine("12\"", "6+", "4+", "1", "2", "5", "6+"), source: pdf("Astra_Militarum", 40) },
+   { unitId: "e6eb-f9a4-3a09-1eaf", name: "Stormsword", printed: statLine("10\"", "5+", "4+", "2", "5", "6", "6+"), source: pdf("Astra_Militarum", 55) },
+   { unitId: "dc7c-2b53-9738-6582", name: "Elysian Command Squad (3/4 models)", printed: statLine("6\"", "4+", "3+", "1", "1", "6", "10+"), source: pdf("FW_Elysian_Drop_Troops", 6) },
+   { unitId: "de21-3e8b-fb9a-36dc", name: "Elysian Heavy Weapons Squad (3 models)", printed: statLine("6\"", "4+", "4+", "1", "1", "5", "10+"), source: pdf("FW_Elysian_Drop_Troops", 10) },
+   { unitId: "cce2-2884-a0ad-88a7", name: "Primaris Battle Leader", printed: statLine("6\"", "2+", "3+", "1", "1", "6", "6+"), source: pdf("Space_Wolves", 20) },
+   { unitId: "db32-a3d3-5ee4-7722", name: "Ravenwing Land Speeder Vengeance", printed: statLine("12\"", "3+", "3+", "1", "2", "6", "6+"), source: pdf("Dark_Angels", 56) },
+   { unitId: "2468-48de-617e-2258", name: "Relic Land Raider Proteus", printed: statLine("10\"", "5+", "3+", "2", "3", "7", "4+"), source: pdf("FW_Adeptus_Astartes", 5) },
+   { unitId: "2235-b44c-a7d2-d517", name: "Terrax-pattern Termite Assault Drill", printed: statLine("8\"", "4+", "3+", "2", "2", "6", "5+"), source: pdf("FW_Adeptus_Astartes", 7) },
+   { unitId: "0fb2-fc72-9e69-d8ad", name: "Centurion Assault Squad (3 models)", printed: statLine("4\"", "3+", "3+", "1", "2", "6", "4+"), source: pdf("Adeptus_Astartes", 17) },
+   { unitId: "2471-f69b-08e2-34a7", name: "Centurion Devastator Squad (3 models)", printed: statLine("4\"", "3+", "3+", "1", "2", "6", "4+"), source: pdf("Adeptus_Astartes", 34) },
+   { unitId: "ea0b-da21-710a-a0b8", name: "Land Speeder Tempests", printed: statLine("15\"", "3+", "3+", "1", "1", "6", "6+"), source: pdf("FW_Adeptus_Astartes", 30) },
+   { unitId: "1dd1-6a73-648b-44c0", name: "Skorpius Disintegrator", printed: statLine("12\"", "6+", "3+", "1", "2", "6", "6+"), source: pdf("Adeptus_Mechanicus", 21) },
+   { unitId: "82fa-bcd3-d0ce-cde6", name: "Tech-Priest Manipulus", printed: statLine("6\"", "3+", "3+", "1", "1", "6", "4+"), source: pdf("Adeptus_Mechanicus", 3) },
+   { unitId: "ab08-5e01-37f6-dc3e", name: "Spoilpox Scrivener", printed: statLine("5\"", "2+", "2+", "1", "1", "6", "9+"), source: pdf("Legiones_Daemonica", 22) },
+   { unitId: "b6f8-5507-d8a2-6cd1", name: "Hellforged Rapier (3 models)", printed: statLine("4\"", "6+", "3+", "1", "1", "6", "6+"), source: pdf("FW_Heretic_Astartes", 18) },
+   { unitId: "f5e0-821e-23d1-4dd7", name: "Vengeance Weapon Battery", printed: statLine("-", "-", "5+", "-", "2", "8", "6+"), source: pdf("Unaligned", 6) },
+   { unitId: "8424-07c3-523d-a146", name: "Vortex Missile Aquila Strongpoint", printed: statLine("-", "-", "5+", "-", "6", "10", "6+"), source: pdf("Unaligned", 10) },
+];
+
+export const SIZED_PROFILES: readonly SizedProfile[] = [
+   {
+      unitId: "ea0b-da21-710a-a0b8",
+      sizes: [
+         { models: 2, printed: { A: "2", W: "2" } },
+         { models: 3, printed: { A: "3", W: "3" } },
+      ],
+      source: pdf("FW_Adeptus_Astartes", 30),
+   },
+   {
+      unitId: "5855-5edc-c417-a7ad",
+      sizes: [
+         { models: 2, printed: { A: "2", W: "2" } },
+         { models: 3, printed: { A: "3", W: "3" } },
+         { models: 4, printed: { A: "4", W: "4" } },
+         { models: 5, printed: { A: "5", W: "5" } },
+      ],
+      source: pdf("Space_Wolves", 51),
+   },
+];
+
+export const DROPPED_PROFILES: readonly DroppedProfile[] = [
+   { profileId: "7564-695e-3a36-fe93", name: "Gryphonne Pattern Chimera" },
+   { profileId: "1cf5-887f-fc99-5c87", name: "Arkurian Pattern Stormhammer" },
+   { profileId: "bfb5-2a25-f051-7645", name: "Ryza Pattern Leman Russ Vanquisher" },
+   { profileId: "2313-7ff2-61ad-7700", name: "Valdor Tank Hunter" },
+   { profileId: "f124-5fae-59f7-d57c", name: "Elysian Command Squad (3/4 Models)" },
+];
+
+/** Terrain features whose official datasheet prints no stat line: once set up, they are terrain rather than a unit. */
+export const PROFILELESS_DATASHEETS: readonly { readonly unitId: string; readonly name: string; readonly source: Source }[] = [
+   { unitId: "f46d-c8d1-dff8-817b", name: "Aegis Defence Line", source: pdf("Unaligned", 1) },
+   { unitId: "1ff8-573b-e9de-08c0", name: "Imperial Defence Line", source: pdf("Unaligned", 4) },
+   { unitId: "39c7-dbab-c476-e28d", name: "Mekboy Workshop", source: pdf("Orks", 51) },
+   { unitId: "5853-cb10-ede1-3e7d", name: "Sacristan Forgeshrine", source: pdf("Imperial_Knights", 13) },
+   { unitId: "5667-2d59-4000-4303", name: "Tectonic Fragdrill", source: pdf("Genestealers", 29) },
+   { unitId: "646a-f716-9cdf-247b", name: "Feculent Gnarlmaw", source: pdf("Legiones_Daemonica", 49) },
+   { unitId: "03eb-2033-4a6c-669a", name: "Skull Altar", source: pdf("Legiones_Daemonica", 50) },
+];
+
+const MINISTORUM: Source = { document: "f803d0c4.pdf (Adeptus Ministorum)" };
+const ministorum = (page: number): Source => ({ ...MINISTORUM, page });
+
+/** Battlefield roles the data lacks, read from the role icon on the official datasheet. */
+export const MISSING_ROLES: readonly { readonly unitId: string; readonly name: string; readonly role: BattlefieldRole; readonly source: Source }[] = [
+   { unitId: "ef0f-f67c-da10-8dcf", name: "Geminae Superia", role: "Elites", source: ministorum(3) },
+   { unitId: "4c42-09d7-f233-74e0", name: "Mistress of Repentance", role: "Elites", source: ministorum(14) },
+   { unitId: "0e13-ead1-f97f-e444", name: "Crusaders", role: "Elites", source: ministorum(24) },
+   { unitId: "428a-591c-d180-58b4", name: "Death Cult Assassins", role: "Elites", source: ministorum(25) },
+   { unitId: "9767-fee3-b260-d67f", name: "Arco-flagellants", role: "Elites", source: ministorum(26) },
+   { unitId: "d968-ea96-4863-9ddf", name: "Mutoid Vermin", role: "FastAttack", source: pdf("Gellerpox_Infected", 5) },
+];
+
+/** Second battlefield-role links the official datasheet's single role icon contradicts, keyed by the category link's id. */
+export const STRAY_ROLE_LINKS: readonly { readonly linkId: string; readonly name: string; readonly source: Source }[] = [
+   { linkId: "5191-745a-fee5-1ebd", name: "Sicarian Ruststalkers", source: pdf("Adeptus_Mechanicus", 12) },
+   { linkId: "4c54-ad8c-c08c-fc14", name: "Sicarian Infiltrators", source: pdf("Adeptus_Mechanicus", 13) },
+   { linkId: "2745-1595-e03d-975c", name: "Sentinel Powerlifters", source: pdf("FW_Astra_Militarum", 35) },
+];
+
+/** Conditions that name another unit's entry where the unit's own was meant, keyed by the unit's id and the wrong childId. */
+export const CONDITION_TARGET_CORRECTIONS: readonly { readonly unitId: string; readonly childId: string; readonly correctedChildId: string; readonly name: string; readonly source: Source }[] = [
+   { unitId: "f1dc-9426-c419-5aa6", childId: "a9ec-6432-91ba-f8bf", correctedChildId: "973a-0f6f-0bb6-eb25", name: "Land Speeders 3 models", source: pdf("Adeptus_Astartes", 29) },
+   { unitId: "ea42-68aa-024e-2eaf", childId: "a9ec-6432-91ba-f8bf", correctedChildId: "973a-0f6f-0bb6-eb25", name: "Attack Bike Squad 3 models", source: pdf("Adeptus_Astartes", 30) },
+   { unitId: "1ca8-12b4-8ce6-5bbb", childId: "118c-2954-ba85-34e3", correctedChildId: "7dbe-a660-f6c9-1add", name: "Commander in XV84 Crisis Battlesuit drones", source: pdf("FW_Tau_Empire", 6) },
+   { unitId: "e832-e976-398e-610d", childId: "5f48-32f9-4de9-c2a4", correctedChildId: "140f-3794-7b50-a030", name: "Hounds of Morkai 10 models", source: MAINTAINER },
+   { unitId: "531c-7893-3dab-280c", childId: "b387-d691-5e15-e5cc", correctedChildId: "8593-349a-e033-266b", name: "Bladeguard Veteran Squad 6 models", source: { document: "wiki page Bladeguard-Veteran-Squad-Datasheet-Changes" } },
+];
+
+/** Printed text for ability profiles the data leaves empty, keyed by the profile's id. */
+export const ABILITY_TEXTS: readonly { readonly profileId: string; readonly name: string; readonly text: string; readonly source: Source }[] = [
+   {
+      profileId: "f2e9-2ae6-3afd-0024",
+      name: "Spiritual Leader",
+      text: "Friendly DARK ANGELS units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit.",
+      source: pdf("Dark_Angels", 6),
+   },
+];
+
+const perOption = (amounts: Record<string, number>): Limit => ({ base: 0, terms: Object.entries(amounts).map(([option, amount]) => ({ per: { kind: "Option", option }, scope: "Unit", amount })) });
+
+/** Option group bounds the datasheet prints, replacing what the data sets, keyed by the group's id. */
+export const GROUP_BOUND_CORRECTIONS: readonly { readonly groupId: string; readonly name: string; readonly minimum?: Limit; readonly maximum?: Limit; readonly source: Source }[] = [
+   { groupId: "af9c-a747-fe79-484a", name: "Kabalite Warriors optional weapons", maximum: perOption({ "10-models": 1, "15-models": 1, "20-models": 2 }), source: pdf("Drukhari", 8) },
+   {
+      groupId: "465c-48ad-fb46-1dc7",
+      name: "Ravenwing Attack Bike Squad weapons",
+      minimum: perOption({ "1-model": 1, "2-models": 2, "3-models": 3 }),
+      maximum: perOption({ "1-model": 1, "2-models": 2, "3-models": 3 }),
+      source: pdf("Dark_Angels", 52),
+   },
+];
+
+/** Option maximums the data gets wrong, keyed by the constraint's id. */
+export const OPTION_MAXIMUM_CORRECTIONS: readonly { readonly constraintId: string; readonly name: string; readonly maximum: number; readonly source: Source }[] = [
+   { constraintId: "e460-e00d-b2e6-cb6f", name: "Terrax-Pattern Termite Assault Drill Two Heavy Flamers", maximum: 2, source: pdf("FW_Heretic_Astartes", 41) },
+];
+
+/** Corrections below apply to the converted catalogues, naming entries by catalogue id and slug or by name. */
+export type KeywordKind = "Keyword" | "FactionKeyword";
+
+export const MISSING_KEYWORDS: readonly { readonly catalogue: string; readonly datasheet: string; readonly kind: KeywordKind; readonly keyword: string; readonly source: Source }[] = [
+   { catalogue: "adeptus-custodes", datasheet: "shield-captain", kind: "Keyword", keyword: "INFANTRY", source: pdf("Adeptus_Custodes", 2) },
+   { catalogue: "adeptus-custodes", datasheet: "allarus-custodians", kind: "Keyword", keyword: "TERMINATOR", source: pdf("Adeptus_Custodes", 6) },
+   { catalogue: "dark-angels", datasheet: "interrogator-chaplain", kind: "FactionKeyword", keyword: "IMPERIUM", source: pdf("Dark_Angels", 6) },
+   { catalogue: "space-marines", datasheet: "centurion-assault-squad", kind: "Keyword", keyword: "CENTURION ASSAULT SQUAD", source: pdf("Adeptus_Astartes", 17) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", kind: "Keyword", keyword: "CENTURION", source: pdf("Adeptus_Astartes", 34) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", kind: "Keyword", keyword: "CENTURION DEVASTATOR SQUAD", source: pdf("Adeptus_Astartes", 34) },
+];
+
+export type RenamedKind = "Datasheet" | "Weapon" | "Ability" | "Keyword";
+
+/** Names the official datasheet prints differently; a renamed entry's slug, and options named after a renamed weapon, follow the name. */
+export const NAME_CORRECTIONS: readonly { readonly kind: RenamedKind; readonly catalogue: string; readonly from: string; readonly to: string; readonly source: Source }[] = [
+   { kind: "Keyword", catalogue: "elysian-drop-troops", from: "ELYSIAN VETERANS SQUAD", to: "ELYSIAN VETERAN SQUAD", source: pdf("FW_Elysian_Drop_Troops", 5) },
+   { kind: "Weapon", catalogue: "weapons", from: "Stormspear Missile Pod", to: "Stormspear Rocket Pod", source: pdf("Imperial_Knights", 2) },
+   { kind: "Weapon", catalogue: "imperial-knights", from: "Stormspear Missile Pod", to: "Stormspear Rocket Pod", source: pdf("Imperial_Knights", 2) },
+   { kind: "Datasheet", catalogue: "gellerpox-infected", from: "The Vox Shamblers", to: "The Vox-Shamblers", source: pdf("Gellerpox_Infected", 2) },
+   { kind: "Keyword", catalogue: "gellerpox-infected", from: "THE VOX SHAMBLERS", to: "THE VOX-SHAMBLERS", source: pdf("Gellerpox_Infected", 2) },
+   { kind: "Ability", catalogue: "thousand-sons", from: "Rubric Marines", to: "Legacy of the Rubricae", source: pdf("Thousand_Sons", 5) },
+   { kind: "Ability", catalogue: "ynnari", from: "Warden of Ynnead", to: "Warden of Yvraine", source: pdf("Ynnari", 2) },
+];
+
+export const ABILITY_TEXT_CORRECTIONS: readonly { readonly catalogue: string; readonly ability: string; readonly text: string; readonly source: Source }[] = [
+   {
+      catalogue: "renegades-and-heretics",
+      ability: "banner-of-the-apostate",
+      text: "Subtract 1 from the Leadership characteristic of Imperial units whilst they are within 6\" of any units that have a Banner of the Apostate.",
+      source: pdf("FW_Renegades_and_Heretics", 10),
+   },
+];
+
+const sixCenturions: ProfileChange[] = [{ set: { attacks: { kind: "Fixed", value: 2 }, wounds: 4 } }];
+
+/** Option costs and stat changes the datasheet prints, e.g. the Library Centurion squads' unit sizes, which the data leaves without either. */
+export const OPTION_CORRECTIONS: readonly { readonly catalogue: string; readonly datasheet: string; readonly option: string; readonly cost: number; readonly profileChanges?: ProfileChange[]; readonly source: Source }[] = [
+   { catalogue: "death-korps-of-krieg", datasheet: "death-korps-combat-engineer-squad", option: "heavy-weapons-team", cost: 1, source: pdf("FW_Death_Korps_of_Krieg", 10) },
+   { catalogue: "space-marines", datasheet: "centurion-assault-squad", option: "3-models", cost: 9, source: pdf("Adeptus_Astartes", 17) },
+   { catalogue: "space-marines", datasheet: "centurion-assault-squad", option: "6-models", cost: 22, profileChanges: sixCenturions, source: pdf("Adeptus_Astartes", 17) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", option: "3-models", cost: 11, source: pdf("Adeptus_Astartes", 34) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", option: "6-models", cost: 22, profileChanges: sixCenturions, source: pdf("Adeptus_Astartes", 34) },
+];
+
+/** Weapons the datasheet equips that the data lacks, defined in `catalogue` and given to each listed datasheet. */
+export const MISSING_WEAPONS: readonly { readonly catalogue: string; readonly weapon: Weapon; readonly datasheets: readonly { readonly catalogue: string; readonly datasheet: string }[]; readonly source: Source }[] = [
+   {
+      catalogue: "chaos-space-marines",
+      weapon: { name: "Close Combat Weapons", type: "Melee", attacks: { kind: "User" }, antiPersonnel: 6, antiTank: 9 },
+      datasheets: [
+         { catalogue: "chaos-space-marines", datasheet: "rubric-marines" },
+         { catalogue: "thousand-sons", datasheet: "rubric-marines-2" },
+      ],
+      source: pdf("Thousand_Sons", 5),
+   },
+];
+
+/** Abilities an option's weapon brings that the datasheet prints differently, for every option with this name. */
+export const OPTION_ABILITY_CORRECTIONS: readonly { readonly option: string; readonly from: string; readonly to: string; readonly source: Source }[] = [
+   { option: "Reaver Melta Cannon", from: "apocalyptic-destroyer", to: "destroyer", source: pdf("FW_Titan_Legions", 3) },
+];
+
+export function describeSource(source: Source): string {
+   return source.page === undefined ? source.document : `${source.document} p${source.page}`;
+}

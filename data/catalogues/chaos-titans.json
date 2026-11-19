@@ -1,0 +1,547 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "chaos-titans",
+   "name": "Chaos - Chaos Titans",
+   "kind": "Faction",
+   "datasheets": {
+      "chaos-warlord-battle-titan": {
+         "name": "Chaos Warlord Battle Titan",
+         "battlefieldRole": "LordOfWar",
+         "cost": 154,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "GOD-ENGINE",
+            "CHAOS WARLORD BATTLE TITAN"
+         ],
+         "profiles": [
+            {
+               "name": "Chaos Warlord Battle Titan",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 18
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 36,
+               "leadership": 8,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TITANICUS TRAITORIS"
+         ],
+         "weapons": [
+            "weapons/titanic-armoured-feet"
+         ],
+         "abilities": [
+            "terror-troops",
+            "infernal-god-engine",
+            "reactor-overload",
+            "warlord-void-shields"
+         ],
+         "wargear": [
+            {
+               "id": "carapace-weapons",
+               "name": "Carapace Weapons",
+               "options": [
+                  {
+                     "id": "apocalypse-missile-launcher",
+                     "name": "Apocalypse Missile Launcher",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/apocalypse-missile-launcher"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "incinerator-missile-bank",
+                     "name": "Incinerator Missile Bank",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/incinerator-missile-bank"
+                     ]
+                  },
+                  {
+                     "id": "reaver-gatling-blaster",
+                     "name": "Reaver Gatling Blaster",
+                     "maximum": 2,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/reaver-gatling-blaster"
+                     ]
+                  },
+                  {
+                     "id": "titan-dual-turbo-laser-destructor",
+                     "name": "Titan Dual Turbo-laser Destructor",
+                     "maximum": 2,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/titan-dual-turbo-laser-destructor"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "titan-plasma-blastgun",
+                     "name": "Titan Plasma Blastgun",
+                     "maximum": 2,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/titan-plasma-blastgun"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "twin-titan-vulcan-mega-bolter",
+                     "name": "Twin Titan Vulcan Mega-bolter",
+                     "maximum": 2,
+                     "cost": 18,
+                     "addsWeapons": [
+                        "weapons/twin-titan-vulcan-mega-bolter"
+                     ]
+                  },
+                  {
+                     "id": "reaver-laser-blaster",
+                     "name": "Reaver Laser Blaster",
+                     "maximum": 2,
+                     "cost": 18,
+                     "addsWeapons": [
+                        "weapons/reaver-laser-blaster"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "apocalypse-missile-launcher"
+            },
+            {
+               "id": "arm-weapons",
+               "name": "Arm Weapons",
+               "options": [
+                  {
+                     "id": "arioch-power-claw-and-vulcan-mega-bolter",
+                     "name": "Arioch Power Claw and Vulcan Mega-bolter",
+                     "maximum": 2,
+                     "cost": 30,
+                     "addsWeapons": [
+                        "weapons/arioch-power-claw",
+                        "weapons/titan-vulcan-mega-bolter"
+                     ],
+                     "addsAbilities": [
+                        "apocalyptic-destroyer"
+                     ]
+                  },
+                  {
+                     "id": "belicosa-volcano-cannon",
+                     "name": "Belicosa Volcano Cannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/belicosa-volcano-cannon"
+                     ],
+                     "addsAbilities": [
+                        "apocalyptic-destroyer"
+                     ]
+                  },
+                  {
+                     "id": "mori-quake-cannon",
+                     "name": "Mori Quake Cannon",
+                     "maximum": 2,
+                     "cost": 30,
+                     "addsWeapons": [
+                        "weapons/mori-quake-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer",
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "saturnyne-lascutter",
+                     "name": "Saturnyne Lascutter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/saturnyne-lascutter-ranged",
+                        "weapons/saturnyne-lascutter-melee"
+                     ],
+                     "addsAbilities": [
+                        "apocalyptic-destroyer",
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "sunfury-plasma-annihilator",
+                     "name": "Sunfury Plasma Annihilator",
+                     "maximum": 2,
+                     "cost": 36,
+                     "addsWeapons": [
+                        "weapons/sunfury-plasma-annihilator"
+                     ],
+                     "addsAbilities": [
+                        "destroyer",
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "warlord-gatling-blaster",
+                     "name": "Warlord Gatling Blaster",
+                     "maximum": 2,
+                     "cost": 18,
+                     "addsWeapons": [
+                        "weapons/warlord-gatling-blaster"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "belicosa-volcano-cannon"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "ardex-defensor-twin-lascannon",
+                     "name": "Ardex-defensor Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/ardex-defensor-twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "ardex-defensor-mauler",
+                     "name": "Ardex-defensor Mauler",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/ardex-defensor-mauler"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "chaos-reaver-battle-titan": {
+         "name": "Chaos Reaver Battle Titan",
+         "battlefieldRole": "LordOfWar",
+         "cost": 100,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "GOD-ENGINE",
+            "CHAOS REAVER BATTLE TITAN"
+         ],
+         "profiles": [
+            {
+               "name": "Chaos Reaver Battle Titan",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 20
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 24,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TITANICUS TRAITORIS"
+         ],
+         "weapons": [
+            "weapons/titanic-armoured-feet"
+         ],
+         "abilities": [
+            "infernal-god-engine",
+            "reactor-overload",
+            "terror-troops",
+            "reaver-void-shields"
+         ],
+         "wargear": [
+            {
+               "id": "arm-weapons",
+               "name": "Arm Weapons",
+               "options": [
+                  {
+                     "id": "reaver-gatling-blaster",
+                     "name": "Reaver Gatling Blaster",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/reaver-gatling-blaster"
+                     ]
+                  },
+                  {
+                     "id": "reaver-chainfist",
+                     "name": "Reaver Chainfist",
+                     "maximum": 2,
+                     "cost": 24,
+                     "addsWeapons": [
+                        "weapons/reaver-chainfist"
+                     ],
+                     "addsAbilities": [
+                        "apocalyptic-destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaver-laser-blaster",
+                     "name": "Reaver Laser Blaster",
+                     "maximum": 2,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/reaver-laser-blaster"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaver-melta-cannon",
+                     "name": "Reaver Melta Cannon",
+                     "maximum": 2,
+                     "cost": 18,
+                     "addsWeapons": [
+                        "weapons/reaver-melta-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaver-power-fist",
+                     "name": "Reaver Power Fist",
+                     "maximum": 2,
+                     "cost": 24,
+                     "addsWeapons": [
+                        "weapons/reaver-power-fist"
+                     ],
+                     "addsAbilities": [
+                        "apocalyptic-destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaver-volcano-cannon",
+                     "name": "Reaver Volcano Cannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/reaver-volcano-cannon"
+                     ],
+                     "addsAbilities": [
+                        "apocalyptic-destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "reaver-gatling-blaster"
+            },
+            {
+               "id": "carapace-weapon",
+               "name": "Carapace Weapon",
+               "options": [
+                  {
+                     "id": "apocalypse-missile-launcher",
+                     "name": "Apocalypse Missile Launcher",
+                     "addsWeapons": [
+                        "weapons/apocalypse-missile-launcher"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "incinerator-missile-bank",
+                     "name": "Incinerator Missile Bank",
+                     "addsWeapons": [
+                        "weapons/incinerator-missile-bank"
+                     ]
+                  },
+                  {
+                     "id": "titan-dual-turbo-laser-destructor",
+                     "name": "Titan Dual Turbo-laser Destructor",
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/titan-dual-turbo-laser-destructor"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "titan-inferno-gun",
+                     "name": "Titan Inferno Gun",
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/titan-inferno-gun"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "titan-plasma-blastgun",
+                     "name": "Titan Plasma Blastgun",
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/titan-plasma-blastgun"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "titan-vulcan-mega-bolter",
+                     "name": "Titan Vulcan Mega-bolter",
+                     "cost": 6,
+                     "addsWeapons": [
+                        "weapons/titan-vulcan-mega-bolter"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "apocalypse-missile-launcher"
+            }
+         ]
+      },
+      "chaos-warhound-scout-titan": {
+         "name": "Chaos Warhound Scout Titan",
+         "battlefieldRole": "LordOfWar",
+         "cost": 60,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "GOD-ENGINE",
+            "CHAOS WARHOUND SCOUT TITAN"
+         ],
+         "profiles": [
+            {
+               "name": "Chaos Warhound Scout Titan",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 24
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 12,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TITANICUS TRAITORIS"
+         ],
+         "weapons": [
+            "weapons/titanic-armoured-feet"
+         ],
+         "abilities": [
+            "warhound-void-shields",
+            "infernal-god-engine",
+            "reactor-overload"
+         ],
+         "wargear": [
+            {
+               "id": "arm-weapons",
+               "name": "Arm Weapons",
+               "options": [
+                  {
+                     "id": "titan-dual-turbo-laser-destructor",
+                     "name": "Titan Dual Turbo-laser Destructor",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/titan-dual-turbo-laser-destructor"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "titan-inferno-gun",
+                     "name": "Titan Inferno Gun",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/titan-inferno-gun"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "titan-plasma-blastgun",
+                     "name": "Titan Plasma Blastgun",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/titan-plasma-blastgun"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "titan-vulcan-mega-bolter",
+                     "name": "Titan Vulcan Mega-bolter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/titan-vulcan-mega-bolter"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "titan-plasma-blastgun"
+            }
+         ]
+      }
+   },
+   "abilities": {
+      "warhound-void-shields": {
+         "name": "Warhound Void Shields",
+         "text": "At the start of the Damage phase, remove one blast marker from this unit. Small blast markers must be removed before large blast markers."
+      },
+      "infernal-god-engine": {
+         "name": "Infernal God-engine",
+         "text": "You can re-roll Morale tests taken for this unit."
+      },
+      "reactor-overload": {
+         "name": "Reactor Overload",
+         "text": "In the Damage phase, damage must be resolved for units with this ability before damage is resolved for any other units (including SUPER-HEAVY units). If this unit is destroyed, before removing it from the battlefield, roll a D12 for each other unit within 6” of this unit; on a 4+ place two blast markers next to the unit being rolled for."
+      },
+      "warlord-void-shields": {
+         "name": "Warlord Void Shields",
+         "text": "At the start of the Damage phase, remove one blast marker from this unit. Large blast markers must be removed before small blast markers."
+      },
+      "reaver-void-shields": {
+         "name": "Reaver Void Shields",
+         "text": "At the start of the Damage phase, remove one blast marker from this unit. Large blast markers must be removed before small blast markers."
+      }
+   },
+   "imports": [
+      "weapons"
+   ]
+}

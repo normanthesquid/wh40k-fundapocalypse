@@ -137,6 +137,13 @@ func (check *checker) checkDatasheet(where scope) {
 	}
 	check.checkAlternativeRoles(where, datasheet.AlternativeRoles)
 	check.checkCondition(where.at("availableWhen"), datasheet.AvailableWhen)
+	if required := datasheet.RequiredInDetachment; required != nil {
+		check.checkCondition(where.at("requiredInDetachment/when"), &required.When)
+		check.checkBounds(where.at("requiredInDetachment"), &required.Minimum, datasheet.MaximumPerDetachment)
+	}
+	for index := range datasheet.CostChanges {
+		check.checkCondition(where.at("costChanges/%d/when", index), &datasheet.CostChanges[index].When)
+	}
 	for index, change := range datasheet.ConditionalChanges {
 		changeScope := where.at("conditionalChanges/%d", index)
 		check.checkWargearChanges(changeScope, change.WargearChanges, carrier{conditionalChange: index})
@@ -182,6 +189,8 @@ func (check *checker) checkOptionGroup(where scope, group OptionGroup) {
 	if group.Maximum != nil {
 		check.checkLimit(where.at("maximum"), group.Maximum.Growing)
 	}
+	check.checkMultipleOf(where, group.MultipleOf, minimum, maximum)
+	check.checkCondition(where.at("availableWhen"), group.AvailableWhen)
 	if group.Default != nil && !slices.Contains(optionIDsOf(group), *group.Default) {
 		check.report(where, "default %q is not one of the group's options", *group.Default)
 	}
@@ -190,13 +199,29 @@ func (check *checker) checkOptionGroup(where scope, group OptionGroup) {
 	}
 	available := 0
 	for _, option := range group.Options {
-		if option.Maximum == nil {
+		maximum := fixedBound(option.Maximum)
+		if maximum == nil {
 			return
 		}
-		available += *option.Maximum
+		available += *maximum
 	}
 	if *minimum > available {
 		check.report(where, "minimum %d is more than the %d its options allow", *minimum, available)
+	}
+}
+
+// checkMultipleOf reports a fixed bound that no allowed count can meet.
+func (check *checker) checkMultipleOf(where scope, multipleOf, minimum, maximum *int) {
+	if multipleOf == nil {
+		return
+	}
+	for _, bound := range []struct {
+		name  string
+		value *int
+	}{{"minimum", minimum}, {"maximum", maximum}} {
+		if bound.value != nil && *bound.value%*multipleOf != 0 {
+			check.report(where, "%s %d is not a multiple of %d", bound.name, *bound.value, *multipleOf)
+		}
 	}
 }
 
@@ -209,13 +234,17 @@ func fixedBound(bound *Bound) *int {
 }
 
 func (check *checker) checkOption(where scope, option Option) {
-	check.checkBounds(where, option.Minimum, option.Maximum)
+	check.checkBounds(where, option.Minimum, fixedBound(option.Maximum))
+	if option.Maximum != nil {
+		check.checkLimit(where.at("maximum"), option.Maximum.Growing)
+	}
 	check.checkBounds(where.at("minimumPerArmy"), option.MinimumPerArmy, option.MaximumPerArmy)
 	for index := range option.CostChanges {
 		check.checkCondition(where.at("costChanges/%d/when", index), &option.CostChanges[index].When)
 	}
 	check.checkWargearChanges(where, option.WargearChanges, carrier{option: option.ID, conditionalChange: noConditionalChange})
 	check.checkCondition(where.at("availableWhen"), option.AvailableWhen)
+	check.checkCondition(where.at("requiredWhen"), option.RequiredWhen)
 }
 
 // noConditionalChange is a carrier index no conditional change has.

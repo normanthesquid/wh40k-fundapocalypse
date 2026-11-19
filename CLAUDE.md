@@ -6,3 +6,4 @@
 - `.gitignore` ignores everything by default, so a new top-level file or directory needs a `!` entry there.
 - A new tooling ecosystem gets a `.github/dependabot.yml` entry in the same change.
 - Releases: add a `CHANGELOG.md` entry, set `release` in `data/game-system.json`, and push the tag `v<release>`; CI checks the two match. Once it's green, fast-forward the `release` branch, which fundamalleus pins as a submodule: `git push origin v<release>^{commit}:refs/heads/release`. That push is manual because Actions' token may not push commits that change workflows.
+- Before treating a data discrepancy as a mistake in the source, check `git log`/`git blame` and the wiki's Datasheet Changes pages for a deliberate change, and confirm a real mistake with the owner before changing a unit.

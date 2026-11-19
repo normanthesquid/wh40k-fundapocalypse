@@ -1,0 +1,4349 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "imperial-knights",
+   "name": "Imperium - Imperial Knights",
+   "kind": "Faction",
+   "datasheets": {
+      "acastus-knight-asterius": {
+         "name": "Acastus Knight Asterius",
+         "battlefieldRole": "LordOfWar",
+         "cost": 39,
+         "keywords": [
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "TITANIC",
+            "ACASTUS CLASS",
+            "KNIGHT ASTERIUS"
+         ],
+         "profiles": [
+            {
+               "name": "Acastus Knight Asterius",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>"
+         ],
+         "weapons": [
+            "conversion-beam-cannon",
+            "karacnos-mortar-battery",
+            "volkite-culverin",
+            "titanic-feet"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "destroyer",
+            "barrage"
+         ]
+      },
+      "armiger-moirax-squadron": {
+         "name": "Armiger Moirax Squadron",
+         "battlefieldRole": "LordOfWar",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "Armiger Moirax",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "volkite-veuglaire",
+                     "name": "Volkite Veuglaire",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "volkite-veuglaire"
+                     ]
+                  },
+                  {
+                     "id": "graviton-pulsar",
+                     "name": "Graviton Pulsar",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "graviton-pulsar"
+                     ]
+                  },
+                  {
+                     "id": "lightning-lock",
+                     "name": "Lightning Lock",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "lightning-lock"
+                     ]
+                  },
+                  {
+                     "id": "moirax-conversion-beam-cannon",
+                     "name": "Moirax Conversion Beam Cannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "moirax-conversion-beam-cannon"
+                     ]
+                  },
+                  {
+                     "id": "moirax-siege-claw",
+                     "name": "Moirax Siege Claw",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "moirax-siege-claw",
+                        "rad-cleanser"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "armiger-moirax"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Not",
+                              "condition": {
+                                 "kind": "Any",
+                                 "conditions": [
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Detachment",
+                                       "of": {
+                                          "kind": "Detachment",
+                                          "detachment": "ad-hoc"
+                                       },
+                                       "minimum": 1
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "character-knight-lances",
+                                          "datasheet": "canis-rex"
+                                       },
+                                       "maximum": 0
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "commander"
+                                       },
+                                       "maximum": 0
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "armoured-feet",
+                     "name": "Armoured Feet",
+                     "maximum": 1,
+                     "requiredWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "moirax-siege-claw"
+                        },
+                        "maximum": 0
+                     },
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "armiger-moirax"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Not",
+                              "condition": {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "moirax-siege-claw"
+                                 },
+                                 "minimum": 1,
+                                 "maximum": 1
+                              }
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "armoured-feet"
+                     ]
+                  },
+                  {
+                     "id": "armiger-moirax",
+                     "name": "Armiger Moirax",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsKeywords": [
+                        "VEHICLE",
+                        "HEAVY",
+                        "ARMIGER CLASS",
+                        "ARMIGER MOIRAX"
+                     ],
+                     "addsFactionKeywords": [
+                        "IMPERIAL KNIGHTS",
+                        "<QUESTOR ALLEGIANCE>",
+                        "<HOUSEHOLD>",
+                        "IMPERIUM"
+                     ],
+                     "addsAbilities": [
+                        "vehicle-squadron"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "sacristan-forgeshrine": {
+         "name": "Sacristan Forgeshrine",
+         "battlefieldRole": "Fortification",
+         "cost": 4,
+         "keywords": [
+            "SECTOR MECHANICUS",
+            "SACRISTAN FORGESHRINE"
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "abilities": [
+            "auto-sacristan-ritual-of-reloading",
+            "auto-sacristan-ritual-of-refuelling",
+            "auto-sacristan",
+            "auto-sacristan-ritual-of-repairing"
+         ]
+      },
+      "armiger-helverin-squadron": {
+         "name": "Armiger Helverin Squadron",
+         "battlefieldRole": "LordOfWar",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "Armiger Helverin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "wargear": [
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "armiger-autocannon",
+                     "name": "Armiger Autocannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "armiger-autocannon"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-helverin"
+                        },
+                        "minimum": 1
+                     },
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "armiger-helverin"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Not",
+                              "condition": {
+                                 "kind": "Any",
+                                 "conditions": [
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Detachment",
+                                       "of": {
+                                          "kind": "Detachment",
+                                          "detachment": "ad-hoc"
+                                       },
+                                       "minimum": 1
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "character-knight-lances",
+                                          "datasheet": "canis-rex"
+                                       },
+                                       "maximum": 0
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "commander"
+                                       },
+                                       "maximum": 0
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "armiger-helverin",
+                     "name": "Armiger Helverin",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsKeywords": [
+                        "VEHICLE",
+                        "HEAVY",
+                        "ARMIGER CLASS",
+                        "ARMIGER HELVERIN"
+                     ],
+                     "addsFactionKeywords": [
+                        "IMPERIAL KNIGHTS",
+                        "<QUESTOR ALLEGIANCE>",
+                        "<HOUSEHOLD>",
+                        "IMPERIUM"
+                     ],
+                     "addsAbilities": [
+                        "vehicle-squadron"
+                     ],
+                     "addsWeapons": [
+                        "armoured-feet"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "armiger-warglaive-squadron": {
+         "name": "Armiger Warglaive Squadron",
+         "battlefieldRole": "LordOfWar",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "Armiver Warglaive",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "wargear": [
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-warglaive"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-warglaive"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-warglaive"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "armiger-warglaive"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armiger-warglaive"
+                        },
+                        "minimum": 1
+                     },
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "armiger-warglaive"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Not",
+                              "condition": {
+                                 "kind": "Any",
+                                 "conditions": [
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Detachment",
+                                       "of": {
+                                          "kind": "Detachment",
+                                          "detachment": "ad-hoc"
+                                       },
+                                       "minimum": 1
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "character-knight-lances",
+                                          "datasheet": "canis-rex"
+                                       },
+                                       "maximum": 0
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "commander"
+                                       },
+                                       "maximum": 0
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "armiger-warglaive",
+                     "name": "Armiger Warglaive",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsKeywords": [
+                        "VEHICLE",
+                        "HEAVY",
+                        "ARMIGER CLASS",
+                        "ARMIGER WARGLAIVE"
+                     ],
+                     "addsFactionKeywords": [
+                        "IMPERIAL KNIGHTS",
+                        "<QUESTOR ALLEGIANCE>",
+                        "<HOUSEHOLD>",
+                        "IMPERIUM"
+                     ],
+                     "addsAbilities": [
+                        "vehicle-squadron"
+                     ],
+                     "addsWeapons": [
+                        "armoured-feet",
+                        "reaper-chain-cleaver",
+                        "thermal-spear"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "canis-rex": {
+         "name": "Canis Rex",
+         "battlefieldRole": "LordOfWar",
+         "cost": 30,
+         "keywords": [
+            "QUESTORIS CLASS",
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "CANIS REX",
+            "KNIGHT PRECEPTOR"
+         ],
+         "profiles": [
+            {
+               "name": "Canis Rex",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM",
+            "FREEBLADE",
+            "QUESTOR IMPERIALIS"
+         ],
+         "weapons": [
+            "freedoms-hand",
+            "multi-laser",
+            "las-impulsor"
+         ],
+         "abilities": [
+            "chainbreaker",
+            "destroyed",
+            "engines-of-war",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ],
+         "maximumPerArmy": 1
+      },
+      "questoris-knight-styrix": {
+         "name": "Questoris Knight Styrix",
+         "battlefieldRole": "LordOfWar",
+         "cost": 23,
+         "keywords": [
+            "TITANIC",
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "QUESTORIS CLASS",
+            "QUESTORIS KNIGHT STYRIX"
+         ],
+         "profiles": [
+            {
+               "name": "Questoris Knight Styrix",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HOUSEHOLD>",
+            "<QUESTOR ALLEGIANCE>",
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "volkite-chieorovile",
+            "graviton-crusher"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "empyreal-preysight",
+            "destroyed",
+            "engines-of-war"
+         ],
+         "wargear": [
+            {
+               "id": "primary-weapon-mount",
+               "name": "Primary Weapon Mount",
+               "options": [
+                  {
+                     "id": "hekaton-siege-claw-w-twin-rad-cleanser",
+                     "name": "Hekaton Siege Claw w/ Twin Rad Cleanser",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "hekaton-siege-claw",
+                        "twin-rad-cleanser"
+                     ],
+                     "addsAbilities": [
+                        "destroyer",
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-paladin": {
+         "name": "Knight Paladin",
+         "battlefieldRole": "LordOfWar",
+         "cost": 24,
+         "keywords": [
+            "QUESTORIS CLASS",
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "KNIGHT PALADIN"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Paladin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "heavy-stubber",
+            "rapid-fire-battle-cannon"
+         ],
+         "abilities": [
+            "destroyed",
+            "engines-of-war"
+         ],
+         "wargear": [
+            {
+               "id": "shoulder-weapon-mount",
+               "name": "Shoulder Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber-2",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-stubber-2"
+            },
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "twin-icarus-autocannon",
+                     "name": "Twin Icarus Autocannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-icarus-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "stormspear-rocket-pod",
+                     "name": "Stormspear Rocket Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "stormspear-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "secondary-weapon-mount",
+               "name": "Secondary Weapon Mount",
+               "options": [
+                  {
+                     "id": "thunderstrike-gauntlet",
+                     "name": "Thunderstrike Gauntlet",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "thunderstrike-gauntlet"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-gallant": {
+         "name": "Knight Gallant",
+         "battlefieldRole": "LordOfWar",
+         "cost": 24,
+         "keywords": [
+            "QUESTORIS CLASS",
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "KNIGHT GALLANT"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Gallant",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "thunderstrike-gauntlet",
+            "reaper-chainsword"
+         ],
+         "abilities": [
+            "destroyed",
+            "engines-of-war",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "shoulder-weapon-mount",
+               "name": "Shoulder Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "twin-icarus-autocannon",
+                     "name": "Twin Icarus Autocannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-icarus-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "stormspear-rocket-pod",
+                     "name": "Stormspear Rocket Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "stormspear-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-preceptor": {
+         "name": "Knight Preceptor",
+         "battlefieldRole": "LordOfWar",
+         "cost": 25,
+         "keywords": [
+            "QUESTORIS CLASS",
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "KNIGHT PRECEPTOR"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Preceptor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "las-impulsor"
+         ],
+         "abilities": [
+            "mentor",
+            "destroyed",
+            "engines-of-war"
+         ],
+         "wargear": [
+            {
+               "id": "shoulder-weapon-mount",
+               "name": "Shoulder Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "multi-laser",
+                     "name": "Multi-laser",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "multi-laser"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "twin-icarus-autocannon",
+                     "name": "Twin Icarus Autocannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-icarus-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "stormspear-rocket-pod",
+                     "name": "Stormspear Rocket Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "stormspear-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "secondary-weapon-mount",
+               "name": "Secondary Weapon Mount",
+               "options": [
+                  {
+                     "id": "thunderstrike-gauntlet",
+                     "name": "Thunderstrike Gauntlet",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "thunderstrike-gauntlet"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-errant": {
+         "name": "Knight Errant",
+         "battlefieldRole": "LordOfWar",
+         "cost": 24,
+         "keywords": [
+            "QUESTORIS CLASS",
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "KNIGHT ERRANT"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Errant",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "thermal-cannon"
+         ],
+         "abilities": [
+            "destroyed",
+            "engines-of-war",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "shoulder-weapon-mount",
+               "name": "Shoulder Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "twin-icarus-autocannon",
+                     "name": "Twin Icarus Autocannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-icarus-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "stormspear-rocket-pod",
+                     "name": "Stormspear Rocket Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "stormspear-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "secondary-weapon-mount",
+               "name": "Secondary Weapon Mount",
+               "options": [
+                  {
+                     "id": "thunderstrike-gauntlet",
+                     "name": "Thunderstrike Gauntlet",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "thunderstrike-gauntlet"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-valiant": {
+         "name": "Knight Valiant",
+         "battlefieldRole": "LordOfWar",
+         "cost": 30,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "DOMINUS CLASS",
+            "KNIGHT VALIANT"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Valiant",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "titanic-feet",
+            "conflagration-cannon",
+            "thundercoil-harpoon"
+         ],
+         "abilities": [
+            "dual-plasma-core-explosion",
+            "destroyed",
+            "engines-of-war",
+            "inferno",
+            "apocalyptic-destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "one-twin-siegebreaker-cannon-and-four-shieldbreaker-missiles",
+                     "name": "One Twin Siegebreaker Cannon and Four Shieldbreaker Missiles",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "twin-siegebreaker-cannon"
+                     ]
+                  },
+                  {
+                     "id": "two-twin-siegebreaker-cannons-and-two-shieldbreaker-missiles",
+                     "name": "Two Twin Siegebreaker Cannons and Two Shieldbreaker Missiles",
+                     "maximum": 1
+                  }
+               ],
+               "maximum": 1,
+               "default": "one-twin-siegebreaker-cannon-and-four-shieldbreaker-missiles"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-meltagun",
+                     "name": "Twin Meltagun",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "twin-meltagun"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "shieldbreaker-missile",
+                     "name": "Shieldbreaker Missile",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "one-twin-siegebreaker-cannon-and-four-shieldbreaker-missiles"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "shieldbreaker-missile"
+                     ],
+                     "addsAbilities": [
+                        "one-use-only"
+                     ]
+                  },
+                  {
+                     "id": "shieldbreaker-missile-2",
+                     "name": "Shieldbreaker Missile",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-twin-siegebreaker-cannons-and-two-shieldbreaker-missiles"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "shieldbreaker-missile"
+                     ],
+                     "addsAbilities": [
+                        "one-use-only"
+                     ]
+                  },
+                  {
+                     "id": "twin-siegebreaker-cannon-2",
+                     "name": "Twin Siegebreaker Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-twin-siegebreaker-cannons-and-two-shieldbreaker-missiles"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "twin-siegebreaker-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-castellan": {
+         "name": "Knight Castellan",
+         "battlefieldRole": "LordOfWar",
+         "cost": 30,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "DOMINUS CLASS",
+            "KNIGHT CASTELLAN"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Castellan",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "titanic-feet",
+            "volcano-lance",
+            "plasma-decimator"
+         ],
+         "abilities": [
+            "dual-plasma-core-explosion",
+            "destroyed",
+            "engines-of-war",
+            "destroyer",
+            "supercharge"
+         ],
+         "wargear": [
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "one-twin-siegebreaker-cannon-and-four-shieldbreaker-missiles",
+                     "name": "One Twin Siegebreaker Cannon and Four Shieldbreaker Missiles",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "twin-siegebreaker-cannon"
+                     ]
+                  },
+                  {
+                     "id": "two-twin-siegebreaker-cannons-and-two-shieldbreaker-missiles",
+                     "name": "Two Twin Siegebreaker Cannons and Two Shieldbreaker Missiles",
+                     "maximum": 1
+                  }
+               ],
+               "maximum": 1,
+               "default": "two-twin-siegebreaker-cannons-and-two-shieldbreaker-missiles"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-meltagun",
+                     "name": "Twin Meltagun",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "twin-meltagun"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "shieldbreaker-missile",
+                     "name": "Shieldbreaker Missile",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "one-twin-siegebreaker-cannon-and-four-shieldbreaker-missiles"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "shieldbreaker-missile"
+                     ],
+                     "addsAbilities": [
+                        "one-use-only"
+                     ]
+                  },
+                  {
+                     "id": "shieldbreaker-missile-2",
+                     "name": "Shieldbreaker Missile",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-twin-siegebreaker-cannons-and-two-shieldbreaker-missiles"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "shieldbreaker-missile"
+                     ],
+                     "addsAbilities": [
+                        "one-use-only"
+                     ]
+                  },
+                  {
+                     "id": "twin-siegebreaker-cannon-2",
+                     "name": "Twin Siegebreaker Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-twin-siegebreaker-cannons-and-two-shieldbreaker-missiles"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "twin-siegebreaker-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-warden": {
+         "name": "Knight Warden",
+         "battlefieldRole": "LordOfWar",
+         "cost": 24,
+         "keywords": [
+            "QUESTORIS CLASS",
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "KNIGHT WARDEN"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Warden",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "avenger-gatling-cannon",
+            "heavy-flamer"
+         ],
+         "abilities": [
+            "destroyed",
+            "engines-of-war",
+            "inferno"
+         ],
+         "wargear": [
+            {
+               "id": "shoulder-weapon-mount",
+               "name": "Shoulder Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "twin-icarus-autocannon",
+                     "name": "Twin Icarus Autocannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-icarus-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "stormspear-rocket-pod",
+                     "name": "Stormspear Rocket Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "stormspear-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "secondary-weapon-mount",
+               "name": "Secondary Weapon Mount",
+               "options": [
+                  {
+                     "id": "thunderstrike-gauntlet",
+                     "name": "Thunderstrike Gauntlet",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "thunderstrike-gauntlet"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "acastus-knight-porphyrion": {
+         "name": "Acastus Knight Porphyrion",
+         "battlefieldRole": "LordOfWar",
+         "cost": 38,
+         "keywords": [
+            "TITANIC",
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "ACASTUS CLASS",
+            "ACASTUS KNIGHT PORPHYRION"
+         ],
+         "profiles": [
+            {
+               "name": "Acastus Knight Porphyrion",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HOUSEHOLD>",
+            "<QUESTOR ALLEGIANCE>",
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "titanic-feet"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "destroyed",
+            "engines-of-war"
+         ],
+         "wargear": [
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "helios-defence-missiles",
+                     "name": "Helios Defence Missiles",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "helios-defence-missiles"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "ironstorm-missile-pod"
+            },
+            {
+               "id": "shoulder-weapon-mounts",
+               "name": "Shoulder Weapon Mounts",
+               "options": [
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "autocannon"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "autocannon"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-magna-lascannon",
+                     "name": "Twin Magna Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "twin-magna-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "questoris-knight-magaera": {
+         "name": "Questoris Knight Magaera",
+         "battlefieldRole": "LordOfWar",
+         "cost": 21,
+         "keywords": [
+            "TITANIC",
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "QUESTORIS CLASS",
+            "QUESTORIS KNIGHT MAGAERA"
+         ],
+         "profiles": [
+            {
+               "name": "Questoris Knight Magaera",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HOUSEHOLD>",
+            "<QUESTOR ALLEGIANCE>",
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "phased-plasma-fusil",
+            "lightning-cannon"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "empyreal-preysight",
+            "destroyed",
+            "engines-of-war",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "primary-weapon-mount",
+               "name": "Primary Weapon Mount",
+               "options": [
+                  {
+                     "id": "hekaton-siege-claw-w-twin-rad-cleanser",
+                     "name": "Hekaton Siege Claw w/ Twin Rad Cleanser",
+                     "maximum": 1,
+                     "cost": 4,
+                     "addsWeapons": [
+                        "hekaton-siege-claw",
+                        "twin-rad-cleanser"
+                     ],
+                     "addsAbilities": [
+                        "destroyer",
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-crusader": {
+         "name": "Knight Crusader",
+         "battlefieldRole": "LordOfWar",
+         "cost": 28,
+         "keywords": [
+            "QUESTORIS CLASS",
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "KNIGHT CRUSADER"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Crusader",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "avenger-gatling-cannon",
+            "heavy-flamer",
+            "titanic-feet"
+         ],
+         "abilities": [
+            "destroyed",
+            "engines-of-war",
+            "inferno"
+         ],
+         "wargear": [
+            {
+               "id": "shoulder-weapon-mount",
+               "name": "Shoulder Weapon Mount",
+               "options": [
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "meltagun"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "carapace-weapon-mount",
+               "name": "Carapace Weapon Mount",
+               "options": [
+                  {
+                     "id": "twin-icarus-autocannon",
+                     "name": "Twin Icarus Autocannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-icarus-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "stormspear-rocket-pod",
+                     "name": "Stormspear Rocket Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "stormspear-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "secondary-weapon-mount",
+               "name": "Secondary Weapon Mount",
+               "options": [
+                  {
+                     "id": "rapid-fire-battle-cannon-w-heavy-stubber",
+                     "name": "Rapid-fire Battle Cannon w/ Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-stubber",
+                        "rapid-fire-battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "thermal-cannon",
+                     "name": "Thermal Cannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "thermal-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "thermal-cannon"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "cerastus-knight-acheron": {
+         "name": "Cerastus Knight-Acheron",
+         "battlefieldRole": "LordOfWar",
+         "cost": 26,
+         "keywords": [
+            "TITANIC",
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "CERASTUS CLASS",
+            "CERASTUS KNIGHT-ACHERON"
+         ],
+         "profiles": [
+            {
+               "name": "Cerastus Knight-Acheron",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HOUSEHOLD>",
+            "<QUESTOR ALLEGIANCE>",
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "acheron-flame-cannon",
+            "twin-heavy-bolter",
+            "reaper-chainfist"
+         ],
+         "abilities": [
+            "destroyed",
+            "engines-of-war",
+            "inferno",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "cerastus-knight-castigator": {
+         "name": "Cerastus Knight-Castigator",
+         "battlefieldRole": "LordOfWar",
+         "cost": 27,
+         "keywords": [
+            "TITANIC",
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "CERASTUS CLASS",
+            "CERASTUS KNIGHT-CASTIGATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Cerastus Knight-Castigator",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HOUSEHOLD>",
+            "<QUESTOR ALLEGIANCE>",
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "tempest-warblade",
+            "castigator-bolt-cannon"
+         ],
+         "abilities": [
+            "destroyed",
+            "engines-of-war",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "cerastus-knight-lancer": {
+         "name": "Cerastus Knight-Lancer",
+         "battlefieldRole": "LordOfWar",
+         "cost": 23,
+         "keywords": [
+            "TITANIC",
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "CERASTUS CLASS",
+            "CERASTUS KNIGHT-LANCER"
+         ],
+         "profiles": [
+            {
+               "name": "Cerastus Knight-Lancer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HOUSEHOLD>",
+            "<QUESTOR ALLEGIANCE>",
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "cerastus-shock-lance-melee",
+            "cerastus-shock-lance-ranged"
+         ],
+         "abilities": [
+            "ion-gauntlet-shield",
+            "destroyed",
+            "engines-of-war",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "cerastus-knight-atropos": {
+         "name": "Cerastus Knight-Atropos",
+         "battlefieldRole": "LordOfWar",
+         "cost": 29,
+         "keywords": [
+            "TITANIC",
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "CERASTUS CLASS",
+            "CERASTUS KNIGHT-ATROPOS"
+         ],
+         "profiles": [
+            {
+               "name": "Cerastus Knight-Atropos",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HOUSEHOLD>",
+            "<QUESTOR ALLEGIANCE>",
+            "IMPERIAL KNIGHTS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "graviton-singularity-cannon",
+            "atropos-lascutter-melee",
+            "atropos-lascutter-ranged"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "destroyed",
+            "engines-of-war",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  },
+                  {
+                     "id": "character-knight-lances",
+                     "name": "Character (Knight Lances)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-knight-lances"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "commander"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "detachmentAbilities": {
+      "knight-lances-2": {
+         "ability": "knight-lances",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Any",
+               "conditions": [
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "ad-hoc"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "super-heavy-auxiliary"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "fortification-network"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "air-wing"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "patrol"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "weapons": {
+      "conversion-beam-cannon": {
+         "name": "Conversion Beam Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "karacnos-mortar-battery": {
+         "name": "Karacnos Mortar Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Barrage"
+      },
+      "volkite-culverin": {
+         "name": "Volkite Culverin",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 45
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "volkite-veuglaire": {
+         "name": "Volkite Veuglaire",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
+      },
+      "graviton-pulsar": {
+         "name": "Graviton Pulsar",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5
+      },
+      "lightning-lock": {
+         "name": "Lightning Lock",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "moirax-conversion-beam-cannon": {
+         "name": "Moirax Conversion Beam Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 54
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5
+      },
+      "moirax-siege-claw": {
+         "name": "Moirax Siege Claw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "rad-cleanser": {
+         "name": "Rad Cleanser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "heavy-stubber": {
+         "name": "Heavy Stubber",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "ironstorm-missile-pod": {
+         "name": "Ironstorm Missile Pod",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Barrage"
+      },
+      "meltagun": {
+         "name": "Meltagun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 11,
+         "antiTank": 7
+      },
+      "rapid-fire-battle-cannon": {
+         "name": "Rapid-fire Battle Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "twin-icarus-autocannon": {
+         "name": "Twin Icarus Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Anti-air"
+      },
+      "reaper-chainsword": {
+         "name": "Reaper Chainsword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "thunderstrike-gauntlet": {
+         "name": "Thunderstrike Gauntlet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "las-impulsor": {
+         "name": "Las-impulsor",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "thermal-cannon": {
+         "name": "Thermal Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 4,
+         "text": "Destroyer"
+      },
+      "avenger-gatling-cannon": {
+         "name": "Avenger Gatling Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 4,
+         "antiTank": 9
+      },
+      "heavy-flamer": {
+         "name": "Heavy Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "multi-laser": {
+         "name": "Multi-laser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "freedoms-hand": {
+         "name": "Freedom's Hand",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 4,
+         "text": "Destroyer"
+      },
+      "volcano-lance": {
+         "name": "Volcano Lance",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 80
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "titanic-feet": {
+         "name": "Titanic Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "plasma-decimator": {
+         "name": "Plasma Decimator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Supercharge"
+      },
+      "shieldbreaker-missile": {
+         "name": "Shieldbreaker Missile",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5,
+         "text": "One Use Only"
+      },
+      "twin-siegebreaker-cannon": {
+         "name": "Twin Siegebreaker Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "twin-meltagun": {
+         "name": "Twin Meltagun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 11,
+         "antiTank": 4
+      },
+      "thundercoil-harpoon": {
+         "name": "Thundercoil Harpoon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 2,
+         "text": "Apocalyptic Destroyer"
+      },
+      "conflagration-cannon": {
+         "name": "Conflagration Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "armiger-autocannon": {
+         "name": "Armiger Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "armoured-feet": {
+         "name": "Armoured Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "reaper-chain-cleaver": {
+         "name": "Reaper Chain-cleaver",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "thermal-spear": {
+         "name": "Thermal Spear",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "helios-defence-missiles": {
+         "name": "Helios Defence Missiles",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Anti-air"
+      },
+      "twin-magna-lascannon": {
+         "name": "Twin Magna Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "lascannon": {
+         "name": "Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "autocannon": {
+         "name": "Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "acheron-flame-cannon": {
+         "name": "Acheron Flame Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Inferno"
+      },
+      "twin-heavy-bolter": {
+         "name": "Twin Heavy Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "reaper-chainfist": {
+         "name": "Reaper Chainfist",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "atropos-lascutter-melee": {
+         "name": "Atropos Lascutter (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "atropos-lascutter-ranged": {
+         "name": "Atropos Lascutter (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "graviton-singularity-cannon": {
+         "name": "Graviton Singularity Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 3,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "castigator-bolt-cannon": {
+         "name": "Castigator Bolt Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "tempest-warblade": {
+         "name": "Tempest Warblade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "cerastus-shock-lance-melee": {
+         "name": "Cerastus Shock Lance (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "cerastus-shock-lance-ranged": {
+         "name": "Cerastus Shock Lance (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "lightning-cannon": {
+         "name": "Lightning Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 7
+      },
+      "phased-plasma-fusil": {
+         "name": "Phased plasma-fusil",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "twin-rad-cleanser": {
+         "name": "Twin Rad Cleanser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "hekaton-siege-claw": {
+         "name": "Hekaton Siege Claw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "graviton-crusher": {
+         "name": "Graviton Crusher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "volkite-chieorovile": {
+         "name": "Volkite Chieorovile",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 45
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 6
+      },
+      "stormspear-rocket-pod": {
+         "name": "Stormspear Rocket Pod",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5
+      }
+   },
+   "abilities": {
+      "knight-lances": {
+         "name": "Knight Lances",
+         "text": "One IMPERIAL KNIGHTS unit in the Detachment becomes a CHARACTER and so can be a WARLORD if they are the Detachment's Commander. In addition, this unit has a Warmaster Trait, even if they are not your Warmaster (if the unit is your Warmaster, then they have two Warmaster Traits - re-roll any duplicate results when determining these)."
+      },
+      "ion-gauntlet-shield": {
+         "name": "Ion Gauntlet Shield",
+         "text": "Subtract 1 from hit rolls for attacks made with melee weapons by enemy SUPER-HEAVY units that target this unit."
+      },
+      "mentor": {
+         "name": "Mentor",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly <HOUSEHOLD> ARMIGER CLASS units whilst they are within 6\" of this unit."
+      },
+      "chainbreaker": {
+         "name": "Chainbreaker",
+         "text": "Add 1 to the Leadership characteristic of friendly IMPERIUM units whilst they are within 6\" of this unit."
+      },
+      "auto-sacristan-ritual-of-reloading": {
+         "name": "Auto-Sacristan: Ritual of Reloading",
+         "text": "Weapons the selected unit is equipped with that have the One Use Only ability and have been used to make attacks this battle are considered not to have made those attacks for the purposes of the One Use Only ability."
+      },
+      "auto-sacristan-ritual-of-refuelling": {
+         "name": "Auto-Sacristan: Ritual of Refuelling",
+         "text": "Add 3\" to the selected unit’s Move characteristic until the end of the next turn."
+      },
+      "auto-sacristan": {
+         "name": "Auto-Sacristan",
+         "text": "At the start of the Damage phase, the player who set up this terrain feature can select one IMPERIAL KNIGHTS unit from their army within 1\" of this terrain feature and choose one of the following effects:"
+      },
+      "auto-sacristan-ritual-of-repairing": {
+         "name": "Auto-Sacristan: Ritual of Repairing",
+         "text": "Remove one damage marker from the selected unit."
+      },
+      "unstable-reactor": {
+         "name": "Unstable Reactor",
+         "text": "When this unit is destroyed, it explodes on a result of 8+."
+      },
+      "empyreal-preysight": {
+         "name": "Empyreal Preysight",
+         "text": "This unit does not suffer the penalty for attacks made with ranged weapons that target obscured targets."
+      },
+      "vehicle-squadron": {
+         "name": "Vehicle Squadron",
+         "text": "Each Lord of War slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single Lord of War slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      },
+      "dual-plasma-core-explosion": {
+         "name": "Dual Plasma Core Explosion",
+         "text": "When this unit is destroyed, roll two D12 instead of one D12 to determine if it explodes, and it does so on any result of a 10+. When this unit explodes, place one blast marker next to every unit (excluding SUPER-HEAVY units) that is within 12\" of this unit instead of 6\"."
+      }
+   }
+}

@@ -1,0 +1,183 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "ynnari",
+   "name": "Aeldari - Ynnari",
+   "kind": "Faction",
+   "datasheets": {
+      "the-visarch": {
+         "name": "The Visarch",
+         "battlefieldRole": "HQ",
+         "cost": 3,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "THE VISARCH"
+         ],
+         "profiles": [
+            {
+               "name": "The Visarch",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "YNNARI"
+         ],
+         "weapons": [
+            "asu-var-the-sword-of-silent-screams"
+         ],
+         "abilities": [
+            "warden-of-yvraine"
+         ],
+         "maximumPerArmy": 1
+      },
+      "the-yncarne": {
+         "name": "The Yncarne",
+         "battlefieldRole": "HQ",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "FLY",
+            "PSYKER",
+            "CHARACTER",
+            "DAEMON",
+            "THE YNCARNE"
+         ],
+         "profiles": [
+            {
+               "name": "The Yncarne",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "YNNARI"
+         ],
+         "weapons": [
+            "vilith-zhar-the-sword-of-souls"
+         ],
+         "abilities": [
+            "avatar-of-ynnead",
+            "ynnead-stirs",
+            "deep-strike",
+            "ignore-damage-6"
+         ],
+         "maximumPerArmy": 1
+      },
+      "yvraine": {
+         "name": "Yvraine",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "PSYKER",
+            "YVRAINE"
+         ],
+         "profiles": [
+            {
+               "name": "Yvraine",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "YNNARI"
+         ],
+         "weapons": [
+            "kha-vir-the-sword-of-sorrows"
+         ],
+         "abilities": [
+            "herald-of-ynnead"
+         ],
+         "maximumPerArmy": 1
+      }
+   },
+   "weapons": {
+      "kha-vir-the-sword-of-sorrows": {
+         "name": "Kha-vir, the Sword of Sorrows",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "asu-var-the-sword-of-silent-screams": {
+         "name": "Asu-var, the Sword of Silent Screams",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "vilith-zhar-the-sword-of-souls": {
+         "name": "Vilith-zhar, the Sword of Souls",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer"
+      }
+   },
+   "abilities": {
+      "herald-of-ynnead": {
+         "name": "Herald of Ynnead",
+         "text": "Each time a blast marker is placed next to another AELDARI LIGHT unit whilst it is within 7\" of this unit, you can remove one blast marker from this unit. Small blast markers must be removed before large blast markers."
+      },
+      "avatar-of-ynnead": {
+         "name": "Avatar of Ynnead",
+         "text": "Each time a blast marker is placed next to another AELDARI LIGHT unit whilst it is within 7\" of this unit, you can remove one blast marker from this unit. Small blast markers must be removed before large blast markers."
+      },
+      "ynnead-stirs": {
+         "name": "Ynnead Stirs",
+         "text": "Morale tests taken for friendly YNNARI units are automatically passed whilst they are within 12\" of this unit."
+      },
+      "warden-of-yvraine": {
+         "name": "Warden of Yvraine",
+         "text": "At the start of the Damage phase, you can select one friendly YVRAINE unit that has at least one blast marker next to it and is within 7\" of this unit. Remove any number of blast markers from that YVRAINE unit and place them next to this unit."
+      }
+   }
+}

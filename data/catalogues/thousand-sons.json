@@ -1,0 +1,1943 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "thousand-sons",
+   "name": "Chaos - Thousand Sons",
+   "kind": "Faction",
+   "datasheets": {
+      "ahriman": {
+         "name": "Ahriman",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "LIGHT",
+            "PSYKER",
+            "CHARACTER",
+            "SORCERER",
+            "AHRIMAN"
+         ],
+         "profiles": [
+            {
+               "name": "Ahriman",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "the-black-staff-of-ahriman"
+         ],
+         "abilities": [
+            "master-psyker",
+            "lord-of-the-thousand-sons"
+         ],
+         "wargear": [
+            {
+               "id": "disc",
+               "name": "Disc?",
+               "options": [
+                  {
+                     "id": "no-disc",
+                     "name": "No Disc",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "disc-2",
+                     "name": "Disc",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "FLY",
+                        "CAVALRY",
+                        "DAEMON"
+                     ],
+                     "addsWeapons": [
+                        "chaos-space-marines/tzeentchian-blades"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 12
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-disc"
+            }
+         ],
+         "maximumPerArmy": 1
+      },
+      "daemon-prince-of-tzeentch-2": {
+         "name": "Daemon Prince of Tzeentch",
+         "battlefieldRole": "HQ",
+         "cost": 9,
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "PSYKER",
+            "CHARACTER",
+            "DAEMON",
+            "DAEMON PRINCE"
+         ],
+         "profiles": [
+            {
+               "name": "Daemon Prince of Tzeentch",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "daemonic-weapons"
+         ],
+         "abilities": [
+            "daemon-prince-of-tzeentch"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "wings",
+                     "name": "Wings",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsKeywords": [
+                        "FLY"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 12
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "exalted-sorcerer": {
+         "name": "Exalted Sorcerer",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "PSYKER",
+            "CHARACTER",
+            "SORCERER",
+            "EXALTED SORCERER"
+         ],
+         "profiles": [
+            {
+               "name": "Exalted Sorcerer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "chaos-space-marines/force-weapon"
+         ],
+         "abilities": [
+            "lord-of-the-thousand-sons"
+         ],
+         "wargear": [
+            {
+               "id": "disc",
+               "name": "Disc?",
+               "options": [
+                  {
+                     "id": "no-disc",
+                     "name": "No Disc",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "disc-2",
+                     "name": "Disc",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "FLY",
+                        "CAVALRY",
+                        "DAEMON"
+                     ],
+                     "addsWeapons": [
+                        "chaos-space-marines/tzeentchian-blades"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 12
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-disc"
+            }
+         ]
+      },
+      "sorcerer": {
+         "name": "Sorcerer",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "LIGHT",
+            "PSYKER",
+            "CHARACTER",
+            "SORCERER"
+         ],
+         "profiles": [
+            {
+               "name": "Sorcerer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS",
+            "CHAOS",
+            "HERETIC ASTARTES"
+         ],
+         "weapons": [
+            "chaos-space-marines/force-weapon"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Any",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "jump-pack"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "disc-of-tzeentch"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     }
+                  ]
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 12
+                        }
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "wargear-options",
+               "name": "Wargear Options",
+               "options": [
+                  {
+                     "id": "no-wargear",
+                     "name": "*No Wargear*",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "palanquin-of-nurgle",
+                     "name": "Palanquin of Nurgle",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "PrimaryFaction",
+                        "faction": "death-guard"
+                     },
+                     "addsKeywords": [
+                        "FLY",
+                        "CAVALRY",
+                        "DAEMON"
+                     ],
+                     "addsWeapons": [
+                        "chaos-space-marines/malefic-appendages"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 2,
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "disc-of-tzeentch",
+                     "name": "Disc of Tzeentch",
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "PrimaryFaction",
+                        "faction": "thousand-sons"
+                     },
+                     "addsKeywords": [
+                        "FLY",
+                        "CAVALRY",
+                        "DAEMON"
+                     ],
+                     "addsWeapons": [
+                        "chaos-space-marines/tzeentchian-blades"
+                     ]
+                  },
+                  {
+                     "id": "jump-pack",
+                     "name": "Jump Pack",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "FLY",
+                        "JUMP PACK",
+                        "INFANTRY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  },
+                  {
+                     "id": "terminator-armour",
+                     "name": "Terminator Armour",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "TERMINATOR",
+                        "INFANTRY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              },
+                              "save": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "bike",
+                     "name": "Bike",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "PrimaryFaction",
+                        "faction": "heretic-astartes"
+                     },
+                     "addsKeywords": [
+                        "BIKER"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 14
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-wargear"
+            }
+         ]
+      },
+      "rubric-marines-2": {
+         "name": "Rubric Marines",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "RUBRIC MARINES"
+         ],
+         "profiles": [
+            {
+               "name": "Rubric Marines",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS",
+            "CHAOS",
+            "HERETIC ASTARTES"
+         ],
+         "abilities": [
+            "legacy-of-the-rubricae"
+         ],
+         "wargear": [
+            {
+               "id": "5-20-models",
+               "name": "5 - 20 models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 models",
+                     "cost": 13,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 17,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "inferno-boltguns",
+                     "name": "Inferno Boltguns",
+                     "addsWeapons": [
+                        "chaos-space-marines/inferno-boltguns"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "warpflamers",
+                     "name": "Warpflamers",
+                     "addsWeapons": [
+                        "chaos-space-marines/warpflamers"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "inferno-boltguns"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "soulreaper-cannon",
+                     "name": "Soulreaper Cannon",
+                     "maximum": {
+                        "base": 0,
+                        "terms": [
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 1
+                           },
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "15-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 1
+                           },
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "20-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 2
+                           }
+                        ]
+                     },
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/soulreaper-cannon"
+                     ]
+                  }
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "PrimaryFaction",
+            "faction": "thousand-sons"
+         },
+         "weapons": [
+            "chaos-space-marines/close-combat-weapons-2"
+         ]
+      },
+      "tzaangors": {
+         "name": "Tzaangors",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "TZAANGORS"
+         ],
+         "profiles": [
+            {
+               "name": "Tzaangors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "autopistols"
+         ],
+         "abilities": [
+            "relic-hunters"
+         ],
+         "wargear": [
+            {
+               "id": "models",
+               "name": "Models",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "30-models",
+                     "name": "30 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      },
+      "horrors": {
+         "name": "Horrors",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "HORRORS"
+         ],
+         "profiles": [
+            {
+               "name": "Horrors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "DAEMON",
+            "LEGIONES DAEMONICA"
+         ],
+         "weapons": [
+            "coruscating-flames",
+            "capering-limbs"
+         ],
+         "wargear": [
+            {
+               "id": "10-30-models",
+               "name": "10 - 30 models",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "30-models",
+                     "name": "30 models",
+                     "cost": 13,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 7
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      },
+      "tzaangor-shaman": {
+         "name": "Tzaangor Shaman",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "CAVALRY",
+            "FLY",
+            "PSYKER",
+            "CHARACTER",
+            "DAEMON",
+            "TZAANGOR",
+            "SHAMAN"
+         ],
+         "profiles": [
+            {
+               "name": "Tzaangor Shaman",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "chaos-space-marines/tzeentchian-blades",
+            "chaos-space-marines/force-weapon"
+         ],
+         "abilities": [
+            "bestial-prophet"
+         ]
+      },
+      "flamers": {
+         "name": "Flamers",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "FLAMERS"
+         ],
+         "profiles": [
+            {
+               "name": "Flamers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "DAEMON",
+            "LEGIONES DAEMONICA"
+         ],
+         "weapons": [
+            "flickering-flames-ranged",
+            "flickering-flames-melee"
+         ],
+         "abilities": [
+            "inferno"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3 - 9 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "scarab-occult-terminators": {
+         "name": "Scarab Occult Terminators",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "TERMINATOR",
+            "SCARAB OCCULT TERMINATORS"
+         ],
+         "profiles": [
+            {
+               "name": "Scarab Occult Terminators",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 4
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "inferno-combi-bolters",
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "deep-strike",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 12
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 24,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "heavy-warpflamer",
+                     "name": "Heavy Warpflamer",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-warpflamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "soulreaper-cannon",
+                     "name": "Soulreaper Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/soulreaper-cannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "hellfyre-missile-rack",
+                     "name": "Hellfyre Missile Rack",
+                     "maximum": {
+                        "base": 1,
+                        "terms": [
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 1
+                           }
+                        ]
+                     },
+                     "cost": 1,
+                     "addsWeapons": [
+                        "hellfyre-missile-rack"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "tzaangor-enlightened": {
+         "name": "Tzaangor Enlightened",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "CAVALRY",
+            "FLY",
+            "DAEMON",
+            "TZAANGOR",
+            "ENLIGHTENED"
+         ],
+         "profiles": [
+            {
+               "name": "Tzaangor Enlightened",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3 - 9 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "divining-spears",
+                     "name": "Divining Spears",
+                     "addsWeapons": [
+                        "divining-spears"
+                     ]
+                  },
+                  {
+                     "id": "autopistols-and-chainswords",
+                     "name": "Autopistols and Chainswords",
+                     "addsWeapons": [
+                        "autopistols",
+                        "weapons/chainswords"
+                     ]
+                  },
+                  {
+                     "id": "fatecaster-greatbows-and-close-combat-weapons",
+                     "name": "Fatecaster Greatbows and Close Combat Weapons",
+                     "addsWeapons": [
+                        "fatecaster-greatbow",
+                        "weapons/close-combat-weapons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "divining-spears"
+            }
+         ]
+      },
+      "screamers": {
+         "name": "Screamers",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "BEAST",
+            "FLY",
+            "SCREAMERS"
+         ],
+         "profiles": [
+            {
+               "name": "Screamers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "lamprey-bites"
+         ],
+         "abilities": [
+            "slashing-attack"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3 - 9 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 11,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "mutalith-vortex-beast": {
+         "name": "Mutalith Vortex Beast",
+         "battlefieldRole": "HeavySupport",
+         "cost": 10,
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "MUTALITH VORTEX BEAST"
+         ],
+         "profiles": [
+            {
+               "name": "Mutalith Vortex Beast",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "betentacled-maw",
+            "enormous-claws"
+         ],
+         "abilities": [
+            "warp-vortex",
+            "1-warp-flare",
+            "2-temporal-flux",
+            "3-beam-of-unreality"
+         ]
+      },
+      "magnus-the-red-2": {
+         "name": "Magnus the Red",
+         "battlefieldRole": "LordOfWar",
+         "cost": 22,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "CHARACTER",
+            "MONSTER",
+            "DAEMON",
+            "PRIMARCH",
+            "FLY",
+            "PSYKER",
+            "MAGNUS THE RED"
+         ],
+         "profiles": [
+            {
+               "name": "Magnus the Red",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 4,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "TZEENTCH",
+            "HERETIC ASTARTES",
+            "THOUSAND SONS"
+         ],
+         "weapons": [
+            "gaze-of-magnus",
+            "the-blade-of-magnus"
+         ],
+         "abilities": [
+            "primarch-of-the-thousand-sons",
+            "magnus-the-red",
+            "destroyer",
+            "witchfire"
+         ],
+         "maximumPerArmy": 1
+      }
+   },
+   "datasheetLinks": {
+      "chaos-decimator": {
+         "datasheet": "chaos-space-marines/chaos-decimator",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-contemptor-dreadnought": {
+         "datasheet": "chaos-space-marines/hellforged-contemptor-dreadnought",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-land-raider-proteus": {
+         "datasheet": "chaos-space-marines/hellforged-land-raider-proteus",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-land-raider-achilles": {
+         "datasheet": "chaos-space-marines/hellforged-land-raider-achilles",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-predator": {
+         "datasheet": "chaos-space-marines/hellforged-predator",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-scorpius": {
+         "datasheet": "chaos-space-marines/hellforged-scorpius",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-sicaran": {
+         "datasheet": "chaos-space-marines/hellforged-sicaran",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-sicaran-venator": {
+         "datasheet": "chaos-space-marines/hellforged-sicaran-venator",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-spartan-assault-tank": {
+         "datasheet": "chaos-space-marines/hellforged-spartan-assault-tank",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-deredeo-dreadnought": {
+         "datasheet": "chaos-space-marines/hellforged-deredeo-dreadnought",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-leviathan-dreadnought": {
+         "datasheet": "chaos-space-marines/hellforged-leviathan-dreadnought",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-dreadclaw-drop-pod": {
+         "datasheet": "chaos-space-marines/hellforged-dreadclaw-drop-pod",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-kharybdis-assault-claw": {
+         "datasheet": "chaos-space-marines/hellforged-kharybdis-assault-claw",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-cerberus-heavy-destroyer": {
+         "datasheet": "chaos-space-marines/hellforged-cerberus-heavy-destroyer",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-typhon-heavy-siege-tank": {
+         "datasheet": "chaos-space-marines/hellforged-typhon-heavy-siege-tank",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-fellblade": {
+         "datasheet": "chaos-space-marines/hellforged-fellblade",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-falchion": {
+         "datasheet": "chaos-space-marines/hellforged-falchion",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "hellforged-mastodon": {
+         "datasheet": "chaos-space-marines/hellforged-mastodon",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-hell-blade": {
+         "datasheet": "chaos-space-marines/chaos-hell-blade",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-hell-talon": {
+         "datasheet": "chaos-space-marines/chaos-hell-talon",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-storm-eagle-assault-gunship": {
+         "datasheet": "chaos-space-marines/chaos-storm-eagle-assault-gunship",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-fire-raptor-assault-gunship": {
+         "datasheet": "chaos-space-marines/chaos-fire-raptor-assault-gunship",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-thunderhawk-assault-gunship": {
+         "datasheet": "chaos-space-marines/chaos-thunderhawk-assault-gunship",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-sokar-pattern-stormbird-gunship": {
+         "datasheet": "chaos-space-marines/chaos-sokar-pattern-stormbird-gunship",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-xiphon-interceptor": {
+         "datasheet": "chaos-space-marines/chaos-xiphon-interceptor",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "chaos-vindicator-laser-destroyer": {
+         "datasheet": "chaos-space-marines/chaos-vindicator-laser-destroyer",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "ferrum-infernus-chaos-dreadnought": {
+         "datasheet": "chaos-space-marines/ferrum-infernus-chaos-dreadnought",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "terrax-pattern-termite-assault-drill": {
+         "datasheet": "chaos-space-marines/terrax-pattern-termite-assault-drill",
+         "addsFactionKeywords": [
+            "THOUSAND SONS",
+            "TZEENTCH"
+         ]
+      },
+      "rubric-marines-3": {
+         "datasheet": "chaos-space-marines/rubric-marines",
+         "battlefieldRole": "Elites",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "PrimaryFaction",
+               "faction": "thousand-sons"
+            }
+         }
+      },
+      "chaos-cultists": {
+         "datasheet": "chaos-space-marines/chaos-cultists",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "helbrute": {
+         "datasheet": "chaos-space-marines/helbrute",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "chaos-spawn": {
+         "datasheet": "chaos-space-marines/chaos-spawn",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "chaos-predator": {
+         "datasheet": "chaos-space-marines/chaos-predator",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "chaos-vindicator": {
+         "datasheet": "chaos-space-marines/chaos-vindicator",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "chaos-land-raider": {
+         "datasheet": "chaos-space-marines/chaos-land-raider",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "defiler": {
+         "datasheet": "chaos-space-marines/defiler",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "forgefiend": {
+         "datasheet": "chaos-space-marines/forgefiend",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "maulerfiend": {
+         "datasheet": "chaos-space-marines/maulerfiend",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "chaos-rhino": {
+         "datasheet": "chaos-space-marines/chaos-rhino",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      },
+      "heldrake": {
+         "datasheet": "chaos-space-marines/heldrake",
+         "addsFactionKeywords": [
+            "TZEENTCH",
+            "THOUSAND SONS"
+         ]
+      }
+   },
+   "weapons": {
+      "the-black-staff-of-ahriman": {
+         "name": "The Black Staff of Ahriman",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "daemonic-weapons": {
+         "name": "Daemonic Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "autopistols": {
+         "name": "Autopistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "coruscating-flames": {
+         "name": "Coruscating Flames",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "capering-limbs": {
+         "name": "Capering Limbs",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "flickering-flames-ranged": {
+         "name": "Flickering Flames (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "flickering-flames-melee": {
+         "name": "Flickering Flames (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "inferno-combi-bolters": {
+         "name": "Inferno Combi-bolters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "hellfyre-missile-rack": {
+         "name": "Hellfyre Missile Rack",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "heavy-warpflamer": {
+         "name": "Heavy Warpflamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "divining-spears": {
+         "name": "Divining Spears",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "fatecaster-greatbow": {
+         "name": "Fatecaster Greatbow",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "lamprey-bites": {
+         "name": "Lamprey Bites",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 6
+      },
+      "betentacled-maw": {
+         "name": "Betentacled Maw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "enormous-claws": {
+         "name": "Enormous Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "gaze-of-magnus": {
+         "name": "Gaze of Magnus",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer, Witchfire"
+      },
+      "the-blade-of-magnus": {
+         "name": "The Blade of Magnus",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 5,
+         "text": "Destroyer"
+      }
+   },
+   "abilities": {
+      "master-psyker": {
+         "name": "Master Psyker",
+         "text": "Once per battle, at the end of the Orders phase, you can look through your Command Asset deck and draw either one Thousand Sons Command Asset of your choice that is a psychic power, or the Deny the Witch or Adamantium Will card. Add the drawn card to your hand, then shuffle the Command Asset deck and place it face down."
+      },
+      "daemon-prince-of-tzeentch": {
+         "name": "Daemon Prince of Tzeentch",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly THOUSAND SONS and TZEENTCH DAEMON units whilst they are within 6\" of this unit."
+      },
+      "relic-hunters": {
+         "name": "Relic Hunters",
+         "text": "You can re-roll hit rolls for attacks made with melee weapons by this unit that target CHARACTER units."
+      },
+      "bestial-prophet": {
+         "name": "Bestial Prophet",
+         "text": "Add 1 to hit rolls for attacks made by friendly TZAANGOR units whilst they are within 6\" of any friendly units with this ability."
+      },
+      "slashing-attack": {
+         "name": "Slashing Attack",
+         "text": "When this unit finishes making a Move action, select one enemy unit it moved over whilst making that Move action. Roll a number of D6 equal to this unit’s Attacks characteristic, subtracting 1 from each result if that unit is a Character; for each result of 5+ place one blast marker next to that unit."
+      },
+      "warp-vortex": {
+         "name": "Warp Vortex",
+         "text": "When you select this unit’s Detachment to carry out its order, but before any units in that Detachment make an action (excluding free actions) that phase, roll one D3, and apply the result from the table below."
+      },
+      "1-warp-flare": {
+         "name": "1 - Warp Flare",
+         "text": "Place one blast marker next to each enemy unit within 9\" of this unit."
+      },
+      "2-temporal-flux": {
+         "name": "2 - Temporal Flux",
+         "text": "Select one friendly TZEENTCH unit within 9\" of this unit. Until the end of the turn, add 1 to that unit’s Attacks characteristic."
+      },
+      "3-beam-of-unreality": {
+         "name": "3 - Beam of Unreality",
+         "text": "Place four blast markers next to the closest enemy unit within 18\" of this unit and visible to it. If multiple enemy units are equally close, select one and place four blast markers next to it instead."
+      },
+      "primarch-of-the-thousand-sons": {
+         "name": "Primarch of the Thousand Sons",
+         "text": "You can re-roll hit rolls and wound rolls for attacks made by friendly THOUSAND SONS units whilst they are within 9\" of this unit."
+      },
+      "magnus-the-red": {
+         "name": "Magnus the Red",
+         "text": "Once per battle, at the end of the Orders phase, you can look through your Command Asset deck and draw either one Thousand Sons Command Asset of your choice that is a psychic power, or the Deny the Witch or Adamantium Will card. Add the drawn card to your hand, then shuffle the Command Asset deck and place it face down."
+      },
+      "lord-of-the-thousand-sons": {
+         "name": "Lord of the Thousand Sons",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly THOUSAND SONS units whilst they are within 6\" of this unit."
+      },
+      "legacy-of-the-rubricae": {
+         "name": "Legacy of the Rubricae",
+         "text": "If this unit is in a Detachment that contains only THOUSAND SONS units, its Battlefield Role is Troops instead of Elites."
+      }
+   },
+   "imports": [
+      "chaos-space-marines",
+      "weapons"
+   ]
+}

@@ -1,0 +1,2644 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "chaos-knights",
+   "name": "Chaos - Chaos Knights",
+   "kind": "Faction",
+   "datasheets": {
+      "knight-rampager": {
+         "name": "Knight Rampager",
+         "battlefieldRole": "LordOfWar",
+         "cost": 19,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "ABHORRENT CLASS",
+            "KNIGHT RAMPAGER"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Rampager",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/heavy-stubber",
+            "weapons/reaper-chainsword",
+            "weapons/thunderstrike-gauntlet"
+         ],
+         "abilities": [
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-desecrator": {
+         "name": "Knight Desecrator",
+         "battlefieldRole": "LordOfWar",
+         "cost": 21,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "ABHORRENT CLASS",
+            "KNIGHT DESECRATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Desecrator",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "laser-destructor",
+            "weapons/heavy-stubber"
+         ],
+         "abilities": [
+            "taskmaster",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "melee-weapon",
+               "name": "Melee Weapon",
+               "options": [
+                  {
+                     "id": "thunderstrike-gauntlet",
+                     "name": "Thunderstrike Gauntlet",
+                     "addsWeapons": [
+                        "weapons/thunderstrike-gauntlet"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "addsWeapons": [
+                        "weapons/reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-asterius": {
+         "name": "Renegade Knight Asterius",
+         "battlefieldRole": "LordOfWar",
+         "cost": 39,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT ASTERIUS"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Asterius",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "karacnos-mortar-battery",
+            "weapons/titanic-feet"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "barrage"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-conversion-beam-cannons",
+                     "name": "Twin Conversion Beam Cannons",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "twin-conversion-beam-cannons"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "volkite-culverin",
+                     "name": "Volkite Culverin",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "volkite-culverin"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "war-dog-moirax-squadron": {
+         "name": "War Dog Moirax Squadron",
+         "battlefieldRole": "LordOfWar",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "War Dog Moirax",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "abilities": [
+            "vehicle-squadron"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "volkite-veuglaire",
+                     "name": "Volkite Veuglaire",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "volkite-veuglaire"
+                     ]
+                  },
+                  {
+                     "id": "graviton-pulsar",
+                     "name": "Graviton Pulsar",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "graviton-pulsar"
+                     ]
+                  },
+                  {
+                     "id": "lightning-lock",
+                     "name": "Lightning Lock",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "lightning-lock"
+                     ]
+                  },
+                  {
+                     "id": "moirax-conversion-beam-cannon",
+                     "name": "Moirax Conversion Beam Cannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "moirax-conversion-beam-cannon"
+                     ]
+                  },
+                  {
+                     "id": "moirax-siege-claw",
+                     "name": "Moirax Siege Claw",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "moirax-siege-claw",
+                        "rad-cleanser"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "armoured-feet",
+                     "name": "Armoured Feet",
+                     "maximum": 1,
+                     "requiredWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "moirax-siege-claw"
+                        },
+                        "maximum": 0
+                     },
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "war-dog-moirax"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Not",
+                              "condition": {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "moirax-siege-claw"
+                                 },
+                                 "minimum": 1
+                              }
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "armoured-feet"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "war-dog-moirax"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Not",
+                              "condition": {
+                                 "kind": "Any",
+                                 "conditions": [
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Detachment",
+                                       "of": {
+                                          "kind": "Detachment",
+                                          "detachment": "ad-hoc"
+                                       },
+                                       "minimum": 1
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "character-fallen-courts",
+                                          "datasheet": "war-dog-squadron"
+                                       },
+                                       "maximum": 0
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Keyword",
+                                          "keyword": "COMMANDER"
+                                       },
+                                       "maximum": 0
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog-moirax"
+                        },
+                        "minimum": 1
+                     },
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "war-dog-moirax",
+                     "name": "War Dog Moirax",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsKeywords": [
+                        "HEAVY",
+                        "VEHICLE",
+                        "WAR DOG",
+                        "WAR DOG MOIRAX"
+                     ],
+                     "addsFactionKeywords": [
+                        "CHAOS",
+                        "CHAOS KNIGHTS",
+                        "<QUESTOR TRAITORIS>"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "war-dog-squadron": {
+         "name": "War Dog Squadron",
+         "battlefieldRole": "LordOfWar",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "War Dog",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "abilities": [
+            "vehicle-squadron"
+         ],
+         "wargear": [
+            {
+               "id": "arm-weapons",
+               "name": "Arm Weapons",
+               "options": [
+                  {
+                     "id": "two-wardog-autocannons",
+                     "name": "Two Wardog Autocannons",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "minimum": 1
+                     }
+                  },
+                  {
+                     "id": "thermal-spear-and-reaper-chain-cleaver",
+                     "name": "Thermal Spear and Reaper Chain-cleaver",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "thermal-spear",
+                        "reaper-chain-cleaver"
+                     ]
+                  }
+               ],
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "default": "two-wardog-autocannons"
+            },
+            {
+               "id": "carapace-weapon",
+               "name": "Carapace Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/meltagun"
+                     ]
+                  }
+               ],
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "war-dog"
+                        },
+                        "minimum": 1
+                     },
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "war-dog"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Not",
+                              "condition": {
+                                 "kind": "Any",
+                                 "conditions": [
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Detachment",
+                                       "of": {
+                                          "kind": "Detachment",
+                                          "detachment": "ad-hoc"
+                                       },
+                                       "minimum": 1
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "character-fallen-courts"
+                                       },
+                                       "maximum": 0
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Keyword",
+                                          "keyword": "COMMANDER"
+                                       },
+                                       "maximum": 0
+                                    }
+                                 ]
+                              }
+                           }
+                        ]
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  },
+                  {
+                     "id": "war-dog-autocannon",
+                     "name": "War Dog Autocannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-wardog-autocannons"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "war-dog-autocannon"
+                     ]
+                  },
+                  {
+                     "id": "war-dog",
+                     "name": "War Dog",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsKeywords": [
+                        "HEAVY",
+                        "VEHICLE",
+                        "WAR DOG"
+                     ],
+                     "addsFactionKeywords": [
+                        "CHAOS",
+                        "CHAOS KNIGHTS",
+                        "<QUESTOR TRAITORIS>"
+                     ],
+                     "addsWeapons": [
+                        "armoured-feet"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-tyrant": {
+         "name": "Knight Tyrant",
+         "battlefieldRole": "LordOfWar",
+         "cost": 30,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "KNIGHT TYRANT"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Tyrant",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/titanic-feet"
+         ],
+         "abilities": [
+            "dual-plasma-core-explosion"
+         ],
+         "wargear": [
+            {
+               "id": "arm-weapons",
+               "name": "Arm Weapons",
+               "options": [
+                  {
+                     "id": "volcano-lance-and-plasma-decimator",
+                     "name": "Volcano Lance and Plasma Decimator",
+                     "addsWeapons": [
+                        "weapons/plasma-decimator",
+                        "weapons/volcano-lance"
+                     ],
+                     "addsAbilities": [
+                        "supercharge",
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "conflagration-cannon-and-thundercoil-harpoon",
+                     "name": "Conflagration Cannon and Thundercoil Harpoon",
+                     "addsWeapons": [
+                        "weapons/conflagration-cannon",
+                        "weapons/thundercoil-harpoon"
+                     ],
+                     "addsAbilities": [
+                        "inferno",
+                        "apocalyptic-destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "volcano-lance-and-plasma-decimator"
+            },
+            {
+               "id": "carapace-weapons",
+               "name": "Carapace Weapons",
+               "options": [
+                  {
+                     "id": "twin-siegebreaker-cannon",
+                     "name": "Twin Siegebreaker Cannon",
+                     "maximum": 2,
+                     "minimum": 1,
+                     "addsWeapons": [
+                        "weapons/twin-siegebreaker-cannon"
+                     ]
+                  },
+                  {
+                     "id": "two-shieldbreaker-missiles",
+                     "name": "Two Shieldbreaker Missiles",
+                     "maximum": 2,
+                     "minimum": 1,
+                     "addsWeapons": [
+                        "weapons/shieldbreaker-missile"
+                     ],
+                     "addsAbilities": [
+                        "one-use-only"
+                     ]
+                  }
+               ],
+               "minimum": 3,
+               "maximum": 3
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-meltagun",
+                     "name": "Twin Meltagun",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-meltagun"
+                     ]
+                  },
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "knight-despoiler": {
+         "name": "Knight Despoiler",
+         "battlefieldRole": "LordOfWar",
+         "cost": 24,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "KNIGHT DESPOILER"
+         ],
+         "profiles": [
+            {
+               "name": "Knight Despoiler",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "reaper-chainsword"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thunderstrike-gauntlet"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     }
+                  ]
+               },
+               "addsAbilities": [
+                  "engine-of-destruction"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thunderstrike-gauntlet"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "reaper-chainsword"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     }
+                  ]
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "weaponSkill": 2
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "point-defence",
+               "name": "Point Defence",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "addsWeapons": [
+                        "weapons/meltagun"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-stubber"
+            },
+            {
+               "id": "carapace-weapon",
+               "name": "Carapace Weapon",
+               "options": [
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "stormspear-rocket-pod",
+                     "name": "Stormspear Rocket Pod",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/stormspear-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "twin-icarus-autocannon",
+                     "name": "Twin Icarus Autocannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-icarus-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "arm-1",
+               "name": "Arm 1",
+               "options": [
+                  {
+                     "id": "avenger-gatling-cannon-and-heavy-flamer",
+                     "name": "Avenger Gatling Cannon and Heavy Flamer",
+                     "addsWeapons": [
+                        "weapons/avenger-gatling-cannon",
+                        "weapons/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "rapid-fire-battle-cannon-and-heavy-stubber",
+                     "name": "Rapid-fire Battle Cannon and Heavy Stubber",
+                     "addsWeapons": [
+                        "weapons/rapid-fire-battle-cannon",
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "thunderstrike-gauntlet",
+                     "name": "Thunderstrike Gauntlet",
+                     "addsWeapons": [
+                        "weapons/thunderstrike-gauntlet"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "thermal-cannon",
+                     "name": "Thermal Cannon",
+                     "addsWeapons": [
+                        "weapons/thermal-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "thunderstrike-gauntlet"
+            },
+            {
+               "id": "arm-2",
+               "name": "Arm 2",
+               "options": [
+                  {
+                     "id": "avenger-gatling-cannon-and-heavy-flamer-2",
+                     "name": "Avenger Gatling Cannon and Heavy Flamer",
+                     "addsWeapons": [
+                        "weapons/avenger-gatling-cannon",
+                        "weapons/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "rapid-fire-battle-cannon-and-heavy-stubber-2",
+                     "name": "Rapid-fire Battle Cannon and Heavy Stubber",
+                     "addsWeapons": [
+                        "weapons/rapid-fire-battle-cannon",
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "thermal-cannon-2",
+                     "name": "Thermal Cannon",
+                     "addsWeapons": [
+                        "weapons/thermal-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "addsWeapons": [
+                        "weapons/reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "titanic-feet",
+                     "name": "Titanic Feet",
+                     "maximum": 1,
+                     "requiredWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "reaper-chainsword"
+                              },
+                              "maximum": 0
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "thunderstrike-gauntlet"
+                              },
+                              "maximum": 0
+                           }
+                        ]
+                     },
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "reaper-chainsword"
+                              },
+                              "maximum": 0
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "thunderstrike-gauntlet"
+                              },
+                              "maximum": 0
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "weapons/titanic-feet"
+                     ]
+                  },
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-acheron": {
+         "name": "Renegade Knight Acheron",
+         "battlefieldRole": "LordOfWar",
+         "cost": 26,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT ACHERON"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Acheron",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/acheron-flame-cannon",
+            "weapons/twin-heavy-bolter",
+            "weapons/reaper-chainfist"
+         ],
+         "abilities": [
+            "inferno",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-magaera": {
+         "name": "Renegade Knight Magaera",
+         "battlefieldRole": "LordOfWar",
+         "cost": 21,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT MAGAERA"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Magaera",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/lightning-cannon"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "empyreal-preysight"
+         ],
+         "wargear": [
+            {
+               "id": "chainsword-exchange",
+               "name": "Chainsword exchange",
+               "options": [
+                  {
+                     "id": "hekaton-siege-claw-and-twin-rad-cleanser",
+                     "name": "Hekaton Siege Claw and Twin Rad Cleanser",
+                     "cost": 4,
+                     "addsWeapons": [
+                        "weapons/twin-rad-cleanser",
+                        "weapons/hekaton-siege-claw"
+                     ],
+                     "addsAbilities": [
+                        "inferno",
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "addsWeapons": [
+                        "weapons/reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "phased-plasma-fusil",
+                     "name": "Ectoplasma Fusil",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "addsWeapons": [
+                        "weapons/ectoplasma-fusil"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-lancer": {
+         "name": "Renegade Knight Lancer",
+         "battlefieldRole": "LordOfWar",
+         "cost": 23,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT LANCER"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Lancer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/cerastus-shock-lance-melee",
+            "weapons/cerastus-shock-lance-ranged"
+         ],
+         "abilities": [
+            "ion-gauntlet-shield",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-castigator": {
+         "name": "Renegade Knight Castigator",
+         "battlefieldRole": "LordOfWar",
+         "cost": 27,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT CASTIGATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Castigator",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/castigator-bolt-cannon",
+            "weapons/tempest-warblade"
+         ],
+         "abilities": [
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-atropos": {
+         "name": "Renegade Knight Atropos",
+         "battlefieldRole": "LordOfWar",
+         "cost": 30,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT ATROPOS"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Atropos",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/atropos-lascutter-melee",
+            "weapons/atropos-lascutter-ranged",
+            "weapons/graviton-singularity-cannon"
+         ],
+         "abilities": [
+            "macro-extinction-protocols",
+            "terror-troops",
+            "unstable-reactor",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-porphyrion": {
+         "name": "Renegade Knight Porphyrion",
+         "battlefieldRole": "LordOfWar",
+         "cost": 38,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT PORPHYRION"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Porphyrion",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/twin-magna-lascannon",
+            "weapons/titanic-feet"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "point-defence",
+               "name": "Point Defence",
+               "options": [
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/autocannon"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "autocannon"
+            },
+            {
+               "id": "carapace-weapon",
+               "name": "Carapace Weapon",
+               "options": [
+                  {
+                     "id": "ironstorm-missile-pod",
+                     "name": "Ironstorm Missile Pod",
+                     "addsWeapons": [
+                        "weapons/ironstorm-missile-pod"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "helios-defense-missiles",
+                     "name": "Helios Defense Missiles",
+                     "addsWeapons": [
+                        "weapons/helios-defense-missiles"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "ironstorm-missile-pod"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "renegade-knight-styrix": {
+         "name": "Renegade Knight Styrix",
+         "battlefieldRole": "LordOfWar",
+         "cost": 23,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE",
+            "RENEGADE KNIGHT STYRIX"
+         ],
+         "profiles": [
+            {
+               "name": "Renegade Knight Styrix",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 5,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
+         "weapons": [
+            "weapons/graviton-crusher"
+         ],
+         "abilities": [
+            "unstable-reactor",
+            "empyreal-preysight"
+         ],
+         "wargear": [
+            {
+               "id": "chainsword-exchange",
+               "name": "Chainsword exchange",
+               "options": [
+                  {
+                     "id": "hekaton-siege-claw-and-twin-rad-cleanser",
+                     "name": "Hekaton Siege Claw and Twin Rad Cleanser",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-rad-cleanser",
+                        "weapons/hekaton-siege-claw"
+                     ],
+                     "addsAbilities": [
+                        "inferno",
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "reaper-chainsword",
+                     "name": "Reaper Chainsword",
+                     "addsWeapons": [
+                        "weapons/reaper-chainsword"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reaper-chainsword"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "volkite-chieorovile",
+                     "name": "Hellburner Chieorovile",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "addsWeapons": [
+                        "weapons/hellburner-chieorovile"
+                     ]
+                  },
+                  {
+                     "id": "character-fallen-courts",
+                     "name": "Character (Fallen Courts)",
+                     "maximum": 1,
+                     "maximumPerDetachment": 1,
+                     "addsKeywords": [
+                        "CHARACTER"
+                     ]
+                  },
+                  {
+                     "id": "warmaster",
+                     "name": "Warmaster",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Detachment",
+                                 "of": {
+                                    "kind": "Detachment",
+                                    "detachment": "ad-hoc"
+                                 },
+                                 "minimum": 1
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "character-fallen-courts",
+                                    "datasheet": "war-dog-squadron"
+                                 },
+                                 "maximum": 0
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Keyword",
+                                    "keyword": "COMMANDER"
+                                 },
+                                 "maximum": 0
+                              }
+                           ]
+                        }
+                     },
+                     "addsKeywords": [
+                        "WARMASTER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "detachmentAbilities": {
+      "fallen-courts-2": {
+         "ability": "fallen-courts",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Any",
+               "conditions": [
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "ad-hoc"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "super-heavy-auxiliary"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "fortification-network"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "patrol"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "air-wing"
+                     },
+                     "minimum": 1
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "weapons": {
+      "laser-destructor": {
+         "name": "Laser Destructor",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "twin-conversion-beam-cannons": {
+         "name": "Twin Conversion Beam Cannons",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "volkite-culverin": {
+         "name": "Volkite Culverin",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 45
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "karacnos-mortar-battery": {
+         "name": "Karacnos Mortar Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Barrage"
+      },
+      "volkite-veuglaire": {
+         "name": "Volkite Veuglaire",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
+      },
+      "graviton-pulsar": {
+         "name": "Graviton Pulsar",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5
+      },
+      "lightning-lock": {
+         "name": "Lightning Lock",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "moirax-conversion-beam-cannon": {
+         "name": "Moirax Conversion Beam Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 54
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5
+      },
+      "moirax-siege-claw": {
+         "name": "Moirax Siege Claw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "rad-cleanser": {
+         "name": "Rad Cleanser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "war-dog-autocannon": {
+         "name": "War Dog Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "thermal-spear": {
+         "name": "Thermal Spear",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "reaper-chain-cleaver": {
+         "name": "Reaper Chain-cleaver",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "armoured-feet": {
+         "name": "Armoured Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      }
+   },
+   "abilities": {
+      "taskmaster": {
+         "name": "Taskmaster",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly <QUESTOR TRAITORIS> WAR DOG units whilst they are within 6\" of this unit."
+      },
+      "fallen-courts": {
+         "name": "Fallen Courts",
+         "text": "One [CHAOS KNIGHTS] unit becomes a CHARACTER and so can be a WARLORD if they are the Detachment's Commander. In addition, this unit has a Warmaster Trait, even though they are not your Warmaster (if this unit is also your Warmaster, then they have two Warmaster Traits - re-roll any duplicate results when determining these)."
+      },
+      "dual-plasma-core-explosion": {
+         "name": "Dual Plasma Core Explosion",
+         "text": "When this unit is destroyed, roll two D12 instead of one D12 to determine if it explodes, and it does so on any result of a 10+. When this unit explodes, place one blast marker next to every unit (excluding SUPER HEAVY units) that is within 12\" of this unit instead of 6\"."
+      },
+      "engine-of-destruction": {
+         "name": "Engine of Destruction",
+         "text": "If this unit is equipped with 1 Reaper Chainsword and 1 Thunderstrike Gauntlet, change its Weapon Skill characteristic to 2+."
+      },
+      "ion-gauntlet-shield": {
+         "name": "Ion Gauntlet Shield",
+         "text": "Subtract 1 from hit rolls for attacks made with melee weapons by enemy SUPER-HEAVY units that target this unit."
+      },
+      "macro-extinction-protocols": {
+         "name": "Macro-extinction Protocols",
+         "text": "Add 1 to hit rolls for attacks made with ranged weapons by this unit that target SUPER-HEAVY units."
+      },
+      "unstable-reactor": {
+         "name": "Unstable Reactor",
+         "text": "When this unit is destroyed, it explodes on a result of 8+."
+      },
+      "empyreal-preysight": {
+         "name": "Empyreal Preysight",
+         "text": "This unit does not suffer the penalty for attacks made with ranged weapons that target obscured targets."
+      },
+      "vehicle-squadron": {
+         "name": "Vehicle Squadron",
+         "text": "Each Lord of War slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single Lord of War slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      }
+   },
+   "imports": [
+      "weapons"
+   ]
+}

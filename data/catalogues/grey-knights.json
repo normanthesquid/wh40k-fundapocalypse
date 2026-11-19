@@ -1,0 +1,3009 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "grey-knights",
+   "name": "Imperium - Grey Knights",
+   "kind": "Faction",
+   "datasheets": {
+      "lord-kaldor-draigo": {
+         "name": "Lord Kaldor Draigo",
+         "battlefieldRole": "HQ",
+         "cost": 12,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "GRAND MASTER",
+            "TERMINATOR",
+            "LORD KALDOR DRAIGO"
+         ],
+         "profiles": [
+            {
+               "name": "Lord Kaldor Draigo",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "the-titansword"
+         ],
+         "abilities": [
+            "chapter-master",
+            "bane-of-evil",
+            "deep-strike",
+            "destroyer"
+         ],
+         "maximumPerArmy": 1
+      },
+      "grand-master-voldus": {
+         "name": "Grand Master Voldus",
+         "battlefieldRole": "HQ",
+         "cost": 8,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "GRAND MASTER",
+            "TERMINATOR",
+            "VOLDUS"
+         ],
+         "profiles": [
+            {
+               "name": "Grand Master Voldus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "malleus-argyrum"
+         ],
+         "abilities": [
+            "master-psyker",
+            "rites-of-battle",
+            "deep-strike"
+         ],
+         "maximumPerArmy": 1
+      },
+      "grand-master": {
+         "name": "Grand Master",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "TERMINATOR",
+            "GRAND MASTER"
+         ],
+         "profiles": [
+            {
+               "name": "Grand Master",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon-3"
+         ],
+         "abilities": [
+            "deep-strike",
+            "rites-of-battle"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "grand-master-in-nemesis-dreadknight": {
+         "name": "Grand Master in Nemesis Dreadknight",
+         "battlefieldRole": "HQ",
+         "cost": 9,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "PSYKER",
+            "CHARACTER",
+            "NEMESIS DREADKNIGHT",
+            "GRAND MASTER"
+         ],
+         "profiles": [
+            {
+               "name": "Grand Master in Nemesis Dreadknight",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "abilities": [
+            "rites-of-battle"
+         ],
+         "wargear": [
+            {
+               "id": "ranged-weapons",
+               "name": "Ranged Weapons",
+               "options": [
+                  {
+                     "id": "heavy-incinerator",
+                     "name": "Heavy Incinerator",
+                     "maximum": 2,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "heavy-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "heavy-psycannon",
+                     "name": "Heavy Psycannon",
+                     "maximum": 2,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "heavy-psycannon"
+                     ]
+                  },
+                  {
+                     "id": "gatling-psilencer",
+                     "name": "Gatling Psilencer",
+                     "maximum": 2,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "gatling-psilencer"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            },
+            {
+               "id": "melee-weapons",
+               "name": "Melee Weapons",
+               "options": [
+                  {
+                     "id": "nemesis-dreadfist",
+                     "name": "Nemesis Dreadfist",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "nemesis-dreadfist"
+                     ]
+                  },
+                  {
+                     "id": "nemesis-force-weapon",
+                     "name": "Nemesis Force Weapon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "nemesis-force-weapon"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "nemesis-dreadfist"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "dreadknight-teleporter",
+                     "name": "Dreadknight Teleporter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "castellan-crowe": {
+         "name": "Castellan Crowe",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "BROTHERHOOD CHAMPION",
+            "CASTELLAN CROWE"
+         ],
+         "profiles": [
+            {
+               "name": "Castellan Crowe",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "the-black-blade-of-antwyr"
+         ],
+         "abilities": [
+            "master-swordsman",
+            "heroic-sacrifice"
+         ],
+         "maximumPerArmy": 1
+      },
+      "brother-captain-stern": {
+         "name": "Brother-Captain Stern",
+         "battlefieldRole": "HQ",
+         "cost": 8,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "BROTHER-CAPTAIN",
+            "TERMINATOR",
+            "STERN"
+         ],
+         "profiles": [
+            {
+               "name": "Brother-Captain Stern",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon"
+         ],
+         "abilities": [
+            "the-strands-of-fate",
+            "deep-strike",
+            "psychic-locus"
+         ],
+         "maximumPerArmy": 1
+      },
+      "brother-captain": {
+         "name": "Brother-Captain",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "TERMINATOR",
+            "BROTHER-CAPTAIN"
+         ],
+         "profiles": [
+            {
+               "name": "Brother-Captain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon-3"
+         ],
+         "abilities": [
+            "psychic-locus",
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "librarian": {
+         "name": "Librarian",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "TERMINATOR",
+            "LIBRARIAN"
+         ],
+         "profiles": [
+            {
+               "name": "Librarian",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon-2"
+         ],
+         "abilities": [
+            "deep-strike"
+         ]
+      },
+      "chaplain": {
+         "name": "Chaplain",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "TERMINATOR",
+            "CHAPLAIN"
+         ],
+         "profiles": [
+            {
+               "name": "Chaplain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "space-marines/crozius-arcanum"
+         ],
+         "abilities": [
+            "litanies-of-hate",
+            "spiritual-leader",
+            "deep-strike"
+         ]
+      },
+      "brotherhood-champion": {
+         "name": "Brotherhood Champion",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "BROTHERHOOD CHAMPION"
+         ],
+         "profiles": [
+            {
+               "name": "Brotherhood Champion",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon-3"
+         ],
+         "abilities": [
+            "heroic-sacrifice"
+         ]
+      },
+      "terminator-squad": {
+         "name": "Terminator Squad",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "TERMINATOR",
+            "TERMINATOR SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Terminator Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "storm-bolters"
+         ],
+         "abilities": [
+            "deep-strike",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 -10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 11
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 21,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "strike-squad": {
+         "name": "Strike Squad",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "STRIKE SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Strike Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapons-2",
+            "storm-bolters"
+         ],
+         "abilities": [
+            "deep-strike",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 -10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 8
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "apothecary": {
+         "name": "Apothecary",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "TERMINATOR",
+            "APOTHECARY"
+         ],
+         "profiles": [
+            {
+               "name": "Apothecary",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon-2"
+         ],
+         "abilities": [
+            "narthecium",
+            "deep-strike"
+         ]
+      },
+      "brotherhood-ancient": {
+         "name": "Brotherhood Ancient",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "ANCIENT",
+            "BROTHERHOOD ANCIENT"
+         ],
+         "profiles": [
+            {
+               "name": "Brotherhood Ancient",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon-2"
+         ],
+         "abilities": [
+            "deep-strike",
+            "sacred-banner"
+         ]
+      },
+      "paladin-squad": {
+         "name": "Paladin Squad",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "PALADIN",
+            "TERMINATOR",
+            "PALADIN SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Paladin Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapons-3",
+            "storm-bolters"
+         ],
+         "abilities": [
+            "deep-strike",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 -10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 12
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 24,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "paladin-ancient": {
+         "name": "Paladin Ancient",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "PALADIN",
+            "TERMINATOR",
+            "ANCIENT"
+         ],
+         "profiles": [
+            {
+               "name": "Paladin Ancient",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapon-2"
+         ],
+         "abilities": [
+            "deep-strike",
+            "sacred-banner"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "purifier-squad": {
+         "name": "Purifier Squad",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "PURIFIER SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Purifier Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapons-2",
+            "storm-bolters"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 -10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 6
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "interceptor-squad": {
+         "name": "Interceptor Squad",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "INTERCEPTOR SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Interceptor Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "close-combat-weapons-2",
+            "storm-bolters"
+         ],
+         "abilities": [
+            "personal-teleporters",
+            "deep-strike",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 -10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 10
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 20,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "purgation-squad": {
+         "name": "Purgation Squad",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "PURGATION SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Purgation Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "storm-bolters"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "5-models"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "OptionGroup",
+                           "group": "heavy-weapons"
+                        },
+                        "minimum": 1
+                     }
+                  ]
+               },
+               "removesWeapons": [
+                  "storm-bolters"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Unit",
+                           "of": {
+                              "kind": "Option",
+                              "option": "5-models"
+                           },
+                           "minimum": 1,
+                           "maximum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Unit",
+                           "of": {
+                              "kind": "OptionGroup",
+                              "group": "heavy-weapons"
+                           },
+                           "minimum": 1
+                        }
+                     ]
+                  }
+               },
+               "addsAbilities": [
+                  "rapid-fire"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "psilencer",
+                     "name": "Psilencer",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psilencer"
+                     ]
+                  },
+                  {
+                     "id": "psycannon",
+                     "name": "Psycannon",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "psycannon"
+                     ]
+                  }
+               ],
+               "maximum": 4
+            },
+            {
+               "id": "5-10-models",
+               "name": "5 -10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 14,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "nemesis-dreadknight": {
+         "name": "Nemesis Dreadknight",
+         "battlefieldRole": "HeavySupport",
+         "cost": 7,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "PSYKER",
+            "NEMESIS DREADKNIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Nemesis Dreadknight",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "wargear": [
+            {
+               "id": "ranged-weapons",
+               "name": "Ranged Weapons",
+               "options": [
+                  {
+                     "id": "heavy-incinerator",
+                     "name": "Heavy Incinerator",
+                     "maximum": 2,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "heavy-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "heavy-psycannon",
+                     "name": "Heavy Psycannon",
+                     "maximum": 2,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "heavy-psycannon"
+                     ]
+                  },
+                  {
+                     "id": "gatling-psilencer",
+                     "name": "Gatling Psilencer",
+                     "maximum": 2,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "gatling-psilencer"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            },
+            {
+               "id": "melee-weapons",
+               "name": "Melee Weapons",
+               "options": [
+                  {
+                     "id": "nemesis-dreadfist",
+                     "name": "Nemesis Dreadfist",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "nemesis-dreadfist"
+                     ]
+                  },
+                  {
+                     "id": "nemesis-force-weapon",
+                     "name": "Nemesis Force Weapon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "nemesis-force-weapon"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "nemesis-dreadfist"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "dreadknight-teleporter",
+                     "name": "Dreadknight Teleporter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "vortimer-pattern-razorback": {
+         "name": "Vortimer Pattern Razorback",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RAZORBACK",
+            "VORTIMER PATTERN RAZORBACK"
+         ],
+         "profiles": [
+            {
+               "name": "Vortimer Pattern Razorback",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "twin-psycannon",
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 6 friendly GREY KNIGHTS INFANTRY models. It cannot transport TERMINATOR or JUMP PACK models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "doomglave-pattern-dreadnought": {
+         "name": "Doomglave Pattern Dreadnought",
+         "battlefieldRole": "Elites",
+         "cost": 10,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "PSYKER",
+            "DREADNOUGHT",
+            "DOOMGLAVE PATTERN DREADNOUGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Doomglave Pattern Dreadnought",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "nemesis-doomglaive"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "weapon-option",
+               "name": "Weapon option",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "incinerator",
+                     "name": "Incinerator",
+                     "cost": 0,
+                     "addsWeapons": [
+                        "incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "storm-bolter"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-psycannon",
+                     "name": "Heavy Psycannon",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "cost": 0,
+                     "addsWeapons": [
+                        "heavy-psycannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "vortimer-pattern-land-raider-redeemer": {
+         "name": "Vortimer Pattern Land Raider Redeemer",
+         "battlefieldRole": "HeavySupport",
+         "cost": 16,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "VORTIMER PATTERN LAND RAIDER REDEEMER"
+         ],
+         "profiles": [
+            {
+               "name": "Vortimer Pattern Land Raider Redeemer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "twin-psycannon",
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 12 friendly GREY KNIGHTS INFANTRY models. Each TERMINATOR and JUMP PACK model takes up the space of 2 other models.",
+         "wargear": [
+            {
+               "id": "additional-weapons",
+               "name": "Additional weapons",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "flamestorm-cannon",
+                     "name": "Flamestorm Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/flamestorm-cannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "thunderhawk-assault-gunship": {
+         "name": "Thunderhawk Assault Gunship",
+         "battlefieldRole": "LordOfWar",
+         "cost": 42,
+         "keywords": [
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "TITANIC",
+            "AIRCRAFT",
+            "TRANSPORT",
+            "FLY",
+            "THUNDERHAWK ASSAULT GUNSHIP"
+         ],
+         "profiles": [
+            {
+               "name": "Thunderhawk Assault Gunship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "GREY KNIGHTS"
+         ],
+         "weapons": [
+            "massively-armoured-bulk"
+         ],
+         "abilities": [
+            "supersonic",
+            "space-marines/hover-jet"
+         ],
+         "transport": "This unit can transport up to 30 friendly GREY KNIGHTS and/or INQUISITION INFANTRY models. Each TERMINATOR model takes up the space of 2 other models.",
+         "wargear": [
+            {
+               "id": "spinal-weapon",
+               "name": "Spinal Weapon",
+               "options": [
+                  {
+                     "id": "thunderhawk-heavy-cannon",
+                     "name": "Thunderhawk Heavy Cannon",
+                     "addsWeapons": [
+                        "weapons/thunderhawk-heavy-cannon"
+                     ]
+                  },
+                  {
+                     "id": "turbo-laser-destructor",
+                     "name": "Turbo-laser Destructor",
+                     "addsWeapons": [
+                        "weapons/turbo-laser-destructor"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "thunderhawk-heavy-cannon"
+            },
+            {
+               "id": "twin-heavy-bolters",
+               "name": "Twin Heavy bolters",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 4,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-psycannon",
+                     "name": "Twin Psycannon",
+                     "maximum": 4,
+                     "addsWeapons": [
+                        "twin-psycannon"
+                     ]
+                  }
+               ],
+               "minimum": 4,
+               "maximum": 4,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "missiles-bombs",
+               "name": "Missiles/Bombs",
+               "options": [
+                  {
+                     "id": "thunderhawk-cluster-bombs",
+                     "name": "Thunderhawk Cluster Bombs",
+                     "addsAbilities": [
+                        "weapons/thunderhawk-cluster-bombs"
+                     ]
+                  },
+                  {
+                     "id": "hellstrike-battery",
+                     "name": "Hellstrike Battery",
+                     "addsWeapons": [
+                        "hellstrike-battery"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "hellstrike-battery"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "techmarine": {
+         "name": "Techmarine",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "TECHMARINE"
+         ],
+         "profiles": [
+            {
+               "name": "Techmarine",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "GREY KNIGHTS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/servo-arm-power-weapon"
+         ],
+         "abilities": [
+            "blessings-of-the-omnissiah"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "JUMP PACK"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 12
+                        }
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "BIKER"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 14
+                        }
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "no-wargear",
+                     "name": "No wargear",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "jump-pack",
+                     "name": "Jump Pack",
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "PrimaryFaction",
+                           "faction": "grey-knights"
+                        }
+                     },
+                     "addsKeywords": [
+                        "INFANTRY",
+                        "JUMP PACK",
+                        "FLY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  },
+                  {
+                     "id": "bike",
+                     "name": "Bike",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "PrimaryFaction",
+                           "faction": "grey-knights"
+                        }
+                     },
+                     "addsKeywords": [
+                        "BIKER"
+                     ]
+                  },
+                  {
+                     "id": "servo-harness",
+                     "name": "Servo-harness",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/flamer-plasma-cutter"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-wargear"
+            }
+         ]
+      },
+      "land-raider": {
+         "name": "Land Raider",
+         "battlefieldRole": "HeavySupport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "LAND RAIDER",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "GREY KNIGHTS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "weapons/twin-heavy-bolter",
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 10 friendly GREY KNIGHTS INFANTRY models. Each TERMINATOR model takes the space of 2 other INFANTRY models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-crusader": {
+         "name": "Land Raider Crusader",
+         "battlefieldRole": "HeavySupport",
+         "cost": 19,
+         "keywords": [
+            "HEAVY",
+            "LAND RAIDER",
+            "TRANSPORT",
+            "VEHICLE",
+            "LAND RAIDER CRUSADER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Crusader",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "GREY KNIGHTS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/twin-assault-cannon",
+            "space-marines/armoured-tracks",
+            "space-marines/frag-assault-launchers"
+         ],
+         "transport": "This unit can transport up to 16 friendly GREY KNIGHTS INFANTRY models. Each TERMINATOR model takes the space of 2 other INFANTRY models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-redeemer": {
+         "name": "Land Raider Redeemer",
+         "battlefieldRole": "HeavySupport",
+         "cost": 19,
+         "keywords": [
+            "HEAVY",
+            "TRANSPORT",
+            "VEHICLE",
+            "LAND RAIDER",
+            "LAND RAIDER REDEEMER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Redeemer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "GREY KNIGHTS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "space-marines/frag-assault-launchers",
+            "space-marines/twin-assault-cannon"
+         ],
+         "transport": "This unit can transport up to 12 friendly GREY KNIGHTS INFANTRY models. Each TERMINATOR model takes the space of 2 other INFANTRY models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "flamestorm-cannon",
+                     "name": "Flamestorm Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/flamestorm-cannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "razorback": {
+         "name": "Razorback",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "VEHICLE",
+            "TRANSPORT",
+            "HEAVY",
+            "RAZORBACK"
+         ],
+         "profiles": [
+            {
+               "name": "Razorback",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "GREY KNIGHTS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 6 friendly GREY KNIGHTS INFANTRY models. It cannot transport TERMINATOR units.",
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            }
+         ]
+      },
+      "rhino": {
+         "name": "Rhino",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "VEHICLE",
+            "TRANSPORT",
+            "RHINO",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Rhino",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/storm-bolter"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "transport": "This unit can transport up to 10 friendly GREY KNIGHTS INFANTRY models. It cannot transport TERMINATOR units."
+      },
+      "stormraven-gunship": {
+         "name": "Stormraven Gunship",
+         "battlefieldRole": "Flyer",
+         "cost": 20,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "AIRCRAFT",
+            "TRANSPORT",
+            "STORMRAVEN GUNSHIP"
+         ],
+         "profiles": [
+            {
+               "name": "Stormraven Gunship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "GREY KNIGHTS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/armoured-bulk"
+         ],
+         "abilities": [
+            "supersonic",
+            "space-marines/hover-jet"
+         ],
+         "transport": "This unit can transport up to 12 friendly <Chapter> Infantry models and 1 friendly <Chapter> Dreadnought. Each Jump Pack, Wulfen, or Terminator model takes the space of 2 other Infantry models, and each Centurion model takes the space of 3 other Infantry models. It cannot transport Primaris units.",
+         "wargear": [
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-plasma-cannon",
+                     "name": "Twin Heavy Plasma Cannon",
+                     "addsWeapons": [
+                        "space-marines/twin-heavy-plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-assault-cannon"
+            },
+            {
+               "id": "front-weapon",
+               "name": "Front Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-multi-melta",
+                     "name": "Twin Multi-melta",
+                     "addsWeapons": [
+                        "weapons/twin-multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "typhoon-missile-launcher",
+                     "name": "Typhoon Missile Launcher",
+                     "addsWeapons": [
+                        "space-marines/typhoon-missile-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hurricane-bolters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "space-marines/hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "hurricane-bolters",
+                     "name": "Hurricane Bolters",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "stormstrike-missile-launchers",
+                     "name": "Stormstrike Missile Launchers",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/stormstrike-missile-launchers"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "datasheetLinks": {
+      "dreadnought": {
+         "datasheet": "space-marines/dreadnought",
+         "addsFactionKeywords": [
+            "GREY KNIGHTS"
+         ],
+         "addsKeywords": [
+            "PSYKER"
+         ]
+      },
+      "venerable-dreadnought": {
+         "datasheet": "space-marines/venerable-dreadnought",
+         "addsFactionKeywords": [
+            "GREY KNIGHTS"
+         ],
+         "addsKeywords": [
+            "PSYKER"
+         ]
+      },
+      "servitors": {
+         "datasheet": "space-marines/servitors"
+      },
+      "stormhawk-interceptor": {
+         "datasheet": "space-marines/stormhawk-interceptor",
+         "addsFactionKeywords": [
+            "GREY KNIGHTS"
+         ]
+      },
+      "stormtalon-gunship": {
+         "datasheet": "space-marines/stormtalon-gunship",
+         "addsFactionKeywords": [
+            "GREY KNIGHTS"
+         ]
+      }
+   },
+   "weapons": {
+      "the-titansword": {
+         "name": "The Titansword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "malleus-argyrum": {
+         "name": "Malleus Argyrum",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "the-black-blade-of-antwyr": {
+         "name": "The Black Blade of Antwyr",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "close-combat-weapon": {
+         "name": "Close Combat Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "close-combat-weapon-2": {
+         "name": "Close Combat Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "close-combat-weapons-3": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "nemesis-doomglaive": {
+         "name": "Nemesis Doomglaive",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6
+      },
+      "massively-armoured-bulk": {
+         "name": "Massively Armoured Bulk",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "incinerator": {
+         "name": "Incinerator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "psilencer": {
+         "name": "Psilencer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "psycannon": {
+         "name": "Psycannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "gatling-psilencer": {
+         "name": "Gatling Psilencer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "heavy-incinerator": {
+         "name": "Heavy Incinerator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "heavy-psycannon": {
+         "name": "Heavy Psycannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 4,
+         "antiTank": 5
+      },
+      "close-combat-weapon-3": {
+         "name": "Close Combat Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "storm-bolters": {
+         "name": "Storm Bolters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "twin-psycannon": {
+         "name": "Twin Psycannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "hellstrike-battery": {
+         "name": "Hellstrike Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
+      },
+      "nemesis-dreadfist": {
+         "name": "Nemesis Dreadfist",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5
+      },
+      "nemesis-force-weapon": {
+         "name": "Nemesis Force Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      }
+   },
+   "abilities": {
+      "chapter-master": {
+         "name": "Chapter Master",
+         "text": "You can re-roll hit rolls for attacks made by friendly GREY KNIGHTS units whilst they are within 6\" of this unit."
+      },
+      "bane-of-evil": {
+         "name": "Bane of Evil",
+         "text": "Whilst they are within 6\" of this unit, you can re-roll wound rolls for attacks made by friendly GREY KNIGHTS units that target DAEMON units."
+      },
+      "master-psyker": {
+         "name": "Master Psyker",
+         "text": "Once per battle, at the end of the Orders phase, you can look through your Command Asset deck and draw either one Adeptus Astartes Command Asset of your choice that is a psychic power, or the Deny the Witch or Adamantium Will card. Add the drawn card to your hand, then shuffle the Command Asset deck and place it face down."
+      },
+      "master-swordsman": {
+         "name": "Master Swordsman",
+         "text": "You can re-roll hit rolls and wound rolls for attacks made by this unit with melee weapons."
+      },
+      "the-strands-of-fate": {
+         "name": "The Strands of Fate",
+         "text": "Once per turn, after you have made a saving throw for this unit, you can re-roll that saving throw."
+      },
+      "litanies-of-hate": {
+         "name": "Litanies of Hate",
+         "text": "You can re-roll hit rolls for attacks made with melee weapons by friendly GREY KNIGHTS units whilst they are within 6\" of this unit."
+      },
+      "spiritual-leader": {
+         "name": "Spiritual Leader",
+         "text": "Friendly GREY KNIGHTS units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit."
+      },
+      "narthecium": {
+         "name": "Narthecium",
+         "text": "At the end of the Action phase, this unit can attempt to heal one friendly GREY KNIGHTS LIGHT unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that LIGHT unit. Only one attempt to heal each unit can be made each turn."
+      },
+      "personal-teleporters": {
+         "name": "Personal Teleporters",
+         "text": "This unit can move across models and terrain as if they were not there. When this unit makes a Move action, it can make a teleport shunt instead of moving. If it does, it is removed from the battlefield and placed into Tactical Reserves. When this unit arrives as reinforcements, set it up anywhere on the battlefield that is more than 9\" away from any enemy units. A unit cannot make a teleport shunt if it was set up on the battlefield this turn, if there are any enemy units in base contact with it, or if there are any blast markers next to it."
+      },
+      "blessings-of-the-omnissiah": {
+         "name": "Blessings of the Omnissiah",
+         "text": "At the end of the Action phase, this unit can attempt to repair one friendly GREY KNIGHTS VEHICLE unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that VEHICLE unit. Only one attempt to repair each unit can be made each turn."
+      },
+      "rites-of-battle": {
+         "name": "Rites of Battle",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly GREY KNIGHTS units whilst they are within 6\" of this unit."
+      },
+      "psychic-locus": {
+         "name": "Psychic Locus",
+         "text": "When a friendly GREY KNIGHTS unit is selected to manifest a psychic power whilst it is within 6\" of any friendly units with this ability, after it is resolved roll one D12; on a 7+ return that Command Asset to your hand instead of discarding it. That Command Asset cannot be played again this turn."
+      },
+      "heroic-sacrifice": {
+         "name": "Heroic Sacrifice",
+         "text": "If this unit is destroyed whilst it is in base contact with any enemy units, place one blast marker next to one enemy unit in base contact with this unit before removing it from the battlefield."
+      },
+      "sacred-banner": {
+         "name": "Sacred Banner",
+         "text": "Morale tests taken for friendly GREY KNIGHTS units are automatically passed whilst they are within 6\" of this unit."
+      }
+   },
+   "imports": [
+      "space-marines",
+      "weapons"
+   ]
+}

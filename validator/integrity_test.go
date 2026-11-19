@@ -80,6 +80,35 @@ func TestIntegrityRules(t *testing.T) {
 				option.CostChanges = []CostChange{{When: *count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})}}
 			})
 		}, `costChanges/0/when/of: option "nope" is not an option of its datasheet`},
+		{"option group target resolves", func(dataset *Dataset) {
+			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindOptionGroup, Group: "nope"}))
+		}, `option group "nope" is not an option group of its datasheet`},
+		{"datasheet cost change condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.CostChanges = []CostChange{{When: *count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})}}
+			})
+		}, `costChanges/0/when/of: option "nope" is not an option of its datasheet`},
+		{"detachment requirement condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.RequiredInDetachment = &DetachmentMinimum{Minimum: 1, When: *count(CountTarget{Kind: CountTargetKindDatasheet, Datasheet: pointer("nope")})}
+			})
+		}, `requiredInDetachment/when/of: datasheet "nope" does not resolve`},
+		{"detachment requirement above the detachment maximum", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.RequiredInDetachment = &DetachmentMinimum{Minimum: 3, When: *count(CountTarget{Kind: CountTargetKindDatasheet, Datasheet: pointer(inquisitorID)})}
+				inquisitor.MaximumPerDetachment = pointer(2)
+			})
+		}, "requiredInDetachment: minimum 3 is more than maximum 2"},
+		{"option required condition is checked", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) {
+				option.RequiredWhen = count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})
+			})
+		}, `requiredWhen/of: option "nope" is not an option of its datasheet`},
+		{"growing option maximum names a missing option", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) {
+				option.Maximum = &Bound{Growing: &Limit{Base: 1, Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindOption, Option: "nope"}}}}}
+			})
+		}, `maximum/terms/0/per: option "nope" is not an option of its datasheet`},
 		{"per-army minimum above maximum", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) { option.MinimumPerArmy, option.MaximumPerArmy = pointer(3), pointer(2) })
 		}, "minimumPerArmy: minimum 3 is more than maximum 2"},
@@ -302,6 +331,23 @@ func TestIntegrityRules(t *testing.T) {
 		{"group minimum its options cannot meet", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = fixed(3) })
 		}, `wargear/1: minimum 3 is more than the 2 its options allow`},
+		{"group maximum that is not a multiple", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Wargear[1].Maximum = fixed(3)
+				inquisitor.Wargear[1].MultipleOf = pointer(2)
+			})
+		}, `wargear/1: maximum 3 is not a multiple of 2`},
+		{"group availability condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Wargear[1].AvailableWhen = count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})
+			})
+		}, `wargear/1/availableWhen/of: option "nope" is not an option of its datasheet`},
+		{"group bounds that are multiples", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Wargear[1].Minimum = fixed(2)
+				inquisitor.Wargear[1].MultipleOf = pointer(2)
+			})
+		}, ""},
 		{"group minimum its options just meet", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = fixed(2) })
 		}, ""},

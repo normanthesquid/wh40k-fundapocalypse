@@ -29,6 +29,7 @@ const (
 	CountTargetKindKeyword          CountTargetKind = "Keyword"
 	CountTargetKindRole             CountTargetKind = "Role"
 	CountTargetKindOption           CountTargetKind = "Option"
+	CountTargetKindOptionGroup      CountTargetKind = "OptionGroup"
 	CountTargetKindDetachmentChoice CountTargetKind = "DetachmentChoice"
 	CountTargetKindDetachment       CountTargetKind = "Detachment"
 	CountTargetKindDetachmentKind   CountTargetKind = "DetachmentKind"
@@ -50,6 +51,7 @@ type CountTarget struct {
 	Datasheet  *string         `json:"datasheet"`
 	Keyword    string          `json:"keyword"`
 	Option     string          `json:"option"`
+	Group      string          `json:"group"`
 	Detachment string          `json:"detachment"`
 }
 
@@ -138,12 +140,13 @@ type Option struct {
 	WargearChanges
 	ID             string         `json:"id"`
 	Minimum        *int           `json:"minimum"`
-	Maximum        *int           `json:"maximum"`
+	Maximum        *Bound         `json:"maximum"`
 	MinimumPerArmy *int           `json:"minimumPerArmy"`
 	MaximumPerArmy *int           `json:"maximumPerArmy"`
 	CostChanges    []CostChange   `json:"costChanges"`
 	AddsProfiles   []ModelProfile `json:"addsProfiles"`
 	AvailableWhen  *Condition     `json:"availableWhen"`
+	RequiredWhen   *Condition     `json:"requiredWhen"`
 }
 
 type ConditionalChange struct {
@@ -158,11 +161,13 @@ type UniversalOption struct {
 }
 
 type OptionGroup struct {
-	ID      string   `json:"id"`
-	Minimum *Bound   `json:"minimum"`
-	Maximum *Bound   `json:"maximum"`
-	Default *string  `json:"default"`
-	Options []Option `json:"options"`
+	ID            string     `json:"id"`
+	Minimum       *Bound     `json:"minimum"`
+	Maximum       *Bound     `json:"maximum"`
+	MultipleOf    *int       `json:"multipleOf"`
+	AvailableWhen *Condition `json:"availableWhen"`
+	Default       *string    `json:"default"`
+	Options       []Option   `json:"options"`
 }
 
 type AlternativeRole struct {
@@ -170,15 +175,23 @@ type AlternativeRole struct {
 }
 
 type Datasheet struct {
-	FactionKeywords    []string            `json:"factionKeywords"`
-	Keywords           []string            `json:"keywords"`
-	Profiles           []ModelProfile      `json:"profiles"`
-	Weapons            []string            `json:"weapons"`
-	Abilities          []string            `json:"abilities"`
-	Wargear            []OptionGroup       `json:"wargear"`
-	ConditionalChanges []ConditionalChange `json:"conditionalChanges"`
-	AlternativeRoles   []AlternativeRole   `json:"alternativeRoles"`
-	AvailableWhen      *Condition          `json:"availableWhen"`
+	FactionKeywords      []string            `json:"factionKeywords"`
+	Keywords             []string            `json:"keywords"`
+	Profiles             []ModelProfile      `json:"profiles"`
+	Weapons              []string            `json:"weapons"`
+	Abilities            []string            `json:"abilities"`
+	Wargear              []OptionGroup       `json:"wargear"`
+	ConditionalChanges   []ConditionalChange `json:"conditionalChanges"`
+	CostChanges          []CostChange        `json:"costChanges"`
+	AlternativeRoles     []AlternativeRole   `json:"alternativeRoles"`
+	AvailableWhen        *Condition          `json:"availableWhen"`
+	RequiredInDetachment *DetachmentMinimum  `json:"requiredInDetachment"`
+	MaximumPerDetachment *int                `json:"maximumPerDetachment"`
+}
+
+type DetachmentMinimum struct {
+	Minimum int       `json:"minimum"`
+	When    Condition `json:"when"`
 }
 
 type ConditionalKeywords struct {

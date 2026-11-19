@@ -1,0 +1,4956 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "deathwatch",
+   "name": "Imperium - Deathwatch",
+   "kind": "Faction",
+   "datasheets": {
+      "watch-master-2": {
+         "name": "Watch Master",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "WATCH MASTER"
+         ],
+         "profiles": [
+            {
+               "name": "Watch Master",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "guardian-spear"
+         ],
+         "abilities": [
+            "watch-master"
+         ]
+      },
+      "watch-captain-artemis": {
+         "name": "Watch Captain Artemis",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "WATCH CAPTAIN",
+            "ARTEMIS"
+         ],
+         "profiles": [
+            {
+               "name": "Watch Captain Artemis",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "space-marines/master-crafted-weapons"
+         ],
+         "abilities": [
+            "unstoppable-champion",
+            "rites-of-battle"
+         ],
+         "maximumPerArmy": 1
+      },
+      "watch-captain": {
+         "name": "Watch Captain",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "CHARACTER",
+            "WATCH CAPTAIN"
+         ],
+         "profiles": [
+            {
+               "name": "Watch Captain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "space-marines/master-crafted-weapons"
+         ],
+         "abilities": [
+            "rites-of-battle"
+         ],
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "no-wargear",
+                     "name": "*No Wargear*",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "jump-pack",
+                     "name": "Jump Pack",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "JUMP PACK",
+                        "FLY",
+                        "INFANTRY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 12
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "terminator-armour",
+                     "name": "Terminator Armour",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsKeywords": [
+                        "INFANTRY",
+                        "TERMINATOR"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              },
+                              "save": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-wargear"
+            }
+         ]
+      },
+      "primaris-watch-captain": {
+         "name": "Primaris Watch Captain",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "PRIMARIS",
+            "WATCH CAPTAIN"
+         ],
+         "profiles": [
+            {
+               "name": "Primaris Watch Captain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "master-crafted-weapons"
+         ],
+         "abilities": [
+            "rites-of-battle"
+         ]
+      },
+      "veterans": {
+         "name": "Veterans",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "VETERANS",
+            "PROTEUS",
+            "KILL TEAM"
+         ],
+         "profiles": [
+            {
+               "name": "Veterans",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "deathwatch-boltguns"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "OptionGroup",
+                           "group": "heavy-weapons"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "maximum": 0
+                     }
+                  ]
+               },
+               "removesWeapons": [
+                  "deathwatch-boltguns"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Unit",
+                           "of": {
+                              "kind": "OptionGroup",
+                              "group": "heavy-weapons"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Unit",
+                           "of": {
+                              "kind": "Option",
+                              "option": "10-models"
+                           },
+                           "maximum": 0
+                        }
+                     ]
+                  }
+               },
+               "addsAbilities": [
+                  "rapid-fire"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "melee-weapons",
+               "name": "Melee Weapons",
+               "options": [
+                  {
+                     "id": "deathwatch-melee-weapons",
+                     "name": "Deathwatch Melee Weapons",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "deathwatch-melee-weapons"
+                     ]
+                  },
+                  {
+                     "id": "close-combat-weapons",
+                     "name": "Close Combat Weapons",
+                     "addsWeapons": [
+                        "weapons/close-combat-weapons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "close-combat-weapons"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "infernus-heavy-bolter",
+                     "name": "Infernus Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "infernus-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "deathwatch-frag-cannon",
+                     "name": "Deathwatch Frag Cannon",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "deathwatch-frag-cannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/missile-launcher"
+                     ]
+                  }
+               ],
+               "maximum": 4
+            }
+         ]
+      },
+      "terminators": {
+         "name": "Terminators",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "TERMINATORS"
+         ],
+         "profiles": [
+            {
+               "name": "Terminators",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "terminator-power-weapons",
+            "deathwatch-storm-bolters"
+         ],
+         "abilities": [
+            "deep-strike",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 12
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 22,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "assault-cannon",
+                     "name": "Assault Cannon",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "cyclone-missile-launcher",
+                     "name": "Cyclone Missile Launcher",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/cyclone-missile-launcher"
+                     ]
+                  }
+               ],
+               "maximum": 3
+            }
+         ]
+      },
+      "vanguard-veterans": {
+         "name": "Vanguard Veterans",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "JUMP PACK",
+            "VANGUARD VETERANS"
+         ],
+         "profiles": [
+            {
+               "name": "Vanguard Veterans",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "deathwatch-bolt-pistols",
+            "vanguard-weapons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 8
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 15,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "intercessors": {
+         "name": "Intercessors",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PRIMARIS",
+            "INTERCESSORS"
+         ],
+         "profiles": [
+            {
+               "name": "Intercessors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "deathwatch-bolt-rifles"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 13,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "reivers": {
+         "name": "Reivers",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PRIMARIS",
+            "PHOBOS",
+            "REIVERS"
+         ],
+         "profiles": [
+            {
+               "name": "Reivers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "abilities": [
+            "terror-troops"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-bolt-pistols"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "PrimaryFaction",
+                        "faction": "deathwatch"
+                     }
+                  ]
+               },
+               "removesWeapons": [
+                  "space-marines/heavy-bolt-pistols"
+               ],
+               "addsWeapons": [
+                  "space-marines/deathwatch-heavy-bolt-pistols"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "bolt-carbines"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "PrimaryFaction",
+                        "faction": "deathwatch"
+                     }
+                  ]
+               },
+               "removesWeapons": [
+                  "space-marines/bolt-carbines"
+               ],
+               "addsWeapons": [
+                  "space-marines/deathwatch-bolt-carbines"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "reiver-blades-heavy-bolt-pistols",
+                     "name": "Reiver Blades & Heavy Bolt Pistols",
+                     "addsWeapons": [
+                        "reiver-blades"
+                     ]
+                  },
+                  {
+                     "id": "bolt-carbines-close-combat-weapons",
+                     "name": "Bolt Carbines & Close Combat Weapons",
+                     "addsWeapons": [
+                        "close-combat-weapons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "reiver-blades-heavy-bolt-pistols"
+            },
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "grapnel-launchers",
+                     "name": "Grapnel Launchers",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "infiltrators"
+                     ]
+                  },
+                  {
+                     "id": "grav-chutes",
+                     "name": "Grav-Chutes",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolt-pistols",
+                     "name": "Heavy Bolt Pistols",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "reiver-blades-heavy-bolt-pistols"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "space-marines/heavy-bolt-pistols"
+                     ]
+                  },
+                  {
+                     "id": "bolt-carbines",
+                     "name": "Bolt Carbines",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "bolt-carbines-close-combat-weapons"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "space-marines/bolt-carbines"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "aggressors": {
+         "name": "Aggressors",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PRIMARIS",
+            "MK X GRAVIS",
+            "AGGRESSORS"
+         ],
+         "profiles": [
+            {
+               "name": "Aggressors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "aggressor-gauntlets"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "auto-boltstorm-gauntlets",
+                     "name": "Auto Boltstorm Gauntlets",
+                     "addsWeapons": [
+                        "space-marines/auto-boltstorm-gauntlets",
+                        "space-marines/fragstorm-grenade-launchers"
+                     ]
+                  },
+                  {
+                     "id": "flamestorm-gauntlets",
+                     "name": "Flamestorm Gauntlets",
+                     "addsWeapons": [
+                        "space-marines/flamestorm-gauntlets"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "auto-boltstorm-gauntlets"
+            },
+            {
+               "id": "3-6-models",
+               "name": "3 - 6 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 8
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "bikers": {
+         "name": "Bikers",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "BIKERS"
+         ],
+         "profiles": [
+            {
+               "name": "Bikers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "deathwatch-twin-boltguns",
+            "weapons/close-combat-weapons"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "3-6-models",
+               "name": "3 - 6 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 9
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 17,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "inceptors": {
+         "name": "Inceptors",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "JUMP PACK",
+            "PRIMARIS",
+            "MK X GRAVIS",
+            "INCEPTORS"
+         ],
+         "profiles": [
+            {
+               "name": "Inceptors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "3-6-models",
+               "name": "3 - 6 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 11
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 22,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "assault-bolters",
+                     "name": "Assault Bolters",
+                     "addsWeapons": [
+                        "space-marines/assault-bolters"
+                     ]
+                  },
+                  {
+                     "id": "plasma-exterminators",
+                     "name": "Plasma Exterminators",
+                     "addsWeapons": [
+                        "space-marines/plasma-exterminators"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "assault-bolters"
+            }
+         ]
+      },
+      "hellblasters": {
+         "name": "Hellblasters",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PRIMARIS",
+            "HELLBLASTERS"
+         ],
+         "profiles": [
+            {
+               "name": "Hellblasters",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "plasma-incinerators"
+         ],
+         "abilities": [
+            "rapid-fire",
+            "supercharge"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 14,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "corvus-blackstar": {
+         "name": "Corvus Blackstar",
+         "battlefieldRole": "Flyer",
+         "cost": 15,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "AIRCRAFT",
+            "FLY",
+            "CORVUS BLACKSTAR"
+         ],
+         "profiles": [
+            {
+               "name": "Corvus Blackstar",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 4,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "space-marines/armoured-bulk"
+         ],
+         "abilities": [
+            "blackstar-cluster-launcher",
+            "supersonic",
+            "space-marines/hover-jet"
+         ],
+         "transport": "This unit can transport up to 12 friendly DEATHWATCH INFANTRY or DEATHWATCH BIKER models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models and each BIKER model takes the space of 3 INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "launchers",
+               "name": "Launchers",
+               "options": [
+                  {
+                     "id": "stormstrike-missile-launchers",
+                     "name": "Stormstrike Missile Launchers"
+                  },
+                  {
+                     "id": "blackstar-rocket-launchers",
+                     "name": "Blackstar Rocket Launchers"
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "stormstrike-missile-launchers"
+            },
+            {
+               "id": "nose-weapon",
+               "name": "Nose weapon",
+               "options": [
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-lascannon"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "space-marines/hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "stormstrike-missile-launcher",
+                     "name": "Stormstrike Missile Launcher",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stormstrike-missile-launchers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "stormstrike-missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "blackstar-rocket-launcher",
+                     "name": "Blackstar Rocket Launcher",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "blackstar-rocket-launchers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "blackstar-rocket-launcher"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "fortis-kill-team": {
+         "name": "Fortis Kill Team",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PRIMARIS",
+            "KILL TEAM",
+            "FORTIS"
+         ],
+         "profiles": [
+            {
+               "name": "Fortis Kill Team",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "deathwatch-bolt-rifles"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 14,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "melee-weapons",
+               "name": "Melee Weapons",
+               "options": [
+                  {
+                     "id": "chainswords",
+                     "name": "Chainswords",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chainswords"
+                     ]
+                  },
+                  {
+                     "id": "close-combat-weapons",
+                     "name": "Close Combat Weapons",
+                     "addsWeapons": [
+                        "weapons/close-combat-weapons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "heavy-plasma-incinerator",
+                     "name": "Heavy Plasma Incinerator",
+                     "maximum": 5,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-plasma-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 5
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "indomitor-kill-team": {
+         "name": "Indomitor Kill Team",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PRIMARIS",
+            "KILL TEAM",
+            "MK X GRAVIS",
+            "INDOMITOR"
+         ],
+         "profiles": [
+            {
+               "name": "Indomitor Kill Team",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "deathwatch-heavy-bolt-rifles",
+            "weapons/close-combat-weapons"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 9
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 18,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "auto-boltstorm-gauntlets-and-fragtstorm-grenade-launcher",
+                     "name": "Auto Boltstorm Gauntlets and Fragtstorm Grenade Launcher",
+                     "maximum": 5,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "auto-boltstorm-gauntlets",
+                        "fragstorm-grenade-launchers"
+                     ]
+                  },
+                  {
+                     "id": "flamestorm-gauntlets",
+                     "name": "Flamestorm Gauntlets",
+                     "maximum": 5,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "flamestorm-gauntlets"
+                     ]
+                  },
+                  {
+                     "id": "melta-rifle",
+                     "name": "Melta Rifle",
+                     "maximum": 5,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "total-obliteration"
+                     ],
+                     "addsWeapons": [
+                        "weapons/melta-rifle"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 5
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "spectrus-kill-team": {
+         "name": "Spectrus Kill Team",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PRIMARIS",
+            "KILL TEAM",
+            "SPECTRUS",
+            "PHOBOS"
+         ],
+         "profiles": [
+            {
+               "name": "Spectrus Kill Team",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES",
+            "DEATHWATCH"
+         ],
+         "weapons": [
+            "deathwatch-marksman-bolt-carbines",
+            "weapons/close-combat-weapons"
+         ],
+         "abilities": [
+            "omni-scramblers",
+            "infiltrators",
+            "rapid-fire"
+         ],
+         "costChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "incursor"
+                  },
+                  "minimum": 1
+               },
+               "increment": 1
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "reiver"
+                  },
+                  "minimum": 1
+               },
+               "increment": 1
+            }
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 9
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "specialist-operators",
+               "name": "Specialist Operators",
+               "options": [
+                  {
+                     "id": "incursor",
+                     "name": "Incursor",
+                     "maximum": 5,
+                     "addsAbilities": [
+                        "haywire-mine",
+                        "multi-spectrum-gunsights"
+                     ]
+                  },
+                  {
+                     "id": "reiver",
+                     "name": "Reiver",
+                     "maximum": 5,
+                     "addsAbilities": [
+                        "terror-troops"
+                     ]
+                  },
+                  {
+                     "id": "eliminator-with-bolt-sniper-rifle",
+                     "name": "Eliminator with Bolt Sniper Rifle",
+                     "maximum": 5,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "bolt-sniper-rifle"
+                     ]
+                  },
+                  {
+                     "id": "eliminator-with-las-fusil",
+                     "name": "Eliminator with Las-fusil",
+                     "maximum": 5,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "las-fusil"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 5
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "grav-chutes",
+                     "name": "Grav-Chutes",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "primaris-apothecary": {
+         "name": "Primaris Apothecary",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "APOTHECARY",
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "PRIMARIS"
+         ],
+         "profiles": [
+            {
+               "name": "Primaris Apothecary",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/apothecary-pistols"
+         ],
+         "abilities": [
+            "narthecium"
+         ]
+      },
+      "land-raider": {
+         "name": "Land Raider",
+         "battlefieldRole": "HeavySupport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "LAND RAIDER",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "weapons/twin-heavy-bolter",
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 10 friendly DEATHWATCH INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-crusader": {
+         "name": "Land Raider Crusader",
+         "battlefieldRole": "HeavySupport",
+         "cost": 19,
+         "keywords": [
+            "HEAVY",
+            "LAND RAIDER",
+            "TRANSPORT",
+            "VEHICLE",
+            "LAND RAIDER CRUSADER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Crusader",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/twin-assault-cannon",
+            "space-marines/armoured-tracks",
+            "space-marines/frag-assault-launchers"
+         ],
+         "transport": "This unit can transport up to 16 friendly DEATHWATCH INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-redeemer": {
+         "name": "Land Raider Redeemer",
+         "battlefieldRole": "HeavySupport",
+         "cost": 19,
+         "keywords": [
+            "HEAVY",
+            "TRANSPORT",
+            "VEHICLE",
+            "LAND RAIDER",
+            "LAND RAIDER REDEEMER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Redeemer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "space-marines/frag-assault-launchers",
+            "space-marines/twin-assault-cannon"
+         ],
+         "transport": "This unit can transport up to 12 friendly DEATHWATCH INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "flamestorm-cannon",
+                     "name": "Flamestorm Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/flamestorm-cannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "rhino": {
+         "name": "Rhino",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "VEHICLE",
+            "TRANSPORT",
+            "RHINO",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Rhino",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/storm-bolter"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "transport": "This unit can transport up to 10 friendly DEATHWATCH INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units."
+      },
+      "razorback": {
+         "name": "Razorback",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "VEHICLE",
+            "TRANSPORT",
+            "HEAVY",
+            "RAZORBACK"
+         ],
+         "profiles": [
+            {
+               "name": "Razorback",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 6 friendly DEATHWATCH INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            }
+         ]
+      },
+      "drop-pod": {
+         "name": "Drop Pod",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "DROP POD",
+            "VEHICLE",
+            "TRANSPORT",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Drop Pod",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 3,
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "abilities": [
+            "deep-strike",
+            "space-marines/drop-pod-assault",
+            "immobile"
+         ],
+         "transport": "This unit can transport up to 10 friendly DEATHWATCH INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "deathwind-launcher",
+                     "name": "Deathwind Launcher",
+                     "addsWeapons": [
+                        "space-marines/deathwind-launcher"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "storm-bolter"
+            }
+         ]
+      },
+      "repulsor": {
+         "name": "Repulsor",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 13,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "REPULSOR",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Repulsor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/repulsor-defensive-weapons-system",
+            "space-marines/repulsor-field",
+            "space-marines/icarus-weapons"
+         ],
+         "abilities": [
+            "hover",
+            "anti-air"
+         ],
+         "transport": "This unit can transport up to 10 friendly DEATHWATCH PRIMARIS INFANTRY models. Each MK X GRAVIS model takes up the space of 2 other models. It cannot transport JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "front-weapon",
+               "name": "Front Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "heavy-onslaught-gatling-cannon",
+                     "name": "Heavy Onslaught Gatling Cannon",
+                     "cost": 3,
+                     "addsWeapons": [
+                        "space-marines/heavy-onslaught-gatling-cannon"
+                     ]
+                  },
+                  {
+                     "id": "las-talon",
+                     "name": "Las-talon",
+                     "addsWeapons": [
+                        "space-marines/las-talon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "las-talon"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "ironhail-heavy-stubber-2",
+                     "name": "Ironhail Heavy Stubber",
+                     "addsWeapons": [
+                        "space-marines/ironhail-heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "onslaught-gatling-cannon",
+                     "name": "Onslaught Gatling Cannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/onslaught-gatling-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "ironhail-heavy-stubber-2"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "ironhail-heavy-stubber",
+                     "name": "Ironhail Heavy Stubber",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/ironhail-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "repulsor-executioner": {
+         "name": "Repulsor Executioner",
+         "battlefieldRole": "HeavySupport",
+         "cost": 24,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "REPULSOR EXECUTIONER"
+         ],
+         "profiles": [
+            {
+               "name": "Repulsor Executioner",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/heavy-onslaught-gatling-cannon",
+            "space-marines/repulsor-defensive-weapons-system",
+            "space-marines/repulsor-field",
+            "space-marines/icarus-weapons",
+            "weapons/twin-heavy-bolter"
+         ],
+         "abilities": [
+            "space-marines/aquilon-optics",
+            "hover",
+            "anti-air"
+         ],
+         "transport": "This unit can transport up to 6 friendly DEATHWATCH PRIMARIS INFANTRY models. Each MK X GRAVIS model takes up the space of 2 other models. It cannot transport JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "main-weapon",
+               "name": "Main Weapon",
+               "options": [
+                  {
+                     "id": "heavy-laser-destroyer",
+                     "name": "Heavy Laser Destroyer",
+                     "addsWeapons": [
+                        "space-marines/heavy-laser-destroyer"
+                     ]
+                  },
+                  {
+                     "id": "macro-plasma-incinerator",
+                     "name": "Macro Plasma Incinerator",
+                     "addsWeapons": [
+                        "space-marines/macro-plasma-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "macro-plasma-incinerator"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "ironhail-heavy-stubber",
+                     "name": "Ironhail Heavy Stubber",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/ironhail-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "infernum-pattern-razorback": {
+         "name": "Infernum Pattern Razorback",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RAZORBACK",
+            "INFERNUM PATTERN RAZORBACK"
+         ],
+         "profiles": [
+            {
+               "name": "Infernum Pattern Razorback",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "weapons/multi-melta",
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 6 friendly DEATHWATCH INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "relic-land-raider-proteus": {
+         "name": "Relic Land Raider Proteus",
+         "battlefieldRole": "HeavySupport",
+         "cost": 15,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RELIC",
+            "RELIC LAND RAIDER PROTEUS"
+         ],
+         "profiles": [
+            {
+               "name": "Relic Land Raider Proteus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "space-marines/explorator-augury-web"
+         ],
+         "transport": "This unit can transport up to 10 friendly DEATHWATCH INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "front-weapon",
+               "name": "Front weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-flamer",
+                     "name": "Twin Heavy Flamer",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-helios": {
+         "name": "Land Raider Helios",
+         "battlefieldRole": "HeavySupport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "LAND RAIDER HELIOS"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Helios",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/helios-launcher",
+            "space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "anti-air"
+         ],
+         "transport": "This unit can transport up to 6 friendly DEATHWATCH INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "terrax-pattern-termite-assault-drill": {
+         "name": "Terrax-pattern Termite Assault Drill",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "TERMITE ASSAULT DRILL"
+         ],
+         "profiles": [
+            {
+               "name": "Terrax-pattern Termite Assault Drill",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/melta-cutter",
+            "space-marines/termite-drill"
+         ],
+         "abilities": [
+            "deep-strike",
+            "destroyer"
+         ],
+         "transport": "This unit can transport up to 12 friendly DEATHWATCH INFANTRY models. It cannot transport JUMP PACK, TERMINATOR, CENTURION, PRIMARIS or WULFEN models.",
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "storm-bolters",
+                     "name": "Storm Bolters"
+                  },
+                  {
+                     "id": "heavy-flamers",
+                     "name": "Heavy Flamers"
+                  },
+                  {
+                     "id": "twin-volkite-chargers",
+                     "name": "Twin Volkite Chargers"
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "storm-bolters"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "storm-bolters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-flamers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "twin-volkite-charger",
+                     "name": "Twin Volkite Charger",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "twin-volkite-chargers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "space-marines/twin-volkite-charger"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-prometheus": {
+         "name": "Land Raider Prometheus",
+         "battlefieldRole": "HeavySupport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "LAND RAIDER PROMETHEUS"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Prometheus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "space-marines/battle-auspex"
+         ],
+         "transport": "This unit can transport up to 10 friendly DEATHWATCH INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "quad-heavy-bolter",
+                     "name": "Quad Heavy Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/quad-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-achilles": {
+         "name": "Land Raider Achilles",
+         "battlefieldRole": "HeavySupport",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "LAND RAIDER ACHILLES"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Achilles",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/twin-multi-melta",
+            "space-marines/quad-launcher"
+         ],
+         "abilities": [
+            "barrage"
+         ],
+         "transport": "This unit can transport up to 6 friendly DEATHWATCH INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "relic-spartan-assault-tank": {
+         "name": "Relic Spartan Assault Tank",
+         "battlefieldRole": "LordOfWar",
+         "cost": 22,
+         "keywords": [
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RELIC",
+            "RELIC SPARTAN ASSAULT TANK"
+         ],
+         "profiles": [
+            {
+               "name": "Relic Spartan Assault Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 4,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 25 friendly DEATHWATCH INFANTRY models. TERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "main-weapons",
+               "name": "Main weapons",
+               "options": [
+                  {
+                     "id": "laser-destroyers",
+                     "name": "Laser Destroyers"
+                  },
+                  {
+                     "id": "quad-lascannons",
+                     "name": "Quad Lascannons"
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "laser-destroyers"
+            },
+            {
+               "id": "front-weapon",
+               "name": "Front weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-flamer",
+                     "name": "Twin Heavy Flamer",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "laser-destroyer",
+                     "name": "Laser Destroyer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "laser-destroyers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/laser-destroyer"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "quad-lascannon",
+                     "name": "Quad Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "quad-lascannons"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/quad-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "relic-mastodon-super-heavy-siege-transport": {
+         "name": "Relic Mastodon Super-heavy Siege Transport",
+         "battlefieldRole": "LordOfWar",
+         "cost": 36,
+         "keywords": [
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "TITANIC",
+            "TRANSPORT",
+            "RELIC",
+            "MASTODON SUPER-HEAVY SIEGE TRANSPORT"
+         ],
+         "profiles": [
+            {
+               "name": "Relic Mastodon Super-heavy Siege Transport",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/siege-melta-array",
+            "weapons/skyreaper-battery"
+         ],
+         "abilities": [
+            "space-marines/void-shields",
+            "anti-air"
+         ],
+         "transport": "This unit can transport friendly DEATHWATCH models in one of the following combinations:\n- Up to 40 INFANTRY models.\n- Up to 30 INFANTRY models and 1 DREADNOUGHT model.\n- Up to 20 INFANTRY models and up to 2 DREADNOUGHT models. \nTERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "storm-eagle-assault-gunship": {
+         "name": "Storm Eagle Assault Gunship",
+         "battlefieldRole": "Flyer",
+         "cost": 15,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "AIRCRAFT",
+            "STORM EAGLE ASSAULT GUNSHIP"
+         ],
+         "profiles": [
+            {
+               "name": "Storm Eagle Assault Gunship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-bulk-2",
+            "weapons/vengeance-launcher"
+         ],
+         "abilities": [
+            "space-marines/hover-jet",
+            "supersonic"
+         ],
+         "transport": "This unit can transport up to 20 friendly DEATHWATCH INFANTRY models. TERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "wing-weapons",
+               "name": "Wing Weapons",
+               "options": [
+                  {
+                     "id": "2-twin-lascannons",
+                     "name": "2 Twin Lascannons",
+                     "cost": 2
+                  },
+                  {
+                     "id": "hellstrike-missiles",
+                     "name": "Hellstrike Missiles",
+                     "addsWeapons": [
+                        "weapons/hellstrike-missiles"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "hellstrike-missiles"
+            },
+            {
+               "id": "nose-weapon",
+               "name": "Nose weapon",
+               "options": [
+                  {
+                     "id": "twin-multi-melta",
+                     "name": "Twin Multi-melta",
+                     "addsWeapons": [
+                        "space-marines/twin-multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "typhoon-missile-launcher",
+                     "name": "Typhoon Missile Launcher",
+                     "addsWeapons": [
+                        "space-marines/typhoon-missile-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "2-twin-lascannons"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "caestus-assault-ram": {
+         "name": "Caestus Assault Ram",
+         "battlefieldRole": "Flyer",
+         "cost": 15,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "AIRCRAFT",
+            "CAESTUS ASSAULT RAM"
+         ],
+         "profiles": [
+            {
+               "name": "Caestus Assault Ram",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/firefury-missile-battery",
+            "space-marines/caestus-ram",
+            "space-marines/twin-magna-melta"
+         ],
+         "abilities": [
+            "supersonic",
+            "space-marines/hover-jet"
+         ],
+         "transport": "This unit can transport up to 10 friendly DEATHWATCH INFANTRY models. It cannot transport JUMP PACK, CENTURION or TERMINATOR models."
+      },
+      "thunderhawk-assault-gunship": {
+         "name": "Thunderhawk Assault Gunship",
+         "battlefieldRole": "LordOfWar",
+         "cost": 42,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "AIRCRAFT",
+            "FLY",
+            "TRANSPORT",
+            "VEHICLE",
+            "THUNDERHAWK ASSAULT GUNSHIP"
+         ],
+         "profiles": [
+            {
+               "name": "Thunderhawk Assault Gunship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/massively-armoured-bulk"
+         ],
+         "abilities": [
+            "space-marines/hover-jet",
+            "supersonic"
+         ],
+         "transport": "This unit can transport friendly DEATHWATCH models in one of the following combinations:\n- Up to 30 INFANTRY (excluding PRIMARIS) or BIKER models.\n- Up to 15 PRIMARIS INFANTRY models.\nEach TERMINATOR and JUMP PACK model takes up the space of 2 other models and each CENTURION and BIKER model takes up the space of 3 other models.",
+         "wargear": [
+            {
+               "id": "spinal-weapon",
+               "name": "Spinal weapon",
+               "options": [
+                  {
+                     "id": "thunderhawk-heavy-cannon",
+                     "name": "Thunderhawk Heavy Cannon",
+                     "addsWeapons": [
+                        "weapons/thunderhawk-heavy-cannon"
+                     ]
+                  },
+                  {
+                     "id": "turbo-laser-destructor",
+                     "name": "Turbo-laser Destructor",
+                     "addsWeapons": [
+                        "weapons/turbo-laser-destructor"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "thunderhawk-heavy-cannon"
+            },
+            {
+               "id": "missiles-bombs",
+               "name": "Missiles/Bombs",
+               "options": [
+                  {
+                     "id": "thunderhawk-cluster-bombs",
+                     "name": "Thunderhawk Cluster Bombs",
+                     "addsAbilities": [
+                        "weapons/thunderhawk-cluster-bombs"
+                     ]
+                  },
+                  {
+                     "id": "hellstrike-battery",
+                     "name": "Hellstrike Battery",
+                     "addsWeapons": [
+                        "space-marines/hellstrike-battery"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "hellstrike-battery"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "thunderhawk-transporter": {
+         "name": "Thunderhawk Transporter",
+         "battlefieldRole": "LordOfWar",
+         "cost": 30,
+         "keywords": [
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "TITANIC",
+            "AIRCRAFT",
+            "TRANSPORT",
+            "FLY",
+            "THUNDERHAWK TRANSPORTER"
+         ],
+         "profiles": [
+            {
+               "name": "Thunderhawk Transporter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/hellstrike-battery",
+            "space-marines/massively-armoured-bulk"
+         ],
+         "abilities": [
+            "supersonic",
+            "space-marines/hover-jet"
+         ],
+         "transport": "This unit can transport up to 15 friendly DEATHWATCH INFANTRY or BIKER models. Each TERMINATOR and JUMP PACK model takes up the space of 2 other models and each CENTURION and BIKER model takes up the space of 3 other models. It cannot transport PRIMARIS models.\n\nIn addition, this unit can also transport one of the following:\n- 1 LAND RAIDER model or RELIC SPARTAN ASSAULT TANK model.\n- Up to 2 of the following models: RHINO, RAZORBACK, PREDATOR, WHIRLWIND, HUNTER, STALKER, VINDICATOR. \n\nLAND RAIDER, RELIC SPARTAN ASSAULT TANK, RHINO and RAZORBACK models can transport models whilst they are embarked aboard this unit.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "sokar-pattern-stormbird": {
+         "name": "Sokar Pattern Stormbird",
+         "battlefieldRole": "LordOfWar",
+         "cost": 46,
+         "keywords": [
+            "SUPER-HEAVY",
+            "AIRCRAFT",
+            "TITANIC",
+            "FLY",
+            "TRANSPORT",
+            "VEHICLE",
+            "SOKAR PATTERN STORMBIRD"
+         ],
+         "profiles": [
+            {
+               "name": "Sokar Pattern Stormbird",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 8,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/hellstrike-battery",
+            "space-marines/massively-armoured-bulk"
+         ],
+         "abilities": [
+            "space-marines/projected-void-shields",
+            "supersonic",
+            "space-marines/void-shields",
+            "space-marines/hover-jet"
+         ],
+         "transport": "This unit can transport up to 50 friendly DEATHWATCH INFANTRY or BIKER models, or up to 25 friendly DEATHWATCH INFANTRY or BIKER models amd 1 RHINO model. Each TERMINATOR and JUMP PACK model takes up the space of 2 other models and each CENTURION and BIKER model takes up the space of 3 other models. A RHINO can transport models whilst it is embarked aboard this unit.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 3,
+                     "minimum": 3,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "damocles-command-rhino": {
+         "name": "Damocles Command Rhino",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RHINO",
+            "DAMOCLES COMMAND RHINO"
+         ],
+         "profiles": [
+            {
+               "name": "Damocles Command Rhino",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/storm-bolter"
+         ],
+         "abilities": [
+            "space-marines/orbital-strike-augur",
+            "rapid-fire"
+         ],
+         "transport": "This unit can transport 1 friendly DEATHWATCH INFANTRY CHARACTER model. It cannot transport PRIMARIS, CENTURION or TERMINATOR model",
+         "maximumPerDetachment": 1
+      },
+      "lucius-pattern-dreadnought-drop-pod": {
+         "name": "Lucius Pattern Dreadnought Drop Pod",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "DROP POD",
+            "LUCIUS PATTERN DREADNOUGHT DROP POD"
+         ],
+         "profiles": [
+            {
+               "name": "Lucius Pattern Dreadnought Drop Pod",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "abilities": [
+            "deep-strike",
+            "immobile",
+            "space-marines/drop-pod-assault"
+         ],
+         "transport": "This unit can transport 1 friendly DEATHWATCH DREADNOUGHT model."
+      },
+      "castellum-stronghold-tacticus-bunker": {
+         "name": "Castellum Stronghold - Tacticus Bunker",
+         "battlefieldRole": "Fortification",
+         "cost": 12,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "TRANSPORT",
+            "VEHICLE",
+            "CASTELLUM STRONGHOLD",
+            "TACTICUS BUNKER"
+         ],
+         "profiles": [
+            {
+               "name": "Tacticus Bunker",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 3,
+               "wounds": 4,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "abilities": [
+            "space-marines/shield-gate-barriers",
+            "castellum-stronghold",
+            "space-marines/realm-of-battle",
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 30 friendly DEATHWATCH INFANTRY models. Each TERMINATOR and JUMP PACK model takes up the space of 2 other models and each CENTURION model takes up the space of 3 other models.",
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "castellum-battle-cannon",
+                     "name": "Castellum Battle Cannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/castellum-battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "icarus-quad-lascannon",
+                     "name": "Icarus Quad Lascannon",
+                     "maximum": 2,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "space-marines/icarus-quad-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "whirlwind-castellan-launcher",
+                     "name": "Whirlwind Castellan Launcher",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "space-marines/whirlwind-castellan-launcher"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "communications-array",
+                     "name": "Communications Array",
+                     "maximum": 2,
+                     "addsAbilities": [
+                        "space-marines/command-relay"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "castellum-air-defence-missiles",
+                     "name": "Castellum Air Defence Missiles",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/castellum-air-defence-missiles"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-flamer",
+                     "name": "Twin Heavy Flamer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "twin-heavy-bolter"
+            }
+         ],
+         "maximumPerDetachment": 1,
+         "requiredInDetachment": {
+            "minimum": 1,
+            "when": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Datasheet",
+                  "datasheet": "castellum-stronghold-bunker-annex"
+               },
+               "minimum": 1
+            }
+         }
+      },
+      "castellum-stronghold-bunker-annex": {
+         "name": "Castellum Stronghold - Bunker Annex",
+         "battlefieldRole": "Fortification",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "TRANSPORT",
+            "VEHICLE",
+            "CASTELLUM STRONGHOLD",
+            "BUNKER ANNEX"
+         ],
+         "profiles": [
+            {
+               "name": "Bunker Annex",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 3,
+               "wounds": 2,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWATCH",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "abilities": [
+            "castellum-stronghold",
+            "open-topped",
+            "space-marines/realm-of-battle",
+            "immobile"
+         ],
+         "transport": "This unit can transport up to 12 friendly DEATHWATCH INFANTRY models. Each TERMINATOR and JUMP PACK model takes up the space of 2 other models and each CENTURION model takes up the space of 3 other models.",
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "castellum-air-defence-missiles",
+                     "name": "Castellum Air Defence Missiles",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "space-marines/castellum-air-defence-missiles"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-flamer",
+                     "name": "Twin Heavy Flamer",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            }
+         ],
+         "requiredInDetachment": {
+            "minimum": 3,
+            "when": {
+               "kind": "Any",
+               "conditions": [
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Datasheet",
+                        "datasheet": "castellum-stronghold-tacticus-bunker"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Datasheet",
+                        "datasheet": "castellum-stronghold-bunker-annex"
+                     },
+                     "minimum": 1
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "datasheetLinks": {
+      "librarian": {
+         "datasheet": "space-marines/librarian",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "primaris-librarian": {
+         "datasheet": "space-marines/primaris-librarian",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "chaplain": {
+         "datasheet": "space-marines/chaplain",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ],
+         "addsAbilities": [
+            "litanies-of-hate",
+            "spiritual-leader"
+         ]
+      },
+      "primaris-chaplain": {
+         "datasheet": "space-marines/primaris-chaplain",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ],
+         "addsAbilities": [
+            "litanies-of-hate",
+            "spiritual-leader"
+         ]
+      },
+      "venerable-dreadnought": {
+         "datasheet": "space-marines/venerable-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "dreadnought": {
+         "datasheet": "space-marines/dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "redemptor-dreadnought": {
+         "datasheet": "space-marines/redemptor-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "deimos-pattern-relic-predator": {
+         "datasheet": "space-marines/deimos-pattern-relic-predator",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "deimos-pattern-vindicator-laser-destroyer": {
+         "datasheet": "space-marines/deimos-pattern-vindicator-laser-destroyer",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-sicaran-battle-tank": {
+         "datasheet": "space-marines/relic-sicaran-battle-tank",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-sicaran-punisher-assault-tank": {
+         "datasheet": "space-marines/relic-sicaran-punisher-assault-tank",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-sicaran-venator-tank-destroyer": {
+         "datasheet": "space-marines/relic-sicaran-venator-tank-destroyer",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-typhon-heavy-siege-tank": {
+         "datasheet": "space-marines/relic-typhon-heavy-siege-tank",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-cerberus-heavy-tank-destroyer": {
+         "datasheet": "space-marines/relic-cerberus-heavy-tank-destroyer",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-fellblade-super-heavy-tank": {
+         "datasheet": "space-marines/relic-fellblade-super-heavy-tank",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-falchion-super-heavy-tank-destroyer": {
+         "datasheet": "space-marines/relic-falchion-super-heavy-tank-destroyer",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "astraeus-super-heavy-tank": {
+         "datasheet": "space-marines/astraeus-super-heavy-tank",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "mortis-dreadnought": {
+         "datasheet": "space-marines/mortis-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "siege-dreadnought": {
+         "datasheet": "space-marines/siege-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "contemptor-mortis-dreadnought": {
+         "datasheet": "space-marines/contemptor-mortis-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "chaplain-venerable-dreadnought": {
+         "datasheet": "space-marines/chaplain-venerable-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-contemptor-dreadnought": {
+         "datasheet": "space-marines/relic-contemptor-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-deredeo-dreadnought": {
+         "datasheet": "space-marines/relic-deredeo-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-leviathan-dreadnought": {
+         "datasheet": "space-marines/relic-leviathan-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "land-speeder-tempests": {
+         "datasheet": "space-marines/land-speeder-tempests",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-javelin-attack-speeder": {
+         "datasheet": "space-marines/relic-javelin-attack-speeder",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "xiphon-interceptor": {
+         "datasheet": "space-marines/xiphon-interceptor"
+      },
+      "fire-raptor-assault-gunship": {
+         "datasheet": "space-marines/fire-raptor-assault-gunship",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "whirlwind-hyperios": {
+         "datasheet": "space-marines/whirlwind-hyperios",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "relic-whirlwind-scorpius": {
+         "datasheet": "space-marines/relic-whirlwind-scorpius",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "rapier-carrier": {
+         "datasheet": "space-marines/rapier-carrier",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "tarantula-air-defence-battery": {
+         "datasheet": "space-marines/tarantula-air-defence-battery",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "tarantula-battery": {
+         "datasheet": "space-marines/tarantula-battery-2",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "deathstorm-drop-pod": {
+         "datasheet": "space-marines/deathstorm-drop-pod",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "primaris-captain": {
+         "datasheet": "space-marines/primaris-captain",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ],
+         "addsAbilities": [
+            "rites-of-battle"
+         ]
+      },
+      "captain": {
+         "datasheet": "space-marines/captain",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ],
+         "addsAbilities": [
+            "rites-of-battle"
+         ]
+      },
+      "primaris-lieutenants": {
+         "datasheet": "space-marines/primaris-lieutenants",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "lieutenants": {
+         "datasheet": "space-marines/lieutenants",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "primaris-techmarine": {
+         "datasheet": "space-marines/primaris-techmarine",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ],
+         "addsAbilities": [
+            "blessing-of-the-omnissiah"
+         ]
+      },
+      "techmarine": {
+         "datasheet": "space-marines/techmarine",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ],
+         "addsAbilities": [
+            "blessing-of-the-omnissiah"
+         ]
+      },
+      "assault-intercessor-squad": {
+         "datasheet": "space-marines/assault-intercessor-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "heavy-intercessor-squad": {
+         "datasheet": "space-marines/heavy-intercessor-squad-2",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "infiltrator-squad": {
+         "datasheet": "space-marines/infiltrator-squad-2",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "incursor-squad": {
+         "datasheet": "space-marines/incursor-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "company-champion": {
+         "datasheet": "space-marines/company-champion",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "apothecary": {
+         "datasheet": "space-marines/apothecary",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "company-ancient": {
+         "datasheet": "space-marines/company-ancient",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "primaris-ancient": {
+         "datasheet": "space-marines/primaris-ancient",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "bladeguard-ancient": {
+         "datasheet": "space-marines/bladeguard-ancient",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "ancient-in-terminator-armour": {
+         "datasheet": "space-marines/ancient-in-terminator-armour",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "veteran-intercessor-squad": {
+         "datasheet": "space-marines/veteran-intercessor-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "bladeguard-veteran-squad": {
+         "datasheet": "space-marines/bladeguard-veteran-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "company-veterans": {
+         "datasheet": "space-marines/company-veterans",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "judiciar": {
+         "datasheet": "space-marines/judiciar",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "centurion-assault-squad": {
+         "datasheet": "space-marines/centurion-assault-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "invictor-tactical-warsuit": {
+         "datasheet": "space-marines/invictor-tactical-warsuit",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "contemptor-dreadnought": {
+         "datasheet": "space-marines/contemptor-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "ironclad-dreadnought": {
+         "datasheet": "space-marines/ironclad-dreadnought",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "outrider-squad": {
+         "datasheet": "space-marines/outrider-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "invader-atv-squad": {
+         "datasheet": "space-marines/invader-atv-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "suppressor-squad": {
+         "datasheet": "space-marines/suppressor-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "storm-speeder-hailstrike": {
+         "datasheet": "space-marines/storm-speeder-hailstrike",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "storm-speeder-thunderstrike": {
+         "datasheet": "space-marines/storm-speeder-thunderstrike",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "storm-speeder-hammerstrike": {
+         "datasheet": "space-marines/storm-speeder-hammerstrike",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "land-speeders": {
+         "datasheet": "space-marines/land-speeders",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "eliminator-squad": {
+         "datasheet": "space-marines/eliminator-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "centurion-devastator-squad": {
+         "datasheet": "space-marines/centurion-devastator-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "eradicator-squad": {
+         "datasheet": "space-marines/eradicator-squad",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "thunderfire-cannon": {
+         "datasheet": "space-marines/thunderfire-cannon-2",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "firestrike-servo-turrets": {
+         "datasheet": "space-marines/firestrike-servo-turrets",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "hunter": {
+         "datasheet": "space-marines/hunter",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "stalker": {
+         "datasheet": "space-marines/stalker",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "whirlwind": {
+         "datasheet": "space-marines/whirlwind",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "predator": {
+         "datasheet": "space-marines/predator",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "gladiator-lancer": {
+         "datasheet": "space-marines/gladiator-lancer",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "gladiator-reaper": {
+         "datasheet": "space-marines/gladiator-reaper",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "gladiator-valiant": {
+         "datasheet": "space-marines/gladiator-valiant",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "vindicator": {
+         "datasheet": "space-marines/vindicator",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "impulsor": {
+         "datasheet": "space-marines/impulsor",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "stormhawk-interceptor": {
+         "datasheet": "space-marines/stormhawk-interceptor",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "stormtalon-gunship": {
+         "datasheet": "space-marines/stormtalon-gunship",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "stormraven-gunship": {
+         "datasheet": "space-marines/stormraven-gunship",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      },
+      "hammerfall-bunker": {
+         "datasheet": "space-marines/hammerfall-bunker",
+         "addsFactionKeywords": [
+            "DEATHWATCH"
+         ]
+      }
+   },
+   "weapons": {
+      "guardian-spear": {
+         "name": "Guardian Spear",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "master-crafted-weapons": {
+         "name": "Master-crafted Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "deathwatch-boltguns": {
+         "name": "Deathwatch Boltguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "deathwatch-melee-weapons": {
+         "name": "Deathwatch Melee Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "infernus-heavy-bolter": {
+         "name": "Infernus Heavy Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "deathwatch-frag-cannon": {
+         "name": "Deathwatch Frag Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "terminator-power-weapons": {
+         "name": "Terminator Power Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "deathwatch-storm-bolters": {
+         "name": "Deathwatch Storm Bolters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "deathwatch-bolt-pistols": {
+         "name": "Deathwatch Bolt Pistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 15
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "vanguard-weapons": {
+         "name": "Vanguard Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "deathwatch-bolt-rifles": {
+         "name": "Deathwatch Bolt Rifles",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "reiver-blades": {
+         "name": "Reiver Blades",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "aggressor-gauntlets": {
+         "name": "Aggressor Gauntlets",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "deathwatch-twin-boltguns": {
+         "name": "Deathwatch Twin Boltguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "plasma-incinerators": {
+         "name": "Plasma Incinerators",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6,
+         "text": "Rapid Fire, Supercharge"
+      },
+      "stormstrike-missile-launcher": {
+         "name": "Stormstrike Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 6
+      },
+      "blackstar-rocket-launcher": {
+         "name": "Blackstar Rocket Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Anti-air"
+      },
+      "chainswords": {
+         "name": "Chainswords",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "heavy-plasma-incinerator": {
+         "name": "Heavy Plasma Incinerator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6,
+         "text": "Supercharge"
+      },
+      "deathwatch-heavy-bolt-rifles": {
+         "name": "Deathwatch Heavy Bolt Rifles",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 42
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "auto-boltstorm-gauntlets": {
+         "name": "Auto Boltstorm Gauntlets",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "fragstorm-grenade-launchers": {
+         "name": "Fragstorm Grenade Launchers",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "flamestorm-gauntlets": {
+         "name": "Flamestorm Gauntlets",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "deathwatch-marksman-bolt-carbines": {
+         "name": "Deathwatch Marksman Bolt Carbines",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "bolt-sniper-rifle": {
+         "name": "Bolt Sniper Rifle",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Sniper"
+      },
+      "las-fusil": {
+         "name": "Las-fusil",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 11,
+         "antiTank": 7
+      }
+   },
+   "abilities": {
+      "watch-master": {
+         "name": "Watch Master",
+         "text": "You can re-roll hit rolls for attacks made by friendly DEATHWATCH units whilst they are within 6\" of this unit."
+      },
+      "unstoppable-champion": {
+         "name": "Unstoppable Champion",
+         "text": "At the start of the Damage phase, you can remove one small blast marker from this unit."
+      },
+      "blackstar-cluster-launcher": {
+         "name": "Blackstar Cluster Launcher",
+         "text": "When this unit finishes making a Move action, select one enemy unit it moved over whilst making that Move action. Roll two D6, subtracting 1 from each result if that unit is a CHARACTER; for each result of 5+ place one blast marker next to that unit."
+      },
+      "total-obliteration": {
+         "name": "Total Obliteration",
+         "text": "When this unit's detachment carries out the Aimed Fire order and this unit makes a Shoot action, double the Attacks characteristic of any Melta Rifles it is equipped with for that action."
+      },
+      "omni-scramblers": {
+         "name": "Omni-scramblers",
+         "text": "Enemy units cannot be set up within 12\" of this unit during the Set Up Reinforcements step."
+      },
+      "haywire-mine": {
+         "name": "Haywire Mine",
+         "text": "Once per battle, at the end of the Fight phase, you can select one enemy unit within\n3\" of this unit. If the selected unit is a VEHICLE or BUILDING, place two blast markers next to it;\notherwise, place one blast marker next to it."
+      },
+      "multi-spectrum-gunsights": {
+         "name": "Multi-spectrum Gunsights",
+         "text": "Do not apply negative modifiers to hit rolls for attacks made with ranged weapons by this unit."
+      },
+      "narthecium": {
+         "name": "Narthecium",
+         "text": "At the end of the Action phase, this unit can attempt to heal one friendly DEATHWATCH LIGHT unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that LIGHT unit. Only one attempt to heal each unit can be made each turn."
+      },
+      "rites-of-battle": {
+         "name": "Rites of Battle",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly DEATHWATCH units whilst they are within 6\" of this unit."
+      },
+      "litanies-of-hate": {
+         "name": "Litanies of Hate",
+         "text": "You can re-roll hit rolls for attacks made with melee weapons by friendly DEATHWATCH units whilst they are within 6\" of this unit."
+      },
+      "spiritual-leader": {
+         "name": "Spiritual Leader",
+         "text": "Friendly DEATHWATCH units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit."
+      },
+      "castellum-stronghold": {
+         "name": "Castellum Stronghold",
+         "text": "This unit can only be included in a Fortification Network Detachment that only includes 1 DEATHWATCH Tacticus Bunker unit and 3 DEATHWATCH Bunker Annex units. All 3 Bunker Annex units occupy a single Fortification slot, and the Tacticus Bunker begins the battle as the Commander of its Detachment."
+      },
+      "blessing-of-the-omnissiah": {
+         "name": "Blessing of the Omnissiah",
+         "text": "At the end of the Action phase, this unit can attempt to repair one friendly DEATHWATCH VEHICLE unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that VEHICLE unit. Only one attempt to repair each unit can be made each turn."
+      }
+   },
+   "imports": [
+      "space-marines",
+      "weapons"
+   ]
+}

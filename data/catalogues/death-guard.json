@@ -1,0 +1,2675 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "death-guard",
+   "name": "Chaos - Death Guard",
+   "kind": "Faction",
+   "datasheets": {
+      "mamon-transfigured": {
+         "name": "Mamon Transfigured",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "CHARACTER",
+            "MAMON TRANSFIGURED"
+         ],
+         "profiles": [
+            {
+               "name": "Mamon Transfigured",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "HERETIC ASTARTES",
+            "DAEMON",
+            "LEGIONES DAEMONICA",
+            "DEATH GUARD",
+            "THE TAINTED"
+         ],
+         "weapons": [
+            "contagion-spray",
+            "fist-of-decay",
+            "pustulent-stomp"
+         ],
+         "abilities": [
+            "fel-icon-of-the-tainted",
+            "ignore-damage-6",
+            "inferno"
+         ],
+         "maximumPerArmy": 1
+      },
+      "necrosius-the-undying": {
+         "name": "Necrosius the Undying",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "SORCERER",
+            "NECROSIUS THE UNDYING"
+         ],
+         "profiles": [
+            {
+               "name": "Necrosius the Undying",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD",
+            "THE TAINTED"
+         ],
+         "weapons": [
+            "tainted-force-blade"
+         ],
+         "abilities": [
+            "arch-sorceror-of-the-tainted",
+            "ignore-damage-6"
+         ],
+         "maximumPerArmy": 1
+      },
+      "chaos-lord": {
+         "name": "Chaos Lord",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "CHARACTER",
+            "CHAOS LORD"
+         ],
+         "profiles": [
+            {
+               "name": "Chaos Lord",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DEATH GUARD",
+            "NURGLE",
+            "CHAOS",
+            "HERETIC ASTARTES"
+         ],
+         "weapons": [
+            "chaos-space-marines/helwrought-weapons"
+         ],
+         "abilities": [
+            "lord-of-nurgle"
+         ],
+         "wargear": [
+            {
+               "id": "wargear-options",
+               "name": "Wargear Options",
+               "options": [
+                  {
+                     "id": "no-wargear",
+                     "name": "*No Wargear*",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "palanquin-of-nurgle",
+                     "name": "Palanquin of Nurgle",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "PrimaryFaction",
+                        "faction": "death-guard"
+                     },
+                     "addsKeywords": [
+                        "FLY",
+                        "CAVALRY",
+                        "DAEMON"
+                     ],
+                     "addsWeapons": [
+                        "chaos-space-marines/malefic-appendages"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 2,
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "jump-pack",
+                     "name": "Jump Pack",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "FLY",
+                        "JUMP PACK",
+                        "INFANTRY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 12
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "terminator-armour",
+                     "name": "Terminator Armour",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "TERMINATOR",
+                        "INFANTRY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              },
+                              "save": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "bike",
+                     "name": "Bike",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "PrimaryFaction",
+                           "faction": "death-guard"
+                        }
+                     },
+                     "addsKeywords": [
+                        "BIKER"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 14
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-wargear"
+            }
+         ]
+      },
+      "daemon-prince-of-nurgle": {
+         "name": "Daemon Prince of Nurgle",
+         "battlefieldRole": "HQ",
+         "cost": 10,
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "PSYKER",
+            "CHARACTER",
+            "DAEMON",
+            "DAEMON PRINCE"
+         ],
+         "profiles": [
+            {
+               "name": "Daemon Prince of Nurgle",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "daemonic-weapons"
+         ],
+         "abilities": [
+            "prince-of-nurgle",
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "wings",
+                     "name": "Wings",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsKeywords": [
+                        "FLY"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 12
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "plague-spewer",
+                     "name": "Plague Spewer",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/plague-spewer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "typhus": {
+         "name": "Typhus",
+         "battlefieldRole": "HQ",
+         "cost": 10,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "LORD OF CONTAGION",
+            "TERMINATOR",
+            "TYPHUS"
+         ],
+         "profiles": [
+            {
+               "name": "Typhus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 4
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "the-destroyer-hive",
+            "master-crafted-manreaper"
+         ],
+         "abilities": [
+            "host-of-the-destroyer-hive",
+            "deep-strike",
+            "ignore-damage-6",
+            "nurgles-gift"
+         ],
+         "maximumPerArmy": 1
+      },
+      "lord-of-contagion": {
+         "name": "Lord of Contagion",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "TERMINATOR",
+            "LORD OF CONTAGION"
+         ],
+         "profiles": [
+            {
+               "name": "Lord of Contagion",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 4
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "prodigious-plague-weapon"
+         ],
+         "abilities": [
+            "deep-strike",
+            "ignore-damage-6",
+            "nurgles-gift"
+         ]
+      },
+      "malignant-plaguecaster": {
+         "name": "Malignant Plaguecaster",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "PSYKER",
+            "CHARACTER",
+            "INFANTRY",
+            "MALIGNANT PLAGUE CASTER"
+         ],
+         "profiles": [
+            {
+               "name": "Malignant Plaguecaster",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "corrupted-staff"
+         ],
+         "abilities": [
+            "pestilential-fallout",
+            "ignore-damage-6"
+         ]
+      },
+      "plague-marines": {
+         "name": "Plague Marines",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PLAGUE MARINES"
+         ],
+         "profiles": [
+            {
+               "name": "Plague Marines",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATH GUARD",
+            "NURGLE",
+            "CHAOS",
+            "HERETIC ASTARTES"
+         ],
+         "weapons": [
+            "chaos-space-marines/plague-weapons",
+            "weapons/boltguns"
+         ],
+         "abilities": [
+            "lords-of-the-plague-host",
+            "ignore-damage-6",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-20-models",
+               "name": "5 - 20 models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 13,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "blight-launcher",
+                     "name": "Blight Launcher",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/blight-launcher"
+                     ]
+                  },
+                  {
+                     "id": "plague-spewer",
+                     "name": "Plague Spewer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/plague-spewer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            }
+         ],
+         "availableWhen": {
+            "kind": "PrimaryFaction",
+            "faction": "death-guard"
+         }
+      },
+      "poxwalkers": {
+         "name": "Poxwalkers",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "POXWALKERS"
+         ],
+         "profiles": [
+            {
+               "name": "Poxwalkers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 4
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 2,
+               "save": 11
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "improvised-weapons"
+         ],
+         "abilities": [
+            "mindless",
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "10-20-models",
+               "name": "10 - 20 models",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 6,
+                     "addsAbilities": [
+                        "diseased-horde"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      },
+      "plaguebearers": {
+         "name": "Plaguebearers",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PLAGUEBEARERS"
+         ],
+         "profiles": [
+            {
+               "name": "Plaguebearers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "DAEMON",
+            "LEGIONES DAEMONICA"
+         ],
+         "weapons": [
+            "plagueswords"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "10-30-models",
+               "name": "10 -30 models",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "30-models",
+                     "name": "30 models",
+                     "cost": 11,
+                     "addsAbilities": [
+                        "cloud-of-flies"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 9
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      },
+      "nurglings": {
+         "name": "Nurglings",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "SWARM",
+            "NURGLINGS"
+         ],
+         "profiles": [
+            {
+               "name": "Nurglings",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "DAEMON",
+            "LEGIONES DAEMONICA"
+         ],
+         "weapons": [
+            "diseased-claws-and-teeth"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "infiltrators"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3 - 9 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "noxious-blightbringer": {
+         "name": "Noxious Blightbringer",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "NOXIOUS BLIGHTBRINGER"
+         ],
+         "profiles": [
+            {
+               "name": "Noxious Blightbringer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "cursed-plague-bell"
+         ],
+         "abilities": [
+            "tocsin-of-misery",
+            "ignore-damage-6",
+            "terror-troops"
+         ]
+      },
+      "foul-blightspawn": {
+         "name": "Foul Blightspawn",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "FOUL BLIGHTSPAWN"
+         ],
+         "profiles": [
+            {
+               "name": "Foul Blightspawn",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "plague-sprayer",
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "revolting-stench",
+            "ignore-damage-6",
+            "inferno"
+         ]
+      },
+      "biologus-putrifier": {
+         "name": "Biologus Putrifier",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "BIOLOGUS PUTRIFIER"
+         ],
+         "profiles": [
+            {
+               "name": "Biologus Putrifier",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "injector-pistol-and-plague-knife"
+         ],
+         "abilities": [
+            "blight-racks",
+            "ignore-damage-6"
+         ]
+      },
+      "plague-surgeon": {
+         "name": "Plague Surgeon",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "PLAGUE SURGEON"
+         ],
+         "profiles": [
+            {
+               "name": "Plague Surgeon",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "balesword"
+         ],
+         "abilities": [
+            "tainted-narthecium",
+            "ignore-damage-6"
+         ]
+      },
+      "tallyman": {
+         "name": "Tallyman",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "TALLYMAN"
+         ],
+         "profiles": [
+            {
+               "name": "Tallyman",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "tallymans-instruments"
+         ],
+         "abilities": [
+            "the-seven-fold-chant",
+            "festering-zealot",
+            "ignore-damage-6"
+         ]
+      },
+      "deathshroud-terminators": {
+         "name": "Deathshroud Terminators",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "TERMINATOR",
+            "DEATHSHROUD TERMINATORS"
+         ],
+         "profiles": [
+            {
+               "name": "Deathshroud Terminators",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 4
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "plaguespurt-gauntlets",
+            "manreapers"
+         ],
+         "abilities": [
+            "silent-bodyguard",
+            "deep-strike",
+            "ignore-damage-6",
+            "inferno"
+         ],
+         "wargear": [
+            {
+               "id": "3-6-models",
+               "name": "3 - 6 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 12
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 23,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "blightlord-terminators": {
+         "name": "Blightlord Terminators",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "TERMINATOR",
+            "BLIGHTLORD TERMINATORS"
+         ],
+         "profiles": [
+            {
+               "name": "Blightlord Terminators",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 4
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "combi-bolters",
+            "bubonic-weapons"
+         ],
+         "abilities": [
+            "deep-strike",
+            "ignore-damage-6",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "models",
+               "name": "Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 13
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 25,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "blight-launcher",
+                     "name": "Blight Launcher",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/blight-launcher"
+                     ]
+                  },
+                  {
+                     "id": "plague-spewer",
+                     "name": "Plague Spewer",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/plague-spewer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "reaper-autocannon",
+                     "name": "Reaper Autocannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "chaos-space-marines/reaper-autocannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "beasts-of-nurgle": {
+         "name": "Beasts of Nurgle",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "BEAST",
+            "BEASTS OF NURGLE"
+         ],
+         "profiles": [
+            {
+               "name": "1 model",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "DAEMON",
+            "LEGIONES DAEMONICA"
+         ],
+         "weapons": [
+            "putrid-appendages"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "models",
+               "name": "Models",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 1
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 3,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 9
+                              },
+                              "wounds": 9
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "foetid-bloat-drone": {
+         "name": "Foetid Bloat Drone",
+         "battlefieldRole": "FastAttack",
+         "cost": 9,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "DAEMON",
+            "DAEMON ENGINE",
+            "FOETID BLOAT DRONE"
+         ],
+         "profiles": [
+            {
+               "name": "Foetid Bloat Drone",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "plague-probe"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "weapon-option",
+               "name": "Weapon Option",
+               "options": [
+                  {
+                     "id": "two-plaguespitters",
+                     "name": "Two Plaguespitters"
+                  },
+                  {
+                     "id": "heavy-blight-launcher",
+                     "name": "Heavy Blight Launcher",
+                     "addsWeapons": [
+                        "heavy-blight-launcher"
+                     ]
+                  },
+                  {
+                     "id": "fleshmower",
+                     "name": "Fleshmower",
+                     "addsWeapons": [
+                        "fleshmower"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "two-plaguespitters"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "plaguespitter",
+                     "name": "Plaguespitter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-plaguespitters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "plaguespitter"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "myphitic-blight-haulers": {
+         "name": "Myphitic Blight-haulers",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DAEMON",
+            "DAEMON ENGINE",
+            "MYPHITIC BLIGHT-HAULERS"
+         ],
+         "profiles": [
+            {
+               "name": "Myphitic Blight-hauler",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "abilities": [
+            "putrescent-fog",
+            "foul-stench",
+            "ignore-damage-6"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Option",
+                        "option": "myphitic-blight-hauler"
+                     },
+                     "maximum": 2
+                  }
+               },
+               "addsAbilities": [
+                  "tri-lobe"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "myphitic-blight-hauler",
+                     "name": "Myphitic Blight-hauler",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsWeapons": [
+                        "missile-launchers",
+                        "multi-meltas",
+                        "bile-spurts",
+                        "gnashing-maws"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "plague-drones": {
+         "name": "Plague Drones",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "CAVALRY",
+            "FLY",
+            "PLAGUE DRONES"
+         ],
+         "profiles": [
+            {
+               "name": "Plague Drones",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "DAEMON",
+            "LEGIONES DAEMONICA"
+         ],
+         "weapons": [
+            "deaths-heads",
+            "prehensile-proboscises",
+            "plagueswords"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "models",
+               "name": "Models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 6
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 11,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 9
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "plagueburst-crawler": {
+         "name": "Plagueburst Crawler",
+         "battlefieldRole": "HeavySupport",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DAEMON",
+            "DAEMON ENGINE",
+            "PLAGUEBURST CRAWLER"
+         ],
+         "profiles": [
+            {
+               "name": "Plagueburst Crawler",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "plagueburst-mortar",
+            "chaos-space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "barrage"
+         ],
+         "wargear": [
+            {
+               "id": "sponson-weapons",
+               "name": "Sponson Weapons",
+               "options": [
+                  {
+                     "id": "two-plaguespitters",
+                     "name": "Two Plaguespitters"
+                  },
+                  {
+                     "id": "two-entropy-cannons",
+                     "name": "Two Entropy Cannons"
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "two-plaguespitters"
+            },
+            {
+               "id": "pintle-mount",
+               "name": "Pintle Mount",
+               "options": [
+                  {
+                     "id": "heavy-slugger",
+                     "name": "Heavy Slugger",
+                     "addsWeapons": [
+                        "heavy-slugger"
+                     ]
+                  },
+                  {
+                     "id": "rothail-volley-gun",
+                     "name": "Rothail Volley Gun",
+                     "addsWeapons": [
+                        "rothail-volley-gun"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-slugger"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "plaguespitter",
+                     "name": "Plaguespitter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-plaguespitters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "plaguespitter"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "entropy-cannon",
+                     "name": "Entropy Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "two-entropy-cannons"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "entropy-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "mortarion": {
+         "name": "Mortarion",
+         "battlefieldRole": "LordOfWar",
+         "cost": 19,
+         "keywords": [
+            "SUPER-HEAVY",
+            "TITANIC",
+            "MONSTER",
+            "CHARACTER",
+            "DAEMON",
+            "PRIMARCH",
+            "PSYKER",
+            "FLY",
+            "MORTARION"
+         ],
+         "profiles": [
+            {
+               "name": "Mortarion",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 4,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "NURGLE",
+            "HERETIC ASTARTES",
+            "DEATH GUARD"
+         ],
+         "weapons": [
+            "the-lantern",
+            "silence"
+         ],
+         "abilities": [
+            "the-barbaran-plate",
+            "primarch-of-the-death-guard",
+            "host-of-plagues",
+            "ignore-damage-6"
+         ],
+         "maximumPerArmy": 1
+      }
+   },
+   "datasheetLinks": {
+      "greater-blight-drone": {
+         "datasheet": "chaos-space-marines/greater-blight-drone",
+         "addsFactionKeywords": [
+            "DEATH GUARD"
+         ]
+      },
+      "chaos-decimator": {
+         "datasheet": "chaos-space-marines/chaos-decimator",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "plague-hulk-of-nurgle": {
+         "datasheet": "chaos-space-marines/plague-hulk-of-nurgle",
+         "addsFactionKeywords": [
+            "DEATH GUARD"
+         ]
+      },
+      "hellforged-contemptor-dreadnought": {
+         "datasheet": "chaos-space-marines/hellforged-contemptor-dreadnought",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-land-raider-proteus": {
+         "datasheet": "chaos-space-marines/hellforged-land-raider-proteus",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-land-raider-achilles": {
+         "datasheet": "chaos-space-marines/hellforged-land-raider-achilles",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-predator": {
+         "datasheet": "chaos-space-marines/hellforged-predator",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-scorpius": {
+         "datasheet": "chaos-space-marines/hellforged-scorpius",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-sicaran": {
+         "datasheet": "chaos-space-marines/hellforged-sicaran",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-sicaran-venator": {
+         "datasheet": "chaos-space-marines/hellforged-sicaran-venator",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-spartan-assault-tank": {
+         "datasheet": "chaos-space-marines/hellforged-spartan-assault-tank",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-deredeo-dreadnought": {
+         "datasheet": "chaos-space-marines/hellforged-deredeo-dreadnought",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-leviathan-dreadnought": {
+         "datasheet": "chaos-space-marines/hellforged-leviathan-dreadnought",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-dreadclaw-drop-pod": {
+         "datasheet": "chaos-space-marines/hellforged-dreadclaw-drop-pod",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-kharybdis-assault-claw": {
+         "datasheet": "chaos-space-marines/hellforged-kharybdis-assault-claw",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-cerberus-heavy-destroyer": {
+         "datasheet": "chaos-space-marines/hellforged-cerberus-heavy-destroyer",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-typhon-heavy-siege-tank": {
+         "datasheet": "chaos-space-marines/hellforged-typhon-heavy-siege-tank",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-fellblade": {
+         "datasheet": "chaos-space-marines/hellforged-fellblade",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-falchion": {
+         "datasheet": "chaos-space-marines/hellforged-falchion",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "hellforged-mastodon": {
+         "datasheet": "chaos-space-marines/hellforged-mastodon",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-hell-blade": {
+         "datasheet": "chaos-space-marines/chaos-hell-blade",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-hell-talon": {
+         "datasheet": "chaos-space-marines/chaos-hell-talon",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-storm-eagle-assault-gunship": {
+         "datasheet": "chaos-space-marines/chaos-storm-eagle-assault-gunship",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-fire-raptor-assault-gunship": {
+         "datasheet": "chaos-space-marines/chaos-fire-raptor-assault-gunship",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-thunderhawk-assault-gunship": {
+         "datasheet": "chaos-space-marines/chaos-thunderhawk-assault-gunship",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-sokar-pattern-stormbird-gunship": {
+         "datasheet": "chaos-space-marines/chaos-sokar-pattern-stormbird-gunship",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-xiphon-interceptor": {
+         "datasheet": "chaos-space-marines/chaos-xiphon-interceptor",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "ferrum-infernus-chaos-dreadnought": {
+         "datasheet": "chaos-space-marines/ferrum-infernus-chaos-dreadnought",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-vindicator-laser-destroyer": {
+         "datasheet": "chaos-space-marines/chaos-vindicator-laser-destroyer",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "terrax-pattern-termite-assault-drill": {
+         "datasheet": "chaos-space-marines/terrax-pattern-termite-assault-drill",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "helbrute": {
+         "datasheet": "chaos-space-marines/helbrute",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "sorcerer": {
+         "datasheet": "chaos-space-marines/sorcerer",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "chaos-cultists": {
+         "datasheet": "chaos-space-marines/chaos-cultists",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ]
+      },
+      "plague-marines-2": {
+         "datasheet": "chaos-space-marines/plague-marines",
+         "addsFactionKeywords": [
+            "DEATH GUARD",
+            "NURGLE"
+         ],
+         "battlefieldRole": "Elites",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "PrimaryFaction",
+               "faction": "death-guard"
+            }
+         }
+      },
+      "possessed": {
+         "datasheet": "chaos-space-marines/possessed",
+         "addsFactionKeywords": [
+            "NURGLE",
+            "DEATH GUARD"
+         ]
+      },
+      "chaos-spawn": {
+         "datasheet": "chaos-space-marines/chaos-spawn",
+         "addsFactionKeywords": [
+            "NURGLE",
+            "DEATH GUARD"
+         ]
+      },
+      "chaos-land-raider": {
+         "datasheet": "chaos-space-marines/chaos-land-raider",
+         "addsFactionKeywords": [
+            "NURGLE",
+            "DEATH GUARD"
+         ]
+      },
+      "defiler": {
+         "datasheet": "chaos-space-marines/defiler",
+         "addsFactionKeywords": [
+            "NURGLE",
+            "DEATH GUARD"
+         ]
+      },
+      "chaos-predator": {
+         "datasheet": "chaos-space-marines/chaos-predator",
+         "addsFactionKeywords": [
+            "NURGLE",
+            "DEATH GUARD"
+         ]
+      },
+      "chaos-rhino": {
+         "datasheet": "chaos-space-marines/chaos-rhino",
+         "addsFactionKeywords": [
+            "NURGLE",
+            "DEATH GUARD"
+         ]
+      }
+   },
+   "weapons": {
+      "contagion-spray": {
+         "name": "Contagion Spray",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 12,
+         "text": "Inferno"
+      },
+      "fist-of-decay": {
+         "name": "Fist of Decay",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
+      },
+      "pustulent-stomp": {
+         "name": "Pustulent Stomp",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "tainted-force-blade": {
+         "name": "Tainted Force Blade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "daemonic-weapons": {
+         "name": "Daemonic Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "the-destroyer-hive": {
+         "name": "The Destroyer Hive",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 6
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "master-crafted-manreaper": {
+         "name": "Master-crafted Manreaper",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "prodigious-plague-weapon": {
+         "name": "Prodigious Plague Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "corrupted-staff": {
+         "name": "Corrupted Staff",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "improvised-weapons": {
+         "name": "Improvised Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "diseased-claws-and-teeth": {
+         "name": "Diseased Claws and Teeth",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 11
+      },
+      "cursed-plague-bell": {
+         "name": "Cursed Plague Bell",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "plague-sprayer": {
+         "name": "Plague Sprayer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "injector-pistol-and-plague-knife": {
+         "name": "Injector Pistol and Plague Knife",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "balesword": {
+         "name": "Balesword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "tallymans-instruments": {
+         "name": "Tallyman's Instruments",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "plaguespurt-gauntlets": {
+         "name": "Plaguespurt Gauntlets",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 6
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "manreapers": {
+         "name": "Manreapers",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 4,
+         "antiTank": 6
+      },
+      "combi-bolters": {
+         "name": "Combi-bolters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "bubonic-weapons": {
+         "name": "Bubonic Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "putrid-appendages": {
+         "name": "Putrid Appendages",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "plague-probe": {
+         "name": "Plague Probe",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "heavy-blight-launcher": {
+         "name": "Heavy Blight Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "fleshmower": {
+         "name": "Fleshmower",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "plaguespitter": {
+         "name": "Plaguespitter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "missile-launchers": {
+         "name": "Missile Launchers",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "multi-meltas": {
+         "name": "Multi-meltas",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "bile-spurts": {
+         "name": "Bile Spurts",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "gnashing-maws": {
+         "name": "Gnashing Maws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "plagueswords": {
+         "name": "Plagueswords",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "deaths-heads": {
+         "name": "Death's Heads",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "prehensile-proboscises": {
+         "name": "Prehensile Proboscises",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "plagueburst-mortar": {
+         "name": "Plagueburst Mortar",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Barrage"
+      },
+      "entropy-cannon": {
+         "name": "Entropy Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 6
+      },
+      "heavy-slugger": {
+         "name": "Heavy Slugger",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "rothail-volley-gun": {
+         "name": "Rothail Volley Gun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "the-lantern": {
+         "name": "The Lantern",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "silence": {
+         "name": "Silence",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      }
+   },
+   "abilities": {
+      "fel-icon-of-the-tainted": {
+         "name": "Fel Icon of The Tainted",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly THE TAINTED units whilst they are within 6\" of this unit."
+      },
+      "lord-of-nurgle": {
+         "name": "Lord of Nurgle",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly DEATH GUARD units whilst they are within 6\" of this unit."
+      },
+      "lords-of-the-plague-host": {
+         "name": "Lords of the Plague Host",
+         "text": "If this unit is in a Detachment that contains only DEATH GUARD units, its Battlefield Role is Troops instead of Elites."
+      },
+      "arch-sorceror-of-the-tainted": {
+         "name": "Arch-Sorceror of the Tainted",
+         "text": "Add 1 to hit rolls for attacks made by friendly THE TAINTED units whilst they are within 6\" of this unit."
+      },
+      "prince-of-nurgle": {
+         "name": "Prince of Nurgle",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly DEATH GUARD and NURGLE DAEMON units whilst they are within 6\" of this unit."
+      },
+      "host-of-the-destroyer-hive": {
+         "name": "Host of the Destroyer Hive",
+         "text": "Add 1 to wound rolls for attacks made with melee weapons by friendly POXWALKER units whilst they are within 7\" of this unit."
+      },
+      "pestilential-fallout": {
+         "name": "Pestilential Fallout",
+         "text": "When this unit is selected to manifest a psychic power, after resolving its effects, if there are any enemy units within 7\" of this unit, roll one D12; on a 7+ place one blast marker next to the closest enemy unit to this unit. If multiple enemy units are equally close, select one and place one blast marker next to it instead."
+      },
+      "mindless": {
+         "name": "Mindless",
+         "text": "Morale tests taken for this unit are automatically passed."
+      },
+      "diseased-horde": {
+         "name": "Diseased Horde",
+         "text": "If this unit contains 20 models, add 1 to hit rolls for attacks made by this unit."
+      },
+      "cloud-of-flies": {
+         "name": "Cloud of Flies",
+         "text": "If this unit contains 30 models, it is always an obscured target."
+      },
+      "tocsin-of-misery": {
+         "name": "Tocsin of Misery",
+         "text": "If a DEATH GUARD unit starts a Move action within 7\" of any friendly units with this ability, add 2\" to that unit’s Move characteristic for that action."
+      },
+      "revolting-stench": {
+         "name": "Revolting Stench",
+         "text": "Subtract 1 from hit rolls for attacks made with melee weapons by enemy units that target this unit."
+      },
+      "blight-racks": {
+         "name": "Blight Racks",
+         "text": "Add 1 to wound rolls for attacks made with ranged weapons by DEATH GUARD PLAGUE MARINE units whilst they are within 3\" of any friendly units with this ability."
+      },
+      "tainted-narthecium": {
+         "name": "Tainted Narthecium",
+         "text": "Re-roll Ignore Damage rolls of 1 made for friendly DEATH GUARD INFANTRY units whilst they are within 3\" of this unit."
+      },
+      "the-seven-fold-chant": {
+         "name": "The Seven-Fold Chant",
+         "text": "If any friendly units with this ability are on the battlefield at the start of the Generate Command Assets step, roll a D12; on a 10+ you generate one extra Command Asset."
+      },
+      "festering-zealot": {
+         "name": "Festering Zealot",
+         "text": "You can re-roll hit rolls for attacks made with melee weapons by friendly DEATH GUARD units whilst they are within 7\" of this unit."
+      },
+      "silent-bodyguard": {
+         "name": "Silent Bodyguard",
+         "text": "At the start of the Damage phase, you can select one friendly DEATH GUARD CHARACTER unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that CHARACTER unit and place them next to this unit."
+      },
+      "putrescent-fog": {
+         "name": "Putrescent Fog",
+         "text": "LIGHT DEATH GUARD units are always obscured targets whilst they are wholly within 7\" of any friendly units with this ability."
+      },
+      "foul-stench": {
+         "name": "Foul Stench",
+         "text": "Subtract 1 from hit rolls for attacks made with melee weapons by enemy units that target this unit."
+      },
+      "tri-lobe": {
+         "name": "Tri-lobe",
+         "text": "If this unit contains 3 models, add 1 to hit rolls for attacks made by this unit."
+      },
+      "the-barbaran-plate": {
+         "name": "The Barbaran Plate",
+         "text": "This unit does not suffer the penalty for being critically damaged."
+      },
+      "primarch-of-the-death-guard": {
+         "name": "Primarch of the Death Guard",
+         "text": "You can re-roll hit rolls and wound rolls for attacks made by friendly DEATH GUARD units whilst they are within 7\" of this unit."
+      },
+      "host-of-plagues": {
+         "name": "Host of Plagues",
+         "text": "At the end of the Action phase, roll a D12 for each enemy unit within 7\" of this unit; on a 10+ place one blast marker next to the unit being rolled for."
+      },
+      "nurgles-gift": {
+         "name": "Nurgle's Gift",
+         "text": "At the end of the Action phase, roll a D12 for each unit within 7\" of any enemy units with this ability; on a 12 place one blast marker next to the unit being rolled for."
+      }
+   },
+   "imports": [
+      "chaos-space-marines",
+      "weapons"
+   ]
+}

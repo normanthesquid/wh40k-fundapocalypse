@@ -32,7 +32,7 @@ From `v2.0.0`, the rules are JSON files in `data/`, checked against the schema i
 
 __Can I still use BattleScribe?__
 
-Only as a legacy option. The BattleScribe data at https://www.fundamalleus.com/assets/battlescribe-data/index.bsi stays frozen at `v1.10.0`, and the catalogues there will get no further updates. New datasheets and rule changes appear only in the JSON data.
+Only as a legacy option. The BattleScribe data at https://www.fundamalleus.com/assets/battlescribe-data/index.bsi stays frozen at `v1.10.0`, and the catalogues there will get no further updates. The `.gst` and `.cat` files at the root of this repository are that frozen copy. New datasheets, rule changes and corrections appear only in the JSON data. `v2.0.0` already fixes errors in the `v1.10.0` catalogues that BattleScribe still shows.
 
 To add it to BattleScribe on PC, go to Manage Data (three rectangles) -> Import Data -> Import Data from URL, and enter the URL above. On mobile, go to Manage Data (three rectangles) -> three dots -> Add data index url.
 

@@ -1,0 +1,3422 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "adeptus-ministorum",
+   "name": "Imperium - Adeptus Ministorum",
+   "kind": "Faction",
+   "datasheets": {
+      "celestine": {
+         "name": "Celestine",
+         "battlefieldRole": "HQ",
+         "cost": 9,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "CHARACTER",
+            "JUMP PACK",
+            "CELESTINE"
+         ],
+         "profiles": [
+            {
+               "name": "Celestine",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS"
+         ],
+         "weapons": [
+            "the-ardent-blade-ranged",
+            "the-ardent-blade-melee"
+         ],
+         "abilities": [
+            "beacon-of-faith",
+            "miraculous-intervention",
+            "healing-tears",
+            "inferno"
+         ],
+         "maximumPerArmy": 1
+      },
+      "canoness": {
+         "name": "Canoness",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "CANONESS"
+         ],
+         "profiles": [
+            {
+               "name": "Canoness",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "master-crafted-weapons"
+         ],
+         "abilities": [
+            "lead-the-righteous"
+         ]
+      },
+      "imagifier": {
+         "name": "Imagifier",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "IMAGIFIER"
+         ],
+         "profiles": [
+            {
+               "name": "Imagifier",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "simulacrum-imperialis"
+         ]
+      },
+      "hospitaller": {
+         "name": "Hospitaller",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "HOSPITALLER"
+         ],
+         "profiles": [
+            {
+               "name": "Hospitaller",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS"
+         ],
+         "weapons": [
+            "chirurgeons-tools"
+         ],
+         "abilities": [
+            "medicus-ministorum"
+         ]
+      },
+      "dialogus": {
+         "name": "Dialogus",
+         "battlefieldRole": "Elites",
+         "cost": 1,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "DIALOGUS"
+         ],
+         "profiles": [
+            {
+               "name": "Dialogus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 11
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS"
+         ],
+         "weapons": [
+            "dialogus-staff"
+         ],
+         "abilities": [
+            "laud-hailer"
+         ]
+      },
+      "battle-sisters-squad": {
+         "name": "Battle Sisters Squad",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "BATTLE SISTERS SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Battle Sisters Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "weapons/boltguns",
+            "close-combat-weapons-4"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-15-models",
+               "name": "5 - 15 Models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "seraphim-squad": {
+         "name": "Seraphim Squad",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "JUMP PACK",
+            "SERAPHIM SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Seraphim Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "twin-bolt-pistols",
+            "close-combat-weapons-4"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            }
+         ]
+      },
+      "celestian-squad": {
+         "name": "Celestian Squad",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CELESTIAN SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Celestian Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "close-combat-weapons-2",
+            "weapons/boltguns"
+         ],
+         "abilities": [
+            "bodyguard",
+            "sworn-protectors",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "sisters-repentia": {
+         "name": "Sisters Repentia",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "REPENTIA SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Sisters Repentia",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 11
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "penitent-eviscerators"
+         ],
+         "wargear": [
+            {
+               "id": "4-9-models",
+               "name": "4 - 9 Models",
+               "options": [
+                  {
+                     "id": "4-models",
+                     "name": "4 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "4-models"
+            }
+         ]
+      },
+      "retributor-squad": {
+         "name": "Retributor Squad",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "RETRIBUTOR SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Retributor Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "close-combat-weapons-4"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": 4
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "boltguns",
+                     "name": "Boltguns",
+                     "maximum": 1,
+                     "requiredWhen": {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1,
+                              "maximum": 1
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "OptionGroup",
+                                 "group": "heavy-weapons"
+                              },
+                              "maximum": 0
+                           }
+                        ]
+                     },
+                     "availableWhen": {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1,
+                              "maximum": 1
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "OptionGroup",
+                                 "group": "heavy-weapons"
+                              },
+                              "maximum": 0
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "weapons/boltguns"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "dominion-squad": {
+         "name": "Dominion Squad",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "DOMINION SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Dominion Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "close-combat-weapons-4"
+         ],
+         "abilities": [
+            "infiltrators"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "special-weapons",
+               "name": "Special Weapons",
+               "options": [
+                  {
+                     "id": "flamer",
+                     "name": "Flamer",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "meltagun",
+                     "name": "Meltagun",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/meltagun"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 4
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "boltguns",
+                     "name": "Boltguns",
+                     "maximum": 1,
+                     "requiredWhen": {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1,
+                              "maximum": 1
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "OptionGroup",
+                                 "group": "special-weapons"
+                              },
+                              "maximum": 0
+                           }
+                        ]
+                     },
+                     "availableWhen": {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1,
+                              "maximum": 1
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "OptionGroup",
+                                 "group": "special-weapons"
+                              },
+                              "maximum": 0
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "weapons/boltguns"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "sororitas-rhino": {
+         "name": "Sororitas Rhino",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RHINO",
+            "SORORITAS RHINO"
+         ],
+         "profiles": [
+            {
+               "name": "Sororitas Rhino",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "weapons/storm-bolter",
+            "armoured-tracks"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "transport": "This unit can transport up to 10 friendly ADEPTUS MINISTORUM INFANTRY models. It cannot transport JUMP PACK models and can only transport ADEPTA SORORITAS models if they have the <ORDER>, DIALOGUS or HOSPITALLER keyword."
+      },
+      "immolator": {
+         "name": "Immolator",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "IMMOLATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Immolator",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 6 friendly ADEPTUS MINISTORUM INFANTRY models. It cannot transport JUMP PACK models and can only transport ADEPTA SORORITAS models if they have the <ORDER>, DIALOGUS or HOSPITALLER keyword.",
+         "wargear": [
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "immolation-flamer",
+                     "name": "Immolation Flamer",
+                     "addsWeapons": [
+                        "immolation-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-multi-melta",
+                     "name": "Twin Multi-melta",
+                     "addsWeapons": [
+                        "weapons/twin-multi-melta"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "immolation-flamer"
+            }
+         ]
+      },
+      "exorcist": {
+         "name": "Exorcist",
+         "battlefieldRole": "HeavySupport",
+         "cost": 7,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "EXORCIST"
+         ],
+         "profiles": [
+            {
+               "name": "Exorcist",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "armoured-tracks"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "exorcist-missile-launcher",
+                     "name": "Exorcist Missile Launcher",
+                     "addsWeapons": [
+                        "exorcist-missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "exorcist-conflagration-rockets",
+                     "name": "Exorcist Conflagration Rockets",
+                     "addsWeapons": [
+                        "exorcist-conflagration-rockets"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "exorcist-missile-launcher"
+            }
+         ]
+      },
+      "sororitas-repressor": {
+         "name": "Sororitas Repressor",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "SORORITAS REPRESSOR"
+         ],
+         "profiles": [
+            {
+               "name": "Sororitas Repressor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "dozer-ram",
+            "weapons/heavy-flamer",
+            "weapons/storm-bolter"
+         ],
+         "abilities": [
+            "open-topped",
+            "inferno",
+            "rapid-fire"
+         ],
+         "transport": "This unit can transport up to 10 friendly <ORDER> INFANTRY models. It cannot transport JUMP PACK models.",
+         "wargear": [
+            {
+               "id": "pintle-mount",
+               "name": "Pintle Mount",
+               "options": [
+                  {
+                     "id": "heavy-flamer-2",
+                     "name": "Heavy Flamer",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter-2",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "uriah-jacobus": {
+         "name": "Uriah Jacobus",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "MINISTORUM PRIEST",
+            "MISSIONARY",
+            "URIAH JACOBUS"
+         ],
+         "profiles": [
+            {
+               "name": "Uriah Jacobus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-3",
+            "the-redeemer"
+         ],
+         "abilities": [
+            "banner-of-sanctity",
+            "war-hymns"
+         ],
+         "maximumPerArmy": 1
+      },
+      "missionary": {
+         "name": "Missionary",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "MINISTORUM PRIEST",
+            "MISSIONARY"
+         ],
+         "profiles": [
+            {
+               "name": "Missionary",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "word-of-the-emperor",
+            "lone-mission",
+            "war-hymns",
+            "zealot"
+         ],
+         "maximumPerDetachment": 1
+      },
+      "penitent-engines": {
+         "name": "Penitent Engines",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "PENITENT ENGINES"
+         ],
+         "profiles": [
+            {
+               "name": "Penitent Engines",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 5,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "zealot"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "penitent-engine"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 2
+                        },
+                        "wounds": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "penitent-engine"
+                  },
+                  "minimum": 3,
+                  "maximum": 3
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 3
+                        },
+                        "wounds": 3
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "penitent-engine"
+                  },
+                  "minimum": 4,
+                  "maximum": 4
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 4
+                        },
+                        "wounds": 4
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "penitent-engine"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "penitent-engine",
+                     "name": "Penitent Engine",
+                     "maximum": 4,
+                     "minimum": 1,
+                     "cost": 5,
+                     "addsWeapons": [
+                        "penitent-engine-weapons"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "junith-eruita": {
+         "name": "Junith Eruita",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "CHARACTER",
+            "FLY",
+            "CANONESS SUPERIOR",
+            "JUNITH ERUITA"
+         ],
+         "profiles": [
+            {
+               "name": "Junith Eruita",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "ORDER OF OUR MARTYRED LADY"
+         ],
+         "weapons": [
+            "the-mace-of-castigation"
+         ],
+         "abilities": [
+            "the-pulpit-of-saint-holline-s-basilica",
+            "fiery-conviction"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ]
+            }
+         ],
+         "maximumPerArmy": 1
+      },
+      "triumph-of-saint-katherine": {
+         "name": "Triumph of Saint Katherine",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "TRIUMPH OF SAINT KATHERINE"
+         ],
+         "profiles": [
+            {
+               "name": "Triumph of Saint Katherine",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS"
+         ],
+         "weapons": [
+            "relic-weapons",
+            "weapons/bolt-pistols"
+         ],
+         "abilities": [
+            "the-fiery-heart",
+            "solemn-procession",
+            "relics-of-the-matriarch"
+         ]
+      },
+      "preacher": {
+         "name": "Preacher",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "MINISTORUM PRIEST"
+         ],
+         "profiles": [
+            {
+               "name": "Preacher",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "war-hymns"
+         ],
+         "maximumPerDetachment": 1
+      },
+      "zephyrim-squad": {
+         "name": "Zephyrim Squad",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "JUMP PACK",
+            "FLY",
+            "ZEPHYRIM SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Zephyrim Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "zephyrim-power-swords",
+            "weapons/bolt-pistols"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 Models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            }
+         ]
+      },
+      "mortifiers": {
+         "name": "Mortifiers",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Mortifiers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "mortifier-weapons"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "1-4-models",
+               "name": "1 - 4 models",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 5
+                  },
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "4-models",
+                     "name": "4 models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            },
+            {
+               "id": "ranged-weapons",
+               "name": "Ranged Weapons",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 8,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 8,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "ephrael-stern-and-kyganil-of-the-bloody-tears": {
+         "name": "Ephrael Stern and Kyganil of the Bloody Tears",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "EPHRAEL STERN",
+            "KYGANIL"
+         ],
+         "profiles": [
+            {
+               "name": "Ephrael Stern",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            },
+            {
+               "name": "Kyganil",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTA SORORITAS",
+            "AELDARI"
+         ],
+         "weapons": [
+            "daemonifuge-2",
+            "master-crafted-weapons",
+            "harlequins-kiss-and-the-outcasts-blades"
+         ],
+         "abilities": [
+            "cast-together-by-fate",
+            "daemonifuge",
+            "divine-protection",
+            "deep-strike",
+            "mysterious-saviour"
+         ]
+      },
+      "geminae-superia": {
+         "name": "Geminae Superia",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "CHARACTER",
+            "JUMP PACK",
+            "GEMINAE SUPERIA"
+         ],
+         "profiles": [
+            {
+               "name": "Geminae Superia",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS"
+         ],
+         "weapons": [
+            "geminae-power-swords",
+            "weapons/bolt-pistols"
+         ],
+         "abilities": [
+            "lifewards"
+         ],
+         "wargear": [
+            {
+               "id": "models",
+               "name": "Models",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 2
+                  },
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "CELESTINE"
+               },
+               "minimum": 1
+            }
+         }
+      },
+      "geminae-superia-2": {
+         "name": "Geminae Superia",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "CHARACTER",
+            "JUMP PACK",
+            "GEMINAE SUPERIA"
+         ],
+         "profiles": [
+            {
+               "name": "Geminae Superia",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS"
+         ],
+         "weapons": [
+            "geminae-power-swords",
+            "weapons/bolt-pistols"
+         ],
+         "abilities": [
+            "lifewards"
+         ],
+         "wargear": [
+            {
+               "id": "models",
+               "name": "Models",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 2
+                  },
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "CELESTINE"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "repentia-superior": {
+         "name": "Repentia Superior",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "MISTRESS OF REPENTANCE"
+         ],
+         "profiles": [
+            {
+               "name": "Repentia Superior",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "neural-whips"
+         ],
+         "abilities": [
+            "driven-onwards",
+            "mistress-of-the-penitent"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "REPENTIA SQUAD"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "repentia-superior-2": {
+         "name": "Repentia Superior",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "MISTRESS OF REPENTANCE"
+         ],
+         "profiles": [
+            {
+               "name": "Repentia Superior",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM",
+            "ADEPTA SORORITAS",
+            "<ORDER>"
+         ],
+         "weapons": [
+            "neural-whips"
+         ],
+         "abilities": [
+            "driven-onwards",
+            "mistress-of-the-penitent"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "REPENTIA SQUAD"
+               },
+               "minimum": 1
+            }
+         }
+      },
+      "crusaders": {
+         "name": "Crusaders",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ECCLESIARCHY BATTLE CONCLAVE",
+            "CRUSADERS"
+         ],
+         "profiles": [
+            {
+               "name": "Crusaders",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "crusader-power-swords"
+         ],
+         "abilities": [
+            "ecclesiarchy-battle-conclave",
+            "zealot"
+         ],
+         "wargear": [
+            {
+               "id": "2-10-models",
+               "name": "2 -10 Models",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 Models",
+                     "cost": 1
+                  },
+                  {
+                     "id": "4-models",
+                     "name": "4 Models",
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 3,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "8-models",
+                     "name": "8 Models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "ten-models",
+                     "name": "Ten Models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 5
+                              },
+                              "wounds": 5
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "MINISTORUM PRIEST"
+               },
+               "minimum": 1
+            }
+         }
+      },
+      "crusaders-2": {
+         "name": "Crusaders",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ECCLESIARCHY BATTLE CONCLAVE",
+            "CRUSADERS"
+         ],
+         "profiles": [
+            {
+               "name": "Crusaders",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "crusader-power-swords"
+         ],
+         "abilities": [
+            "ecclesiarchy-battle-conclave",
+            "zealot"
+         ],
+         "wargear": [
+            {
+               "id": "2-10-models",
+               "name": "2 -10 Models",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 Models",
+                     "cost": 1
+                  },
+                  {
+                     "id": "4-models",
+                     "name": "4 Models",
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 3,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "8-models",
+                     "name": "8 Models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "ten-models",
+                     "name": "Ten Models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 5
+                              },
+                              "wounds": 5
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "MINISTORUM PRIEST"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "death-cult-assassins": {
+         "name": "Death Cult Assassins",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ECCLESIARCHY BATTLE CONCLAVE",
+            "DEATH CULT ASSASSINS"
+         ],
+         "profiles": [
+            {
+               "name": "Death Cult Assassins",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "death-cult-power-blades"
+         ],
+         "abilities": [
+            "ecclesiarchy-battle-conclave",
+            "zealot"
+         ],
+         "wargear": [
+            {
+               "id": "2-10-models",
+               "name": "2 -10 Models",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 Models",
+                     "cost": 1
+                  },
+                  {
+                     "id": "4-models",
+                     "name": "4 Models",
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 3,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "8-models",
+                     "name": "8 Models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "ten-models",
+                     "name": "Ten Models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 5
+                              },
+                              "wounds": 5
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "MINISTORUM PRIEST"
+               },
+               "minimum": 1
+            }
+         }
+      },
+      "death-cult-assassins-2": {
+         "name": "Death Cult Assassins",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ECCLESIARCHY BATTLE CONCLAVE",
+            "DEATH CULT ASSASSINS"
+         ],
+         "profiles": [
+            {
+               "name": "Death Cult Assassins",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "death-cult-power-blades"
+         ],
+         "abilities": [
+            "ecclesiarchy-battle-conclave",
+            "zealot"
+         ],
+         "wargear": [
+            {
+               "id": "2-10-models",
+               "name": "2 -10 Models",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 Models",
+                     "cost": 1
+                  },
+                  {
+                     "id": "4-models",
+                     "name": "4 Models",
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 3,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "8-models",
+                     "name": "8 Models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "ten-models",
+                     "name": "Ten Models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 5
+                              },
+                              "wounds": 5
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "MINISTORUM PRIEST"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "arco-flagellants": {
+         "name": "Arco-flagellants",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ECCLESIARCHY BATTLE CONCLAVE",
+            "ARCO-FLAGELLANTS"
+         ],
+         "profiles": [
+            {
+               "name": "Arco-flagellants",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "arco-flails"
+         ],
+         "abilities": [
+            "ecclesiarchy-battle-conclave",
+            "ignore-damage-6",
+            "zealot"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3 - 9 Models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "MINISTORUM PRIEST"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "arco-flagellants-2": {
+         "name": "Arco-flagellants",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ECCLESIARCHY BATTLE CONCLAVE",
+            "ARCO-FLAGELLANTS"
+         ],
+         "profiles": [
+            {
+               "name": "Arco-flagellants",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MINISTORUM"
+         ],
+         "weapons": [
+            "arco-flails"
+         ],
+         "abilities": [
+            "ecclesiarchy-battle-conclave",
+            "ignore-damage-6",
+            "zealot"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3 - 9 Models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "MINISTORUM PRIEST"
+               },
+               "minimum": 1
+            }
+         }
+      }
+   },
+   "detachmentAbilities": {
+      "martyrdom-2": {
+         "ability": "martyrdom",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Any",
+               "conditions": [
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "ad-hoc"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "fortification-network"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "super-heavy-auxiliary"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "patrol"
+                           },
+                           "minimum": 1
+                        }
+                     ]
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "air-wing"
+                           },
+                           "minimum": 1
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "weapons": {
+      "the-ardent-blade-ranged": {
+         "name": "The Ardent Blade (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "the-ardent-blade-melee": {
+         "name": "The Ardent Blade (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "master-crafted-weapons": {
+         "name": "Master-crafted Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "chirurgeons-tools": {
+         "name": "Chirurgeon's Tools",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 11
+      },
+      "dialogus-staff": {
+         "name": "Dialogus Staff",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 11
+      },
+      "twin-bolt-pistols": {
+         "name": "Twin Bolt Pistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "penitent-eviscerators": {
+         "name": "Penitent Eviscerators",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "immolation-flamer": {
+         "name": "Immolation Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "exorcist-missile-launcher": {
+         "name": "Exorcist Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 5
+      },
+      "exorcist-conflagration-rockets": {
+         "name": "Exorcist Conflagration Rockets",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "dozer-ram": {
+         "name": "Dozer Ram",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "close-combat-weapons-3": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "the-redeemer": {
+         "name": "The Redeemer",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "penitent-engine-weapons": {
+         "name": "Penitent Engine Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "the-mace-of-castigation": {
+         "name": "The Mace of Castigation",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "relic-weapons": {
+         "name": "Relic Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "zephyrim-power-swords": {
+         "name": "Zephyrim Power Swords",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 9
+      },
+      "mortifier-weapons": {
+         "name": "Mortifier Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "daemonifuge-2": {
+         "name": "Daemonifuge",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9,
+         "text": "Witchfire"
+      },
+      "harlequins-kiss-and-the-outcasts-blades": {
+         "name": "Harlequin's Kiss and The Outcast's Blades",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "geminae-power-swords": {
+         "name": "Geminae Power Swords",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "close-combat-weapons-4": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "neural-whips": {
+         "name": "Neural Whips",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "armoured-tracks": {
+         "name": "Armoured Tracks",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "crusader-power-swords": {
+         "name": "Crusader Power Swords",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "death-cult-power-blades": {
+         "name": "Death Cult Power Blades",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "arco-flails": {
+         "name": "Arco-flails",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      }
+   },
+   "abilities": {
+      "beacon-of-faith": {
+         "name": "Beacon of Faith",
+         "text": "Improve the Save characteristic (to a maximum of 3+) of friendly ADEPTA SORORITAS units by 1 whilst they are wholly within 6\" of this unit."
+      },
+      "miraculous-intervention": {
+         "name": "Miraculous Intervention",
+         "text": "The first time the number of damage markers next to this unit equals its Wounds characteristic, roll a D6; on a 2+ this unit is not destroyed, and one damage marker is removed from it."
+      },
+      "healing-tears": {
+         "name": "Healing Tears",
+         "text": "At the beginning of the Orders phase, you can remove one damage marker from a friendly GEMINAE SUPERIA unit within 3\" of this unit."
+      },
+      "lead-the-righteous": {
+         "name": "Lead the Righteous",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly <ORDER> units whilst they are within 6\" of this unit."
+      },
+      "simulacrum-imperialis": {
+         "name": "Simulacrum Imperialis",
+         "text": "If any friendly units with this ability are on the battlefield when an Adepta Sororitas Command Asset is played, roll one D12; on a roll of 10+ return that Command Asset to your hand instead of discarding it. That Command Asset cannot be played again this turn."
+      },
+      "medicus-ministorum": {
+         "name": "Medicus Ministorum",
+         "text": "At the end of the Action phase, this unit can attempt to heal one friendly ADEPTUS MINISTORUM LIGHT unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that LIGHT unit. Only one attempt to heal each unit can be made each turn."
+      },
+      "laud-hailer": {
+         "name": "Laud Hailer",
+         "text": "You can re-roll Morale tests taken for friendly ADEPTA SORORITAS units whilst they are within 6\" of this unit."
+      },
+      "bodyguard": {
+         "name": "Bodyguard",
+         "text": "At the start of the Damage phase, you can select one friendly <ORDER> LIGHT CHARACTER unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that CHARACTER unit and place them next to this unit."
+      },
+      "sworn-protectors": {
+         "name": "Sworn Protectors",
+         "text": "You can re-roll hit rolls for attacks made by this unit whilst it is within 6” of any friendly <ORDER> CANONESS units."
+      },
+      "banner-of-sanctity": {
+         "name": "Banner of Sanctity",
+         "text": "Add 1 to the Leadership characteristic of friendly ADEPTUS MINISTORUM and ASTRA MILITARUM units whilst they are within 6\" of this unit."
+      },
+      "word-of-the-emperor": {
+         "name": "Word of the Emperor",
+         "text": "Re-roll failed Morale tests taken for ADEPTUS MINISTORUM INFANTRY units whilst within 6\" of any friendly units with this ability."
+      },
+      "lone-mission": {
+         "name": "Lone Mission",
+         "text": "No more than one MISSIONARY unit can be included in each Detachment."
+      },
+      "the-pulpit-of-saint-holline-s-basilica": {
+         "name": "The Pulpit of Saint Holline’s Basilica",
+         "text": "Improve the Save characteristic (to a maximum of 3+) of friendly ADEPTA SORORITAS INFANTRY units by 1 whilst they are wholly within 6\" of this unit."
+      },
+      "fiery-conviction": {
+         "name": "Fiery Conviction",
+         "text": "Re-roll hit rolls and wound rolls of 1 for attacks made by friendly ORDER OF OUR MARTYRED LADY units whilst they are within 6\" of this unit."
+      },
+      "the-fiery-heart": {
+         "name": "The Fiery Heart",
+         "text": "Friendly ADEPTA SORORITAS units automatically pass Morale tests whilst they are within 6\" of this unit."
+      },
+      "solemn-procession": {
+         "name": "Solemn Procession",
+         "text": "This unit cannot embark aboard TRANSPORTS."
+      },
+      "relics-of-the-matriarch": {
+         "name": "Relics of the Matriarch",
+         "text": "This unit has three relic abilities. In the Damage phase, after making saving throws for this unit, reduce the number of relic abilities this unit has for each damage marker it has. To do so, select one relic ability this unit has; this unit no longer has that relic ability. If damage markers are removed from this unit, select the relevant number of relic abilities for this unit to regain. This unit’s relic abilities are as follows: \n\n• Add 1 to hit rolls for attacks made with melee weapons by friendly ADEPTA SORORITAS units whilst they are within 6\" of this unit. \n• If this unit is on the battlefield at the start of the Generate Command Assets step, you generate one extra Command Asset.\n• Once per turn, instead of making a hit roll, wound roll or saving throw for an ADEPTA SORORITAS unit within 6\" of this unit, you can use this ability. That hit roll, wound roll or saving throw is automatically passed (do not roll)."
+      },
+      "cast-together-by-fate": {
+         "name": "Cast Together by Fate",
+         "text": "Ephrael Stern and Kyganil of the Bloody Tears are treated as separate units that take up 1 HQ slot instead of 2. They must be placed at the same time and within 3\" of each other the first time they are set up."
+      },
+      "daemonifuge": {
+         "name": "Daemonifuge",
+         "text": "Add 1 to hit rolls for attacks made with this unit's Daemonifuge whilst it is within 18\" of any CHAOS units."
+      },
+      "divine-protection": {
+         "name": "Divine Protection",
+         "text": "Subtract 1 from hit frolls for attacks that target Ephrael Stern."
+      },
+      "mysterious-saviour": {
+         "name": "Mysterious Saviour",
+         "text": "Ephreal Stern has Ignore Damage(6+) whilst they are within 3\" of Kyganil."
+      },
+      "martyrdom": {
+         "name": "Martyrdom",
+         "text": "Each time an ADEPTA SORORITAS CHARACTER in this Detachment is destroyed, you generate one Command Asset."
+      },
+      "lifewards": {
+         "name": "Lifewards",
+         "text": "At the start of the Damage phase, you can select one friendly CELESTINE unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that CELESTINE unit and place them next to this unit."
+      },
+      "driven-onwards": {
+         "name": "Driven Onwards",
+         "text": "If an <ORDER> REPENTIA SQUAD unit starts a Move action within 6\" of any friendly units with this ability, add 3\" to that unit’s Move characteristic whilst making that Move action."
+      },
+      "mistress-of-the-penitent": {
+         "name": "Mistress of the Penitent",
+         "text": "This unit does not take up slots in a Detachment that contains any <ORDER> REPENTIA SQUAD units."
+      },
+      "war-hymns": {
+         "name": "War Hymns",
+         "text": "Add 1 to the Attacks characteristic of friendly ADEPTUS MINISTORUM INFANTRY and ASTRA MILITARUM INFANTRY units whilst they are making Fight actions whilst within 6\" of any friendly units with this ability."
+      },
+      "ecclesiarchy-battle-conclave": {
+         "name": "Ecclesiarchy Battle Conclave",
+         "text": "This unit does not take up slots in a Detachment that contains any MINISTORUM PRIESTS."
+      },
+      "zealot": {
+         "name": "Zealot",
+         "text": "You can re-roll hit rolls for attacks made with melee weapons by this unit."
+      }
+   },
+   "imports": [
+      "weapons"
+   ]
+}

@@ -1,0 +1,2752 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "adeptus-custodes",
+   "name": "Imperium - Adeptus Custodes",
+   "kind": "Faction",
+   "datasheets": {
+      "captain-general-trajann-valoris": {
+         "name": "Captain-General Trajann Valoris",
+         "battlefieldRole": "HQ",
+         "cost": 9,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "CAPTAIN-GENERAL TRAJANN VALORIS"
+         ],
+         "profiles": [
+            {
+               "name": "Captain-General Trajann Valoris",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "watchers-axe"
+         ],
+         "abilities": [
+            "legendary-commander",
+            "moment-shackle"
+         ],
+         "maximumPerArmy": 1
+      },
+      "shield-captain": {
+         "name": "Shield Captain",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "CHARACTER",
+            "SHIELD CAPTAIN",
+            "INFANTRY"
+         ],
+         "profiles": [
+            {
+               "name": "Shield Captain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "relics-of-terra"
+         ],
+         "abilities": [
+            "inspirational-fighter"
+         ]
+      },
+      "shield-captain-in-allarus-terminator-armour": {
+         "name": "Shield Captain in Allarus Terminator Armour",
+         "battlefieldRole": "HQ",
+         "cost": 8,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "TERMINATOR",
+            "SHIELD CAPTAIN"
+         ],
+         "profiles": [
+            {
+               "name": "Shield Captain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "balistus-grenade-launcher",
+            "relics-of-terra"
+         ],
+         "abilities": [
+            "inspirational-fighter",
+            "deep-strike"
+         ]
+      },
+      "shield-captain-on-dawneagle-jetbike": {
+         "name": "Shield Captain on Dawneagle Jetbike",
+         "battlefieldRole": "HQ",
+         "cost": 10,
+         "keywords": [
+            "LIGHT",
+            "BIKER",
+            "FLY",
+            "CHARACTER",
+            "SHIELD CAPTAIN"
+         ],
+         "profiles": [
+            {
+               "name": "Shield Captain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "relics-of-terra"
+         ],
+         "abilities": [
+            "inspirational-fighter"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "addsWeapons": [
+                        "hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "salvo-launcher",
+                     "name": "Salvo Launcher",
+                     "addsWeapons": [
+                        "salvo-launcher"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "hurricane-bolter"
+            }
+         ]
+      },
+      "custodian-guard": {
+         "name": "Custodian Guard",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CUSTODIAN GUARD"
+         ],
+         "profiles": [
+            {
+               "name": "Custodian Guard",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "custodian-weapons-ranged",
+            "custodian-weapons-melee"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "storm-shields"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     }
+                  ]
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "save": 3
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "5-models"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "storm-shields"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     }
+                  ]
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "save": 3
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "storm-shields"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     }
+                  ]
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "save": 3
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "3-10-models",
+               "name": "3 - 10 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 27,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-shields",
+                     "name": "Storm Shields",
+                     "maximum": 1,
+                     "cost": 1
+                  }
+               ]
+            }
+         ]
+      },
+      "custodian-wardens": {
+         "name": "Custodian Wardens",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CUSTODIAN WARDENS"
+         ],
+         "profiles": [
+            {
+               "name": "Custodian Wardens",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "warden-weapons-ranged",
+            "warden-weapons-melee"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "3-10-models",
+               "name": "3 - 10 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 8
+                  },
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 32,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "vexilus-praetor": {
+         "name": "Vexilus Praetor",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "VEXILUS PRAETOR"
+         ],
+         "profiles": [
+            {
+               "name": "Vexilus Praetor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "vexilus-weapons"
+         ],
+         "abilities": [
+            "custodes-vexilla"
+         ]
+      },
+      "vexilus-praetor-in-allarus-terminator-armour": {
+         "name": "Vexilus Praetor in Allarus Terminator Armour",
+         "battlefieldRole": "Elites",
+         "cost": 8,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "TERMINATOR",
+            "VEXILUS PRAETOR"
+         ],
+         "profiles": [
+            {
+               "name": "Vexilus Praetor in Allarus Terminator Armour",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "vexilus-weapons",
+            "balistus-grenade-launcher"
+         ],
+         "abilities": [
+            "custodes-vexilla",
+            "deep-strike"
+         ]
+      },
+      "allarus-custodians": {
+         "name": "Allarus Custodians",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ALLARUS CUSTODIANS",
+            "TERMINATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Allarus Custodians",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "allarus-weapons-ranged",
+            "allarus-weapons-melee"
+         ],
+         "abilities": [
+            "slayers-of-tyrants",
+            "deep-strike",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "3-10-models",
+               "name": "3 - 10 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 13
+                  },
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 21,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 41,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 8
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "balistus-grenade-launcher",
+                     "name": "Balistus Grenade Launchers",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "addsWeapons": [
+                        "balistus-grenade-launcher"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "vertus-praetors": {
+         "name": "Vertus Praetors",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "BIKER",
+            "FLY",
+            "VERTUS PRAETORS"
+         ],
+         "profiles": [
+            {
+               "name": "Vertus Praetors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "interceptor-lances"
+         ],
+         "wargear": [
+            {
+               "id": "3-10-models",
+               "name": "3 - 10 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 12
+                  },
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 20,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 40,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "jetbike-weapons",
+               "name": "Jetbike Weapons",
+               "options": [
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 10,
+                     "addsWeapons": [
+                        "hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "salvo-launcher",
+                     "name": "Salvo Launcher",
+                     "maximum": 10,
+                     "addsWeapons": [
+                        "salvo-launcher"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "5-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 7
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "5-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 7
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "venerable-contemptor-dreadnought": {
+         "name": "Venerable Contemptor Dreadnought",
+         "battlefieldRole": "Elites",
+         "cost": 10,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DREADNOUGHT",
+            "VENERABLE DREADNOUGHT",
+            "CONTEMPTOR DREADNOUGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Venerable Contemptor Dreadnought",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "dreadnought-combat-weapon"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "ranged-weapon",
+               "name": "Ranged Weapon",
+               "options": [
+                  {
+                     "id": "kheres-assault-cannon",
+                     "name": "Kheres Assault Cannon",
+                     "addsWeapons": [
+                        "weapons/kheres-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "kheres-assault-cannon"
+            }
+         ]
+      },
+      "venerable-land-raider": {
+         "name": "Venerable Land Raider",
+         "battlefieldRole": "HeavySupport",
+         "cost": 20,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "VENERABLE LAND RAIDER"
+         ],
+         "profiles": [
+            {
+               "name": "Venerable Land Raider",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "armoured-tracks",
+            "weapons/twin-heavy-bolter"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "transport": "This unit can transport up to 5 friendly ADEPTUS CUSTODES INFANTRY models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "contemptor-achillus-dreadnought": {
+         "name": "Contemptor-Achillus Dreadnought",
+         "battlefieldRole": "Elites",
+         "cost": 10,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DREADNOUGHT",
+            "CONTEMPTOR-ACHILLUS DREADNOUGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Contemptor-Achillus Dreadnought",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "achillus-dreadspear-ranged",
+            "achillus-dreadspear-melee"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "wrist-weapons",
+               "name": "Wrist Weapons",
+               "options": [
+                  {
+                     "id": "lastrum-storm-bolter",
+                     "name": "Lastrum Storm Bolter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "lastrum-storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "infernus-incinerator",
+                     "name": "Infernus Incinerator",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "infernus-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "twin-adrathic-destructor",
+                     "name": "Twin Adrathic Destructor",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "twin-adrathic-destructor"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "lastrum-storm-bolter"
+            }
+         ]
+      },
+      "contemptor-exemplar-dreadnought": {
+         "name": "Contemptor-Exemplar Dreadnought",
+         "battlefieldRole": "Elites",
+         "cost": 9,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DREADNOUGHT",
+            "CONTEMPTOR-EXEMPLAR DREADNOUGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Contemptor-Exemplar Dreadnought",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "main-weapons",
+               "name": "Main Weapons",
+               "options": [
+                  {
+                     "id": "dreadnought-combat-weapon",
+                     "name": "Dreadnought Combat Weapon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "dreadnought-combat-weapon"
+                     ]
+                  },
+                  {
+                     "id": "twin-las-pulser",
+                     "name": "Twin Las-pulser",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "twin-las-pulser"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "dreadnought-combat-weapon"
+            },
+            {
+               "id": "wrist-weapons",
+               "name": "Wrist Weapons",
+               "options": [
+                  {
+                     "id": "plasma-ejector",
+                     "name": "Plasma Ejector",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "plasma-ejector"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "lastrum-storm-bolter",
+                     "name": "Lastrum Storm Bolter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "lastrum-storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "dreadnought-combat-weapon"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "default": "lastrum-storm-bolter",
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "dreadnought-combat-weapon"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "caladius-grav-tank": {
+         "name": "Caladius Grav-tank",
+         "battlefieldRole": "HeavySupport",
+         "cost": 16,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "CALADIUS GRAV-TANK"
+         ],
+         "profiles": [
+            {
+               "name": "Caladius Grav-tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "armoured-hull",
+            "twin-lastrum-bolt-cannon"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "hover"
+         ],
+         "wargear": [
+            {
+               "id": "main-weapon",
+               "name": "Main Weapon",
+               "options": [
+                  {
+                     "id": "twin-iliastus-accelerator-cannon",
+                     "name": "Twin Iliastus Accelerator Cannon",
+                     "addsWeapons": [
+                        "twin-iliastus-accelerator-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-arachnus-heavy-blaze-cannon",
+                     "name": "Twin Arachnus Heavy Blaze Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-arachnus-heavy-blaze-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-iliastus-accelerator-cannon"
+            }
+         ]
+      },
+      "telemon-heavy-dreadnought": {
+         "name": "Telemon Heavy Dreadnought",
+         "battlefieldRole": "HeavySupport",
+         "cost": 12,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DREADNOUGHT",
+            "TELEMON HEAVY DREADNOUGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Telemon Heavy Dreadnought",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "spiculus-bolt-launcher",
+            "armoured-feet"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "arm-weapons",
+               "name": "Arm Weapons",
+               "options": [
+                  {
+                     "id": "telemon-caestus-twin-plasma-projector",
+                     "name": "Telemon Caestus & Twin Plasma Projector",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "telemon-caestus",
+                        "twin-plasma-projector"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "arachnus-storm-cannon",
+                     "name": "Arachnus Storm Cannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "arachnus-storm-cannon"
+                     ]
+                  },
+                  {
+                     "id": "iliastus-accelerator-culverin",
+                     "name": "Iliastus Accelerator Culverin",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "iliastus-accelerator-culverin"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "arachnus-storm-cannon"
+            }
+         ]
+      },
+      "contemptor-galatus-dreadnought": {
+         "name": "Contemptor-Galatus Dreadnought",
+         "battlefieldRole": "Elites",
+         "cost": 9,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DREADNOUGHT",
+            "CONTEMPTOR-GALATUS DREADNOUGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Contemptor-Galatus Dreadnought",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "galatus-warblade-ranged",
+            "galatus-warblade-melee"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "inferno"
+         ]
+      },
+      "aquilon-custodians": {
+         "name": "Aquilon Custodians",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "TERMINATOR",
+            "AQUILON CUSTODIANS"
+         ],
+         "profiles": [
+            {
+               "name": "Aquilon Custodians",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "solerite-power-weapons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "3-6-models",
+               "name": "3 -6 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 13
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 25,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "infernus-firepike",
+                     "name": "Infernus Firepike",
+                     "maximum": 6,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "infernus-firepike"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "lastrum-storm-bolter",
+                     "name": "Lastrum Storm Bolter",
+                     "maximum": 6,
+                     "addsWeapons": [
+                        "lastrum-storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "twin-adrathic-destructor",
+                     "name": "Twin Adrathic Destructor",
+                     "maximum": 6,
+                     "addsWeapons": [
+                        "twin-adrathic-destructor"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "custodian-guard-w-spears": {
+         "name": "Custodian Guard w/ Spears",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CUSTODIAN GUARD"
+         ],
+         "profiles": [
+            {
+               "name": "Custodian Guard",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "custodian-weapons-melee"
+         ],
+         "wargear": [
+            {
+               "id": "3-5-models",
+               "name": "3 - 5 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 6
+                  },
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "spears",
+               "name": "Spears",
+               "options": [
+                  {
+                     "id": "adrasite-spear",
+                     "name": "Adrasite Spear",
+                     "maximum": 5,
+                     "addsWeapons": [
+                        "adrasite-spear"
+                     ]
+                  },
+                  {
+                     "id": "pyrithite-spear",
+                     "name": "Pyrithite Spear",
+                     "maximum": 5,
+                     "addsWeapons": [
+                        "pyrithite-spear"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "5-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "5-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "agamatus-custodians": {
+         "name": "Agamatus Custodians",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "BIKER",
+            "FLY",
+            "AGAMATUS CUSTODIANS"
+         ],
+         "profiles": [
+            {
+               "name": "Agamatus Custodians",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "interceptor-lances"
+         ],
+         "wargear": [
+            {
+               "id": "3-6-models",
+               "name": "3 -6 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 9
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 18,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "jetbike-weapons",
+               "name": "Jetbike Weapons",
+               "options": [
+                  {
+                     "id": "adrathic-devastator",
+                     "name": "Adrathic Devastator",
+                     "maximum": 6,
+                     "addsWeapons": [
+                        "adrathic-devastator"
+                     ]
+                  },
+                  {
+                     "id": "lastrum-bolt-cannon",
+                     "name": "Lastrum Bolt Cannon",
+                     "maximum": 6,
+                     "addsWeapons": [
+                        "lastrum-bolt-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-las-pulser",
+                     "name": "Twin Las-pulser",
+                     "maximum": 6,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "twin-las-pulser"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "venatari-custodians": {
+         "name": "Venatari Custodians",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "JUMP PACK",
+            "VENATARI CUSTODIANS"
+         ],
+         "profiles": [
+            {
+               "name": "Venatari Custodians",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "venatari-weapons-ranged",
+            "venatari-weapons-melee"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "3-6-models",
+               "name": "3 - 6 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 11
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "pallas-grav-attack": {
+         "name": "Pallas Grav-attack",
+         "battlefieldRole": "FastAttack",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "PALLAS GRAV-ATTACK"
+         ],
+         "profiles": [
+            {
+               "name": "Pallas Grav-attack",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "twin-arachnus-blaze-cannon",
+            "armoured-hull"
+         ],
+         "abilities": [
+            "hover"
+         ]
+      },
+      "sagittarum-custodians": {
+         "name": "Sagittarum Custodians",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "SAGITTARUM CUSTODIANS"
+         ],
+         "profiles": [
+            {
+               "name": "Sagittarum Custodians",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "adrastus-bolt-calivers",
+            "misericordias"
+         ],
+         "wargear": [
+            {
+               "id": "3-5-models",
+               "name": "3 - 5 Models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 6
+                  },
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "coronus-grav-carrier": {
+         "name": "Coronus Grav-carrier",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "CORONUS GRAV-CARRIER"
+         ],
+         "profiles": [
+            {
+               "name": "Coronus Grav-carrier",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 4,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "twin-arachnus-blaze-cannon-2",
+            "armoured-hull",
+            "twin-lastrum-bolt-cannon"
+         ],
+         "abilities": [
+            "hover"
+         ],
+         "transport": "This unit can transport up to 6 friendly ADEPTUS CUSTODES INFANTRY models."
+      },
+      "orion-assault-dropship": {
+         "name": "Orion Assault Dropship",
+         "battlefieldRole": "Flyer",
+         "cost": 30,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "AIRCRAFT",
+            "TRANSPORT",
+            "ORION ASSAULT DROPSHIP"
+         ],
+         "profiles": [
+            {
+               "name": "Orion Assault Dropship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 4,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS CUSTODES"
+         ],
+         "weapons": [
+            "armoured-hull"
+         ],
+         "abilities": [
+            "hover-jet",
+            "supersonic"
+         ],
+         "transport": "This unit can transport up to 12 friendly ADEPTUS CUSTODES INFANTRY models, or up to 7 friendly ADEPTUS CUSTODES INFANTRY models and 1 friendly CONTEMPTOR-ACHILLUS DREADNOUGHT, CONTEMPTOR-GALATUS DREADNOUGHT or VENERABLE CONTEMPTOR DREADNOUGHT model.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "spiculus-heavy-bolt-launcher",
+                     "name": "Spiculus Heavy Bolt Launcher",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "spiculus-heavy-bolt-launcher"
+                     ]
+                  },
+                  {
+                     "id": "arachnus-heavy-blaze-cannon",
+                     "name": "Arachnus Heavy Blaze Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "arachnus-heavy-blaze-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-lastrum-bolt-cannon",
+                     "name": "Twin Lastrum Bolt Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "twin-lastrum-bolt-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "detachmentAbilities": {
+      "the-emperors-chosen-2": {
+         "ability": "the-emperors-chosen",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Any",
+               "conditions": [
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "ad-hoc"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "super-heavy-auxiliary"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "fortification-network"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "air-wing"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "patrol"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "weapons": {
+      "watchers-axe": {
+         "name": "Watcher's Axe",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "custodian-weapons-ranged": {
+         "name": "Custodian Weapons (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "custodian-weapons-melee": {
+         "name": "Custodian Weapons (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "warden-weapons-ranged": {
+         "name": "Warden Weapons (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "warden-weapons-melee": {
+         "name": "Warden Weapons (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "allarus-weapons-ranged": {
+         "name": "Allarus Weapons (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "allarus-weapons-melee": {
+         "name": "Allarus Weapons (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "armoured-tracks": {
+         "name": "Armoured Tracks",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "achillus-dreadspear-ranged": {
+         "name": "Achillus Dreadspear (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
+      },
+      "achillus-dreadspear-melee": {
+         "name": "Achillus Dreadspear (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "plasma-ejector": {
+         "name": "Plasma Ejector",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Inferno"
+      },
+      "twin-iliastus-accelerator-cannon": {
+         "name": "Twin Iliastus Accelerator Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "twin-arachnus-heavy-blaze-cannon": {
+         "name": "Twin Arachnus Heavy Blaze Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 4,
+         "antiTank": 4
+      },
+      "spiculus-bolt-launcher": {
+         "name": "Spiculus Bolt Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "armoured-feet": {
+         "name": "Armoured Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "telemon-caestus": {
+         "name": "Telemon Caestus",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "twin-plasma-projector": {
+         "name": "Twin Plasma Projector",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Inferno"
+      },
+      "arachnus-storm-cannon": {
+         "name": "Arachnus Storm Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 6
+      },
+      "iliastus-accelerator-culverin": {
+         "name": "Iliastus Accelerator Culverin",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "galatus-warblade-ranged": {
+         "name": "Galatus Warblade (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "galatus-warblade-melee": {
+         "name": "Galatus Warblade (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 4
+      },
+      "solerite-power-weapons": {
+         "name": "Solerite Power Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "infernus-firepike": {
+         "name": "Infernus Firepike",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "adrasite-spear": {
+         "name": "Adrasite Spear",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "pyrithite-spear": {
+         "name": "Pyrithite Spear",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 7
+      },
+      "adrathic-devastator": {
+         "name": "Adrathic Devastator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "lastrum-bolt-cannon": {
+         "name": "Lastrum Bolt Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "venatari-weapons-ranged": {
+         "name": "Venatari Weapons (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "venatari-weapons-melee": {
+         "name": "Venatari Weapons (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "twin-arachnus-blaze-cannon": {
+         "name": "Twin Arachnus Blaze Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "adrastus-bolt-calivers": {
+         "name": "Adrastus Bolt Calivers",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "misericordias": {
+         "name": "Misericordias",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "twin-arachnus-blaze-cannon-2": {
+         "name": "Twin Arachnus Blaze Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "spiculus-heavy-bolt-launcher": {
+         "name": "Spiculus Heavy Bolt Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6
+      },
+      "arachnus-heavy-blaze-cannon": {
+         "name": "Arachnus Heavy Blaze Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 4
+      },
+      "hurricane-bolter": {
+         "name": "Hurricane Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "salvo-launcher": {
+         "name": "Salvo Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 4,
+         "text": "Anti-air"
+      },
+      "relics-of-terra": {
+         "name": "Relics of Terra",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "balistus-grenade-launcher": {
+         "name": "Balistus Grenade Launcher",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "vexilus-weapons": {
+         "name": "Vexilus Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "lastrum-storm-bolter": {
+         "name": "Lastrum Storm Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "infernus-incinerator": {
+         "name": "Infernus Incinerator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "twin-adrathic-destructor": {
+         "name": "Twin Adrathic Destructor",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "dreadnought-combat-weapon": {
+         "name": "Dreadnought Combat Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "twin-las-pulser": {
+         "name": "Twin Las-pulser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 11,
+         "antiTank": 6
+      },
+      "armoured-hull": {
+         "name": "Armoured Hull",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "twin-lastrum-bolt-cannon": {
+         "name": "Twin Lastrum Bolt Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "interceptor-lances": {
+         "name": "Interceptor Lances",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      }
+   },
+   "abilities": {
+      "legendary-commander": {
+         "name": "Legendary Commander",
+         "text": "Re-roll hit rolls of 1 and wound rolls of 1 for attacks made by friendly ADEPTUS CUSTODES units whilst they are within 6\" of this unit."
+      },
+      "moment-shackle": {
+         "name": "Moment Shackle",
+         "text": "If this unit is a WARLORD, and is on the battlefield at the start of the Generate Command Assets step, you generate one extra Command Asset."
+      },
+      "custodes-vexilla": {
+         "name": "Custodes Vexilla",
+         "text": "You can re-roll Morale tests for friendly LIGHT IMPERIUM units whilst they are within 6\" of this unit. In addition, add 1 to the Attacks characteristic of friendly LIGHT ADEPTUS CUSTODES units whilst they are making Fight actions whilst within 6\" of this unit."
+      },
+      "slayers-of-tyrants": {
+         "name": "Slayers of Tyrants",
+         "text": "You can re-roll wound rolls for attacks made with melee weapons by this unit that target CHARACTER units."
+      },
+      "hover-jet": {
+         "name": "Hover Jet",
+         "text": "At the start of the Action phase, you can declare that this unit will hover. If it does, then until the end of the phase, its Move characteristic changes to 20\" but it loses the Supersonic ability."
+      },
+      "the-emperors-chosen": {
+         "name": "The Emperor's Chosen",
+         "text": "ADEPTUS CUSTODES units in this Detachment do not suffer penalties for being critically damaged (p33)."
+      },
+      "inspirational-fighter": {
+         "name": "Inspirational Fighter",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly ADEPTUS CUSTODES units whilst they are within 6\" of this unit."
+      }
+   },
+   "imports": [
+      "weapons"
+   ]
+}

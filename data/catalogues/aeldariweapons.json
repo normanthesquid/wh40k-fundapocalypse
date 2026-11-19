@@ -1,0 +1,222 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "aeldariweapons",
+   "name": "AeldariWeapons",
+   "kind": "Library",
+   "datasheets": {
+      "webway-gate-2": {
+         "name": "Webway Gate",
+         "battlefieldRole": "Fortification",
+         "cost": 6,
+         "keywords": [
+            "BUILDING",
+            "HEAVY",
+            "VEHICLE",
+            "WEBWAY GATE"
+         ],
+         "profiles": [
+            {
+               "name": "Webway Gate",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "wounds": 3,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI"
+         ],
+         "abilities": [
+            "shimmering-arrival",
+            "webway-gate",
+            "webway-strike"
+         ]
+      }
+   },
+   "weapons": {
+      "shuriken-cannon-hv": {
+         "name": "Shuriken Cannon (Hv)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "bright-lance": {
+         "name": "Bright Lance",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "aeldari-missile-launcher": {
+         "name": "Aeldari Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "scatter-laser-hv": {
+         "name": "Scatter Laser (Hv)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "starcannon": {
+         "name": "Starcannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
+      },
+      "d-cannon": {
+         "name": "D-cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 4,
+         "text": "Destroyer, Barrage"
+      },
+      "sonic-lance": {
+         "name": "Sonic Lance",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 3,
+         "antiTank": 7,
+         "text": "Inferno"
+      },
+      "splinter-cannon": {
+         "name": "Splinter Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12,
+         "text": "Rapid Fire"
+      },
+      "twin-splinter-rifle": {
+         "name": "Twin Splinter Rifle",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12
+      },
+      "bladevanes": {
+         "name": "Bladevanes",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "dark-lance": {
+         "name": "Dark Lance",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "corsair-weapons": {
+         "name": "Corsair Weapons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      }
+   },
+   "abilities": {
+      "shimmering-arrival": {
+         "name": "Shimmering Arrival",
+         "text": "When this unit is set up on the battlefield, it can be set up anywhere that is more than 12\" away from your opponent’s deployment zone and any enemy units, and more than 3\" away from any other terrain features or the centre of any objective markers."
+      },
+      "webway-gate": {
+         "name": "Webway Gate",
+         "text": "This unit is never Out of Command: an Out of Command marker is never placed next to it. When measuring distances to and from this unit, measure to and from the closest point of this unit. This unit cannot be affected by Command Assets or other units' abilities. If a Webway Gate is destroyed, remove both pieces from the battlefield."
+      },
+      "webway-strike": {
+         "name": "Webway Strike",
+         "text": "After this unit is set up on the battlefield, any friendly Aeldari units, other than Fortifications, that have not already been set up can be set up in a webway spar as Tactical Reserves instead of being set up on the battlefield. In the Set Up Reinforcements step, one unit in a webway spar can emerge from each friendly Webway Gate as reinforcements; a unit emerging from a Webway Gate must be set up wholly within 3\" of that Webway Gate and more than 9\" away from any enemy units. No more than half the total number of units in your army can be set up in Tactical Reserves."
+      },
+      "runes-of-the-farseer": {
+         "name": "Runes of the Farseer",
+         "text": "If this unit is a Warlord, then once per battle, at the end of the Orders phase, you can look through your Command Asset deck, draw one Asuryani Command Asset card of your choice and add it to your hand. Then shuffle the Command Asset deck and place it face down."
+      }
+   }
+}

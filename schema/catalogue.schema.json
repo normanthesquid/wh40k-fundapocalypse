@@ -98,6 +98,7 @@
                "uniqueItems": true
             },
             "profiles": {
+               "description": "The unit's stat lines. Absent only where the official datasheet prints none, such as a terrain feature.",
                "type": "array",
                "items": { "$ref": "common.schema.json#/$defs/modelProfile" },
                "minItems": 1
@@ -127,7 +128,22 @@
                "type": "array",
                "items": { "$ref": "#/$defs/conditionalChange" }
             },
+            "costChanges": {
+               "description": "Changes to the unit's cost while a condition holds, e.g. a power rating that rises once it takes any drones.",
+               "type": "array",
+               "items": { "$ref": "#/$defs/costChange" }
+            },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "requiredInDetachment": {
+               "description": "A detachment must hold at least `minimum` of this unit while `when` holds, e.g. 3 Bunker Annexes once it has any part of a Castellum Stronghold.",
+               "type": "object",
+               "properties": {
+                  "minimum": { "type": "integer", "minimum": 1 },
+                  "when": { "$ref": "common.schema.json#/$defs/condition" }
+               },
+               "required": ["minimum", "when"],
+               "additionalProperties": false
+            },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
             "maximumPerArmy": {
                "description": "1 for a named character or other unique unit.",
@@ -135,7 +151,7 @@
                "minimum": 1
             }
          },
-         "required": ["name", "battlefieldRole", "cost", "keywords", "profiles"],
+         "required": ["name", "battlefieldRole", "cost", "keywords"],
          "additionalProperties": false
       },
       "datasheetLink": {
@@ -234,7 +250,7 @@
          "required": ["terms"]
       },
       "costChange": {
-         "description": "A change to an option's cost while `when` holds: `set` replaces it, `increment` adds to it. Changes apply in order.",
+         "description": "A change to a datasheet's or option's cost while `when` holds: `set` replaces it, `increment` adds to it. Changes apply in order.",
          "type": "object",
          "properties": {
             "when": { "$ref": "common.schema.json#/$defs/condition" },
@@ -253,6 +269,15 @@
             "name": { "type": "string", "minLength": 1 },
             "minimum": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "$ref": "#/$defs/growingBound" }] },
             "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
+            "availableWhen": {
+               "description": "The whole group, its minimum included, applies only while this holds, e.g. a weapon swap for models that may all have been replaced.",
+               "$ref": "common.schema.json#/$defs/condition"
+            },
+            "multipleOf": {
+               "description": "The number of options taken must be a multiple of this, e.g. sponsons taken in pairs.",
+               "type": "integer",
+               "minimum": 2
+            },
             "default": {
                "description": "The id of the option picked when the unit is added; one of `options`.",
                "$ref": "common.schema.json#/$defs/slug"
@@ -280,7 +305,7 @@
             },
             "costChanges": { "type": "array", "items": { "$ref": "#/$defs/costChange" } },
             "minimum": { "type": "integer", "minimum": 0 },
-            "maximum": { "type": "integer", "minimum": 1 },
+            "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
             "minimumPerArmy": { "type": "integer", "minimum": 1 },
             "maximumPerArmy": { "type": "integer", "minimum": 1 },
@@ -299,6 +324,10 @@
             },
             "profileChanges": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/profileChange" } },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "requiredWhen": {
+               "description": "The unit must take the option at least once while this holds, e.g. a mark that matches the detachment's chosen god.",
+               "$ref": "common.schema.json#/$defs/condition"
+            },
             "addsFactionKeywords": true,
             "addsKeywords": true
          },

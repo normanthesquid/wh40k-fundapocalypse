@@ -4,6 +4,26 @@
    "name": "Example library (illustrative values, not real data)",
    "kind": "Library",
    "datasheets": {
+      "example-defence-line": {
+         "name": "Example Defence Line",
+         "battlefieldRole": "Fortification",
+         "cost": 4,
+         "keywords": [
+            "HEAVY"
+         ],
+         "requiredInDetachment": {
+            "minimum": 1,
+            "when": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Datasheet",
+                  "datasheet": "example-squad"
+               },
+               "minimum": 1
+            }
+         }
+      },
       "example-squad": {
          "name": "Example Squad",
          "battlefieldRole": "Elites",
@@ -50,6 +70,27 @@
                ]
             },
             {
+               "id": "sponsons",
+               "name": "Sponsons",
+               "maximum": 4,
+               "multipleOf": 2,
+               "availableWhen": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "ten-models"
+                  },
+                  "minimum": 1
+               },
+               "options": [
+                  {
+                     "id": "heavy-bolter-sponson",
+                     "name": "Heavy Bolter Sponson"
+                  }
+               ]
+            },
+            {
                "id": "heavy-weapon",
                "name": "Heavy weapon",
                "maximum": {
@@ -70,6 +111,19 @@
                      "id": "example-cannon",
                      "name": "Example cannon",
                      "cost": 1,
+                     "maximum": {
+                        "base": 1,
+                        "terms": [
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "ten-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 1
+                           }
+                        ]
+                     },
                      "addsWeapons": [
                         "example-cannon"
                      ],
@@ -102,6 +156,15 @@
                      "id": "example-sergeant",
                      "name": "Example Sergeant",
                      "cost": 1,
+                     "requiredWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "ten-models"
+                        },
+                        "minimum": 1
+                     },
                      "maximumPerDetachment": 1,
                      "maximumPerArmy": 3,
                      "addsProfiles": [

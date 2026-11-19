@@ -158,6 +158,8 @@ func (check *checker) checkCountTarget(where scope, target CountTarget) {
 		check.useKeyword(where, target.Keyword)
 	case CountTargetKindOption:
 		check.checkOptionTarget(where, target)
+	case CountTargetKindOptionGroup:
+		check.checkOptionGroupTarget(where, target.Group)
 	case CountTargetKindDetachmentChoice:
 		check.checkDetachmentChoiceTarget(where, target.Option)
 	case CountTargetKindDetachment:
@@ -190,6 +192,19 @@ func (check *checker) checkOptionTarget(where scope, target CountTarget) {
 	if !slices.Contains(optionIDs(datasheet), target.Option) {
 		check.report(where, "option %q is not an option of its datasheet", target.Option)
 	}
+}
+
+func (check *checker) checkOptionGroupTarget(where scope, group string) {
+	if where.datasheet == nil {
+		check.report(where, "option group %q is not inside a datasheet", group)
+		return
+	}
+	for _, candidate := range where.datasheet.Wargear {
+		if candidate.ID == group {
+			return
+		}
+	}
+	check.report(where, "option group %q is not an option group of its datasheet", group)
 }
 
 func (check *checker) checkDetachmentChoiceTarget(where scope, reference string) {
