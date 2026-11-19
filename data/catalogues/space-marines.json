@@ -15403,7 +15403,8 @@
          "cost": 0,
          "keywords": [
             "LIGHT",
-            "INFANTRY"
+            "INFANTRY",
+            "CENTURION ASSAULT SQUAD"
          ],
          "profiles": [
             {
@@ -15540,11 +15541,24 @@
                "options": [
                   {
                      "id": "6-models",
-                     "name": "6 models"
+                     "name": "6 models",
+                     "cost": 22,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
                   },
                   {
                      "id": "3-models",
-                     "name": "3 models"
+                     "name": "3 models",
+                     "cost": 9
                   }
                ],
                "minimum": 1,
@@ -15559,7 +15573,9 @@
          "cost": 0,
          "keywords": [
             "LIGHT",
-            "INFANTRY"
+            "INFANTRY",
+            "CENTURION",
+            "CENTURION DEVASTATOR SQUAD"
          ],
          "profiles": [
             {
@@ -15701,11 +15717,24 @@
                "options": [
                   {
                      "id": "6-models",
-                     "name": "6 models"
+                     "name": "6 models",
+                     "cost": 22,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
                   },
                   {
                      "id": "3-models",
-                     "name": "3 models"
+                     "name": "3 models",
+                     "cost": 11
                   }
                ],
                "minimum": 1,

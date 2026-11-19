@@ -15,6 +15,7 @@ Each release is a git tag `v<version>` matching `release` in `data/game-system.j
   * Names were corrected: Elysian Veteran Squad, Stormspear Rocket Pod, The Vox-Shamblers, Legacy of the Rubricae, Warden of Yvraine.
   * The Banner of the Apostate affects Imperial units, and a Death Korps Combat Engineer Squad's Heavy Weapons Team costs PL +1.
   * The Reaver Melta Cannon has Destroyer, not Apocalyptic Destroyer.
+  * The Centurion Assault and Devastator Squads that Blood Angels, Dark Angels, Space Wolves and Deathwatch field have the Power Ratings, 6-model stat line and keywords of their datasheets.
   * Six units that had no battlefield role were given one from their datasheet, and a few option limits and conditions that pointed at the wrong unit were fixed.
 * Detachments that aren't Core (Patrol, Air Wing, Super-heavy Auxiliary, Fortification Network, Supreme Command and Ad Hoc) are Special Detachments, as the rulebook calls them.
 
