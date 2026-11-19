@@ -92,7 +92,9 @@ function instanceCondition(element: Element, context: ConditionContext): Folded 
       return { kind: "Count", scope: "Detachment", of: { kind: "Detachment", detachment }, minimum: 1 };
    }
    const onThisUnit = scope === "ancestor" || scope === "self";
-   const isThisUnit = onThisUnit ? (context.isThisUnit(childId) ?? context.unitHasCategory(childId)) : undefined;
+   // Only a unit entry can be an option's parent of unit type, so scope=parent naming one asks whether this is that unit.
+   const isParentUnit = scope === "parent" ? context.isThisUnit(childId) : undefined;
+   const isThisUnit = onThisUnit ? (context.isThisUnit(childId) ?? context.unitHasCategory(childId)) : isParentUnit;
    if (isThisUnit !== undefined) return isThisUnit;
    if (scope === "ancestor" || scope === "parent" || scope === "self") {
       const target = context.countTarget(childId, "Unit");
