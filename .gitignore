@@ -31,10 +31,3 @@
 !/validator/
 !/validator/**
 
-# The one-time BattleScribe importer, without its installed packages or its output while in progress
-!/importer/
-!/importer/**
-/importer/node_modules/
-/importer/fidelity-report*
-!.mutate.toml
-!.npmrc
