@@ -155,6 +155,13 @@ export const MISSING_ROLES: readonly { readonly unitId: string; readonly name: s
    { unitId: "d968-ea96-4863-9ddf", name: "Mutoid Vermin", role: "FastAttack", source: pdf("Gellerpox_Infected", 5) },
 ];
 
+/** Second battlefield-role links the official datasheet's single role icon contradicts, keyed by the category link's id. */
+export const STRAY_ROLE_LINKS: readonly { readonly linkId: string; readonly name: string; readonly source: Source }[] = [
+   { linkId: "5191-745a-fee5-1ebd", name: "Sicarian Ruststalkers", source: pdf("Adeptus_Mechanicus", 12) },
+   { linkId: "4c54-ad8c-c08c-fc14", name: "Sicarian Infiltrators", source: pdf("Adeptus_Mechanicus", 13) },
+   { linkId: "2745-1595-e03d-975c", name: "Sentinel Powerlifters", source: pdf("FW_Astra_Militarum", 35) },
+];
+
 export function describeSource(source: Source): string {
    return source.page === undefined ? source.document : `${source.document} p${source.page}`;
 }

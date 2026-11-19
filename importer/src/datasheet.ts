@@ -4,7 +4,7 @@ import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type Op
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { BattlefieldRole, Condition, ConditionalChange, CostChange, CountTarget, Datasheet, LimitTerm, Option, OptionGroup } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { describeSource, MISSING_ROLES } from "./corrections.ts";
+import { describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
 import { UnitProfiles } from "./unitProfiles.ts";
 import { addWeaponVariants, carriedWeapon, type VariantContext } from "./weaponVariants.ts";
 import { characteristicNamesById, isDroppedProfile, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, WEAPON_PROFILE } from "./profiles.ts";
@@ -205,8 +205,16 @@ export class DatasheetConverter {
       for (const { link, role, holder } of this.secondaryRoles) {
          if (role === this.role) this.conversion.report.recordDropped(link, `battlefield role ${role} repeating the unit's own`);
          else if (holder === "NestedUnit") this.conversion.report.recordDropped(link, `battlefield role ${role} of a unit offered as an option`);
+         else if (this.isStrayRoleLink(link, role)) continue;
          else this.unhandled(link, "battlefield role that is not the unit's primary category");
       }
+   }
+
+   /** The correction table's stray role link, recorded as removed. */
+   private isStrayRoleLink(link: Element, role: BattlefieldRole): boolean {
+      const stray = STRAY_ROLE_LINKS.find((entry) => entry.linkId === attribute(link, "id"));
+      if (stray !== undefined) this.conversion.report.recordCorrection(link, `second battlefield role ${role} removed (${describeSource(stray.source)})`);
+      return stray !== undefined;
    }
 
    private addCategories(links: Element[], keywords: Set<string>, factionKeywords: Set<string>, holder: CategoryHolder): void {
