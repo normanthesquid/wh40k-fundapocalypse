@@ -46,6 +46,13 @@ export function combine(kind: "All" | "Any", conditions: Condition[]): Condition
    return { kind, conditions: flat };
 }
 
+/** A key equal for conditions that differ only in the order of an All or Any's parts. */
+export function conditionKey(condition: Condition): string {
+   if (condition.kind === "All" || condition.kind === "Any") return `${condition.kind}(${condition.conditions.map(conditionKey).toSorted().join(",")})`;
+   if (condition.kind === "Not") return `Not(${conditionKey(condition.condition)})`;
+   return JSON.stringify(condition);
+}
+
 export function allOf(...conditions: (Condition | undefined)[]): Condition | undefined {
    return combine("All", conditions.filter((condition) => condition !== undefined));
 }

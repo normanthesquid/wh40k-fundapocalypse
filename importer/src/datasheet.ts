@@ -1,5 +1,5 @@
 import type { OutputBuilder } from "./builder.ts";
-import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
+import { allOf, combine, conditionKey, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { AlternativeRole, BattlefieldRole, Condition, DetachmentMinimum, ConditionalChange, CostChange, CountTarget, Datasheet, Option, OptionGroup } from "./model.ts";
@@ -460,7 +460,7 @@ export class DatasheetConverter {
          this.failed = true;
          return true;
       }
-      if (first.condition === null || JSON.stringify(first.condition) !== JSON.stringify(second.condition)) {
+      if (!first.condition || !second.condition || conditionKey(first.condition) !== conditionKey(second.condition)) {
          this.unhandled(view.element, "mandatory entry whose bounds are zeroed under different conditions");
          return true;
       }
