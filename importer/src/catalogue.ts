@@ -244,6 +244,11 @@ export class CatalogueConversion {
                else this.conversion.report.failUnhandled(link, "detachment choice category that is not a keyword");
             }
             const lifted = optionView.modifiers.filter((modifier) => liftsOwnMinimum(modifier, optionView));
+            const isLiftedMinimum = (constraint: Element) => lifted.some((modifier) => attribute(modifier, "field") === attribute(constraint, "id"));
+            const isOncePerChoice = (constraint: Element) => attribute(constraint, "scope") === "parent" && attribute(constraint, "type") === "max" && Number(attribute(constraint, "value")) === 1;
+            for (const constraint of optionView.constraints.filter((candidate) => !isOncePerChoice(candidate) && !isLiftedMinimum(candidate))) {
+               this.conversion.report.failUnhandled(constraint, "detachment choice option constraint");
+            }
             for (const modifier of lifted) this.conversion.report.recordDropped(modifier, "modifier lifting a minimum detachment choice options do not carry");
             const kept = optionView.modifiers.filter((modifier) => !lifted.includes(modifier));
             const extra = [...optionView.profiles, ...optionView.infoLinks, ...optionView.childEntries, ...optionView.childGroups, ...kept];
