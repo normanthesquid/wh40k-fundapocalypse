@@ -1,6 +1,6 @@
 /** Values the v1.10.0 data has wrong or lacks, taken from the official Apocalypse datasheets and the maintainer's checks of them. */
 
-import type { BattlefieldRole, Limit, Weapon } from "./model.ts";
+import type { BattlefieldRole, Limit, ProfileChange, Weapon } from "./model.ts";
 
 export type UnitCharacteristic = "M" | "WS" | "BS" | "A" | "W" | "Ld" | "Sv";
 export type WeaponCharacteristic = "Type" | "Range" | "A" | "SAP" | "SAT";
@@ -214,6 +214,9 @@ export const MISSING_KEYWORDS: readonly { readonly catalogue: string; readonly d
    { catalogue: "adeptus-custodes", datasheet: "shield-captain", kind: "Keyword", keyword: "INFANTRY", source: pdf("Adeptus_Custodes", 2) },
    { catalogue: "adeptus-custodes", datasheet: "allarus-custodians", kind: "Keyword", keyword: "TERMINATOR", source: pdf("Adeptus_Custodes", 6) },
    { catalogue: "dark-angels", datasheet: "interrogator-chaplain", kind: "FactionKeyword", keyword: "IMPERIUM", source: pdf("Dark_Angels", 6) },
+   { catalogue: "space-marines", datasheet: "centurion-assault-squad", kind: "Keyword", keyword: "CENTURION ASSAULT SQUAD", source: pdf("Adeptus_Astartes", 17) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", kind: "Keyword", keyword: "CENTURION", source: pdf("Adeptus_Astartes", 34) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", kind: "Keyword", keyword: "CENTURION DEVASTATOR SQUAD", source: pdf("Adeptus_Astartes", 34) },
 ];
 
 export type RenamedKind = "Datasheet" | "Weapon" | "Ability" | "Keyword";
@@ -238,8 +241,15 @@ export const ABILITY_TEXT_CORRECTIONS: readonly { readonly catalogue: string; re
    },
 ];
 
-export const OPTION_COST_CORRECTIONS: readonly { readonly catalogue: string; readonly datasheet: string; readonly option: string; readonly cost: number; readonly source: Source }[] = [
+const sixCenturions: ProfileChange[] = [{ set: { attacks: { kind: "Fixed", value: 2 }, wounds: 4 } }];
+
+/** Option costs and stat changes the datasheet prints, e.g. the Library Centurion squads' unit sizes, which the data leaves without either. */
+export const OPTION_CORRECTIONS: readonly { readonly catalogue: string; readonly datasheet: string; readonly option: string; readonly cost: number; readonly profileChanges?: ProfileChange[]; readonly source: Source }[] = [
    { catalogue: "death-korps-of-krieg", datasheet: "death-korps-combat-engineer-squad", option: "heavy-weapons-team", cost: 1, source: pdf("FW_Death_Korps_of_Krieg", 10) },
+   { catalogue: "space-marines", datasheet: "centurion-assault-squad", option: "3-models", cost: 9, source: pdf("Adeptus_Astartes", 17) },
+   { catalogue: "space-marines", datasheet: "centurion-assault-squad", option: "6-models", cost: 22, profileChanges: sixCenturions, source: pdf("Adeptus_Astartes", 17) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", option: "3-models", cost: 11, source: pdf("Adeptus_Astartes", 34) },
+   { catalogue: "space-marines", datasheet: "centurion-devastator-squad", option: "6-models", cost: 22, profileChanges: sixCenturions, source: pdf("Adeptus_Astartes", 34) },
 ];
 
 /** Weapons the datasheet equips that the data lacks, defined in `catalogue` and given to each listed datasheet. */

@@ -7,7 +7,7 @@ import {
    MISSING_WEAPONS,
    NAME_CORRECTIONS,
    OPTION_ABILITY_CORRECTIONS,
-   OPTION_COST_CORRECTIONS,
+   OPTION_CORRECTIONS,
    type RenamedKind,
    type Source,
 } from "./corrections.ts";
@@ -22,7 +22,7 @@ export function applyOutputCorrections(catalogues: readonly Catalogue[], report:
    corrections.addKeywords();
    corrections.rename();
    corrections.correctAbilityTexts();
-   corrections.correctOptionCosts();
+   corrections.correctOptions();
    corrections.addWeapons();
    corrections.correctOptionAbilities();
 }
@@ -76,13 +76,15 @@ class OutputCorrections {
       }
    }
 
-   correctOptionCosts(): void {
-      for (const correction of OPTION_COST_CORRECTIONS) {
+   correctOptions(): void {
+      for (const correction of OPTION_CORRECTIONS) {
          const datasheet = this.datasheet(correction.catalogue, correction.datasheet);
          const option = datasheet.wargear?.flatMap((group) => group.options).find((candidate) => candidate.id === correction.option);
          if (option === undefined) throw new Error(`no option ${correction.option} on ${correction.datasheet}`);
          option.cost = correction.cost;
-         this.record(correction.catalogue, `${datasheet.name} > ${option.name}`, `cost set to ${correction.cost}`, correction.source);
+         if (correction.profileChanges !== undefined) option.profileChanges = correction.profileChanges;
+         const changes = correction.profileChanges === undefined ? "" : " with its stat changes";
+         this.record(correction.catalogue, `${datasheet.name} > ${option.name}`, `cost set to ${correction.cost}${changes}`, correction.source);
       }
    }
 
