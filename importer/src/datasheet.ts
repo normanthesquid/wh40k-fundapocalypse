@@ -221,8 +221,8 @@ export class DatasheetConverter {
       return datasheet;
    }
 
-   /** A maximum that conditions drop to 0 makes the unit unavailable then; one they lift from 0 makes it available only then. */
-   private unitLimit(constraint: Element | undefined, modifiers: FlatModifier[]): UnitLimit {
+   /** A maximum that conditions drop to 0 makes the unit or option unavailable then; one they lift from 0 makes it available only then. */
+   private unitLimit(constraint: Element | undefined, modifiers: FlatModifier[], label = "unit"): UnitLimit {
       const base = constraintValue(constraint);
       if (constraint === undefined || base === undefined) return {};
       const changes = modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
@@ -237,7 +237,7 @@ export class DatasheetConverter {
       const when = isAllSet ? combine("Any", conditions as Condition[]) : undefined;
       if (when !== undefined && base > 0 && values.size === 1 && values.has(0)) return { maximum: base, availableWhen: not(when) };
       if (when !== undefined && base === 0 && values.size === 1 && values.has(BATTLESCRIBE_UNLIMITED)) return { availableWhen: when };
-      for (const change of changes) this.unhandled(change.element, `unit modifier ${change.type} ${change.field}${change.condition ? " with conditions" : ""}`);
+      for (const change of changes) this.unhandled(change.element, `${label} modifier ${change.type} ${change.field}${change.condition ? " with conditions" : ""}`);
       return {};
    }
 
@@ -549,6 +549,12 @@ export class DatasheetConverter {
          const modified = constraintModifiers.length > 0;
          if (key === "roster min" && value === 0 && modified && this.isDetachmentKeywordMinimum(view, constraintModifiers)) {
             for (const modifier of constraintModifiers) this.conversion.report.recordDropped(modifier.element, "army minimum the detachment's own keyword minimum already sets");
+            continue;
+         }
+         if ((key === "force max" || key === "roster max") && modified) {
+            const limit = this.unitLimit(constraint, modifiers, "option");
+            if (limit.maximum !== undefined) option[key === "force max" ? "maximumPerDetachment" : "maximumPerArmy"] = limit.maximum;
+            availableWhen = allOf(availableWhen, limit.availableWhen);
             continue;
          }
          if (field === undefined || value === undefined || value < 1 || modified) this.unhandled(constraint, `option constraint ${key}${modified ? " with modifiers" : ""}`);
