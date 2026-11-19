@@ -2,7 +2,7 @@ import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
-import type { BattlefieldRole, Condition, ConditionalChange, CostChange, CountTarget, Datasheet, Option, OptionGroup } from "./model.ts";
+import type { AlternativeRole, BattlefieldRole, Condition, ConditionalChange, CostChange, CountTarget, Datasheet, Option, OptionGroup } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { CONDITION_TARGET_CORRECTIONS, describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
 import { OptionBounds } from "./optionBounds.ts";
@@ -69,6 +69,7 @@ export class DatasheetConverter {
    private readonly costChanges: CostChange[] = [];
    private readonly secondaryRoles: SecondaryRole[] = [];
    private readonly correctedTargets = new Set<string>();
+   private readonly alternativeRoles: AlternativeRole[] = [];
    private role: BattlefieldRole | undefined;
    private transport: string | undefined;
    private cost: number;
@@ -181,7 +182,7 @@ export class DatasheetConverter {
       this.addProfiles(view, undefined);
       this.addChildren(view, undefined);
       this.unitProfiles.resolve();
-      this.applyUnitModifiers(modifiers.filter((modifier) => !limitIds.has(modifier.field)));
+      this.applyUnitModifiers(this.applyRoleSwaps(modifiers.filter((modifier) => !limitIds.has(modifier.field))));
       for (const apply of this.deferred) apply();
       this.unitProfiles.addSizedProfiles();
       if (this.role === undefined) this.role = this.roleFromLinks();
@@ -202,6 +203,7 @@ export class DatasheetConverter {
       if (this.transport !== undefined) datasheet.transport = this.transport;
       if (this.conditionalChanges.size > 0) datasheet.conditionalChanges = [...this.conditionalChanges.values()];
       if (this.costChanges.length > 0) datasheet.costChanges = this.costChanges;
+      if (this.alternativeRoles.length > 0) datasheet.alternativeRoles = this.alternativeRoles;
       const wargear = [...this.groups];
       if (this.loose.length > 0) wargear.push({ id: this.slugs.optionsGroup, name: "Upgrades", options: this.loose });
       if (wargear.length > 0) datasheet.wargear = wargear;
@@ -646,6 +648,26 @@ export class DatasheetConverter {
    /** A name that changes under a condition only labels what the condition already shows, such as a mount or a model count. */
    private dropConditionalRename(modifier: FlatModifier): void {
       this.conversion.report.recordDropped(modifier.element, `display rename to "${modifier.value}" under a condition`);
+   }
+
+   /** Category modifiers that together make another role primary under a condition, e.g. Khorne Berserkers as Troops; returns the rest. */
+   private applyRoleSwaps(modifiers: FlatModifier[]): FlatModifier[] {
+      const categoryModifiers = modifiers.filter((modifier) => modifier.field === "category" && modifier.condition);
+      const rest = modifiers.filter((modifier) => !categoryModifiers.includes(modifier));
+      const byCondition = Map.groupBy(categoryModifiers, (modifier) => JSON.stringify(modifier.condition));
+      for (const group of byCondition.values()) {
+         const primary = group.find((modifier) => modifier.type === "set-primary");
+         const role = primary === undefined ? undefined : this.roleOf(primary.value);
+         const isSwap = role !== undefined && group.every((modifier) => modifier === primary || (modifier.type === "add" && modifier.value === primary!.value) || (modifier.type === "remove" && this.roleOf(modifier.value) === this.role));
+         if (isSwap) this.alternativeRoles.push({ battlefieldRole: role, when: primary!.condition as Condition });
+         else rest.push(...group);
+      }
+      return rest;
+   }
+
+   private roleOf(categoryId: string): BattlefieldRole | undefined {
+      const category = this.conversion.registry.category(categoryId);
+      return category?.kind === "Role" ? category.role : undefined;
    }
 
    private applyUnitModifiers(modifiers: FlatModifier[]): void {
