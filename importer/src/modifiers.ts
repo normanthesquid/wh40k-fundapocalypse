@@ -1,4 +1,4 @@
-import { combineFolded, conditionsOf, type ConditionContext, type Folded } from "./conditions.ts";
+import { allOf, combine, combineFolded, conditionsOf, not, type ConditionContext, type Folded } from "./conditions.ts";
 import type { Condition, CountScope, CountTarget, Limit, LimitTerm } from "./model.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
 
@@ -108,4 +108,23 @@ export function limitFrom(
    const simplified = targets.simplify(terms);
    if (simplified.length > 0) limit.terms = simplified;
    return availableWhen === undefined ? { limit } : { limit, availableWhen };
+}
+
+/** Visibility from `hidden` and its modifiers: a condition, "Always", "Never", or undefined when a condition failed. */
+export type Availability = Condition | "Always" | "Never" | undefined;
+
+export function availabilityOf(hidden: boolean, modifiers: FlatModifier[]): Availability {
+   const toggles = modifiers.filter((modifier) => modifier.field === "hidden");
+   if (toggles.some((modifier) => modifier.condition === undefined)) return undefined;
+   const showing = toggles.filter((modifier) => modifier.value === "false");
+   const hiding = toggles.filter((modifier) => modifier.value === "true");
+   if (hiding.some((modifier) => modifier.condition === null)) return "Never";
+   const hideWhen = combine("Any", hiding.map((modifier) => modifier.condition as Condition));
+   if (hidden) {
+      if (showing.some((modifier) => modifier.condition === null)) return hideWhen === undefined ? "Always" : not(hideWhen);
+      const showWhen = combine("Any", showing.map((modifier) => modifier.condition as Condition));
+      if (showWhen === undefined) return "Never";
+      return allOf(showWhen, hideWhen === undefined ? undefined : not(hideWhen))!;
+   }
+   return hideWhen === undefined ? "Always" : not(hideWhen);
 }

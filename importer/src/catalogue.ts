@@ -1,10 +1,10 @@
 import type { OutputBuilder } from "./builder.ts";
 import type { ConditionContext } from "./conditions.ts";
 import type { Conversion, Located, OptionSlugs } from "./conversion.ts";
-import { availabilityOf, DatasheetConverter } from "./datasheet.ts";
+import { DatasheetConverter } from "./datasheet.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, type EntryView } from "./entries.ts";
 import type { Catalogue, CountTarget, Datasheet, DatasheetLink, DetachmentAbility, DetachmentChoice } from "./model.ts";
-import { flatModifiers, flatModifiersOf } from "./modifiers.ts";
+import { availabilityOf, flatModifiers, flatModifiersOf } from "./modifiers.ts";
 import type { SourceDocument } from "./registry.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
 

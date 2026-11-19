@@ -1,37 +1,15 @@
 import type { OutputBuilder } from "./builder.ts";
-import { allOf, combine, conditionKey, not, type ConditionContext } from "./conditions.ts";
-import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
+import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
+import type { Conversion, OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
-import type { AlternativeRole, BattlefieldRole, Condition, DetachmentMinimum, ConditionalChange, CostChange, CountTarget, Datasheet, Option, OptionGroup } from "./model.ts";
-import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { CONDITION_TARGET_CORRECTIONS, describeSource, GROUP_BOUND_CORRECTIONS, MISSING_ROLES, OPTION_MAXIMUM_CORRECTIONS, STRAY_ROLE_LINKS } from "./corrections.ts";
-import { OptionBounds } from "./optionBounds.ts";
+import type { AlternativeRole, BattlefieldRole, Condition, DetachmentMinimum, ConditionalChange, CostChange, CountTarget, Datasheet, Option } from "./model.ts";
+import { availabilityOf, flatModifiers, flatModifiersOf, type FlatModifier } from "./modifiers.ts";
+import { CONDITION_TARGET_CORRECTIONS, describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
 import { UnitProfiles } from "./unitProfiles.ts";
+import { isMandatory, Wargear, type CategoryHolder, type InfoTarget, type UnitLimit } from "./wargear.ts";
 import { addWeaponVariants, carriedWeapon, type VariantContext } from "./weaponVariants.ts";
 import { characteristicNamesById, isDroppedProfile, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, WEAPON_PROFILE } from "./profiles.ts";
 import { attribute, childrenOf, type Element } from "./xml.ts";
-
-/** Visibility from `hidden` and its modifiers: a condition, "Always", "Never", or undefined when a condition failed. */
-export type Availability = Condition | "Always" | "Never" | undefined;
-
-export function availabilityOf(hidden: boolean, modifiers: FlatModifier[]): Availability {
-   const toggles = modifiers.filter((modifier) => modifier.field === "hidden");
-   if (toggles.some((modifier) => modifier.condition === undefined)) return undefined;
-   const showing = toggles.filter((modifier) => modifier.value === "false");
-   const hiding = toggles.filter((modifier) => modifier.value === "true");
-   if (hiding.some((modifier) => modifier.condition === null)) return "Never";
-   const hideWhen = combine("Any", hiding.map((modifier) => modifier.condition as Condition));
-   if (hidden) {
-      if (showing.some((modifier) => modifier.condition === null)) return hideWhen === undefined ? "Always" : not(hideWhen);
-      const showWhen = combine("Any", showing.map((modifier) => modifier.condition as Condition));
-      if (showWhen === undefined) return "Never";
-      return allOf(showWhen, hideWhen === undefined ? undefined : not(hideWhen))!;
-   }
-   return hideWhen === undefined ? "Always" : not(hideWhen);
-}
-
-/** Where a category link sits: on the unit itself, on an entry inside it, or on a whole unit nested inside it as an option. */
-type CategoryHolder = "Unit" | "NestedEntry" | "NestedUnit";
 
 interface SecondaryRole {
    readonly link: Element;
@@ -39,18 +17,8 @@ interface SecondaryRole {
    readonly holder: CategoryHolder;
 }
 
-/** A unit's detachment or army maximum, and when modifiers on it leave the unit available at all. */
-interface UnitLimit {
-   readonly maximum?: number;
-   readonly availableWhen?: Condition;
-}
-
 /** BattleScribe's value for a constraint with no limit. */
 const BATTLESCRIBE_UNLIMITED = -1;
-
-function nestedHolder(view: EntryView): CategoryHolder {
-   return attribute(view.target, "type") === "unit" ? "NestedUnit" : "NestedEntry";
-}
 
 export class DatasheetConverter {
    readonly context: ConditionContext;
@@ -58,14 +26,10 @@ export class DatasheetConverter {
    private readonly abilities = new Set<string>();
    private readonly keywords = new Set<string>();
    private readonly factionKeywords = new Set<string>();
-   private readonly groups: OptionGroup[] = [];
-   private readonly loose: Option[] = [];
-   private readonly optionsBySlug = new Map<string, Option>();
    private readonly deferred: (() => void)[] = [];
-   private readonly groupOf = new Map<OptionGroup, EntryView>();
    private readonly conditionalChanges = new Map<string, ConditionalChange>();
+   private readonly wargear: Wargear;
    private readonly unitProfiles: UnitProfiles;
-   private readonly bounds: OptionBounds;
    private readonly costChanges: CostChange[] = [];
    private readonly secondaryRoles: SecondaryRole[] = [];
    private readonly correctedTargets = new Set<string>();
@@ -100,20 +64,32 @@ export class DatasheetConverter {
          unhandled: (element, message) => this.unhandled(element, message),
          recordCorrection: (element, message) => conversion.report.recordCorrection(element, message),
       };
-      this.bounds = new OptionBounds({
-         groups: this.groups,
+      this.wargear = new Wargear({
+         conversion,
          slugs,
+         context: this.context,
+         weapons: this.weapons,
+         keywords: this.keywords,
+         factionKeywords: this.factionKeywords,
+         addCategories: (links, keywords, factionKeywords, holder) => this.addCategories(links, keywords, factionKeywords, holder),
+         addProfiles: (entry, option) => this.addProfiles(entry, option),
+         infoTargets: (profiles, rules, infoLinks, infoGroups) => this.infoTargets(profiles, rules, infoLinks, infoGroups),
+         conditionalChange: (when) => this.conditionalChange(when),
+         requires: (option) => this.requires(option),
+         unitLimit: (constraint, modifiers, label) => this.unitLimit(constraint, modifiers, label),
          optionTaken: (condition) => this.optionTaken(condition),
+         defer: (apply) => this.deferred.push(apply),
          unhandled: (element, message) => this.unhandled(element, message),
          fail: () => {
             this.failed = true;
          },
+         dropConditionalRename: (modifier) => this.dropConditionalRename(modifier),
       });
       this.unitProfiles = new UnitProfiles({
          conversion,
          view,
-         groups: this.groups,
-         optionsBySlug: this.optionsBySlug,
+         groups: this.wargear.groups,
+         optionsBySlug: this.wargear.optionsBySlug,
          defer: (apply) => this.deferred.push(apply),
          optionTaken: (condition) => this.optionTaken(condition),
          requires: (option) => this.requires(option),
@@ -143,20 +119,6 @@ export class DatasheetConverter {
       return this.catalogueTarget(childId) ?? this.conversion.globalCountTarget(this.builder, childId);
    }
 
-   /** The condition under which modifiers set both of a group's bounds to 0, when they do nothing else. */
-   private groupZeroedWhen(minimumConstraint: Element | undefined, maximumConstraint: Element | undefined, modifiers: FlatModifier[]): Condition | undefined {
-      if (minimumConstraint === undefined || maximumConstraint === undefined) return undefined;
-      const on = (constraint: Element) => modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
-      const isZeroedWhen = (modifier: FlatModifier) => modifier.type === "set" && Number(modifier.value) === 0 && modifier.repeats.length === 0 && Boolean(modifier.condition);
-      const minimumChanges = on(minimumConstraint);
-      const maximumChanges = on(maximumConstraint);
-      const changes = [...minimumChanges, ...maximumChanges];
-      if (minimumChanges.length === 0 || maximumChanges.length === 0 || !changes.every(isZeroedWhen)) return undefined;
-      const keys = (list: FlatModifier[]) => [...new Set(list.map((modifier) => conditionKey(modifier.condition as Condition)))].toSorted().join("|");
-      if (keys(minimumChanges) !== keys(maximumChanges)) return undefined;
-      return combine("Any", maximumChanges.map((modifier) => modifier.condition as Condition));
-   }
-
    /** Entries an option always carries, by id, mapped to that option: counting one counts the option. */
    private carriedPartsOf(): Map<string, string> {
       if (this.carriedParts !== undefined) return this.carriedParts;
@@ -165,7 +127,7 @@ export class DatasheetConverter {
          for (const child of [...view.childEntries, ...view.childGroups]) {
             const childView = viewOf(this.conversion.registry, child);
             if (childView === undefined) continue;
-            const isPart = childView.kind !== "group" && this.isMandatory(childView);
+            const isPart = childView.kind !== "group" && isMandatory(childView);
             if (isPart && option !== undefined) for (const id of childView.ids) parts.set(id, option);
             const isOption = childView.kind !== "group" && !isPart;
             walk(childView, isOption ? this.slugs.byId.get(childView.ids[0]) : option);
@@ -220,7 +182,7 @@ export class DatasheetConverter {
       const limitIds = new Set([detachmentConstraint, armyConstraint, minimumConstraint].filter((constraint) => constraint !== undefined).map((constraint) => attribute(constraint, "id")));
       this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, "Unit");
       this.addProfiles(view, undefined);
-      this.addChildren(view, undefined);
+      this.wargear.addChildren(view, undefined);
       this.unitProfiles.resolve();
       this.applyUnitModifiers(this.applyRoleSwaps(modifiers.filter((modifier) => !limitIds.has(modifier.field))));
       for (const apply of this.deferred) apply();
@@ -245,8 +207,8 @@ export class DatasheetConverter {
       if (this.conditionalChanges.size > 0) datasheet.conditionalChanges = [...this.conditionalChanges.values()];
       if (this.costChanges.length > 0) datasheet.costChanges = this.costChanges;
       if (this.alternativeRoles.length > 0) datasheet.alternativeRoles = this.alternativeRoles;
-      const wargear = [...this.groups];
-      if (this.loose.length > 0) wargear.push({ id: this.slugs.optionsGroup, name: "Upgrades", options: this.loose });
+      const wargear = [...this.wargear.groups];
+      if (this.wargear.loose.length > 0) wargear.push({ id: this.slugs.optionsGroup, name: "Upgrades", options: this.wargear.loose });
       if (wargear.length > 0) datasheet.wargear = wargear;
       const availability = availabilityOf(view.hidden, modifiers);
       if (availability === "Never") {
@@ -368,8 +330,8 @@ export class DatasheetConverter {
    }
 
    /** Profiles, rules and info links, with each info group (linked or held directly) opened into its contents, which BattleScribe only groups for display. */
-   private infoTargets(profiles: Element[], rules: Element[], infoLinks: Element[], infoGroups: Element[]): { link: Element | undefined; target: Element | undefined }[] {
-      const targets: { link: Element | undefined; target: Element | undefined }[] = [...profiles.filter((profile) => !isDroppedProfile(profile)), ...rules].map((target) => ({ link: undefined, target }));
+   private infoTargets(profiles: Element[], rules: Element[], infoLinks: Element[], infoGroups: Element[]): InfoTarget[] {
+      const targets: InfoTarget[] = [...profiles.filter((profile) => !isDroppedProfile(profile)), ...rules].map((target) => ({ link: undefined, target }));
       const open = (group: Element, link: Element | undefined) => {
          if (group.attributes.hidden === "true" || childrenOf(group, "modifiers", "modifier").length > 0 || (link !== undefined && childrenOf(link, "modifiers", "modifier").length > 0)) {
             this.unhandled(link ?? group, "info group that is hidden or has modifiers");
@@ -419,7 +381,7 @@ export class DatasheetConverter {
          const taken = option === undefined ? this.optionTaken(availability) : undefined;
          if (taken !== undefined) {
             this.deferred.push(() => {
-               const takenOption = this.optionsBySlug.get(taken);
+               const takenOption = this.wargear.optionsBySlug.get(taken);
                add(takenOption);
                addVariants(this.requires(takenOption));
             });
@@ -453,290 +415,10 @@ export class DatasheetConverter {
       return change;
    }
 
-   private isPassThrough(childId: string): boolean {
-      return childId === COMMANDER_ENTRY_ID || childId === WARMASTER_TRAITS_GROUP_ID;
-   }
-
    /** A condition that `parent` is taken, for wargear nested under it, which is flattened into the datasheet's own groups. */
    private requires(parent: Option | undefined): Condition | undefined {
       if (parent === undefined) return undefined;
       return { kind: "Count", scope: "Unit", of: { kind: "Option", option: parent.id! }, minimum: 1 };
-   }
-
-   private addChildren(view: EntryView, parent: Option | undefined): void {
-      for (const child of view.childEntries) {
-         if (child.tag === "entryLink" && this.isPassThrough(attribute(child, "targetId"))) continue;
-         const childView = this.conversion.view(child);
-         if (childView === undefined) continue;
-         if (this.isMandatory(childView)) {
-            this.slugs.fates.fixedWargear += 1;
-            this.absorb(childView, parent);
-         } else if (this.absorbUnlessDropped(childView, parent)) this.slugs.fates.carriedUntilDropped += 1;
-         else {
-            const option = this.optionFrom(childView, this.requires(parent));
-            if (option !== undefined) this.loose.push(option);
-         }
-      }
-      for (const group of view.childGroups) {
-         if (group.tag === "entryLink" && this.isPassThrough(attribute(group, "targetId"))) continue;
-         const groupView = this.conversion.view(group);
-         if (groupView !== undefined) this.addGroup(groupView, parent);
-      }
-   }
-
-   private isMandatory(view: EntryView): boolean {
-      const constraints = constraintsByScope(view);
-      const exactlyOne = constraintValue(constraints.get("parent min")) === 1 && constraintValue(constraints.get("parent max")) === 1;
-      const plain = view.modifiers.length === 0 && view.modifierGroups.length === 0 && !view.hidden;
-      return exactlyOne && plain && powerLevel(view) === 0;
-   }
-
-   /** An entry carried until a condition zeroes both its bounds: its weapons, removed while that condition holds, and its rules while it does not. */
-   private absorbUnlessDropped(view: EntryView, parent: Option | undefined): boolean {
-      if (!this.isDroppableWeapons(view)) return false;
-      const [first, second] = flatModifiers(view.modifiers, [], this.context);
-      if (first.condition === undefined || second.condition === undefined) {
-         this.failed = true;
-         return true;
-      }
-      if (!first.condition || !second.condition || conditionKey(first.condition) !== conditionKey(second.condition)) {
-         this.unhandled(view.element, "mandatory entry whose bounds are zeroed under different conditions");
-         return true;
-      }
-      const holder: Option = { name: view.name };
-      this.addProfiles(view, holder);
-      const weapons = holder.addsWeapons ?? [];
-      if (parent === undefined) this.weapons.push(...weapons);
-      else (parent.addsWeapons ??= []).push(...weapons);
-      const change = this.conditionalChange(allOf(this.requires(parent), first.condition)!);
-      (change.removesWeapons ??= []).push(...weapons);
-      if (holder.addsAbilities !== undefined) {
-         const carried = this.conditionalChange(allOf(this.requires(parent), not(first.condition))!);
-         for (const ability of holder.addsAbilities) if (!(carried.addsAbilities ??= []).includes(ability)) carried.addsAbilities.push(ability);
-      }
-      return true;
-   }
-
-   /** Exactly one, always shown, free, holding only plain weapon profiles and rules, with both bounds set to 0 by one modifier each. */
-   private isDroppableWeapons(view: EntryView): boolean {
-      const constraints = constraintsByScope(view);
-      const minimum = constraints.get("parent min");
-      const maximum = constraints.get("parent max");
-      if (minimum === undefined || maximum === undefined || constraints.size !== 2) return false;
-      if (constraintValue(minimum) !== 1 || constraintValue(maximum) !== 1 || view.hidden || powerLevel(view) !== 0) return false;
-      if (view.childEntries.length > 0 || view.childGroups.length > 0 || view.categoryLinks.length > 0 || view.modifierGroups.length > 0) return false;
-      const bounds = new Set([attribute(minimum, "id"), attribute(maximum, "id")]);
-      const zeroesBound = (modifier: Element) =>
-         attribute(modifier, "type") === "set" && Number(attribute(modifier, "value")) === 0 && bounds.delete(attribute(modifier, "field")) && childrenOf(modifier, "repeats", "repeat").length === 0;
-      if (view.modifiers.length !== 2 || !view.modifiers.every(zeroesBound)) return false;
-      const isWeaponOrRule = (target: Element) => target.tag === "rule" || (target.tag === "profile" && attribute(target, "typeName") === WEAPON_PROFILE);
-      const isPlain = (element: Element | undefined) => element === undefined || childrenOf(element, "modifiers", "modifier").length === 0;
-      return this.infoTargets(view.profiles, view.rules, view.infoLinks, view.infoGroups).every(
-         ({ link, target }) => target !== undefined && isWeaponOrRule(target) && target.attributes.hidden !== "true" && isPlain(link) && isPlain(target),
-      );
-   }
-
-   /** A mandatory entry is part of what holds it (the datasheet, or the option `parent`), with its own children. */
-   private absorb(view: EntryView, parent: Option | undefined): void {
-      if (parent === undefined) this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, nestedHolder(view));
-      else this.addOptionCategories(view, parent);
-      this.addProfiles(view, parent);
-      this.addChildren(view, parent);
-   }
-
-   private addOptionCategories(view: EntryView, option: Option): void {
-      const keywords = new Set<string>(option.addsKeywords);
-      const factionKeywords = new Set<string>(option.addsFactionKeywords);
-      this.addCategories(view.categoryLinks, keywords, factionKeywords, nestedHolder(view));
-      if (keywords.size > 0) option.addsKeywords = [...keywords];
-      if (factionKeywords.size > 0) option.addsFactionKeywords = [...factionKeywords];
-   }
-
-   private optionFrom(view: EntryView, inherited: Condition | undefined): Option | undefined {
-      const id = this.slugs.byId.get(view.ids[0])!;
-      const option: Option = { id, name: view.name };
-      this.optionsBySlug.set(id, option);
-      const cost = powerLevel(view);
-      const modifiers = flatModifiers(view.modifiers, view.modifierGroups, this.context);
-      const constraints = constraintsByScope(view);
-      const minimum = constraintValue(constraints.get("parent min"));
-      const maximumConstraint = constraints.get("parent max");
-      let availableWhen = inherited;
-      const maximumModifiers = maximumConstraint === undefined ? [] : modifiers.filter((modifier) => modifier.field === attribute(maximumConstraint, "id"));
-      const maximumBase = constraintValue(maximumConstraint) ?? 0;
-      const isZeroedWhen = (modifier: FlatModifier) => modifier.type === "set" && Number(modifier.value) === 0 && modifier.condition !== null && modifier.repeats.length === 0;
-      const isUnconditionalSet = (modifier: FlatModifier) => modifier.type === "set" && modifier.condition === null && modifier.repeats.length === 0;
-      const isAvailabilitySet = maximumModifiers.length === 1 && maximumBase === 0 && maximumModifiers[0].type === "set" && maximumModifiers[0].condition !== null;
-      const isSimple = maximumModifiers.length === 0 || isAvailabilitySet || maximumModifiers.some((modifier) => modifier.repeats.length > 0);
-      if (maximumModifiers.some((modifier) => modifier.condition === undefined)) this.failed = true;
-      else if (!isSimple && maximumBase > 0 && maximumModifiers.every(isZeroedWhen)) {
-         option.maximum = maximumBase;
-         availableWhen = allOf(availableWhen, not(combine("Any", maximumModifiers.map((modifier) => modifier.condition as Condition))!));
-      } else if (!isSimple && maximumModifiers.length === 1 && isUnconditionalSet(maximumModifiers[0]) && Number(maximumModifiers[0].value) > 0) {
-         option.maximum = Number(maximumModifiers[0].value);
-      } else if (!isSimple) {
-         option.maximum = maximumBase;
-         this.deferred.push(() => this.bounds.setBound(option, "maximum", maximumConstraint!, modifiers, "option"));
-      } else if (maximumConstraint !== undefined) {
-         const converted = limitFrom(maximumConstraint, modifiers, { target: () => undefined, simplify: (terms) => terms }, this.context);
-         if (converted === undefined) this.failed = true;
-         else if (converted.limit.terms !== undefined) this.unhandled(maximumConstraint, "option maximum that grows");
-         else if (converted.limit.base === 0 && converted.availableWhen === undefined) {
-            this.conversion.report.recordDropped(view.element, "option with a maximum of 0");
-            this.slugs.fates.dropped += this.conversion.wargearEntryCount(view);
-            return undefined;
-         } else {
-            option.maximum = converted.limit.base;
-            availableWhen = allOf(availableWhen, converted.availableWhen);
-         }
-      }
-      const maximumCorrection = OPTION_MAXIMUM_CORRECTIONS.find((entry) => maximumConstraint !== undefined && entry.constraintId === attribute(maximumConstraint, "id"));
-      if (maximumCorrection !== undefined) {
-         option.maximum = maximumCorrection.maximum;
-         this.conversion.report.recordCorrection(view.element, `${maximumCorrection.name}: maximum ${maximumCorrection.maximum} as printed (${describeSource(maximumCorrection.source)})`);
-      }
-      const minimumConstraint = constraints.get("parent min");
-      const minimumModifiers = minimumConstraint === undefined ? [] : modifiers.filter((modifier) => modifier.field === attribute(minimumConstraint, "id"));
-      const isDroppedWithMaximum = (modifier: FlatModifier) => modifier.type === "set" && Number(modifier.value) === 0 && maximumModifiers.some((maximumModifier) => JSON.stringify(maximumModifier.condition) === JSON.stringify(modifier.condition));
-      let minimumValue = minimum ?? 0;
-      const requiredWhen: Condition[] = [];
-      for (const modifier of minimumModifiers.filter((candidate) => !isDroppedWithMaximum(candidate))) {
-         if (modifier.condition === undefined) this.failed = true;
-         else if (modifier.repeats.length > 0 || modifier.type !== "set") this.unhandled(modifier.element, `option minimum ${modifier.type}`);
-         else if (modifier.condition === null) minimumValue = Number(modifier.value);
-         else if (Number(modifier.value) === 1 && minimumValue <= 0) requiredWhen.push(modifier.condition);
-         else this.unhandled(modifier.element, "option minimum set with conditions to more than 1");
-      }
-      if (minimumValue > 0) option.minimum = minimumValue;
-      if (requiredWhen.length > 0) option.requiredWhen = combine("Any", requiredWhen)!;
-      const constraintIds = new Set(view.constraints.map((constraint) => attribute(constraint, "id")));
-      const wider = { "force max": "maximumPerDetachment", "roster max": "maximumPerArmy", "roster min": "minimumPerArmy" } as const;
-      for (const [key, constraint] of constraints) {
-         if (key === "parent min" || key === "parent max") continue;
-         const field = wider[key as keyof typeof wider];
-         const value = constraintValue(constraint);
-         const constraintModifiers = modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
-         const modified = constraintModifiers.length > 0;
-         if (key === "roster min" && value === 0 && modified && this.isDetachmentKeywordMinimum(view, constraintModifiers)) {
-            for (const modifier of constraintModifiers) this.conversion.report.recordDropped(modifier.element, "army minimum the detachment's own keyword minimum already sets");
-            continue;
-         }
-         if ((key === "force max" || key === "roster max") && modified) {
-            const limit = this.unitLimit(constraint, modifiers, "option");
-            if (limit.maximum !== undefined) option[key === "force max" ? "maximumPerDetachment" : "maximumPerArmy"] = limit.maximum;
-            availableWhen = allOf(availableWhen, limit.availableWhen);
-            continue;
-         }
-         if (field === undefined || value === undefined || value < 1 || modified) this.unhandled(constraint, `option constraint ${key}${modified ? " with modifiers" : ""}`);
-         else option[field] = value;
-      }
-      for (const modifier of modifiers) {
-         if (modifier.field === "hidden" || constraintIds.has(modifier.field)) continue;
-         if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.type === "set" && modifier.condition === null) option.cost = Number(modifier.value);
-         else if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.condition === null && modifier.repeats.length === 0) {
-            const signed = Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
-            option.cost = (option.cost ?? cost) + signed;
-         }
-         else if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.condition !== null && modifier.condition !== undefined && modifier.repeats.length === 0) {
-            const amount = Number(modifier.value);
-            const change = modifier.type === "set" ? { when: modifier.condition, set: amount } : { when: modifier.condition, increment: modifier.type === "decrement" ? -amount : amount };
-            (option.costChanges ??= []).push(change);
-         } else if (modifier.field === "name" && modifier.condition === null) option.name = modifier.value;
-         else if (modifier.field === "name") this.dropConditionalRename(modifier);
-         else this.unhandled(modifier.element, `option modifier ${modifier.type} ${modifier.field}${modifier.condition ? " with conditions" : ""}`);
-      }
-      if (option.cost === undefined && cost !== 0) option.cost = cost;
-      const availability = availabilityOf(view.hidden, modifiers);
-      if (availability === "Never") {
-         this.conversion.report.recordDropped(view.element, "option hidden with no condition that shows it");
-         this.slugs.fates.dropped += this.conversion.wargearEntryCount(view);
-         return undefined;
-      }
-      if (availability !== undefined && availability !== "Always") availableWhen = allOf(availableWhen, availability);
-      if (availableWhen !== undefined) option.availableWhen = availableWhen;
-      this.addOptionCategories(view, option);
-      this.addProfiles(view, option);
-      this.addChildren(view, option);
-      this.slugs.fates.options += 1;
-      return option;
-   }
-
-   private addGroup(view: EntryView, parent: Option | undefined): void {
-      const id = this.slugs.byId.get(view.ids[0])!;
-      const modifiers = flatModifiers(view.modifiers, view.modifierGroups, this.context);
-      const availability = availabilityOf(view.hidden, modifiers);
-      if (availability === "Never") {
-         this.conversion.report.recordDropped(view.element, "option group hidden with no condition that shows it");
-         this.slugs.fates.dropped += this.conversion.wargearEntriesUnder(view);
-         return;
-      }
-      const shownWhen = allOf(availability === "Always" || availability === undefined ? undefined : availability, this.requires(parent));
-      const group: OptionGroup = { id, name: view.name, options: [] };
-      const constraints = constraintsByScope(view);
-      const minimum = constraintValue(constraints.get("parent min"));
-      const maximum = constraintValue(constraints.get("parent max"));
-      const minimumConstraint = constraints.get("parent min");
-      const maximumConstraint = constraints.get("parent max");
-      const boundIds = new Set([minimumConstraint, maximumConstraint].filter((constraint) => constraint !== undefined).map((constraint) => attribute(constraint, "id")));
-      const minimumModified = minimumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(minimumConstraint, "id"));
-      if (minimum !== undefined && minimum > 0 && parent === undefined && !minimumModified) group.minimum = minimum;
-      if (minimum !== undefined && minimum > 0 && parent !== undefined) {
-         this.conversion.report.recordCorrection(view.element, `minimum ${minimum} dropped: the group is only offered once ${parent.name} is taken`);
-      }
-      if (maximum !== undefined) group.maximum = maximum;
-      const correction = GROUP_BOUND_CORRECTIONS.find((entry) => view.ids.includes(entry.groupId));
-      const zeroedWhen = this.groupZeroedWhen(minimumConstraint, maximumConstraint, modifiers);
-      const multipleOf = minimumModified && minimum === 0 ? this.bounds.multipleOf(id, minimumConstraint, modifiers) : undefined;
-      if (correction !== undefined) {
-         if (correction.minimum !== undefined) group.minimum = correction.minimum;
-         if (correction.maximum !== undefined) group.maximum = correction.maximum;
-         this.conversion.report.recordCorrection(view.element, `${correction.name} bounds set as printed (${describeSource(correction.source)})`);
-      } else if (zeroedWhen !== undefined) {
-         if (minimum !== undefined && minimum > 0 && parent === undefined) group.minimum = minimum;
-         group.availableWhen = not(zeroedWhen);
-      } else {
-         if (multipleOf !== undefined) group.multipleOf = multipleOf;
-         else if (minimumModified && parent === undefined) this.deferred.push(() => this.bounds.setBound(group, "minimum", minimumConstraint, modifiers, "option group"));
-         if (maximumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(maximumConstraint, "id"))) {
-            this.deferred.push(() => this.bounds.setBound(group, "maximum", maximumConstraint, modifiers, "option group"));
-         }
-      }
-      for (const key of constraints.keys()) if (!["parent min", "parent max"].includes(key)) this.unhandled(constraints.get(key)!, `option group constraint ${key}`);
-      for (const modifier of modifiers) if (modifier.field !== "hidden" && !boundIds.has(modifier.field)) this.unhandled(modifier.element, `option group modifier ${modifier.type} ${modifier.field}`);
-      this.groupOf.set(group, view);
-      for (const child of view.childEntries) {
-         if (child.tag === "entryLink" && this.isPassThrough(attribute(child, "targetId"))) continue;
-         const childView = this.conversion.view(child);
-         if (childView === undefined) continue;
-         const option = this.optionFrom(childView, shownWhen);
-         if (option !== undefined) group.options.push(option);
-      }
-      for (const nested of view.childGroups) {
-         const nestedView = this.conversion.view(nested);
-         if (nestedView !== undefined) this.addGroup(nestedView, parent);
-      }
-      if (view.defaultSelectionEntryId !== undefined) {
-         const fallback = this.slugs.byId.get(view.defaultSelectionEntryId);
-         if (fallback !== undefined && group.options.some((option) => option.id === fallback)) group.default = fallback;
-         else this.unhandled(view.element, "default selection that is not one of the group's options");
-      }
-      if (group.options.length === 0) {
-         if (view.childGroups.length === 0) this.conversion.report.recordDropped(view.element, "option group with no options left");
-         return;
-      }
-      this.groups.push(group);
-   }
-
-   /** Whether every modifier raises the minimum only inside a detachment type whose keyword limits already require that many of a keyword the entry has. */
-   private isDetachmentKeywordMinimum(view: EntryView, modifiers: FlatModifier[]): boolean {
-      const keywords = view.categoryLinks.map((link) => this.conversion.registry.category(attribute(link, "targetId"))).flatMap((category) => (category?.kind === "Keyword" ? [category.keyword] : []));
-      return modifiers.every((modifier) => {
-         const condition = modifier.condition;
-         if (modifier.type !== "set" || condition?.kind !== "Count" || condition.scope !== "Detachment" || condition.of.kind !== "Detachment") return false;
-         const detachment = condition.of.detachment;
-         const required = Number(modifier.value);
-         return keywords.some((keyword) => (this.conversion.gameSystem.keywordMinimum(detachment, keyword) ?? 0) >= required);
-      });
    }
 
    /** A name that changes under a condition only labels what the condition already shows, such as a mount or a model count. */
@@ -773,7 +455,7 @@ export class DatasheetConverter {
             continue;
          }
          const taken = this.optionTaken(modifier.condition);
-         const option = taken === undefined ? undefined : this.optionsBySlug.get(taken);
+         const option = taken === undefined ? undefined : this.wargear.optionsBySlug.get(taken);
          if (modifier.field === POWER_LEVEL_TYPE_ID && option !== undefined && modifier.repeats.length === 0) {
             const delta = modifier.type === "set" ? Number(modifier.value) - baseCost : Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
             option.cost = (option.cost ?? 0) + delta;
