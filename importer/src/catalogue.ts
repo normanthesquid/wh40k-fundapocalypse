@@ -243,7 +243,10 @@ export class CatalogueConversion {
                else if (category?.kind === "Keyword") (option.addsKeywords ??= []).push(category.keyword);
                else this.conversion.report.failUnhandled(link, "detachment choice category that is not a keyword");
             }
-            const extra = [...optionView.profiles, ...optionView.infoLinks, ...optionView.childEntries, ...optionView.childGroups, ...optionView.modifiers];
+            const lifted = optionView.modifiers.filter((modifier) => liftsOwnMinimum(modifier, optionView));
+            for (const modifier of lifted) this.conversion.report.recordDropped(modifier, "modifier lifting a minimum detachment choice options do not carry");
+            const kept = optionView.modifiers.filter((modifier) => !lifted.includes(modifier));
+            const extra = [...optionView.profiles, ...optionView.infoLinks, ...optionView.childEntries, ...optionView.childGroups, ...kept];
             for (const element of extra) this.conversion.report.failUnhandled(element, `detachment choice option with a ${element.tag}`);
             choice.options[optionSlug] = option;
          }
@@ -281,4 +284,11 @@ export class CatalogueConversion {
       }
       return abilities;
    }
+}
+
+/** An unconditional modifier setting the entry's own minimum to 0. */
+function liftsOwnMinimum(modifier: Element, view: EntryView): boolean {
+   const minimum = constraintsByScope(view).get("parent min");
+   const isUnconditionalSet = attribute(modifier, "type") === "set" && modifier.children.length === 0;
+   return minimum !== undefined && isUnconditionalSet && attribute(modifier, "field") === attribute(minimum, "id") && Number(attribute(modifier, "value")) === 0;
 }
