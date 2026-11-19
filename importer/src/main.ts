@@ -40,7 +40,7 @@ for (const catalogue of converted) report.after.set(catalogue.id, countAfter(cat
 const fidelity = writeReport(flags.report, report, conversion, converted);
 
 console.log(`${converted.length} catalogues written to ${flags.output}`);
-console.log(`${report.corrections.length} corrections, ${report.dropped.length} dropped, ${report.unhandled.length} unhandled`);
+console.log(`${report.corrections.length} corrections, ${report.dropped.length} dropped, ${report.renames.length} renamed, ${report.unhandled.length} unhandled`);
 console.log(`fidelity: ${fidelity.unexplainedCounts} unit counts differ, ${fidelity.unexplainedNames} unexplained names, ${fidelity.unaccountedWargear} unaccounted wargear entries`);
 const fidelityProblems = fidelity.unexplainedCounts + fidelity.unexplainedNames + fidelity.unaccountedWargear;
 if (fidelityProblems > 0) process.exitCode = 1;

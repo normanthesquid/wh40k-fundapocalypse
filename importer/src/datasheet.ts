@@ -1,6 +1,6 @@
 import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
-import type { Conversion, OptionSlugs } from "./conversion.ts";
+import type { Conversion, Located, OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { AlternativeRole, BattlefieldRole, Condition, DetachmentMinimum, ConditionalChange, CostChange, CountTarget, Datasheet, Option } from "./model.ts";
 import { availabilityOf, flatModifiers, flatModifiersOf, type FlatModifier } from "./modifiers.ts";
@@ -356,14 +356,17 @@ export class DatasheetConverter {
       }
       const original = this.conversion.reference(this.builder, located);
       const isWeapon = target.tag === "profile" && attribute(target, "typeName") === WEAPON_PROFILE;
-      for (const renamed of modifiers.filter((modifier) => modifier.field === "name")) this.conversion.report.recordDropped(renamed.element, `display rename to "${renamed.value}"`);
       const rest = modifiers.filter((modifier) => modifier.field !== "name" && modifier.field !== "hidden");
       const characteristicNames = characteristicNamesById(target);
       const characteristicChanges = isWeapon ? rest.filter((modifier) => modifier.type === "set" && modifier.repeats.length === 0 && characteristicNames.has(modifier.field)) : [];
-      const renames = modifiers.filter((modifier) => modifier.field === "name");
-      const reference = characteristicChanges.length === 0 ? original : carriedWeapon(this.variantContext, target, original, characteristicChanges, renames);
+      const renames = this.usableRenames(modifiers);
+      const reference = isWeapon ? carriedWeapon(this.variantContext, target, original, characteristicChanges, renames) : this.renamedAbility(located, original, renames);
+      const conditionalRenames = renames.filter((rename) => rename.condition !== null);
+      if (!isWeapon) for (const rename of conditionalRenames) this.unhandled(rename.element, "ability rename under a condition");
+      const applied = isWeapon ? renames : renames.filter((rename) => rename.condition === null);
+      for (const rename of applied) this.conversion.report.recordRename(rename.element, `renamed to "${rename.value.trim()}"${rename.condition === null ? "" : " under a condition"}`);
       const addVariants = (required: Condition | undefined) => {
-         if (characteristicChanges.length > 0) addWeaponVariants(this.variantContext, target, reference, characteristicChanges, renames, required);
+         if (isWeapon && characteristicChanges.length + conditionalRenames.length > 0) addWeaponVariants(this.variantContext, target, reference, characteristicChanges, renames, required);
       };
       for (const modifier of rest.filter((candidate) => !characteristicChanges.includes(candidate))) this.unhandled(modifier.element, `${isWeapon ? "weapon" : "ability"} modifier ${modifier.type} ${modifier.field}`);
       const availability = availabilityOf(target.attributes.hidden === "true", modifiers);
@@ -393,6 +396,22 @@ export class DatasheetConverter {
             else if (!(change.addsAbilities ??= []).includes(reference)) change.addsAbilities.push(reference);
          }
       }
+   }
+
+   /** Name modifiers that give the official datasheet's name; one that sets no name at all, such as "0.0", is reported and left out. */
+   private usableRenames(modifiers: FlatModifier[]): FlatModifier[] {
+      const renames = modifiers.filter((modifier) => modifier.field === "name");
+      const isName = (rename: FlatModifier) => /\p{L}/u.test(rename.value);
+      for (const rename of renames.filter((candidate) => !isName(candidate))) this.conversion.report.recordDropped(rename.element, `rename to "${rename.value}", which is not a name`);
+      return renames.filter(isName);
+   }
+
+   /** The ability under the name an unconditional rename gives it on this datasheet, such as Reaver Void Shields. */
+   private renamedAbility(located: Located, original: string, renames: FlatModifier[]): string {
+      const name = renames.filter((rename) => rename.condition === null).at(-1)?.value.trim();
+      if (name === undefined) return original;
+      const ability = located.builder.abilities.get(located.slug)!;
+      return this.conversion.reference(this.builder, { builder: this.builder, slug: this.builder.addAbility({ ...ability, name }) });
    }
 
    private get variantContext(): VariantContext {

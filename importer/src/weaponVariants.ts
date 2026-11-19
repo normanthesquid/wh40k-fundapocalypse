@@ -22,17 +22,18 @@ interface ConditionGroup {
    readonly changes: FlatModifier[];
 }
 
-/** The weapon as this datasheet carries it, with the modifiers that always apply here. */
+/** The weapon as this datasheet carries it, with the modifiers and renames that always apply here. */
 export function carriedWeapon(context: VariantContext, profile: Element, original: string, changes: FlatModifier[], renames: FlatModifier[]): string {
    const always = changes.filter((change) => change.condition === null);
-   if (always.length === 0) return original;
-   return weaponWith(context, profile, always, renames.filter((rename) => rename.condition === null)) ?? original;
+   const alwaysRenames = renames.filter((rename) => rename.condition === null);
+   if (always.length === 0 && alwaysRenames.length === 0) return original;
+   return weaponWith(context, profile, always, alwaysRenames) ?? original;
 }
 
-/** A weapon whose characteristics modifiers set: one weapon per combination of their conditions, swapped in for the carried one while exactly that combination holds. */
+/** A weapon whose characteristics or name modifiers set: one weapon per combination of their conditions, swapped in for the carried one while exactly that combination holds. */
 export function addWeaponVariants(context: VariantContext, profile: Element, carried: string, changes: FlatModifier[], renames: FlatModifier[], required: Condition | undefined): void {
    const groups = new Map<string, ConditionGroup>();
-   for (const change of changes) {
+   for (const change of [...changes, ...renames]) {
       if (change.condition === undefined || change.condition === null) continue;
       const key = JSON.stringify(change.condition);
       if (!groups.has(key)) groups.set(key, { key, condition: change.condition, changes: [] });
@@ -40,7 +41,7 @@ export function addWeaponVariants(context: VariantContext, profile: Element, car
    }
    const conditions = [...groups.values()];
    if (conditions.length > MAXIMUM_VARIANT_CONDITIONS) {
-      for (const change of changes) context.unhandled(change.element, `weapon modifiers under more than ${MAXIMUM_VARIANT_CONDITIONS} conditions`);
+      for (const change of [...changes, ...renames]) context.unhandled(change.element, `weapon modifiers under more than ${MAXIMUM_VARIANT_CONDITIONS} conditions`);
       return;
    }
    for (const chosen of nonEmptySubsets(conditions)) addVariant(context, profile, carried, changes, chosen, conditions, renames, required);

@@ -81,7 +81,7 @@ function explanationOf(name: string, findings: Finding[]): string | undefined {
 }
 
 function nameDifferences(report: Report): { lines: string[]; unexplained: number } {
-   const findings = [...report.dropped, ...report.corrections];
+   const findings = [...report.dropped, ...report.corrections, ...report.renames];
    const lines: string[] = [];
    let unexplained = 0;
    for (const [slug, before] of report.before) {
@@ -141,6 +141,7 @@ export function writeReport(path: string, report: Report, conversion: Conversion
    lines.push("", "A bold option count differs from the options in the converted catalogue.", "");
    lines.push(`## Corrections (${report.corrections.length})`, "", findingRows(report.corrections));
    lines.push(`## Dropped (${report.dropped.length})`, "", findingRows(report.dropped));
+   lines.push(`## Renamed (${report.renames.length})`, "", findingRows(report.renames));
    lines.push(`## Unhandled (${report.unhandled.length})`, "", findingRows(report.unhandled));
    mkdirSync(dirname(path), { recursive: true });
    writeFileSync(path, lines.join("\n"));

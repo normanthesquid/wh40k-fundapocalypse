@@ -22,6 +22,7 @@ export class Report {
    readonly unhandled: Finding[] = [];
    readonly corrections: Finding[] = [];
    readonly dropped: Finding[] = [];
+   readonly renames: Finding[] = [];
    readonly before = new Map<string, CatalogueCounts>();
    readonly after = new Map<string, CatalogueCounts>();
    readonly idMapping = new Map<string, string>();
@@ -40,6 +41,11 @@ export class Report {
 
    recordDropped(element: Element, message: string): void {
       this.dropped.push(this.finding(element, message));
+   }
+
+   /** A name modifier applied as it stands, giving the official datasheet's name. */
+   recordRename(element: Element, message: string): void {
+      this.renames.push(this.finding(element, message));
    }
 
    mapId(battleScribeId: string, globalId: string): void {
