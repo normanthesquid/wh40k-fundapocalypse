@@ -161,11 +161,12 @@ type UniversalOption struct {
 }
 
 type OptionGroup struct {
-	ID      string   `json:"id"`
-	Minimum *Bound   `json:"minimum"`
-	Maximum *Bound   `json:"maximum"`
-	Default *string  `json:"default"`
-	Options []Option `json:"options"`
+	ID         string   `json:"id"`
+	Minimum    *Bound   `json:"minimum"`
+	Maximum    *Bound   `json:"maximum"`
+	MultipleOf *int     `json:"multipleOf"`
+	Default    *string  `json:"default"`
+	Options    []Option `json:"options"`
 }
 
 type AlternativeRole struct {

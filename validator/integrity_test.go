@@ -320,6 +320,18 @@ func TestIntegrityRules(t *testing.T) {
 		{"group minimum its options cannot meet", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = fixed(3) })
 		}, `wargear/1: minimum 3 is more than the 2 its options allow`},
+		{"group maximum that is not a multiple", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Wargear[1].Maximum = fixed(3)
+				inquisitor.Wargear[1].MultipleOf = pointer(2)
+			})
+		}, `wargear/1: maximum 3 is not a multiple of 2`},
+		{"group bounds that are multiples", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Wargear[1].Minimum = fixed(2)
+				inquisitor.Wargear[1].MultipleOf = pointer(2)
+			})
+		}, ""},
 		{"group minimum its options just meet", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Wargear[1].Minimum = fixed(2) })
 		}, ""},

@@ -58,6 +58,18 @@
                ]
             },
             {
+               "id": "sponsons",
+               "name": "Sponsons",
+               "maximum": 4,
+               "multipleOf": 2,
+               "options": [
+                  {
+                     "id": "heavy-bolter-sponson",
+                     "name": "Heavy Bolter Sponson"
+                  }
+               ]
+            },
+            {
                "id": "heavy-weapon",
                "name": "Heavy weapon",
                "maximum": {

@@ -4,7 +4,7 @@ import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type Op
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { BattlefieldRole, Condition, ConditionalChange, CostChange, CountTarget, Datasheet, LimitTerm, Option, OptionGroup } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
+import { CONDITION_TARGET_CORRECTIONS, describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
 import { UnitProfiles } from "./unitProfiles.ts";
 import { addWeaponVariants, carriedWeapon, type VariantContext } from "./weaponVariants.ts";
 import { characteristicNamesById, isDroppedProfile, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, WEAPON_PROFILE } from "./profiles.ts";
@@ -57,6 +57,7 @@ export class DatasheetConverter {
    private readonly unitProfiles: UnitProfiles;
    private readonly costChanges: CostChange[] = [];
    private readonly secondaryRoles: SecondaryRole[] = [];
+   private readonly correctedTargets = new Set<string>();
    private role: BattlefieldRole | undefined;
    private transport: string | undefined;
    private cost: number;
@@ -109,12 +110,22 @@ export class DatasheetConverter {
       this.conversion.report.failUnhandled(element, message);
    }
 
-   private countTarget(childId: string): CountTarget | undefined {
+   private countTarget(sourceChildId: string): CountTarget | undefined {
+      const childId = this.correctedChildId(sourceChildId);
       const local = this.slugs.byId.get(childId);
       if (local !== undefined && this.slugs.groups.has(local)) return { kind: "OptionGroup", group: local };
       if (local !== undefined) return { kind: "Option", option: local };
       if (childId === MODEL_COUNT_ID) return this.modelOption();
       return this.catalogueTarget(childId) ?? this.conversion.globalCountTarget(this.builder, childId);
+   }
+
+   /** The unit's own entry in place of another unit's that the correction table says a condition names by mistake. */
+   private correctedChildId(childId: string): string {
+      const correction = CONDITION_TARGET_CORRECTIONS.find((entry) => entry.childId === childId && this.view.ids.includes(entry.unitId));
+      if (correction === undefined) return childId;
+      if (!this.correctedTargets.has(childId)) this.conversion.report.recordCorrection(this.view.element, `conditions on ${correction.name} name the unit's own entry (${describeSource(correction.source)})`);
+      this.correctedTargets.add(childId);
+      return correction.correctedChildId;
    }
 
    /** Counting the unit's models counts its one model option; undefined when it has several, or none. */
@@ -543,7 +554,9 @@ export class DatasheetConverter {
          this.conversion.report.recordCorrection(view.element, `minimum ${minimum} dropped: the group is only offered once ${parent.name} is taken`);
       }
       if (maximum !== undefined) group.maximum = maximum;
-      if (minimumModified && parent === undefined) this.deferred.push(() => this.setBound(group, "minimum", minimumConstraint, modifiers, "option group"));
+      const multipleOf = minimumModified && minimum === 0 ? this.multipleOfFrom(id, minimumConstraint, modifiers) : undefined;
+      if (multipleOf !== undefined) group.multipleOf = multipleOf;
+      else if (minimumModified && parent === undefined) this.deferred.push(() => this.setBound(group, "minimum", minimumConstraint, modifiers, "option group"));
       if (maximumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(maximumConstraint, "id"))) {
          this.deferred.push(() => this.setBound(group, "maximum", maximumConstraint, modifiers, "option group"));
       }
@@ -571,6 +584,24 @@ export class DatasheetConverter {
          return;
       }
       this.groups.push(group);
+   }
+
+   /** The step of a minimum raised to the next multiple whenever the group is one short of it, e.g. sponsons taken in pairs. */
+   private multipleOfFrom(groupSlug: string, constraint: Element, modifiers: FlatModifier[]): number | undefined {
+      const raises = modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
+      const values = raises.map((modifier) => {
+         const condition = modifier.condition;
+         const value = Number(modifier.value);
+         const oneShort = value - 1;
+         const countsOwnGroup = condition?.kind === "Count" && condition.scope === "Unit" && condition.of.kind === "OptionGroup" && condition.of.group === groupSlug;
+         const isOneShort = countsOwnGroup && condition.minimum === oneShort && (condition.maximum === undefined || condition.maximum === oneShort);
+         return modifier.type === "set" && modifier.repeats.length === 0 && isOneShort ? value : undefined;
+      });
+      if (values.some((value) => value === undefined)) return undefined;
+      const sorted = (values as number[]).toSorted((first, second) => first - second);
+      const step = sorted[0];
+      const isEveryMultiple = sorted.every((value, index) => value === step * (index + 1));
+      return step >= 2 && isEveryMultiple ? step : undefined;
    }
 
    /** The options a condition requires, when it is one option taken or any of several. */

@@ -259,6 +259,11 @@
             "name": { "type": "string", "minLength": 1 },
             "minimum": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "$ref": "#/$defs/growingBound" }] },
             "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
+            "multipleOf": {
+               "description": "The number of options taken must be a multiple of this, e.g. sponsons taken in pairs.",
+               "type": "integer",
+               "minimum": 2
+            },
             "default": {
                "description": "The id of the option picked when the unit is added; one of `options`.",
                "$ref": "common.schema.json#/$defs/slug"

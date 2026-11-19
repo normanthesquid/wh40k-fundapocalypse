@@ -185,6 +185,7 @@ func (check *checker) checkOptionGroup(where scope, group OptionGroup) {
 	if group.Maximum != nil {
 		check.checkLimit(where.at("maximum"), group.Maximum.Growing)
 	}
+	check.checkMultipleOf(where, group.MultipleOf, minimum, maximum)
 	if group.Default != nil && !slices.Contains(optionIDsOf(group), *group.Default) {
 		check.report(where, "default %q is not one of the group's options", *group.Default)
 	}
@@ -201,6 +202,21 @@ func (check *checker) checkOptionGroup(where scope, group OptionGroup) {
 	}
 	if *minimum > available {
 		check.report(where, "minimum %d is more than the %d its options allow", *minimum, available)
+	}
+}
+
+// checkMultipleOf reports a fixed bound that no allowed count can meet.
+func (check *checker) checkMultipleOf(where scope, multipleOf, minimum, maximum *int) {
+	if multipleOf == nil {
+		return
+	}
+	for _, bound := range []struct {
+		name  string
+		value *int
+	}{{"minimum", minimum}, {"maximum", maximum}} {
+		if bound.value != nil && *bound.value%*multipleOf != 0 {
+			check.report(where, "%s %d is not a multiple of %d", bound.name, *bound.value, *multipleOf)
+		}
 	}
 }
 

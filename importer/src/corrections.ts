@@ -162,6 +162,11 @@ export const STRAY_ROLE_LINKS: readonly { readonly linkId: string; readonly name
    { linkId: "2745-1595-e03d-975c", name: "Sentinel Powerlifters", source: pdf("FW_Astra_Militarum", 35) },
 ];
 
+/** Conditions that name another unit's entry where the unit's own was meant, keyed by the unit's id and the wrong childId. */
+export const CONDITION_TARGET_CORRECTIONS: readonly { readonly unitId: string; readonly childId: string; readonly correctedChildId: string; readonly name: string; readonly source: Source }[] = [
+   { unitId: "f1dc-9426-c419-5aa6", childId: "a9ec-6432-91ba-f8bf", correctedChildId: "973a-0f6f-0bb6-eb25", name: "Land Speeders 3 models", source: pdf("Adeptus_Astartes", 29) },
+];
+
 export function describeSource(source: Source): string {
    return source.page === undefined ? source.document : `${source.document} p${source.page}`;
 }

@@ -143,6 +143,7 @@ export interface OptionGroup {
    name: string;
    minimum?: number | Limit;
    maximum?: number | Limit;
+   multipleOf?: number;
    default?: string;
    options: Option[];
 }
