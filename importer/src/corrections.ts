@@ -67,6 +67,13 @@ export const PROFILE_CORRECTIONS: readonly ProfileCorrection[] = [
    { profileId: "ddc9-60e5-6c49-99a1", name: "Cyberwolf", printed: { M: "11\"", WS: "3+", BS: "-", A: "1", W: "1", Ld: "4", Sv: "7+" }, source: pdf("Space_Wolves", 51) },
    { profileId: "4d58-264e-052e-1312", name: "Stormhammer Cannon", printed: { Type: "Heavy", Range: "60\"", A: "4", SAP: "7+", SAT: "4+" }, source: pdf("FW_Astra_Militarum", 40) },
    { profileId: "4ded-f0cc-8dd9-1c09", name: "Twin Battle Cannon", printed: { Type: "Heavy", Range: "72\"", A: "2", SAP: "6+", SAT: "6+" }, source: pdf("FW_Astra_Militarum", 40) },
+   { profileId: "cbd4-005f-07e1-da33", name: "Allarus Weapons (Ranged)", printed: { Range: "24\"" }, source: pdf("Adeptus_Custodes", 6) },
+   { profileId: "5b68-6d2d-5960-e0d2", name: "Avenger Gatling Cannon", printed: { SAT: "8+" }, source: pdf("Chaos_Knights", 3) },
+   { profileId: "4d80-7c62-8d89-cb86", name: "Rubric Marines (5 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "5a5c-39b6-3109-319b", name: "Rubric Marines (10 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "0f1e-5a06-3782-644d", name: "Rubric Marines (15 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "8fae-b1ab-69ce-f599", name: "Rubric Marines (20 models)", printed: { Sv: "5+" }, source: pdf("Thousand_Sons", 5) },
+   { profileId: "45de-50d8-bc1c-e2d4", name: "Troupe (12 models)", printed: { A: "3" }, source: pdf("Harlequins", 4) },
 ];
 
 const statLine = (M: string, WS: string, BS: string, A: string, W: string, Ld: string, Sv: string): Record<UnitCharacteristic, string> => ({ M, WS, BS, A, W, Ld, Sv });
