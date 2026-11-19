@@ -588,6 +588,10 @@ export class DatasheetConverter {
       for (const modifier of modifiers) {
          if (modifier.field === "hidden" || constraintIds.has(modifier.field)) continue;
          if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.type === "set" && modifier.condition === null) option.cost = Number(modifier.value);
+         else if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.condition === null && modifier.repeats.length === 0) {
+            const signed = Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
+            option.cost = (option.cost ?? cost) + signed;
+         }
          else if (modifier.field === POWER_LEVEL_TYPE_ID && modifier.condition !== null && modifier.condition !== undefined && modifier.repeats.length === 0) {
             const amount = Number(modifier.value);
             const change = modifier.type === "set" ? { when: modifier.condition, set: amount } : { when: modifier.condition, increment: modifier.type === "decrement" ? -amount : amount };

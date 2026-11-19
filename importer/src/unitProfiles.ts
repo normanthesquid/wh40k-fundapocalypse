@@ -56,6 +56,7 @@ export class UnitProfiles {
          if (modifier.condition !== null) conditional.push(modifier);
          else if (modifier.field === "name" && modifier.type === "set") name = modifier.value;
          else if (modifier.type === "set" && CHARACTERISTIC_TYPE_IDS[modifier.field] !== undefined) overrides.set(CHARACTERISTIC_TYPE_IDS[modifier.field], modifier.value);
+         else if (this.isSizedIncrement(modifier)) this.host.conversion.report.recordDropped(modifier.element, "per-model increment the sized profiles already print");
          else this.host.unhandled(modifier.element, `unit profile modifier ${modifier.type} ${modifier.field}`);
       }
       const profile = unitProfile(target, name, overrides, this.host.conversion.report);
@@ -78,6 +79,12 @@ export class UnitProfiles {
       this.resolveHiddenProfiles();
       this.resolveOptionProfiles();
       if (this.profiles.length === 0) this.addMissingProfile();
+   }
+
+   /** A per-model increment on a unit whose sized stat lines come from the correction table. */
+   private isSizedIncrement(modifier: FlatModifier): boolean {
+      const isSized = SIZED_PROFILES.some((entry) => this.host.view.ids.includes(entry.unitId));
+      return isSized && modifier.type === "increment" && modifier.repeats.length > 0 && modifier.repeats.every((repeat) => attribute(repeat, "childId") === "model");
    }
 
    /** Characteristics that grow with the unit's models, as changes while it has that many. */
