@@ -39,6 +39,15 @@ interface SecondaryRole {
    readonly holder: CategoryHolder;
 }
 
+/** A unit's detachment or army maximum, and when modifiers on it leave the unit available at all. */
+interface UnitLimit {
+   readonly maximum?: number;
+   readonly availableWhen?: Condition;
+}
+
+/** BattleScribe's value for a constraint with no limit. */
+const BATTLESCRIBE_UNLIMITED = -1;
+
 function nestedHolder(view: EntryView): CategoryHolder {
    return attribute(view.target, "type") === "unit" ? "NestedUnit" : "NestedEntry";
 }
@@ -164,11 +173,15 @@ export class DatasheetConverter {
    convert(): Datasheet | undefined {
       const view = this.view;
       const modifiers = flatModifiers(view.modifiers, view.modifierGroups, this.context);
+      const constraints = constraintsByScope(view);
+      const detachmentConstraint = constraints.get("force max");
+      const armyConstraint = constraints.get("roster max");
+      const limitIds = new Set([detachmentConstraint, armyConstraint].filter((constraint) => constraint !== undefined).map((constraint) => attribute(constraint, "id")));
       this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, "Unit");
       this.addProfiles(view, undefined);
       this.addChildren(view, undefined);
       this.unitProfiles.resolve();
-      this.applyUnitModifiers(modifiers);
+      this.applyUnitModifiers(modifiers.filter((modifier) => !limitIds.has(modifier.field)));
       for (const apply of this.deferred) apply();
       this.unitProfiles.addSizedProfiles();
       if (this.role === undefined) this.role = this.roleFromLinks();
@@ -177,6 +190,8 @@ export class DatasheetConverter {
       this.resolveSecondaryRoles();
       const profiles = this.unitProfiles.profiles;
       if (profiles.length === 0) this.unitProfiles.checkProfileless();
+      const perDetachment = this.unitLimit(detachmentConstraint, modifiers);
+      const perArmy = this.unitLimit(armyConstraint, modifiers);
       if (this.failed || this.role === undefined) return undefined;
       const renamed = modifiers.find((modifier) => modifier.field === "name" && modifier.type === "set" && modifier.condition === null);
       const datasheet: Datasheet = { name: renamed?.value ?? view.name, battlefieldRole: this.role, cost: this.cost, keywords: [...this.keywords] };
@@ -196,13 +211,32 @@ export class DatasheetConverter {
          return undefined;
       }
       if (availability !== undefined && availability !== "Always") datasheet.availableWhen = availability;
-      const constraints = constraintsByScope(view);
-      const perArmy = constraintValue(constraints.get("roster max"));
-      const perDetachment = constraintValue(constraints.get("force max"));
-      if (perDetachment !== undefined) datasheet.maximumPerDetachment = perDetachment;
-      if (perArmy !== undefined) datasheet.maximumPerArmy = perArmy;
+      if (perDetachment.maximum !== undefined) datasheet.maximumPerDetachment = perDetachment.maximum;
+      if (perArmy.maximum !== undefined) datasheet.maximumPerArmy = perArmy.maximum;
+      const limitedWhen = allOf(datasheet.availableWhen, perDetachment.availableWhen, perArmy.availableWhen);
+      if (limitedWhen !== undefined) datasheet.availableWhen = limitedWhen;
       for (const key of constraints.keys()) if (!["roster max", "force max"].includes(key)) this.unhandled(constraints.get(key)!, `unit constraint ${key}`);
       return datasheet;
+   }
+
+   /** A maximum that conditions drop to 0 makes the unit unavailable then; one they lift from 0 makes it available only then. */
+   private unitLimit(constraint: Element | undefined, modifiers: FlatModifier[]): UnitLimit {
+      const base = constraintValue(constraint);
+      if (constraint === undefined || base === undefined) return {};
+      const changes = modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
+      if (changes.length === 0) return { maximum: base };
+      if (changes.some((modifier) => modifier.condition === undefined)) {
+         this.failed = true;
+         return {};
+      }
+      const conditions = changes.map((modifier) => (modifier.type === "set" && modifier.repeats.length === 0 ? (modifier.condition ?? undefined) : undefined));
+      const values = new Set(changes.map((modifier) => Number(modifier.value)));
+      const isAllSet = conditions.every((condition) => condition !== undefined);
+      const when = isAllSet ? combine("Any", conditions as Condition[]) : undefined;
+      if (when !== undefined && base > 0 && values.size === 1 && values.has(0)) return { maximum: base, availableWhen: not(when) };
+      if (when !== undefined && base === 0 && values.size === 1 && values.has(BATTLESCRIBE_UNLIMITED)) return { availableWhen: when };
+      for (const change of changes) this.unhandled(change.element, `unit modifier ${change.type} ${change.field}${change.condition ? " with conditions" : ""}`);
+      return {};
    }
 
    /** A library unit with no role of its own takes the one most of its faction links give it; the others override it. */
