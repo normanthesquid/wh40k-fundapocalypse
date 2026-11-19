@@ -167,6 +167,16 @@ export const CONDITION_TARGET_CORRECTIONS: readonly { readonly unitId: string; r
    { unitId: "f1dc-9426-c419-5aa6", childId: "a9ec-6432-91ba-f8bf", correctedChildId: "973a-0f6f-0bb6-eb25", name: "Land Speeders 3 models", source: pdf("Adeptus_Astartes", 29) },
 ];
 
+/** Printed text for ability profiles the data leaves empty, keyed by the profile's id. */
+export const ABILITY_TEXTS: readonly { readonly profileId: string; readonly name: string; readonly text: string; readonly source: Source }[] = [
+   {
+      profileId: "f2e9-2ae6-3afd-0024",
+      name: "Spiritual Leader",
+      text: "Friendly DARK ANGELS units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit.",
+      source: pdf("Dark_Angels", 6),
+   },
+];
+
 export function describeSource(source: Source): string {
    return source.page === undefined ? source.document : `${source.document} p${source.page}`;
 }

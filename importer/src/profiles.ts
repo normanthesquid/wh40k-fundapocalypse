@@ -161,9 +161,14 @@ export function weaponFromCharacteristics(characteristics: Characteristics, prof
    return weapon;
 }
 
+/** A profile's characteristics that carry any text. */
+export function profileTexts(profile: Element): string[] {
+   return [...characteristicsOf(profile).values()].map((text) => cleanText(text)).filter((text) => text !== undefined);
+}
+
 /** An ability from an Abilities profile or any one-text profile type (D3 roll tables, warmaster traits, ...). */
 export function abilityFromProfile(profile: Element, report: Report): Ability | undefined {
-   const characteristics = [...characteristicsOf(profile).values()].map((text) => cleanText(text)).filter((text) => text !== undefined);
+   const characteristics = profileTexts(profile);
    if (characteristics.length !== 1) {
       report.failUnhandled(profile, `${attribute(profile, "typeName")} profile with ${characteristics.length} texts`);
       return undefined;

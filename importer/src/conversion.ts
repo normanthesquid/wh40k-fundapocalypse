@@ -2,7 +2,8 @@ import { OutputBuilder, referenceFrom } from "./builder.ts";
 import { viewOf, type EntryView } from "./entries.ts";
 import { GameSystemConversion, GameSystemIndex } from "./gameSystem.ts";
 import type { BattlefieldRole, CountTarget } from "./model.ts";
-import { abilityFromProfile, abilityFromRule, UNIT_PROFILE, TRANSPORT_PROFILE, WEAPON_PROFILE, weaponFromProfile } from "./profiles.ts";
+import { ABILITY_TEXTS, describeSource } from "./corrections.ts";
+import { abilityFromProfile, abilityFromRule, profileTexts, UNIT_PROFILE, TRANSPORT_PROFILE, WEAPON_PROFILE, weaponFromProfile } from "./profiles.ts";
 import type { Registry, SourceDocument } from "./registry.ts";
 import type { Report } from "./report.ts";
 import { SlugAllocator } from "./slug.ts";
@@ -82,7 +83,9 @@ export class Conversion {
                const weapon = weaponFromProfile(element, this.report);
                if (weapon !== undefined) this.profiles.set(attribute(element, "id"), { builder, slug: builder.addWeapon(weapon) });
             } else if (typeName !== UNIT_PROFILE && typeName !== TRANSPORT_PROFILE && !document.isGameSystem) {
-               const ability = abilityFromProfile(element, this.report);
+               const textless = profileTexts(element).length === 0 ? this.textlessAbility(builder, element) : undefined;
+               const ability = textless === undefined ? abilityFromProfile(element, this.report) : undefined;
+               if (textless !== undefined) this.profiles.set(attribute(element, "id"), textless);
                if (ability !== undefined) this.profiles.set(attribute(element, "id"), this.placeAbility(builder, ability));
             } else if (document.isGameSystem && typeName !== UNIT_PROFILE && typeName !== TRANSPORT_PROFILE) {
                const ability = abilityFromProfile(element, this.report);
@@ -95,6 +98,19 @@ export class Conversion {
          for (const child of element.children) visit(child);
       };
       visit(document.root);
+   }
+
+   /** An empty ability profile: its printed text from the correction table, or the game-system ability it names, as Ignore Damage (5+). */
+   private textlessAbility(builder: OutputBuilder, profile: Element): Located | undefined {
+      const name = attribute(profile, "name").trim();
+      const corrected = ABILITY_TEXTS.find((entry) => entry.profileId === attribute(profile, "id"));
+      if (corrected !== undefined) {
+         this.report.recordCorrection(profile, `text added (${describeSource(corrected.source)})`);
+         return this.placeAbility(builder, { name, text: corrected.text });
+      }
+      const slug = this.gameSystem.builder.abilityNamed(name);
+      if (slug !== undefined) this.report.recordCorrection(profile, `empty profile read as the game-system ability ${name}`);
+      return slug === undefined ? undefined : { builder: this.gameSystem.builder, slug };
    }
 
    private placeAbility(builder: OutputBuilder, ability: { name: string; text: string }): Located {

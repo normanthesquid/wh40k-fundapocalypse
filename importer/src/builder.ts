@@ -56,6 +56,12 @@ export class OutputBuilder {
       return slug;
    }
 
+   /** The one ability with this name, if exactly one has it. */
+   abilityNamed(name: string): string | undefined {
+      const slugs = [...this.abilities].filter(([, ability]) => ability.name === name).map(([slug]) => slug);
+      return slugs.length === 1 ? slugs[0] : undefined;
+   }
+
    findAbility(ability: Ability): string | undefined {
       return this.abilityByContent.get(JSON.stringify(ability));
    }
