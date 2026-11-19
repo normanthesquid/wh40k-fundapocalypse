@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { CatalogueConversion } from "./catalogue.ts";
 import { Conversion } from "./conversion.ts";
 import { countAfter, countBefore, writeReport } from "./fidelity.ts";
+import { applyOutputCorrections } from "./outputCorrections.ts";
 import { Registry } from "./registry.ts";
 import { Report } from "./report.ts";
 
@@ -30,6 +31,7 @@ const catalogues = registry.catalogues.map((document) => new CatalogueConversion
 for (const catalogue of catalogues) catalogue.allocate();
 const gameSystem = conversion.gameSystem.convert(flags.release);
 const converted = catalogues.map((catalogue) => catalogue.convert());
+applyOutputCorrections(converted, report);
 
 rmSync(flags.output, { recursive: true, force: true });
 writeJson(join(flags.output, "game-system.json"), gameSystem);

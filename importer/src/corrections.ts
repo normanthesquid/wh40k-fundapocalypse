@@ -1,6 +1,6 @@
 /** Values the v1.10.0 data has wrong or lacks, taken from the official Apocalypse datasheets and the maintainer's checks of them. */
 
-import type { BattlefieldRole, Limit } from "./model.ts";
+import type { BattlefieldRole, Limit, Weapon } from "./model.ts";
 
 export type UnitCharacteristic = "M" | "WS" | "BS" | "A" | "W" | "Ld" | "Sv";
 export type WeaponCharacteristic = "Type" | "Range" | "A" | "SAP" | "SAT";
@@ -205,6 +205,59 @@ export const GROUP_BOUND_CORRECTIONS: readonly { readonly groupId: string; reado
 /** Option maximums the data gets wrong, keyed by the constraint's id. */
 export const OPTION_MAXIMUM_CORRECTIONS: readonly { readonly constraintId: string; readonly name: string; readonly maximum: number; readonly source: Source }[] = [
    { constraintId: "e460-e00d-b2e6-cb6f", name: "Terrax-Pattern Termite Assault Drill Two Heavy Flamers", maximum: 2, source: pdf("FW_Heretic_Astartes", 41) },
+];
+
+/** Corrections below apply to the converted catalogues, naming entries by catalogue id and slug or by name. */
+export type KeywordKind = "Keyword" | "FactionKeyword";
+
+export const MISSING_KEYWORDS: readonly { readonly catalogue: string; readonly datasheet: string; readonly kind: KeywordKind; readonly keyword: string; readonly source: Source }[] = [
+   { catalogue: "adeptus-custodes", datasheet: "shield-captain", kind: "Keyword", keyword: "INFANTRY", source: pdf("Adeptus_Custodes", 2) },
+   { catalogue: "adeptus-custodes", datasheet: "allarus-custodians", kind: "Keyword", keyword: "TERMINATOR", source: pdf("Adeptus_Custodes", 6) },
+   { catalogue: "dark-angels", datasheet: "interrogator-chaplain", kind: "FactionKeyword", keyword: "IMPERIUM", source: pdf("Dark_Angels", 6) },
+];
+
+export type RenamedKind = "Datasheet" | "Weapon" | "Ability" | "Keyword";
+
+/** Names the official datasheet prints differently; a renamed entry's slug, and options named after a renamed weapon, follow the name. */
+export const NAME_CORRECTIONS: readonly { readonly kind: RenamedKind; readonly catalogue: string; readonly from: string; readonly to: string; readonly source: Source }[] = [
+   { kind: "Keyword", catalogue: "elysian-drop-troops", from: "ELYSIAN VETERANS SQUAD", to: "ELYSIAN VETERAN SQUAD", source: pdf("FW_Elysian_Drop_Troops", 5) },
+   { kind: "Weapon", catalogue: "weapons", from: "Stormspear Missile Pod", to: "Stormspear Rocket Pod", source: pdf("Imperial_Knights", 2) },
+   { kind: "Weapon", catalogue: "imperial-knights", from: "Stormspear Missile Pod", to: "Stormspear Rocket Pod", source: pdf("Imperial_Knights", 2) },
+   { kind: "Datasheet", catalogue: "gellerpox-infected", from: "The Vox Shamblers", to: "The Vox-Shamblers", source: pdf("Gellerpox_Infected", 2) },
+   { kind: "Keyword", catalogue: "gellerpox-infected", from: "THE VOX SHAMBLERS", to: "THE VOX-SHAMBLERS", source: pdf("Gellerpox_Infected", 2) },
+   { kind: "Ability", catalogue: "thousand-sons", from: "Rubric Marines", to: "Legacy of the Rubricae", source: pdf("Thousand_Sons", 5) },
+   { kind: "Ability", catalogue: "ynnari", from: "Warden of Ynnead", to: "Warden of Yvraine", source: pdf("Ynnari", 2) },
+];
+
+export const ABILITY_TEXT_CORRECTIONS: readonly { readonly catalogue: string; readonly ability: string; readonly text: string; readonly source: Source }[] = [
+   {
+      catalogue: "renegades-and-heretics",
+      ability: "banner-of-the-apostate",
+      text: "Subtract 1 from the Leadership characteristic of Imperial units whilst they are within 6\" of any units that have a Banner of the Apostate.",
+      source: pdf("FW_Renegades_and_Heretics", 10),
+   },
+];
+
+export const OPTION_COST_CORRECTIONS: readonly { readonly catalogue: string; readonly datasheet: string; readonly option: string; readonly cost: number; readonly source: Source }[] = [
+   { catalogue: "death-korps-of-krieg", datasheet: "death-korps-combat-engineer-squad", option: "heavy-weapons-team", cost: 1, source: pdf("FW_Death_Korps_of_Krieg", 10) },
+];
+
+/** Weapons the datasheet equips that the data lacks, defined in `catalogue` and given to each listed datasheet. */
+export const MISSING_WEAPONS: readonly { readonly catalogue: string; readonly weapon: Weapon; readonly datasheets: readonly { readonly catalogue: string; readonly datasheet: string }[]; readonly source: Source }[] = [
+   {
+      catalogue: "chaos-space-marines",
+      weapon: { name: "Close Combat Weapons", type: "Melee", attacks: { kind: "User" }, antiPersonnel: 6, antiTank: 9 },
+      datasheets: [
+         { catalogue: "chaos-space-marines", datasheet: "rubric-marines" },
+         { catalogue: "thousand-sons", datasheet: "rubric-marines-2" },
+      ],
+      source: pdf("Thousand_Sons", 5),
+   },
+];
+
+/** Abilities an option's weapon brings that the datasheet prints differently, for every option with this name. */
+export const OPTION_ABILITY_CORRECTIONS: readonly { readonly option: string; readonly from: string; readonly to: string; readonly source: Source }[] = [
+   { option: "Reaver Melta Cannon", from: "apocalyptic-destroyer", to: "destroyer", source: pdf("FW_Titan_Legions", 3) },
 ];
 
 export function describeSource(source: Source): string {

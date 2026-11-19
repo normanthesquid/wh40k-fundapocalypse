@@ -39,6 +39,11 @@ export class Report {
       this.corrections.push(this.finding(element, message));
    }
 
+   /** A correction made on the converted output, where no source element stands for it. */
+   recordOutputCorrection(catalogue: string, where: string, message: string): void {
+      this.corrections.push({ file: catalogue, where, message });
+   }
+
    recordDropped(element: Element, message: string): void {
       this.dropped.push(this.finding(element, message));
    }
