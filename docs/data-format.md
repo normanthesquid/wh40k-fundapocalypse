@@ -13,7 +13,7 @@ schema/
   catalogue.schema.json    a faction or a shared library
   fixtures/valid/          a small data set that must pass, laid out like data/
   fixtures/invalid/        catalogues the schema must reject, each for the reason in its name
-data/                      (from v2.0.0, written by a one-time importer from the BattleScribe files)
+data/                      (from v2.0.0; converted from the BattleScribe files by a one-time importer, in the v2.0.0 tag)
   game-system.json
   catalogues/<catalogue-id>.json
 validator/                 the Go validator CI runs: the schema plus the integrity rules below
@@ -66,7 +66,7 @@ The printed characteristics become typed values, so tools never parse text:
 | Weapon `Type` | `SmallArms`, `Heavy` or `Melee` |
 | Battlefield role | `HQ`, `Troops`, `Elites`, `FastAttack`, `HeavySupport`, `Flyer`, `DedicatedTransport`, `LordOfWar`, `Fortification`, `NoForceOrgSlot` |
 
-Typos in the current data (`Mele`, `Smaill Arms`, a WS of `26`) are fixed by the importer and listed in its fidelity report.
+Typos in the `v1.10.0` data (`Mele`, `Smaill Arms`, a WS of `26`) were fixed by the importer and listed in its fidelity report.
 
 ## Conditions and limits
 
@@ -172,9 +172,8 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `publication`, `page` modifiers | source references for BattleScribe's UI; Fundapocalypse is its own source now |
 | `readme`, `comment` | authoring notes; anything still useful moves to this document or the wiki |
 | `infoGroup` | grouping for BattleScribe's display only |
-| `modifier` set name on an `infoLink` | display renames of a linked rule; the referenced ability carries the right name |
-| BattleScribe `id`s (`8438-2d0c-...`) | replaced by slugs; the importer keeps a one-time mapping in its report |
+| BattleScribe `id`s (`8438-2d0c-...`) | replaced by slugs; the importer kept a one-time mapping in its report |
 | Conditional rename of Commander to Warlord | a display label; the keyword and its limits carry the rule |
-| `hidden="true"` with no condition | dead entries; the importer lists them for a decision rather than converting them |
+| `hidden="true"` with no condition | dead entries; the importer listed them for a decision rather than converting them |
 
-Anything the importer meets that this table doesn't cover fails the import, so nothing is silently lost.
+Anything the importer met that this table doesn't cover failed the import, so nothing was silently lost.

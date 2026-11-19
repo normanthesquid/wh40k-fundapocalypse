@@ -42,7 +42,6 @@ jobs:
       - name: Validate the fixture data set
         run: go run . -data ../schema/fixtures/valid
 
-      # data/ arrives with the BattleScribe importer; until then only the fixtures exist.
       - name: Validate data/
         if: hashFiles('data/game-system.json') != '' && !startsWith(github.ref, 'refs/tags/')
         run: go run .

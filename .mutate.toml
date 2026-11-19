@@ -1,2 +1,0 @@
-# Paths scripts/mutate leaves out of every pass: the one-time BattleScribe importer is deleted after v2.0.0.
-exclude = ["importer/**"]
