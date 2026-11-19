@@ -5,7 +5,7 @@ import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, v
 import type { AlternativeRole, BattlefieldRole, Condition, DetachmentMinimum, ConditionalChange, CostChange, CountTarget, Datasheet, Option } from "./model.ts";
 import { availabilityOf, flatModifiers, flatModifiersOf, type FlatModifier } from "./modifiers.ts";
 import { CONDITION_TARGET_CORRECTIONS, describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
-import { UnitProfiles } from "./unitProfiles.ts";
+import { takenOnce, UnitProfiles } from "./unitProfiles.ts";
 import { isMandatory, Wargear, type CategoryHolder, type InfoTarget, type UnitLimit } from "./wargear.ts";
 import { addWeaponVariants, carriedWeapon, type VariantContext } from "./weaponVariants.ts";
 import { characteristicNamesById, isDroppedProfile, TRANSPORT_PROFILE, transportFromProfile, UNIT_PROFILE, WEAPON_PROFILE } from "./profiles.ts";
@@ -162,11 +162,13 @@ export class DatasheetConverter {
       return models.size === 1 ? { kind: "Option", option: [...models][0] } : undefined;
    }
 
-   /** The local option a condition requires to be taken, if that is all it says. */
+   /** The local option a condition requires to be taken, if that is all it says: at least one, or exactly one of an option taken at most once. */
    private optionTaken(condition: Condition | null | undefined): string | undefined {
       if (condition?.kind !== "Count" || condition.scope !== "Unit" || condition.of.kind !== "Option" || condition.of.datasheet !== undefined) return undefined;
-      if ((condition.minimum ?? 0) < 1) return undefined;
-      return condition.of.option;
+      if (condition.minimum !== 1) return undefined;
+      const atLeastOne = condition.maximum === undefined;
+      const exactlyOneOfOne = condition.maximum === 1 && takenOnce(this.wargear.optionsBySlug.get(condition.of.option), this.wargear.groups) !== undefined;
+      return atLeastOne || exactlyOneOfOne ? condition.of.option : undefined;
    }
 
    convert(): Datasheet | undefined {
@@ -474,7 +476,7 @@ export class DatasheetConverter {
             continue;
          }
          const taken = this.optionTaken(modifier.condition);
-         const option = taken === undefined ? undefined : this.wargear.optionsBySlug.get(taken);
+         const option = taken === undefined ? undefined : takenOnce(this.wargear.optionsBySlug.get(taken), this.wargear.groups);
          if (modifier.field === POWER_LEVEL_TYPE_ID && option !== undefined && modifier.repeats.length === 0) {
             const delta = modifier.type === "set" ? Number(modifier.value) - baseCost : Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
             option.cost = (option.cost ?? 0) + delta;

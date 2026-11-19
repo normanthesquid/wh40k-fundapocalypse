@@ -35,6 +35,12 @@ interface OptionProfile {
    readonly conditional: FlatModifier[];
 }
 
+/** The option, if it can be taken only once (by its own maximum or its group's), so a change made while it is taken can be made by taking it. */
+export function takenOnce(option: Option | undefined, groups: readonly OptionGroup[]): Option | undefined {
+   const group = groups.find((candidate) => candidate.options.includes(option!));
+   return option?.maximum === 1 || (option !== undefined && group?.maximum === 1) ? option : undefined;
+}
+
 /** A unit's stat lines: its own Unit profiles, those its options carry, and the changes conditions and model counts make to them. */
 export class UnitProfiles {
    readonly profiles: ModelProfile[] = [];
@@ -177,7 +183,7 @@ export class UnitProfiles {
       }
       const field = CHARACTERISTIC_TYPE_IDS[modifier.field];
       const taken = required === undefined ? this.host.optionTaken(modifier.condition) : undefined;
-      const option = taken === undefined ? undefined : this.host.optionsBySlug.get(taken);
+      const option = taken === undefined ? undefined : takenOnce(this.host.optionsBySlug.get(taken), this.host.groups);
       if (field === undefined || modifier.condition === null || modifier.condition === undefined) {
          this.host.unhandled(modifier.element, `conditional unit profile modifier ${modifier.type} ${modifier.field}`);
          return;
@@ -196,7 +202,9 @@ export class UnitProfiles {
          else (change.set ??= {})[field] = parsed as never;
       } else if ((modifier.type === "increment" || modifier.type === "decrement") && INCREMENTABLE.has(field)) {
          const amount = Number(modifier.value) * (modifier.type === "decrement" ? -1 : 1);
-         (change.increment ??= {})[field as "attacks" | "wounds" | "leadership"] = amount;
+         const increment = (change.increment ??= {});
+         const incremented = field as "attacks" | "wounds" | "leadership";
+         increment[incremented] = (increment[incremented] ?? 0) + amount;
       } else this.host.unhandled(modifier.element, `profile ${modifier.type} on ${field}`);
    }
 

@@ -2,7 +2,7 @@ import { allOf, combine, conditionKey, not, type ConditionContext } from "./cond
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { describeSource, GROUP_BOUND_CORRECTIONS, OPTION_MAXIMUM_CORRECTIONS } from "./corrections.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, type EntryView } from "./entries.ts";
-import type { Condition, ConditionalChange, Option, OptionGroup } from "./model.ts";
+import type { Condition, ConditionalChange, Limit, Option, OptionGroup } from "./model.ts";
 import { availabilityOf, flatModifiers, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { OptionBounds } from "./optionBounds.ts";
 import { WEAPON_PROFILE } from "./profiles.ts";
@@ -280,7 +280,9 @@ export class Wargear {
          this.host.slugs.fates.dropped += this.host.conversion.wargearEntriesUnder(view);
          return;
       }
-      const shownWhen = allOf(availability === "Always" || availability === undefined ? undefined : availability, this.host.requires(parent));
+      const hiddenUnless = availability === "Always" || availability === undefined ? undefined : availability;
+      const shownWhen = allOf(hiddenUnless, this.host.requires(parent));
+      const perParent = (amount: number): number | Limit => (parent === undefined ? amount : { base: 0, terms: [{ per: { kind: "Option", option: parent.id! }, scope: "Unit", amount }] });
       const group: OptionGroup = { id, name: view.name, options: [] };
       const constraints = constraintsByScope(view);
       const minimum = constraintValue(constraints.get("parent min"));
@@ -289,11 +291,8 @@ export class Wargear {
       const maximumConstraint = constraints.get("parent max");
       const boundIds = new Set([minimumConstraint, maximumConstraint].filter((constraint) => constraint !== undefined).map((constraint) => attribute(constraint, "id")));
       const minimumModified = minimumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(minimumConstraint, "id"));
-      if (minimum !== undefined && minimum > 0 && parent === undefined && !minimumModified) group.minimum = minimum;
-      if (minimum !== undefined && minimum > 0 && parent !== undefined) {
-         this.host.conversion.report.recordCorrection(view.element, `minimum ${minimum} dropped: the group is only offered once ${parent.name} is taken`);
-      }
-      if (maximum !== undefined) group.maximum = maximum;
+      if (minimum !== undefined && minimum > 0 && !minimumModified) group.minimum = perParent(minimum);
+      if (maximum !== undefined) group.maximum = perParent(maximum);
       const correction = GROUP_BOUND_CORRECTIONS.find((entry) => view.ids.includes(entry.groupId));
       const zeroedWhen = this.groupZeroedWhen(minimumConstraint, maximumConstraint, modifiers);
       const multipleOf = minimumModified && minimum === 0 ? this.bounds.multipleOf(id, minimumConstraint, modifiers) : undefined;
@@ -302,7 +301,7 @@ export class Wargear {
          if (correction.maximum !== undefined) group.maximum = correction.maximum;
          this.host.conversion.report.recordCorrection(view.element, `${correction.name} bounds set as printed (${describeSource(correction.source)})`);
       } else if (zeroedWhen !== undefined) {
-         if (minimum !== undefined && minimum > 0 && parent === undefined) group.minimum = minimum;
+         if (minimum !== undefined && minimum > 0) group.minimum = perParent(minimum);
          group.availableWhen = not(zeroedWhen);
       } else {
          if (multipleOf !== undefined) group.multipleOf = multipleOf;
@@ -329,6 +328,7 @@ export class Wargear {
          if (fallback !== undefined && group.options.some((option) => option.id === fallback)) group.default = fallback;
          else this.host.unhandled(view.element, "default selection that is not one of the group's options");
       }
+      if (hiddenUnless !== undefined && group.minimum !== undefined) group.availableWhen = allOf(group.availableWhen, hiddenUnless);
       if (group.options.length === 0) {
          if (view.childGroups.length === 0) this.host.conversion.report.recordDropped(view.element, "option group with no options left");
          return;

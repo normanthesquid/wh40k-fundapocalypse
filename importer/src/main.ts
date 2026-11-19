@@ -31,7 +31,8 @@ const catalogues = registry.catalogues.map((document) => new CatalogueConversion
 for (const catalogue of catalogues) catalogue.allocate();
 const gameSystem = conversion.gameSystem.convert(flags.release);
 const converted = catalogues.map((catalogue) => catalogue.convert());
-applyOutputCorrections(converted, report);
+// Corrections name converted entries, which an incomplete conversion may have dropped.
+if (report.unhandled.length === 0) applyOutputCorrections(converted, report);
 
 rmSync(flags.output, { recursive: true, force: true });
 writeJson(join(flags.output, "game-system.json"), gameSystem);
