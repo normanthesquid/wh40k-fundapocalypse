@@ -174,16 +174,23 @@ type AlternativeRole struct {
 }
 
 type Datasheet struct {
-	FactionKeywords    []string            `json:"factionKeywords"`
-	Keywords           []string            `json:"keywords"`
-	Profiles           []ModelProfile      `json:"profiles"`
-	Weapons            []string            `json:"weapons"`
-	Abilities          []string            `json:"abilities"`
-	Wargear            []OptionGroup       `json:"wargear"`
-	ConditionalChanges []ConditionalChange `json:"conditionalChanges"`
-	CostChanges        []CostChange        `json:"costChanges"`
-	AlternativeRoles   []AlternativeRole   `json:"alternativeRoles"`
-	AvailableWhen      *Condition          `json:"availableWhen"`
+	FactionKeywords      []string            `json:"factionKeywords"`
+	Keywords             []string            `json:"keywords"`
+	Profiles             []ModelProfile      `json:"profiles"`
+	Weapons              []string            `json:"weapons"`
+	Abilities            []string            `json:"abilities"`
+	Wargear              []OptionGroup       `json:"wargear"`
+	ConditionalChanges   []ConditionalChange `json:"conditionalChanges"`
+	CostChanges          []CostChange        `json:"costChanges"`
+	AlternativeRoles     []AlternativeRole   `json:"alternativeRoles"`
+	AvailableWhen        *Condition          `json:"availableWhen"`
+	RequiredInDetachment *DetachmentMinimum  `json:"requiredInDetachment"`
+	MaximumPerDetachment *int                `json:"maximumPerDetachment"`
+}
+
+type DetachmentMinimum struct {
+	Minimum int       `json:"minimum"`
+	When    Condition `json:"when"`
 }
 
 type ConditionalKeywords struct {

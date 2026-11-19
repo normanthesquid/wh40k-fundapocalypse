@@ -134,6 +134,16 @@
                "items": { "$ref": "#/$defs/costChange" }
             },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "requiredInDetachment": {
+               "description": "A detachment must hold at least `minimum` of this unit while `when` holds, e.g. 3 Bunker Annexes once it has any part of a Castellum Stronghold.",
+               "type": "object",
+               "properties": {
+                  "minimum": { "type": "integer", "minimum": 1 },
+                  "when": { "$ref": "common.schema.json#/$defs/condition" }
+               },
+               "required": ["minimum", "when"],
+               "additionalProperties": false
+            },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
             "maximumPerArmy": {
                "description": "1 for a named character or other unique unit.",

@@ -2,7 +2,7 @@ import type { OutputBuilder } from "./builder.ts";
 import { allOf, combine, not, type ConditionContext } from "./conditions.ts";
 import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type OptionSlugs } from "./conversion.ts";
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
-import type { AlternativeRole, BattlefieldRole, Condition, ConditionalChange, CostChange, CountTarget, Datasheet, Option, OptionGroup } from "./model.ts";
+import type { AlternativeRole, BattlefieldRole, Condition, DetachmentMinimum, ConditionalChange, CostChange, CountTarget, Datasheet, Option, OptionGroup } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
 import { CONDITION_TARGET_CORRECTIONS, describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
 import { OptionBounds } from "./optionBounds.ts";
@@ -175,9 +175,13 @@ export class DatasheetConverter {
       const view = this.view;
       const modifiers = flatModifiers(view.modifiers, view.modifierGroups, this.context);
       const constraints = constraintsByScope(view);
-      const detachmentConstraint = constraints.get("force max");
+      // A top-level unit's parent is its detachment, so scope=parent bounds it per detachment too.
+      const maximumKey = constraints.has("force max") ? "force max" : "parent max";
+      const detachmentConstraint = constraints.get(maximumKey);
       const armyConstraint = constraints.get("roster max");
-      const limitIds = new Set([detachmentConstraint, armyConstraint].filter((constraint) => constraint !== undefined).map((constraint) => attribute(constraint, "id")));
+      const minimumKey = constraints.has("force min") ? "force min" : "parent min";
+      const minimumConstraint = constraints.get(minimumKey);
+      const limitIds = new Set([detachmentConstraint, armyConstraint, minimumConstraint].filter((constraint) => constraint !== undefined).map((constraint) => attribute(constraint, "id")));
       this.addCategories(view.categoryLinks, this.keywords, this.factionKeywords, "Unit");
       this.addProfiles(view, undefined);
       this.addChildren(view, undefined);
@@ -193,6 +197,7 @@ export class DatasheetConverter {
       if (profiles.length === 0) this.unitProfiles.checkProfileless();
       const perDetachment = this.unitLimit(detachmentConstraint, modifiers);
       const perArmy = this.unitLimit(armyConstraint, modifiers);
+      const required = this.detachmentMinimum(minimumConstraint, modifiers);
       if (this.failed || this.role === undefined) return undefined;
       const renamed = modifiers.find((modifier) => modifier.field === "name" && modifier.type === "set" && modifier.condition === null);
       const datasheet: Datasheet = { name: renamed?.value ?? view.name, battlefieldRole: this.role, cost: this.cost, keywords: [...this.keywords] };
@@ -217,7 +222,8 @@ export class DatasheetConverter {
       if (perArmy.maximum !== undefined) datasheet.maximumPerArmy = perArmy.maximum;
       const limitedWhen = allOf(datasheet.availableWhen, perDetachment.availableWhen, perArmy.availableWhen);
       if (limitedWhen !== undefined) datasheet.availableWhen = limitedWhen;
-      for (const key of constraints.keys()) if (!["roster max", "force max"].includes(key)) this.unhandled(constraints.get(key)!, `unit constraint ${key}`);
+      if (required !== undefined) datasheet.requiredInDetachment = required;
+      for (const key of constraints.keys()) if (!["roster max", maximumKey, minimumKey].includes(key)) this.unhandled(constraints.get(key)!, `unit constraint ${key}`);
       return datasheet;
    }
 
@@ -239,6 +245,25 @@ export class DatasheetConverter {
       if (when !== undefined && base === 0 && values.size === 1 && values.has(BATTLESCRIBE_UNLIMITED)) return { availableWhen: when };
       for (const change of changes) this.unhandled(change.element, `${label} modifier ${change.type} ${change.field}${change.condition ? " with conditions" : ""}`);
       return {};
+   }
+
+   /** A detachment minimum of 0 that conditions all raise to one value: the detachment needs that many while any of them holds. */
+   private detachmentMinimum(constraint: Element | undefined, modifiers: FlatModifier[]): DetachmentMinimum | undefined {
+      if (constraint === undefined) return undefined;
+      const changes = modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
+      if (changes.some((modifier) => modifier.condition === undefined)) {
+         this.failed = true;
+         return undefined;
+      }
+      const values = new Set(changes.map((modifier) => Number(modifier.value)));
+      const [minimum] = values;
+      const isConditionalSet = changes.length > 0 && changes.every((modifier) => modifier.type === "set" && modifier.repeats.length === 0 && modifier.condition !== null);
+      if (constraintValue(constraint) === 0 && isConditionalSet && values.size === 1 && minimum >= 1) {
+         return { minimum, when: combine("Any", changes.map((modifier) => modifier.condition as Condition))! };
+      }
+      if (changes.length === 0 && constraintValue(constraint) === 0) return undefined;
+      this.unhandled(constraint, "unit detachment minimum that is not raised by conditions alone");
+      return undefined;
    }
 
    /** A library unit with no role of its own takes the one most of its faction links give it; the others override it. */

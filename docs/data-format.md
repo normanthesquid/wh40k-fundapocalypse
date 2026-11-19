@@ -83,6 +83,8 @@ It's used by `availableWhen` on datasheets, links, options, detachments and deta
 
 A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Supreme Command, Super-heavy Auxiliary, Patrol or Fortification Network detachment. Slot maximums, detachments per army, and keyword maximums (one Commander per detachment, one Warmaster per army) are all limits. A keyword limit can also set a `minimum`, e.g. a Supreme Command must include a WARMASTER. An option group's `minimum` or `maximum`, or an option's `maximum`, may be a limit too, counting the unit's own options, e.g. one heavy weapon, plus one if the unit takes its 10-model option. An option group's `multipleOf` makes the number of options taken a multiple of it, e.g. a Baneblade's two or four sponsons.
 
+A datasheet's `requiredInDetachment` makes a detachment hold at least `minimum` of the unit while `when` holds, as the parts of a fortification that come together: once a detachment has any part of a Castellum Stronghold, it needs its 3 Bunker Annexes.
+
 Options carry their own army-wide caps where a datasheet would: `maximumPerDetachment`, `maximumPerArmy` and `minimumPerArmy`. An option with `requiredWhen` must be taken while that condition holds, e.g. the Mark of Khorne once the detachment has chosen Khorne. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it. A datasheet with no stat line at all leaves `profiles` out; that is right only where the official datasheet prints none, as for terrain features such as the Aegis Defence Line.
 
 `game-system.schema.json` reuses the catalogue's `option` for universal options, so a validator loads all three schemas together.
@@ -147,6 +149,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `modifier` on an option group's min/max constraint, or an option's max | — | a `limit` counting the unit's options |
 | `modifier` setting an option's max to 0, with conditions | — | `availableWhen`, or a weapon removed by `conditionalChanges` when the entry is otherwise mandatory |
 | `modifier` setting an option's min to 1, with conditions | — | `requiredWhen` |
+| `modifier` setting a unit's own detachment min, with conditions | — | `requiredInDetachment` |
 | `modifier` raising an option group's min to the next multiple once one more is taken | — | the group's `multipleOf` |
 | `modifier` on a weapon's characteristics | — | a second weapon, swapped in by an option or a `conditionalChanges` entry |
 | `modifier` set hidden on an ability or weapon, with conditions | — | the option's `addsAbilities`/`addsWeapons` when it depends on one, otherwise `conditionalChanges` |

@@ -88,6 +88,17 @@ func TestIntegrityRules(t *testing.T) {
 				inquisitor.CostChanges = []CostChange{{When: *count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})}}
 			})
 		}, `costChanges/0/when/of: option "nope" is not an option of its datasheet`},
+		{"detachment requirement condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.RequiredInDetachment = &DetachmentMinimum{Minimum: 1, When: *count(CountTarget{Kind: CountTargetKindDatasheet, Datasheet: pointer("nope")})}
+			})
+		}, `requiredInDetachment/when/of: datasheet "nope" does not resolve`},
+		{"detachment requirement above the detachment maximum", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.RequiredInDetachment = &DetachmentMinimum{Minimum: 3, When: *count(CountTarget{Kind: CountTargetKindDatasheet, Datasheet: pointer(inquisitorID)})}
+				inquisitor.MaximumPerDetachment = pointer(2)
+			})
+		}, "requiredInDetachment: minimum 3 is more than maximum 2"},
 		{"option required condition is checked", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) {
 				option.RequiredWhen = count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})

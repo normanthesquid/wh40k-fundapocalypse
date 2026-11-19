@@ -10,7 +10,19 @@
          "cost": 4,
          "keywords": [
             "HEAVY"
-         ]
+         ],
+         "requiredInDetachment": {
+            "minimum": 1,
+            "when": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Datasheet",
+                  "datasheet": "example-squad"
+               },
+               "minimum": 1
+            }
+         }
       },
       "example-squad": {
          "name": "Example Squad",

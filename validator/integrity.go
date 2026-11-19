@@ -137,6 +137,10 @@ func (check *checker) checkDatasheet(where scope) {
 	}
 	check.checkAlternativeRoles(where, datasheet.AlternativeRoles)
 	check.checkCondition(where.at("availableWhen"), datasheet.AvailableWhen)
+	if required := datasheet.RequiredInDetachment; required != nil {
+		check.checkCondition(where.at("requiredInDetachment/when"), &required.When)
+		check.checkBounds(where.at("requiredInDetachment"), &required.Minimum, datasheet.MaximumPerDetachment)
+	}
 	for index := range datasheet.CostChanges {
 		check.checkCondition(where.at("costChanges/%d/when", index), &datasheet.CostChanges[index].When)
 	}

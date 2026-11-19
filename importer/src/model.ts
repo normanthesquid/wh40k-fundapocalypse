@@ -176,8 +176,14 @@ export interface Datasheet {
    conditionalChanges?: ConditionalChange[];
    costChanges?: CostChange[];
    availableWhen?: Condition;
+   requiredInDetachment?: DetachmentMinimum;
    maximumPerDetachment?: number;
    maximumPerArmy?: number;
+}
+
+export interface DetachmentMinimum {
+   minimum: number;
+   when: Condition;
 }
 
 export interface ConditionalKeywords extends KeywordChanges {
