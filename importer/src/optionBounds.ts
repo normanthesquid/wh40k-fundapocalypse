@@ -42,9 +42,23 @@ export class OptionBounds {
    private optionsTaken(condition: Condition | null | undefined): string[] | undefined {
       const single = this.host.optionTaken(condition);
       if (single !== undefined) return [single];
+      const others = this.othersOfUntaken(condition);
+      if (others !== undefined) return others;
       if (condition?.kind !== "Any") return undefined;
       const each = condition.conditions.map((part) => this.host.optionTaken(part));
       return each.every((option) => option !== undefined) ? (each as string[]) : undefined;
+   }
+
+   /** The rest of a group the unit takes exactly one of, when a condition says one of its options is not taken. */
+   private othersOfUntaken(condition: Condition | null | undefined): string[] | undefined {
+      if (condition?.kind !== "Count" || condition.of.kind !== "Option") return undefined;
+      const isUntakenHere = condition.scope === "Unit" && condition.of.datasheet === undefined && condition.maximum === 0;
+      if (!isUntakenHere) return undefined;
+      const untaken = condition.of.option;
+      const group = this.exclusiveGroupOf(untaken);
+      const optionIds = group?.options.map((option) => option.id!) ?? [];
+      if (group === undefined || !this.alwaysTakesOneOf(group, optionIds)) return undefined;
+      return optionIds.filter((option) => option !== untaken);
    }
 
    /** The group holding an option, when that group lets the unit take only one of its options. */
