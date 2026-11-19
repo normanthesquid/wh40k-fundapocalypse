@@ -108,11 +108,13 @@ export class OptionBounds {
       }
       const setOptions = [...amounts].filter(([, amount]) => amount.set !== undefined).map(([option]) => option);
       const exclusive = new Set(setOptions.map((option) => this.exclusiveGroupOf(option)));
-      if (setOptions.length > 0 && (exclusive.size !== 1 || exclusive.has(undefined) || (owner !== undefined && exclusive.has(owner)))) {
+      const isExclusive = exclusive.size === 1 && !exclusive.has(undefined) && !(owner !== undefined && exclusive.has(owner));
+      const isSetLikeIncrements = !isExclusive && this.setsActLikeIncrements(setOptions, amounts, base, bound, owner);
+      if (setOptions.length > 0 && !isExclusive && !isSetLikeIncrements) {
          this.host.unhandled(constraint, `${label} ${bound} set by options that do not exclude each other`);
          return;
       }
-      const [setGroup] = exclusive;
+      const setGroup = isExclusive ? [...exclusive][0] : undefined;
       if (setGroup !== undefined && this.alwaysTakesOneOf(setGroup, setOptions)) base = 0;
       if (base < 0) {
          this.host.unhandled(constraint, `${label} ${bound} with a negative base`);
@@ -126,6 +128,26 @@ export class OptionBounds {
       if (terms.length > 0) holder[bound] = { base, terms };
       else if (bound === "minimum" && base > 0) holder.minimum = base;
       else if (bound === "maximum") holder.maximum = base;
+   }
+
+   /** Options taken at most once that set one value give the verdict of increments: alone always, several only inside the bound's own group. */
+   private setsActLikeIncrements(setOptions: string[], amounts: Map<string, { set?: number; increment: number }>, base: number, bound: "minimum" | "maximum", owner: OptionGroup | undefined): boolean {
+      const values = new Set(setOptions.map((option) => amounts.get(option)!.set));
+      const hasIncrements = setOptions.some((option) => amounts.get(option)!.increment !== 0);
+      const options = this.host.groups.flatMap((group) => group.options);
+      const isEachTakenOnce = setOptions.every((option) => options.find((candidate) => candidate.id === option)?.maximum === 1);
+      if (values.size !== 1 || hasIncrements || !isEachTakenOnce) return false;
+      if (setOptions.length === 1) return true;
+      const isInOwner = owner !== undefined && setOptions.every((option) => owner.options.some((candidate) => candidate.id === option));
+      if (!isInOwner) return false;
+      const value = [...values][0]!;
+      for (let taken = 2; taken <= setOptions.length; taken++) {
+         const asIncrements = base + taken * (value - base);
+         const bothReject = value < taken && asIncrements < taken;
+         const bothAccept = value <= taken && asIncrements <= taken;
+         if (bound === "maximum" ? !bothReject : !bothAccept) return false;
+      }
+      return true;
    }
 
    /** The options a repeating increment counts in the unit, one per repeat. */
