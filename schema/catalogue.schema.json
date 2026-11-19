@@ -269,6 +269,10 @@
             "name": { "type": "string", "minLength": 1 },
             "minimum": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "$ref": "#/$defs/growingBound" }] },
             "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
+            "availableWhen": {
+               "description": "The whole group, its minimum included, applies only while this holds, e.g. a weapon swap for models that may all have been replaced.",
+               "$ref": "common.schema.json#/$defs/condition"
+            },
             "multipleOf": {
                "description": "The number of options taken must be a multiple of this, e.g. sponsons taken in pairs.",
                "type": "integer",

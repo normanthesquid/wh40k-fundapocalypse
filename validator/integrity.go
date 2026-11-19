@@ -190,6 +190,7 @@ func (check *checker) checkOptionGroup(where scope, group OptionGroup) {
 		check.checkLimit(where.at("maximum"), group.Maximum.Growing)
 	}
 	check.checkMultipleOf(where, group.MultipleOf, minimum, maximum)
+	check.checkCondition(where.at("availableWhen"), group.AvailableWhen)
 	if group.Default != nil && !slices.Contains(optionIDsOf(group), *group.Default) {
 		check.report(where, "default %q is not one of the group's options", *group.Default)
 	}

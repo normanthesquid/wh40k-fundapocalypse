@@ -74,6 +74,15 @@
                "name": "Sponsons",
                "maximum": 4,
                "multipleOf": 2,
+               "availableWhen": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "ten-models"
+                  },
+                  "minimum": 1
+               },
                "options": [
                   {
                      "id": "heavy-bolter-sponson",

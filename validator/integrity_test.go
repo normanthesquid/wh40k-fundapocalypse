@@ -337,6 +337,11 @@ func TestIntegrityRules(t *testing.T) {
 				inquisitor.Wargear[1].MultipleOf = pointer(2)
 			})
 		}, `wargear/1: maximum 3 is not a multiple of 2`},
+		{"group availability condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.Wargear[1].AvailableWhen = count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})
+			})
+		}, `wargear/1/availableWhen/of: option "nope" is not an option of its datasheet`},
 		{"group bounds that are multiples", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) {
 				inquisitor.Wargear[1].Minimum = fixed(2)

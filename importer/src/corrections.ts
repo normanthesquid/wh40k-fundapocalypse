@@ -1,6 +1,6 @@
 /** Values the v1.10.0 data has wrong or lacks, taken from the official Apocalypse datasheets and the maintainer's checks of them. */
 
-import type { BattlefieldRole } from "./model.ts";
+import type { BattlefieldRole, Limit } from "./model.ts";
 
 export type UnitCharacteristic = "M" | "WS" | "BS" | "A" | "W" | "Ld" | "Sv";
 export type WeaponCharacteristic = "Type" | "Range" | "A" | "SAP" | "SAT";
@@ -165,6 +165,10 @@ export const STRAY_ROLE_LINKS: readonly { readonly linkId: string; readonly name
 /** Conditions that name another unit's entry where the unit's own was meant, keyed by the unit's id and the wrong childId. */
 export const CONDITION_TARGET_CORRECTIONS: readonly { readonly unitId: string; readonly childId: string; readonly correctedChildId: string; readonly name: string; readonly source: Source }[] = [
    { unitId: "f1dc-9426-c419-5aa6", childId: "a9ec-6432-91ba-f8bf", correctedChildId: "973a-0f6f-0bb6-eb25", name: "Land Speeders 3 models", source: pdf("Adeptus_Astartes", 29) },
+   { unitId: "ea42-68aa-024e-2eaf", childId: "a9ec-6432-91ba-f8bf", correctedChildId: "973a-0f6f-0bb6-eb25", name: "Attack Bike Squad 3 models", source: pdf("Adeptus_Astartes", 30) },
+   { unitId: "1ca8-12b4-8ce6-5bbb", childId: "118c-2954-ba85-34e3", correctedChildId: "7dbe-a660-f6c9-1add", name: "Commander in XV84 Crisis Battlesuit drones", source: pdf("FW_Tau_Empire", 6) },
+   { unitId: "e832-e976-398e-610d", childId: "5f48-32f9-4de9-c2a4", correctedChildId: "140f-3794-7b50-a030", name: "Hounds of Morkai 10 models", source: MAINTAINER },
+   { unitId: "531c-7893-3dab-280c", childId: "b387-d691-5e15-e5cc", correctedChildId: "8593-349a-e033-266b", name: "Bladeguard Veteran Squad 6 models", source: { document: "wiki page Bladeguard-Veteran-Squad-Datasheet-Changes" } },
 ];
 
 /** Printed text for ability profiles the data leaves empty, keyed by the profile's id. */
@@ -175,6 +179,25 @@ export const ABILITY_TEXTS: readonly { readonly profileId: string; readonly name
       text: "Friendly DARK ANGELS units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit.",
       source: pdf("Dark_Angels", 6),
    },
+];
+
+const perOption = (amounts: Record<string, number>): Limit => ({ base: 0, terms: Object.entries(amounts).map(([option, amount]) => ({ per: { kind: "Option", option }, scope: "Unit", amount })) });
+
+/** Option group bounds the datasheet prints, replacing what the data sets, keyed by the group's id. */
+export const GROUP_BOUND_CORRECTIONS: readonly { readonly groupId: string; readonly name: string; readonly minimum?: Limit; readonly maximum?: Limit; readonly source: Source }[] = [
+   { groupId: "af9c-a747-fe79-484a", name: "Kabalite Warriors optional weapons", maximum: perOption({ "10-models": 1, "15-models": 1, "20-models": 2 }), source: pdf("Drukhari", 8) },
+   {
+      groupId: "465c-48ad-fb46-1dc7",
+      name: "Ravenwing Attack Bike Squad weapons",
+      minimum: perOption({ "1-model": 1, "2-models": 2, "3-models": 3 }),
+      maximum: perOption({ "1-model": 1, "2-models": 2, "3-models": 3 }),
+      source: pdf("Dark_Angels", 52),
+   },
+];
+
+/** Option maximums the data gets wrong, keyed by the constraint's id. */
+export const OPTION_MAXIMUM_CORRECTIONS: readonly { readonly constraintId: string; readonly name: string; readonly maximum: number; readonly source: Source }[] = [
+   { constraintId: "e460-e00d-b2e6-cb6f", name: "Terrax-Pattern Termite Assault Drill Two Heavy Flamers", maximum: 2, source: pdf("FW_Heretic_Astartes", 41) },
 ];
 
 export function describeSource(source: Source): string {

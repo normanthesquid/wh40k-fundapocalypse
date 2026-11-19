@@ -144,6 +144,7 @@ export interface OptionGroup {
    minimum?: number | Limit;
    maximum?: number | Limit;
    multipleOf?: number;
+   availableWhen?: Condition;
    default?: string;
    options: Option[];
 }

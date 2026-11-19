@@ -4,7 +4,7 @@ import { COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID, type Conversion, type Op
 import { constraintsByScope, constraintValue, POWER_LEVEL_TYPE_ID, powerLevel, viewOf, type EntryView } from "./entries.ts";
 import type { AlternativeRole, BattlefieldRole, Condition, DetachmentMinimum, ConditionalChange, CostChange, CountTarget, Datasheet, Option, OptionGroup } from "./model.ts";
 import { flatModifiers, flatModifiersOf, limitFrom, type FlatModifier } from "./modifiers.ts";
-import { CONDITION_TARGET_CORRECTIONS, describeSource, MISSING_ROLES, STRAY_ROLE_LINKS } from "./corrections.ts";
+import { CONDITION_TARGET_CORRECTIONS, describeSource, GROUP_BOUND_CORRECTIONS, MISSING_ROLES, OPTION_MAXIMUM_CORRECTIONS, STRAY_ROLE_LINKS } from "./corrections.ts";
 import { OptionBounds } from "./optionBounds.ts";
 import { UnitProfiles } from "./unitProfiles.ts";
 import { addWeaponVariants, carriedWeapon, type VariantContext } from "./weaponVariants.ts";
@@ -141,6 +141,20 @@ export class DatasheetConverter {
       if (local !== undefined) return { kind: "Option", option: local };
       if (childId === MODEL_COUNT_ID) return this.modelOption();
       return this.catalogueTarget(childId) ?? this.conversion.globalCountTarget(this.builder, childId);
+   }
+
+   /** The condition under which modifiers set both of a group's bounds to 0, when they do nothing else. */
+   private groupZeroedWhen(minimumConstraint: Element | undefined, maximumConstraint: Element | undefined, modifiers: FlatModifier[]): Condition | undefined {
+      if (minimumConstraint === undefined || maximumConstraint === undefined) return undefined;
+      const on = (constraint: Element) => modifiers.filter((modifier) => modifier.field === attribute(constraint, "id"));
+      const isZeroedWhen = (modifier: FlatModifier) => modifier.type === "set" && Number(modifier.value) === 0 && modifier.repeats.length === 0 && Boolean(modifier.condition);
+      const minimumChanges = on(minimumConstraint);
+      const maximumChanges = on(maximumConstraint);
+      const changes = [...minimumChanges, ...maximumChanges];
+      if (minimumChanges.length === 0 || maximumChanges.length === 0 || !changes.every(isZeroedWhen)) return undefined;
+      const keys = (list: FlatModifier[]) => [...new Set(list.map((modifier) => conditionKey(modifier.condition as Condition)))].toSorted().join("|");
+      if (keys(minimumChanges) !== keys(maximumChanges)) return undefined;
+      return combine("Any", maximumChanges.map((modifier) => modifier.condition as Condition));
    }
 
    /** Entries an option always carries, by id, mapped to that option: counting one counts the option. */
@@ -572,6 +586,11 @@ export class DatasheetConverter {
             availableWhen = allOf(availableWhen, converted.availableWhen);
          }
       }
+      const maximumCorrection = OPTION_MAXIMUM_CORRECTIONS.find((entry) => maximumConstraint !== undefined && entry.constraintId === attribute(maximumConstraint, "id"));
+      if (maximumCorrection !== undefined) {
+         option.maximum = maximumCorrection.maximum;
+         this.conversion.report.recordCorrection(view.element, `${maximumCorrection.name}: maximum ${maximumCorrection.maximum} as printed (${describeSource(maximumCorrection.source)})`);
+      }
       const minimumConstraint = constraints.get("parent min");
       const minimumModifiers = minimumConstraint === undefined ? [] : modifiers.filter((modifier) => modifier.field === attribute(minimumConstraint, "id"));
       const isDroppedWithMaximum = (modifier: FlatModifier) => modifier.type === "set" && Number(modifier.value) === 0 && maximumModifiers.some((maximumModifier) => JSON.stringify(maximumModifier.condition) === JSON.stringify(modifier.condition));
@@ -658,11 +677,22 @@ export class DatasheetConverter {
          this.conversion.report.recordCorrection(view.element, `minimum ${minimum} dropped: the group is only offered once ${parent.name} is taken`);
       }
       if (maximum !== undefined) group.maximum = maximum;
+      const correction = GROUP_BOUND_CORRECTIONS.find((entry) => view.ids.includes(entry.groupId));
+      const zeroedWhen = this.groupZeroedWhen(minimumConstraint, maximumConstraint, modifiers);
       const multipleOf = minimumModified && minimum === 0 ? this.bounds.multipleOf(id, minimumConstraint, modifiers) : undefined;
-      if (multipleOf !== undefined) group.multipleOf = multipleOf;
-      else if (minimumModified && parent === undefined) this.deferred.push(() => this.bounds.setBound(group, "minimum", minimumConstraint, modifiers, "option group"));
-      if (maximumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(maximumConstraint, "id"))) {
-         this.deferred.push(() => this.bounds.setBound(group, "maximum", maximumConstraint, modifiers, "option group"));
+      if (correction !== undefined) {
+         if (correction.minimum !== undefined) group.minimum = correction.minimum;
+         if (correction.maximum !== undefined) group.maximum = correction.maximum;
+         this.conversion.report.recordCorrection(view.element, `${correction.name} bounds set as printed (${describeSource(correction.source)})`);
+      } else if (zeroedWhen !== undefined) {
+         if (minimum !== undefined && minimum > 0 && parent === undefined) group.minimum = minimum;
+         group.availableWhen = not(zeroedWhen);
+      } else {
+         if (multipleOf !== undefined) group.multipleOf = multipleOf;
+         else if (minimumModified && parent === undefined) this.deferred.push(() => this.bounds.setBound(group, "minimum", minimumConstraint, modifiers, "option group"));
+         if (maximumConstraint !== undefined && modifiers.some((modifier) => modifier.field === attribute(maximumConstraint, "id"))) {
+            this.deferred.push(() => this.bounds.setBound(group, "maximum", maximumConstraint, modifiers, "option group"));
+         }
       }
       for (const key of constraints.keys()) if (!["parent min", "parent max"].includes(key)) this.unhandled(constraints.get(key)!, `option group constraint ${key}`);
       for (const modifier of modifiers) if (modifier.field !== "hidden" && !boundIds.has(modifier.field)) this.unhandled(modifier.element, `option group modifier ${modifier.type} ${modifier.field}`);
