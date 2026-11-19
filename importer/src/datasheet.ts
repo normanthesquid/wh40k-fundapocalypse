@@ -70,6 +70,7 @@ export class DatasheetConverter {
    private readonly secondaryRoles: SecondaryRole[] = [];
    private readonly correctedTargets = new Set<string>();
    private readonly alternativeRoles: AlternativeRole[] = [];
+   private carriedParts: Map<string, string> | undefined;
    private role: BattlefieldRole | undefined;
    private transport: string | undefined;
    private cost: number;
@@ -133,11 +134,32 @@ export class DatasheetConverter {
 
    private countTarget(sourceChildId: string): CountTarget | undefined {
       const childId = this.correctedChildId(sourceChildId);
+      const holder = this.carriedPartsOf().get(childId);
+      if (holder !== undefined) return { kind: "Option", option: holder };
       const local = this.slugs.byId.get(childId);
       if (local !== undefined && this.slugs.groups.has(local)) return { kind: "OptionGroup", group: local };
       if (local !== undefined) return { kind: "Option", option: local };
       if (childId === MODEL_COUNT_ID) return this.modelOption();
       return this.catalogueTarget(childId) ?? this.conversion.globalCountTarget(this.builder, childId);
+   }
+
+   /** Entries an option always carries, by id, mapped to that option: counting one counts the option. */
+   private carriedPartsOf(): Map<string, string> {
+      if (this.carriedParts !== undefined) return this.carriedParts;
+      const parts = new Map<string, string>();
+      const walk = (view: EntryView, option: string | undefined) => {
+         for (const child of [...view.childEntries, ...view.childGroups]) {
+            const childView = viewOf(this.conversion.registry, child);
+            if (childView === undefined) continue;
+            const isPart = childView.kind !== "group" && this.isMandatory(childView);
+            if (isPart && option !== undefined) for (const id of childView.ids) parts.set(id, option);
+            const isOption = childView.kind !== "group" && !isPart;
+            walk(childView, isOption ? this.slugs.byId.get(childView.ids[0]) : option);
+         }
+      };
+      walk(this.view, undefined);
+      this.carriedParts = parts;
+      return parts;
    }
 
    /** The unit's own entry in place of another unit's that the correction table says a condition names by mistake. */
