@@ -16,7 +16,7 @@ Each release is a git tag `v<version>` matching `release` in `data/game-system.j
   * The Banner of the Apostate affects Imperial units, and a Death Korps Combat Engineer Squad's Heavy Weapons Team costs PL +1.
   * The Reaver Melta Cannon has Destroyer, not Apocalyptic Destroyer.
   * Six units that had no battlefield role were given one from their datasheet, and a few option limits and conditions that pointed at the wrong unit were fixed.
-* Patrol and Air Wing are Special Detachments, as the rulebook calls them.
+* Detachments that aren't Core (Patrol, Air Wing, Super-heavy Auxiliary, Fortification Network, Supreme Command and Ad Hoc) are Special Detachments, as the rulebook calls them.
 
 ## 1.10.0
 
