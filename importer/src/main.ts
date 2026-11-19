@@ -34,13 +34,16 @@ const converted = catalogues.map((catalogue) => catalogue.convert());
 rmSync(flags.output, { recursive: true, force: true });
 writeJson(join(flags.output, "game-system.json"), gameSystem);
 for (const catalogue of converted) writeJson(join(flags.output, "catalogues", `${catalogue.id}.json`), catalogue);
-const gameSystemAbilities = new Set([...conversion.gameSystem.builder.abilities.values()].map((ability) => JSON.stringify([ability.name, [["Description", ability.text]]])));
-for (const document of registry.catalogues) report.before.set(document.slug, countBefore(document, gameSystemAbilities));
-for (const catalogue of converted) report.after.set(catalogue.id, countAfter(catalogue));
-writeReport(flags.report, report, conversion);
+const gameSystemAbilities = new Set([...conversion.gameSystem.builder.abilities.values()].map((ability) => ability.name));
+for (const document of registry.catalogues) report.before.set(document.slug, countBefore(document, conversion, gameSystemAbilities));
+for (const catalogue of converted) report.after.set(catalogue.id, countAfter(catalogue, gameSystemAbilities));
+const fidelity = writeReport(flags.report, report, conversion, converted);
 
 console.log(`${converted.length} catalogues written to ${flags.output}`);
 console.log(`${report.corrections.length} corrections, ${report.dropped.length} dropped, ${report.unhandled.length} unhandled`);
+console.log(`fidelity: ${fidelity.unexplainedCounts} unit counts differ, ${fidelity.unexplainedNames} unexplained names, ${fidelity.unaccountedWargear} unaccounted wargear entries`);
+const fidelityProblems = fidelity.unexplainedCounts + fidelity.unexplainedNames + fidelity.unaccountedWargear;
+if (fidelityProblems > 0) process.exitCode = 1;
 if (report.unhandled.length > 0) {
    const byMessage = new Map<string, number>();
    for (const finding of report.unhandled) {

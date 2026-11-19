@@ -23,9 +23,20 @@ export interface LocatedOption {
    readonly option: string;
 }
 
+/** What the conversion made of each wargear entry in one datasheet's source tree, for the fidelity report. */
+export interface WargearFates {
+   options: number;
+   fixedWargear: number;
+   carriedUntilDropped: number;
+   dropped: number;
+}
+
 /** The slugs of one datasheet's option groups and options, keyed by every BattleScribe id that names them. */
 export class OptionSlugs {
    readonly byId = new Map<string, string>();
+   /** The wargear entries (every entry but groups) below the unit in the source. */
+   sourceEntries = 0;
+   readonly fates: WargearFates = { options: 0, fixedWargear: 0, carriedUntilDropped: 0, dropped: 0 };
    readonly allIds = new Set<string>();
    /** Categories some entry below the unit adds, so the unit only has them when that entry is taken. */
    readonly optionalCategories = new Set<string>();
@@ -49,6 +60,8 @@ export class Conversion {
    readonly choiceOptions = new Map<string, Located>();
    /** Groups inside a detachment choice, by every id naming them, with the ids of the options they hold. */
    readonly choiceGroups = new Map<string, string[]>();
+   /** The root entries read as detachment choices rather than units. */
+   readonly choiceRoots = new Set<Element>();
    readonly profiles = new Map<string, Located>();
    /** The roles faction links give each library unit, by the unit's id. */
    readonly linkRoles = new Map<string, BattlefieldRole[]>();
@@ -150,10 +163,28 @@ export class Conversion {
          }
       };
       walk(view);
+      slugs.sourceEntries = this.wargearEntriesUnder(view);
       for (const [target, uses] of targetUses) if (uses > 1 && !view.ids.includes(target)) slugs.byId.delete(target);
       for (const [id, option] of slugs.byId) if (!this.options.has(id)) this.options.set(id, { datasheet, option });
       this.optionSlugs.set(datasheetKey, slugs);
       return slugs;
+   }
+
+   /** The wargear entries in a view's tree, the view itself included unless it is a group. */
+   wargearEntryCount(view: EntryView): number {
+      const own = view.kind === "group" ? 0 : 1;
+      return own + this.wargearEntriesUnder(view);
+   }
+
+   /** The wargear entries below a view, leaving out the Commander and Warmaster links every unit passes through. */
+   wargearEntriesUnder(view: EntryView): number {
+      let count = 0;
+      for (const child of [...view.childEntries, ...view.childGroups]) {
+         if (child.tag === "entryLink" && [COMMANDER_ENTRY_ID, WARMASTER_TRAITS_GROUP_ID].includes(attribute(child, "targetId"))) continue;
+         const childView = viewOf(this.registry, child);
+         if (childView !== undefined) count += this.wargearEntryCount(childView);
+      }
+      return count;
    }
 
    /** The count targets for a detachment choice's group, which counts as any of its options. */

@@ -6,15 +6,16 @@ export interface Finding {
    readonly message: string;
 }
 
+/** Counts on one side of the conversion; weapons and abilities are their distinct names. */
 export interface CatalogueCounts {
    units: number;
-   weapons: number;
-   abilities: number;
+   weapons: Set<string>;
+   abilities: Set<string>;
    options: number;
 }
 
 export function emptyCounts(): CatalogueCounts {
-   return { units: 0, weapons: 0, abilities: 0, options: 0 };
+   return { units: 0, weapons: new Set(), abilities: new Set(), options: 0 };
 }
 
 export class Report {

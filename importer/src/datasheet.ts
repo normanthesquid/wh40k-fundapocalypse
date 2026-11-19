@@ -468,8 +468,11 @@ export class DatasheetConverter {
          if (child.tag === "entryLink" && this.isPassThrough(attribute(child, "targetId"))) continue;
          const childView = this.conversion.view(child);
          if (childView === undefined) continue;
-         if (this.isMandatory(childView)) this.absorb(childView, parent);
-         else if (!this.absorbUnlessDropped(childView, parent)) {
+         if (this.isMandatory(childView)) {
+            this.slugs.fates.fixedWargear += 1;
+            this.absorb(childView, parent);
+         } else if (this.absorbUnlessDropped(childView, parent)) this.slugs.fates.carriedUntilDropped += 1;
+         else {
             const option = this.optionFrom(childView, this.requires(parent));
             if (option !== undefined) this.loose.push(option);
          }
@@ -580,6 +583,7 @@ export class DatasheetConverter {
          else if (converted.limit.terms !== undefined) this.unhandled(maximumConstraint, "option maximum that grows");
          else if (converted.limit.base === 0 && converted.availableWhen === undefined) {
             this.conversion.report.recordDropped(view.element, "option with a maximum of 0");
+            this.slugs.fates.dropped += this.conversion.wargearEntryCount(view);
             return undefined;
          } else {
             option.maximum = converted.limit.base;
@@ -645,6 +649,7 @@ export class DatasheetConverter {
       const availability = availabilityOf(view.hidden, modifiers);
       if (availability === "Never") {
          this.conversion.report.recordDropped(view.element, "option hidden with no condition that shows it");
+         this.slugs.fates.dropped += this.conversion.wargearEntryCount(view);
          return undefined;
       }
       if (availability !== undefined && availability !== "Always") availableWhen = allOf(availableWhen, availability);
@@ -652,6 +657,7 @@ export class DatasheetConverter {
       this.addOptionCategories(view, option);
       this.addProfiles(view, option);
       this.addChildren(view, option);
+      this.slugs.fates.options += 1;
       return option;
    }
 
@@ -661,6 +667,7 @@ export class DatasheetConverter {
       const availability = availabilityOf(view.hidden, modifiers);
       if (availability === "Never") {
          this.conversion.report.recordDropped(view.element, "option group hidden with no condition that shows it");
+         this.slugs.fates.dropped += this.conversion.wargearEntriesUnder(view);
          return;
       }
       const shownWhen = allOf(availability === "Always" || availability === undefined ? undefined : availability, this.requires(parent));

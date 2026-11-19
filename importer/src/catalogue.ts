@@ -70,6 +70,7 @@ export class CatalogueConversion {
    }
 
    private planChoice(view: EntryView): void {
+      this.conversion.choiceRoots.add(view.element);
       const slug = this.builder.slugFor(view.ids[0], view.name);
       const options: [string, EntryView][] = [];
       const entries = (parent: EntryView): EntryView[] =>
