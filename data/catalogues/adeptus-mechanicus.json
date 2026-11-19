@@ -1,0 +1,3774 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "adeptus-mechanicus",
+   "name": "Imperium - Adeptus Mechanicus",
+   "kind": "Faction",
+   "datasheets": {
+      "serberys-sulphurhounds": {
+         "name": "Serberys Sulphurhounds",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "SERBERYS SULPHURHOUNDS",
+            "LIGHT",
+            "CAVALRY"
+         ],
+         "profiles": [
+            {
+               "name": "Serberys Sulphurhounds",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "clawed-limbs",
+            "sulphur-breath"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3-9 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 Models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ]
+      },
+      "serberys-raiders": {
+         "name": "Serberys Raiders",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "CAVALRY",
+            "SERBERYS RAIDERS"
+         ],
+         "profiles": [
+            {
+               "name": "Serberys Raiders",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "clawed-limbs",
+            "galvanic-carbines"
+         ],
+         "abilities": [
+            "infiltrators",
+            "sniper"
+         ],
+         "wargear": [
+            {
+               "id": "3-9-models",
+               "name": "3-9 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 Models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ]
+      },
+      "pteraxii-sterylizors": {
+         "name": "Pteraxii Sterylizors",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "PTERAXII STERYLIZORS",
+            "FLY",
+            "JUMP PACK"
+         ],
+         "profiles": [
+            {
+               "name": "Pteraxii Sterylizors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "phosphor-torches",
+            "pteraxii-talons"
+         ],
+         "abilities": [
+            "soar-away",
+            "deep-strike",
+            "inferno"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5-10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 4,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "pteraxii-skystalkers": {
+         "name": "Pteraxii Skystalkers",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "FLY",
+            "JUMP PACK",
+            "PTERAXII SKYSTALKERS"
+         ],
+         "profiles": [
+            {
+               "name": "Pteraxii Skystalkers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "flechette-carbines",
+            "pteraxii-talons"
+         ],
+         "abilities": [
+            "arc-grenade-cluster",
+            "soar-away",
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5-10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 4,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "archaeopter-transvector": {
+         "name": "Archaeopter Transvector",
+         "battlefieldRole": "Flyer",
+         "cost": 5,
+         "keywords": [
+            "VEHICLE",
+            "HEAVY",
+            "AIRCRAFT",
+            "TRANSPORT",
+            "FLY",
+            "ARCHAEOPTER",
+            "ARCHAEOPTER TRANSVECTOR"
+         ],
+         "profiles": [
+            {
+               "name": "Archaeopter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD"
+         ],
+         "weapons": [
+            "twin-cognis-heavy-stubber",
+            "armoured-bulk"
+         ],
+         "abilities": [
+            "command-uplink",
+            "supersonic",
+            "hover-jet"
+         ],
+         "transport": "This unit can transport 6 SECUTARII, <FORGE WORLD> ELECTRO-PRIESTS,   <FORGE WORLD> TECH-PRIESTS, or  SECUTARII INFANTRY models. It cannot transport Belisarius Cawl.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cognis-heavy-stubbers",
+                     "name": "Cognis Heavy Stubbers",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "cognis-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "archaeopter-stratoraptor": {
+         "name": "Archaeopter Stratoraptor",
+         "battlefieldRole": "Flyer",
+         "cost": 7,
+         "keywords": [
+            "VEHICLE",
+            "HEAVY",
+            "AIRCRAFT",
+            "FLY",
+            "ARCHAEOPTER",
+            "ARCHAEOPTER STRATORAPTOR"
+         ],
+         "profiles": [
+            {
+               "name": "Archaeopter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD"
+         ],
+         "weapons": [
+            "twin-cognis-lascannon",
+            "armoured-bulk"
+         ],
+         "abilities": [
+            "command-uplink",
+            "supersonic",
+            "hover-jet"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cognis-heavy-stubbers",
+                     "name": "Cognis Heavy Stubbers",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "cognis-heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "heavy-phosphor-blasters",
+                     "name": "Heavy Phosphor Blasters",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "heavy-phosphor-blaster"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "archaeopter-fusilave": {
+         "name": "Archaeopter Fusilave",
+         "battlefieldRole": "Flyer",
+         "cost": 6,
+         "keywords": [
+            "VEHICLE",
+            "HEAVY",
+            "AIRCRAFT",
+            "FLY",
+            "ARCHAEOPTER",
+            "ARCHAEOPTER FUSILAVE"
+         ],
+         "profiles": [
+            {
+               "name": "Archaeopter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD"
+         ],
+         "weapons": [
+            "armoured-bulk"
+         ],
+         "abilities": [
+            "bomb-rack",
+            "command-uplink",
+            "supersonic",
+            "hover-jet"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cognis-heavy-stubbers",
+                     "name": "Cognis Heavy Stubbers",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "addsWeapons": [
+                        "cognis-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "belisarius-cawl": {
+         "name": "Belisarius Cawl",
+         "battlefieldRole": "HQ",
+         "cost": 10,
+         "keywords": [
+            "BELISARIUS CAWL",
+            "CHARACTER",
+            "TECH-PRIEST"
+         ],
+         "profiles": [
+            {
+               "name": "Belisarius Cawl",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "MARS"
+         ],
+         "weapons": [
+            "solar-atomiser",
+            "omnissian-axe"
+         ],
+         "abilities": [
+            "lord-of-mars",
+            "archmagos",
+            "master-of-machines",
+            "self-repair-mechanisms"
+         ]
+      },
+      "tech-priest-manipulus": {
+         "name": "Tech-Priest Manipulus",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "MANIPULUS",
+            "TECH-PRIEST",
+            "CHARACTER"
+         ],
+         "profiles": [
+            {
+               "name": "Tech-Priest Manipulus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "omnissian-staff"
+         ],
+         "abilities": [
+            "galvanic-field",
+            "master-of-machines-2"
+         ]
+      },
+      "tech-priest-dominus": {
+         "name": "Tech-Priest Dominus",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "CHARACTER",
+            "DOMINUS",
+            "INFANTRY",
+            "LIGHT",
+            "TECH-PRIEST"
+         ],
+         "profiles": [
+            {
+               "name": "Tech-Priest Dominus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "tech-priest-weapons",
+            "omnissian-axe"
+         ],
+         "abilities": [
+            "lord-of-the-machine-cult",
+            "master-of-machines-2"
+         ]
+      },
+      "tech-priest-enginseer": {
+         "name": "Tech-Priest Enginseer",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "ENGINSEER",
+            "INFANTRY",
+            "LIGHT",
+            "TECH-PRIEST"
+         ],
+         "profiles": [
+            {
+               "name": "Tech-Priest Enginseer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "IMPERIUM",
+            "FORGE WORLD"
+         ],
+         "weapons": [
+            "omnissian-axe-servo-arm"
+         ],
+         "abilities": [
+            "master-of-machines-2"
+         ]
+      },
+      "skitarii-rangers": {
+         "name": "Skitarii Rangers",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "SKITARII RANGERS"
+         ],
+         "profiles": [
+            {
+               "name": "Skitarii Rangers (5 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "galvanic-rifles",
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5-10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 2,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "skitarii-vanguard": {
+         "name": "Skitarii Vanguard",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "SKITARII VANGUARD"
+         ],
+         "profiles": [
+            {
+               "name": "Skitarii Vanguard (5 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "radium-carbines",
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5-10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 2,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "kataphron-breachers": {
+         "name": "Kataphron Breachers",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "KATAPHRON BREACHERS",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Kataphron Breachers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "kataphron-claws"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "heavy-arc-rifle",
+                     "name": "Heavy Arc Rifle",
+                     "addsWeapons": [
+                        "heavy-arc-rifle"
+                     ]
+                  },
+                  {
+                     "id": "torsion-cannon",
+                     "name": "Torsion Cannon",
+                     "addsWeapons": [
+                        "torsion-cannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 9
+                     }
+                  ]
+               },
+               "default": "heavy-arc-rifle",
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 9
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "3-12-models",
+               "name": "3-12 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "cost": 6
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 4,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 Models",
+                     "cost": 18,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 6,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "12-models",
+                     "name": "12 Models",
+                     "cost": 24,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 8,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "kataphron-destroyers": {
+         "name": "Kataphron Destroyers",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "KATAPHRON DESTROYERS"
+         ],
+         "profiles": [
+            {
+               "name": "Kataphron Destroyers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-2"
+         ],
+         "wargear": [
+            {
+               "id": "primary-weapons",
+               "name": "Primary Weapons",
+               "options": [
+                  {
+                     "id": "plasma-culverin",
+                     "name": "Plasma Culverin",
+                     "addsWeapons": [
+                        "plasma-culverin"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "heavy-grav-cannon",
+                     "name": "Heavy Grav-Cannon",
+                     "addsWeapons": [
+                        "heavy-grav-cannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 9
+                     }
+                  ]
+               },
+               "default": "plasma-culverin",
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 9
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "secondary-weapons",
+               "name": "Secondary Weapons",
+               "options": [
+                  {
+                     "id": "cognis-flamer",
+                     "name": "Cognis Flamer",
+                     "addsWeapons": [
+                        "cognis-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "phosphor-blaster",
+                     "name": "Phosphor Blaster",
+                     "addsWeapons": [
+                        "phosphor-blaster"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 9
+                     }
+                  ]
+               },
+               "default": "phosphor-blaster",
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 9
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "3-12-models",
+               "name": "3-12 models",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 14,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 4,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 Models",
+                     "cost": 21,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 6,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "12-models",
+                     "name": "12 Models",
+                     "cost": 28,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 8,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "servitors": {
+         "name": "Servitors",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "SERVITORS"
+         ],
+         "profiles": [
+            {
+               "name": "Servitors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 5,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "IMPERIUM",
+            "FORGE WORLD"
+         ],
+         "abilities": [
+            "mindlock"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "plasma-cannon",
+                     "name": "Plasma Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "servo-arm",
+                     "name": "Servo Arm",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "addsWeapons": [
+                        "servo-arm"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "cybernetica-datasmith": {
+         "name": "Cybernetica Datasmith",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "CYBERNETICA DATASMITH",
+            "INFANTRY",
+            "LIGHT",
+            "TECH-PRIEST"
+         ],
+         "profiles": [
+            {
+               "name": "Cybernetica Datasmith",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "CULT MECHANICUS"
+         ],
+         "weapons": [
+            "close-combat-weapons-3"
+         ],
+         "abilities": [
+            "master-of-the-machines"
+         ]
+      },
+      "sicarian-ruststalkers": {
+         "name": "Sicarian Ruststalkers",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "SICARIAN RUSTSTALKERS"
+         ],
+         "profiles": [
+            {
+               "name": "Sicarian Ruststalkers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "SKITARII",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "chordclaws",
+            "transonic-weapons"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5-10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "sicarian-infiltrators": {
+         "name": "Sicarian Infiltrators",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "SICARIAN INFILTRATORS"
+         ],
+         "profiles": [
+            {
+               "name": "Sicarian Infiltrators",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "SKITARII",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "infiltrator-weapons"
+         ],
+         "abilities": [
+            "infiltrators-2",
+            "terror-troops-2"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "flechette-blasters",
+                     "name": "Flechette Blasters",
+                     "addsWeapons": [
+                        "flechette-blasters"
+                     ]
+                  },
+                  {
+                     "id": "stubcarbines",
+                     "name": "Stubcarbines",
+                     "addsWeapons": [
+                        "stubcarbines"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "stubcarbines"
+            },
+            {
+               "id": "5-10-models",
+               "name": "5-10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 6
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "fulgurite-electro-priests": {
+         "name": "Fulgurite Electro-Priests",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "ELECTRO-PRIESTS",
+            "FULGURITE",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Fulgurite Electro-Priests",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "electroleech-staves"
+         ],
+         "abilities": [
+            "siphoned-vigour",
+            "ignore-damage-5"
+         ],
+         "wargear": [
+            {
+               "id": "5-20-models",
+               "name": "5-20 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 Models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 Models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "corpuscarii-electro-priests": {
+         "name": "Corpuscarii Electro-Priests",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "ELECTRO-PRIESTS",
+            "INFANTRY",
+            "LIGHT",
+            "CORPUSCARII"
+         ],
+         "profiles": [
+            {
+               "name": "Corpuscarii Electro-Priests",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "electrostatic-gauntlets-ranged",
+            "electrostatic-gauntlets-melee"
+         ],
+         "abilities": [
+            "ignore-damage-5"
+         ],
+         "wargear": [
+            {
+               "id": "5-20-models",
+               "name": "5-20 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 Models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 Models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "sydonian-dragoons": {
+         "name": "Sydonian Dragoons",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "VEHICLE",
+            "SYDONIAN DRAGOONS",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Sydonian Dragoons",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "incense-cloud",
+            "broad-spectrum-data-tether"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "radium-jezzail",
+                     "name": "Radium Jezzail",
+                     "addsWeapons": [
+                        "radium-jezzail"
+                     ],
+                     "addsAbilities": [
+                        "sniper"
+                     ]
+                  },
+                  {
+                     "id": "taser-lance",
+                     "name": "Taser Lance",
+                     "addsWeapons": [
+                        "taser-lance"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "default": "taser-lance",
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "1-6-models",
+               "name": "1-6 models",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 Model",
+                     "cost": 5
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "cost": 15,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 30,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "phosphor-serpenta",
+                     "name": "Phosphor Serpenta",
+                     "maximum": {
+                        "base": 1,
+                        "terms": [
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "3-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 2
+                           },
+                           {
+                              "per": {
+                                 "kind": "Option",
+                                 "option": "6-models"
+                              },
+                              "scope": "Unit",
+                              "amount": 5
+                           }
+                        ]
+                     },
+                     "cost": 1,
+                     "addsWeapons": [
+                        "phosphor-serpenta"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "ironstrider-balistarii": {
+         "name": "Ironstrider Balistarii",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "VEHICLE",
+            "HEAVY",
+            "IRONSTRIDER BALISTARII"
+         ],
+         "profiles": [
+            {
+               "name": "Ironstrider Balistarii",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-4"
+         ],
+         "abilities": [
+            "broad-spectrum-data-tether"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "twin-cognis-autocannon",
+                     "name": "Twin Cognis Autocannon",
+                     "addsWeapons": [
+                        "twin-cognis-autocannon"
+                     ],
+                     "addsAbilities": [
+                        "sniper"
+                     ]
+                  },
+                  {
+                     "id": "twin-cognis-lascannon",
+                     "name": "Twin Cognis Lascannon",
+                     "addsWeapons": [
+                        "twin-cognis-lascannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "1-6-models",
+               "name": "1-6 models",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 Model",
+                     "cost": 6
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "cost": 18,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 36,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "kastelan-robots": {
+         "name": "Kastelan Robots",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "KASTELAN ROBOTS",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Kastelan Robots",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "CULT MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "armoured-feet"
+         ],
+         "abilities": [
+            "battle-protocols",
+            "advance",
+            "aimed-fire",
+            "assault"
+         ],
+         "wargear": [
+            {
+               "id": "primary-weapon",
+               "name": "Primary Weapon",
+               "options": [
+                  {
+                     "id": "kastelan-fists",
+                     "name": "Kastelan Fists",
+                     "addsWeapons": [
+                        "kastelan-fists"
+                     ]
+                  },
+                  {
+                     "id": "heavy-phosphor-blasters",
+                     "name": "Heavy Phosphor Blasters"
+                  }
+               ],
+               "maximum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "secondary-weapon",
+               "name": "Secondary Weapon",
+               "options": [
+                  {
+                     "id": "incendine-combustor",
+                     "name": "Incendine Combustor",
+                     "addsWeapons": [
+                        "incendine-combustor"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "heavy-phosphor-blaster-2",
+                     "name": "Heavy Phosphor Blaster",
+                     "addsWeapons": [
+                        "heavy-phosphor-blaster"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "2-6-models",
+               "name": "2-6 models",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 Models",
+                     "cost": 7
+                  },
+                  {
+                     "id": "4-models",
+                     "name": "4 Models",
+                     "cost": 14,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "cost": 21,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2-models"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-phosphor-blaster",
+                     "name": "Heavy Phosphor Blaster",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-phosphor-blasters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "heavy-phosphor-blaster"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "onager-dunecrawler": {
+         "name": "Onager Dunecrawler",
+         "battlefieldRole": "HeavySupport",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "ONAGER DUNECRAWLER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Onager Dunecrawler",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "armoured-feet"
+         ],
+         "abilities": [
+            "emanatus-force-field",
+            "broad-spectrum-data-tether"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "eradication-beamer",
+                     "name": "Eradication Beamer",
+                     "addsWeapons": [
+                        "eradication-beamer"
+                     ]
+                  },
+                  {
+                     "id": "icarus-array",
+                     "name": "Icarus Array",
+                     "addsWeapons": [
+                        "icarus-array"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-phophor-blaster",
+                     "name": "Twin Heavy Phophor Blaster",
+                     "addsWeapons": [
+                        "twin-heavy-phophor-blaster"
+                     ]
+                  },
+                  {
+                     "id": "neutron-laser-cognis-heavy-stubber",
+                     "name": "Neutron Laser & Cognis Heavy Stubber",
+                     "addsWeapons": [
+                        "neutron-laser",
+                        "cognis-heavy-stubber"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "eradication-beamer"
+            }
+         ]
+      },
+      "skorpius-disintegrator": {
+         "name": "Skorpius Disintegrator",
+         "battlefieldRole": "HeavySupport",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "SKORPIUS DISINTEGRATOR",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Skorpius Disintegrator",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SKITARII"
+         ],
+         "weapons": [
+            "disruptor-missile-launcher",
+            "armoured-bulk"
+         ],
+         "abilities": [
+            "broad-spectrum-data-tether"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "ferrumite-cannon",
+                     "name": "Ferrumite Cannon",
+                     "addsWeapons": [
+                        "ferrumite-cannon"
+                     ]
+                  },
+                  {
+                     "id": "belleros-energy-cannon",
+                     "name": "Belleros Energy Cannon",
+                     "addsWeapons": [
+                        "belleros-energy-cannon"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ],
+                     "cost": 1
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "ferrumite-cannon"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cognis-heavy-stubber",
+                     "name": "Cognis Heavy Stubber",
+                     "maximum": 3,
+                     "minimum": 3,
+                     "addsWeapons": [
+                        "cognis-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "skorpius-dunerider": {
+         "name": "Skorpius Dunerider",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 7,
+         "keywords": [
+            "SKORPIUS DUNERIDER",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Skorpius Dunerider",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "SKITARII",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "twin-cognis-heavy-stubber",
+            "armoured-bulk"
+         ],
+         "abilities": [
+            "broad-spectrum-data-tether"
+         ],
+         "transport": "This unit can transport 10 Secutarii Infantry or <Forge World> Infantry models. It cannot transport Belisarius Cawl, Kataphron Breacher or Kataphron Destroyer units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cognis-heavy-stubber",
+                     "name": "Cognis Heavy Stubber",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "cognis-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "terrax-pattern-termite-assault-drill": {
+         "name": "Terrax-pattern Termite Assault Drill",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "TERMITE ASSAULT DRILL",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Terrax-pattern Termite Assault Drill",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "termite-drill",
+            "melta-cutter"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "transport": "This unit can transport up to 12 friendly SECUTARII INFANTRY or <FORGEWORLD> INFANTRY models. It cannot transport BELISARIUS CAWL, KATAPHRON BREACHER or KATAPHRON DESTROYER models.",
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "heavy-flamers",
+                     "name": "Heavy Flamers"
+                  },
+                  {
+                     "id": "storm-bolters",
+                     "name": "Storm Bolters"
+                  },
+                  {
+                     "id": "twin-volkite-chargers",
+                     "name": "Twin Volkite Chargers",
+                     "cost": 2
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "storm-bolters"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-flamers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "storm-bolters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "twin-volkite-charger",
+                     "name": "Twin Volkite Charger",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "twin-volkite-chargers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "twin-volkite-charger"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "secutarii-hoplites": {
+         "name": "Secutarii Hoplites",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "SECUTARII HOPLITES"
+         ],
+         "profiles": [
+            {
+               "name": "Secutarii Hoplites",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SECUTARII"
+         ],
+         "weapons": [
+            "arc-lances-ranged",
+            "arc-lances-melee"
+         ],
+         "abilities": [
+            "mag-inverter-shields"
+         ],
+         "wargear": [
+            {
+               "id": "10-20-models",
+               "name": "10-20 models",
+               "options": [
+                  {
+                     "id": "20-models",
+                     "name": "20 Models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      },
+      "secutarii-peltasts": {
+         "name": "Secutarii Peltasts",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "SECUTARII PELTASTS"
+         ],
+         "profiles": [
+            {
+               "name": "Secutarii Peltasts",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS MECHANICUS",
+            "FORGE WORLD",
+            "IMPERIUM",
+            "SECUTARII"
+         ],
+         "weapons": [
+            "galvanic-casters",
+            "close-combat-weapons-3"
+         ],
+         "abilities": [
+            "mag-inverter-shields"
+         ],
+         "wargear": [
+            {
+               "id": "10-20-models",
+               "name": "10-20 models",
+               "options": [
+                  {
+                     "id": "20-models",
+                     "name": "20 Models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      }
+   },
+   "weapons": {
+      "clawed-limbs": {
+         "name": "Clawed Limbs",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "sulphur-breath": {
+         "name": "Sulphur Breath",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "galvanic-carbines": {
+         "name": "Galvanic Carbines",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Sniper"
+      },
+      "phosphor-torches": {
+         "name": "Phosphor Torches",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "pteraxii-talons": {
+         "name": "Pteraxii Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "flechette-carbines": {
+         "name": "Flechette Carbines",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 5
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "solar-atomiser": {
+         "name": "Solar Atomiser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 6
+      },
+      "omnissian-axe": {
+         "name": "Omnissian Axe",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "tech-priest-weapons": {
+         "name": "Tech-Priest Weapons",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "omnissian-staff": {
+         "name": "Omnissian Staff",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "omnissian-axe-servo-arm": {
+         "name": "Omnissian Axe & Servo-arm",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 7
+      },
+      "galvanic-rifles": {
+         "name": "Galvanic Rifles",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "radium-carbines": {
+         "name": "Radium Carbines",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "kataphron-claws": {
+         "name": "Kataphron Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "heavy-arc-rifle": {
+         "name": "Heavy Arc Rifle",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "torsion-cannon": {
+         "name": "Torsion Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "plasma-culverin": {
+         "name": "Plasma Culverin",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Supercharge"
+      },
+      "heavy-grav-cannon": {
+         "name": "Heavy Grav-Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5
+      },
+      "cognis-flamer": {
+         "name": "Cognis Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "phosphor-blaster": {
+         "name": "Phosphor Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "servo-arm": {
+         "name": "Servo Arm",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "close-combat-weapons-3": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "chordclaws": {
+         "name": "Chordclaws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "transonic-weapons": {
+         "name": "Transonic Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "infiltrator-weapons": {
+         "name": "Infiltrator Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "flechette-blasters": {
+         "name": "Flechette Blasters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "stubcarbines": {
+         "name": "Stubcarbines",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "electroleech-staves": {
+         "name": "Electroleech Staves",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "electrostatic-gauntlets-ranged": {
+         "name": "Electrostatic Gauntlets (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "electrostatic-gauntlets-melee": {
+         "name": "Electrostatic Gauntlets (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "phosphor-serpenta": {
+         "name": "Phosphor Serpenta",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "radium-jezzail": {
+         "name": "Radium Jezzail",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Sniper"
+      },
+      "taser-lance": {
+         "name": "Taser Lance",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "close-combat-weapons-4": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "twin-cognis-autocannon": {
+         "name": "Twin Cognis Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "twin-cognis-lascannon": {
+         "name": "Twin Cognis Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "kastelan-fists": {
+         "name": "Kastelan Fists",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5
+      },
+      "incendine-combustor": {
+         "name": "Incendine Combustor",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "eradication-beamer": {
+         "name": "Eradication Beamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "icarus-array": {
+         "name": "Icarus Array",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5,
+         "text": "Anti-Air"
+      },
+      "twin-heavy-phophor-blaster": {
+         "name": "Twin Heavy Phophor Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "neutron-laser": {
+         "name": "Neutron Laser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 11,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "armoured-feet": {
+         "name": "Armoured Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "twin-cognis-heavy-stubber": {
+         "name": "Twin Cognis Heavy Stubber",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "disruptor-missile-launcher": {
+         "name": "Disruptor Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "ferrumite-cannon": {
+         "name": "Ferrumite Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5
+      },
+      "belleros-energy-cannon": {
+         "name": "Belleros Energy Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7,
+         "text": "Barrage"
+      },
+      "armoured-bulk": {
+         "name": "Armoured Bulk",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 11
+      },
+      "termite-drill": {
+         "name": "Termite Drill",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "melta-cutter": {
+         "name": "Melta Cutter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "twin-volkite-charger": {
+         "name": "Twin Volkite Charger",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 15
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "arc-lances-ranged": {
+         "name": "Arc Lances (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 6
+      },
+      "arc-lances-melee": {
+         "name": "Arc Lances (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 6
+      },
+      "galvanic-casters": {
+         "name": "Galvanic Casters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "heavy-phosphor-blaster": {
+         "name": "Heavy Phosphor Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "cognis-heavy-stubber": {
+         "name": "Cognis Heavy Stubber",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      }
+   },
+   "abilities": {
+      "arc-grenade-cluster": {
+         "name": "Arc Grenade Cluster",
+         "text": "When this unit finishes making a Move action, select one enemy unit it moved over whilst making that Move action. Roll three D6, subtracting 1 from each result if that unit is a Character and adding 2 to each result if that unit is a VEHICLE; for each result of 4+ place one blast marker next to that unit."
+      },
+      "bomb-rack": {
+         "name": "Bomb Rack",
+         "text": "After this unit makes a Move action, select one enemy unit it passed within 1\" of during that Move action. Roll two D6; for each 3+ place one blast marker next to that unit."
+      },
+      "lord-of-mars": {
+         "name": "Lord of Mars",
+         "text": "You can re-roll hit rolls for attacks made by friendly MARS units whilst they are within 6\" of this unit."
+      },
+      "archmagos": {
+         "name": "Archmagos",
+         "text": "At the start of the Generate Command Assets step, if this unit is a WARLORD and is on the battlefield, you generate one extra Command Asset."
+      },
+      "master-of-machines": {
+         "name": "Master of Machines",
+         "text": "At the end of the Action phase, this unit can attempt to repair one friendly IMPERIUM VEHICLE unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that VEHICLE unit. Only one attempt to repair each unit can be made each turn."
+      },
+      "galvanic-field": {
+         "name": "Galvanic Field",
+         "text": "Add 3\" to the Range characteristic of ranged weapons FORGE WORLD units are equipped with whilst they are within 6\" of any friendly units with this ability."
+      },
+      "lord-of-the-machine-cult": {
+         "name": "Lord of the Machine Cult",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly <Forge World> units whilst they are within 6\" of this unit."
+      },
+      "mindlock": {
+         "name": "Mindlock",
+         "text": "Change this unit's Weapon Skill and Ballistic Skill characteristics to 4+ whilst it is within 6\" of at least one frendly FORGE WORLD TECH PRIEST unit."
+      },
+      "master-of-the-machines": {
+         "name": "Master of the Machines",
+         "text": "At the end of the Action phase, this unit can attempt to repair one friendly <Forge World> Kastelan Robots unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that Kastelan Robots unit. Only one attempt to repair each unit can be made each turn."
+      },
+      "infiltrators-2": {
+         "name": "Infiltrators",
+         "text": "Infiltrators"
+      },
+      "terror-troops-2": {
+         "name": "Terror Troops",
+         "text": "Terror Troops"
+      },
+      "siphoned-vigour": {
+         "name": "Siphoned Vigour",
+         "text": "If an enemy unit is destroyed within 1\" of this unit, change this unit’s Save characteristic to 6+ for the rest of the battle."
+      },
+      "incense-cloud": {
+         "name": "Incense Cloud",
+         "text": "This model is always an obscured target."
+      },
+      "battle-protocols": {
+         "name": "Battle Protocols",
+         "text": "This unit has one of the abilities listed below, based on the order issued to its Detachment in the Orders phase. The ability lasts until the end of the turn. Note that even if that Detachment’s order subsequently changes, the ability this unit has for that turn does not."
+      },
+      "advance": {
+         "name": "Advance",
+         "text": "Add 1 to saving throws made for this unit."
+      },
+      "aimed-fire": {
+         "name": "Aimed Fire",
+         "text": "You can re-roll hit rolls for attacks made by this unit with ranged weapons."
+      },
+      "assault": {
+         "name": "Assault",
+         "text": "You can re-roll hit rolls for attacks made by this unit with melee weapons."
+      },
+      "emanatus-force-field": {
+         "name": "Emanatus Force Field",
+         "text": "Add 1 to saving throws made for this unit whilst it is within 6\" of any other friendly <Forge World> Onager Dunecrawler units."
+      },
+      "self-repair-mechanisms": {
+         "name": "Self-Repair Mechanisms",
+         "text": "At the start of th Action phase, you can remove one damage marker from this unit."
+      },
+      "master-of-machines-2": {
+         "name": "Master of Machines",
+         "text": "At the end of the Action phase, this unit can attempt to repair one friendly FORGE WORLD or QUESTOR MECHANICUS VEHICLE unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that VEHICLE unit. Only one attempt to repair each unit can be made each turn."
+      },
+      "broad-spectrum-data-tether": {
+         "name": "Broad Spectrum Data-Tether",
+         "text": "Add 1 to the Leadership characteristic of <Forge World> units whilst they are within 3\" of any friendly units with this ability."
+      },
+      "mag-inverter-shields": {
+         "name": "Mag-inverter Shields",
+         "text": "Each time a blast marker is placed next to this unit whilst this unit is in base contact with any enemy units, roll one D6; on a 5+ place one blast marker next to one of those enemy units."
+      },
+      "soar-away": {
+         "name": "Soar Away",
+         "text": "When this unit makes a Move action, it can Soar Away instead of moving. If it does, it is removed from the battlefield and placed into Tactical Reserves. When this unit arrives as reinforcements, set it up anywhere on the battlefield that is more than 9\" away from any enemy units. A unit cannot Soar Away if it was set up on the battlefield this turn, if there are any enemy units in base contact with it, or if there are any blast markers next to it."
+      },
+      "command-uplink": {
+         "name": "Command Uplink",
+         "text": "Friendly <FORGE WORLD> units can use this model's Leadership instead of their own whilst they are within 6\" of this model."
+      },
+      "hover-jet": {
+         "name": "Hover Jet",
+         "text": "At the start of the Action phase, you can declare that this unit will hover. If it does, then until the end of the phase, its Move characteristic changes to 20\" but it loses the Supersonic ability."
+      }
+   },
+   "imports": [
+      "weapons"
+   ]
+}

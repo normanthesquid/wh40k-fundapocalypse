@@ -1,0 +1,1308 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "unaligned",
+   "name": "Unaligned",
+   "kind": "Faction",
+   "datasheets": {
+      "aegis-defense-line-3": {
+         "name": "Aegis Defense Line",
+         "battlefieldRole": "Fortification",
+         "cost": 4,
+         "keywords": [
+            "HEAVY",
+            "AEGIS DEFENCE LINE"
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "aegis-defense-line",
+            "static-defence-network"
+         ]
+      },
+      "aegis-defense-line-gun-emplacement": {
+         "name": "Aegis Defense Line Gun Emplacement",
+         "battlefieldRole": "Fortification",
+         "cost": 2,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "GUN EMPLACEMENT"
+         ],
+         "profiles": [
+            {
+               "name": "Aegis Defense Line Gun Emplacement",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 1,
+               "leadership": 8,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "aegis-defense-line-2",
+            "emplacement-weapom"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "icarus-lascannon",
+                     "name": "Icarus Lascannon",
+                     "addsWeapons": [
+                        "icarus-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "quad-gun",
+                     "name": "Quad-gun",
+                     "addsWeapons": [
+                        "quad-gun"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "icarus-lascannon"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "AEGIS DEFENCE LINE"
+            },
+            "minimum": 1
+         }
+      },
+      "imperial-bastion": {
+         "name": "Imperial Bastion",
+         "battlefieldRole": "Fortification",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "TRANSPORT",
+            "VEHICLE",
+            "IMPERIAL BASTION"
+         ],
+         "profiles": [
+            {
+               "name": "Imperial Bastion",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 4,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "open-topped",
+            "fire-points",
+            "automated-weapons-2"
+         ],
+         "transport": "This unit can transport up to 20 INFANTRY models.",
+         "wargear": [
+            {
+               "id": "aa-weapon",
+               "name": "AA Weapon",
+               "options": [
+                  {
+                     "id": "icarus-lascannon",
+                     "name": "Icarus Lascannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "icarus-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "quad-gun",
+                     "name": "Quad-gun",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "quad-gun"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "minimum": 4,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "imperial-defence-line-2": {
+         "name": "Imperial Defence Line",
+         "battlefieldRole": "Fortification",
+         "cost": 4,
+         "keywords": [
+            "HEAVY",
+            "WALL OF MARTYRS",
+            "IMPERIAL DEFENCE LINE"
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "imperial-defence-line",
+            "wall-of-martyrs"
+         ]
+      },
+      "imperial-bunker-2": {
+         "name": "Imperial Bunker",
+         "battlefieldRole": "Fortification",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "TRANSPORT",
+            "VEHICLE",
+            "WALL OF MARTYRS",
+            "IMPERIAL BUNKER"
+         ],
+         "profiles": [
+            {
+               "name": "Imperial Bunker",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 2,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "restricted-fire-points",
+            "automated-weapons",
+            "imperial-bunker",
+            "open-topped"
+         ],
+         "wargear": [
+            {
+               "id": "aa-weapon",
+               "name": "AA Weapon",
+               "options": [
+                  {
+                     "id": "icarus-lascannon",
+                     "name": "Icarus Lascannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "icarus-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "quad-gun",
+                     "name": "Quad-gun",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "quad-gun"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "vengeance-weapon-battery": {
+         "name": "Vengeance Weapon Battery",
+         "battlefieldRole": "Fortification",
+         "cost": 4,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "BUILDING",
+            "WALL OF MARTYRS",
+            "VENGEANCE WEAPON BATTERY"
+         ],
+         "profiles": [
+            {
+               "name": "Vengeance Weapon Battery",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 2,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "fully-automated-weapons"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "punisher-gatling-cannon",
+                     "name": "Punisher Gatling Cannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "punisher-gatling-cannon"
+                     ]
+                  },
+                  {
+                     "id": "quad-icarus-lascannon",
+                     "name": "Quad Icarus Lascannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "quad-icarus-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "battle-cannon",
+                     "name": "Battle Cannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/battle-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ]
+      },
+      "firestorm-redoubt": {
+         "name": "Firestorm Redoubt",
+         "battlefieldRole": "Fortification",
+         "cost": 9,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "VEHICLE",
+            "TRANSPORT",
+            "WALL OF MARTYRS",
+            "FIRESTORM REDOUBT"
+         ],
+         "profiles": [
+            {
+               "name": "Firestorm Redoubt",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 4,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "fire-points",
+            "automated-weapons-2",
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 20 INFANTRY models.",
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "punisher-gatling-cannon",
+                     "name": "Punisher Gatling Cannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "punisher-gatling-cannon"
+                     ]
+                  },
+                  {
+                     "id": "quad-icarus-lascannon",
+                     "name": "Quad Icarus Lascannon",
+                     "maximum": 2,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "quad-icarus-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "battle-cannon",
+                     "name": "Battle Cannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/battle-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2
+            }
+         ]
+      },
+      "plasma-obliterator-2": {
+         "name": "Plasma Obliterator",
+         "battlefieldRole": "Fortification",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "VEHICLE",
+            "TRANSPORT",
+            "PLASMA OBLITERATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Plasma Obliterator",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 4,
+               "leadership": 10,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "weapons": [
+            "plasma-obliterator"
+         ],
+         "abilities": [
+            "fire-points",
+            "open-topped",
+            "automated-weapons-2"
+         ],
+         "transport": "This unit can transport up to 20 INFANTRY models."
+      },
+      "macro-cannon-aquila-strongpoint": {
+         "name": "Macro-cannon Aquila Strongpoint",
+         "battlefieldRole": "Fortification",
+         "cost": 15,
+         "keywords": [
+            "SUPER-HEAVY",
+            "BUILDING",
+            "VEHICLE",
+            "TRANSPORT",
+            "WALL OF MARTYRS",
+            "AQUILA STRONGPOINT",
+            "MACRO-CANNON"
+         ],
+         "profiles": [
+            {
+               "name": "Macro-cannon Aquila Strongpoint",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 6,
+               "leadership": 10,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "weapons": [
+            "aquila-macro-cannon"
+         ],
+         "abilities": [
+            "open-topped",
+            "automated-weapons-2",
+            "extensive-firepoints",
+            "destroyer"
+         ],
+         "transport": "This unit can transport up to 30 INFANTRY models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "vortex-missile-aquila-strongpoint": {
+         "name": "Vortex Missile Aquila Strongpoint",
+         "battlefieldRole": "Fortification",
+         "cost": 17,
+         "keywords": [
+            "SUPER-HEAVY",
+            "BUILDING",
+            "VEHICLE",
+            "TRANSPORT",
+            "WALL OF MARTYRS",
+            "AQUILA STRONGPOINT",
+            "VORTEX MISSILE"
+         ],
+         "profiles": [
+            {
+               "name": "Vortex Missile Aquila Strongpoint",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 6,
+               "leadership": 10,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "weapons": [
+            "vortex-missile-battery"
+         ],
+         "abilities": [
+            "open-topped",
+            "automated-weapons-2",
+            "extensive-firepoints",
+            "barrage",
+            "destroyer"
+         ],
+         "transport": "This unit can transport up to 30 INFANTRY models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "void-shield-generator": {
+         "name": "Void Shield Generator",
+         "battlefieldRole": "Fortification",
+         "cost": 7,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "BUILDING",
+            "VOID SHIELD GENERATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Void Shield Generator",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "wounds": 3,
+               "leadership": 10,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "projected-void-shields"
+         ]
+      },
+      "skyshield-landing-pad-2": {
+         "name": "Skyshield Landing Pad",
+         "battlefieldRole": "Fortification",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "VEHICLE",
+            "SKYSHIELD LANDING PAD"
+         ],
+         "profiles": [
+            {
+               "name": "Skyshield Landing Pad",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "wounds": 4,
+               "leadership": 8,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "skyshield-landing-pad"
+         ]
+      },
+      "fortress-of-redemption": {
+         "name": "Fortress of Redemption",
+         "battlefieldRole": "Fortification",
+         "cost": 17,
+         "keywords": [
+            "SUPER-HEAVY",
+            "BUILDING",
+            "VEHICLE",
+            "TRANSPORT",
+            "FORTRESS OF REDEMPTION"
+         ],
+         "profiles": [
+            {
+               "name": "Fortress of Redemption",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 5,
+               "wounds": 6,
+               "leadership": 10,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "weapons": [
+            "twin-icarus-lascannon",
+            "redemption-missile-silo"
+         ],
+         "abilities": [
+            "open-topped",
+            "extensive-firepoints",
+            "automated-weapons-2",
+            "anti-air",
+            "barrage"
+         ],
+         "transport": "This unit can transport up to 30 INFANTRY models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "spindle-drones": {
+         "name": "Spindle Drones",
+         "battlefieldRole": "Troops",
+         "cost": 4,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "SPINDLE DRONES"
+         ],
+         "profiles": [
+            {
+               "name": "Spindle Drones (4 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "BLACKSTONE CONSTRUCT",
+            "UNALIGNED"
+         ],
+         "weapons": [
+            "drone-pulses",
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "threat-level-rising"
+         ]
+      },
+      "imperial-fortress-wall": {
+         "name": "Imperial Fortress Wall",
+         "battlefieldRole": "Fortification",
+         "cost": 30,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "TRANSPORT",
+            "VEHICLE",
+            "IMPERIAL FORTRESS WALL"
+         ],
+         "profiles": [
+            {
+               "name": "Imperial Fortress Wall",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 4,
+               "wounds": 8,
+               "leadership": 10,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "abilities": [
+            "mighty-bulwark",
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 60 Infantry models.",
+         "wargear": [
+            {
+               "id": "default-weapons",
+               "name": "Default weapons",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "extra-weapons",
+               "name": "Extra weapons",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter-2",
+                     "name": "Twin Heavy Bolter",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon-2",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-long-barrelled-autocannon",
+                     "name": "Twin Long-barrelled Autocannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "twin-long-barrelled-autocannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "primaris-redoubt-2": {
+         "name": "Primaris Redoubt",
+         "battlefieldRole": "Fortification",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "BUILDING",
+            "TRANSPORT",
+            "VEHICLE",
+            "PRIMARIS REDOUBT",
+            "COMMANDER"
+         ],
+         "profiles": [
+            {
+               "name": "Primaris Redoubt",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 4,
+               "wounds": 4,
+               "leadership": 10,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "weapons": [
+            "dual-turbo-laser-destructor"
+         ],
+         "abilities": [
+            "primaris-redoubt",
+            "realm-of-battle",
+            "destroyer"
+         ],
+         "transport": "This unit can transport up to 20 Infantry models.",
+         "wargear": [
+            {
+               "id": "additional-weapon",
+               "name": "Additional Weapon",
+               "options": [
+                  {
+                     "id": "whirlwind-rocket-launcher",
+                     "name": "Whirlwind Rocket Launcher",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "whirlwind-rocket-launcher"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "air-defense-missiles",
+                     "name": "Air Defense Missiles",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "air-defense-missiles"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "icarus-quad-lascannon",
+                     "name": "Icarus Quad Lascannon",
+                     "cost": 6,
+                     "addsWeapons": [
+                        "icarus-quad-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "battle-cannon",
+                     "name": "Battle Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "icarus-lascannon",
+                     "name": "Icarus Lascannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "icarus-lascannon"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "quad-gun",
+                     "name": "Quad-gun",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "quad-gun"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-flamer",
+                     "name": "Twin Heavy Flamer",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "ambull": {
+         "name": "Ambull",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "AMBULL"
+         ],
+         "profiles": [
+            {
+               "name": "Ambull",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "UNALIGNED"
+         ],
+         "weapons": [
+            "enormous-claws"
+         ],
+         "abilities": [
+            "deep-strike"
+         ]
+      }
+   },
+   "weapons": {
+      "plasma-obliterator": {
+         "name": "Plasma Obliterator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "aquila-macro-cannon": {
+         "name": "Aquila Macro-cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 180
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 4,
+         "antiTank": 4,
+         "text": "Destroyer"
+      },
+      "vortex-missile-battery": {
+         "name": "Vortex Missile Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 180
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 3,
+         "antiTank": 3,
+         "text": "Barrage, Destroyer"
+      },
+      "twin-icarus-lascannon": {
+         "name": "Twin Icarus Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5,
+         "text": "Anti-air"
+      },
+      "redemption-missile-silo": {
+         "name": "Redemption Missile Silo",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6,
+         "text": "Barrage"
+      },
+      "drone-pulses": {
+         "name": "Drone Pulses",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "twin-long-barrelled-autocannon": {
+         "name": "Twin Long-barrelled Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "dual-turbo-laser-destructor": {
+         "name": "Dual Turbo-laser Destructor",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "whirlwind-rocket-launcher": {
+         "name": "Whirlwind Rocket Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Barrage"
+      },
+      "air-defense-missiles": {
+         "name": "Air Defense Missiles",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 6,
+         "text": "Anti-air"
+      },
+      "icarus-quad-lascannon": {
+         "name": "Icarus Quad Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5,
+         "text": "Anti-air"
+      },
+      "enormous-claws": {
+         "name": "Enormous Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "icarus-lascannon": {
+         "name": "Icarus Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5,
+         "text": "Anti-air"
+      },
+      "quad-gun": {
+         "name": "Quad-gun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Anti-air"
+      },
+      "punisher-gatling-cannon": {
+         "name": "Punisher Gatling Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "quad-icarus-lascannon": {
+         "name": "Quad Icarus Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5,
+         "text": "Anti-air"
+      }
+   },
+   "abilities": {
+      "aegis-defense-line": {
+         "name": "Aegis Defense Line",
+         "text": "An Aegis Defence Line is a unit that contains 4 large shield section models and 4 small shield section models. After this unit is set up, it is treated as an Obstacle, and is no longer considered to be a unit for any rules purposes."
+      },
+      "static-defence-network": {
+         "name": "Static Defence Network",
+         "text": "When this unit is set up, each model must be placed so that it is in end-to-end contact with at least one other model from this unit."
+      },
+      "aegis-defense-line-2": {
+         "name": "Aegis Defense Line",
+         "text": "This unit can only be included in a Detachment that contains at least one Aegis Defence Line unit, and does not take up a Detachment slot. When this unit is set up, it must be placed within 6\" of an Aegis Defence Line from its Detachment; if it is not possible to do so, this unit is treated as having been destroyed."
+      },
+      "emplacement-weapom": {
+         "name": "Emplacement Weapom",
+         "text": "Unless a friendly INFANTRY unit is within 1\" of this unit, then when this unit makes a Shoot action it must target either the closest enemy unit or the closest enemy unit that can FLY: if more than one such unit is equally close, select one of those units to target."
+      },
+      "imperial-defence-line": {
+         "name": "Imperial Defence Line",
+         "text": "An Imperial Defence Line is a unit that contains either 2 trench section models and up to 4 end section models, or 3 defence emplacement section models and up to 2 end section models. After this unit is set up, it is treated as an Obstacle, and is no longer considered to be a unit for any rules purposes."
+      },
+      "wall-of-martyrs": {
+         "name": "Wall of Martyrs",
+         "text": "When this unit is set up, each model must be set up so that it is in end-to-end contact with at least one other WALL OF MARTYRS model."
+      },
+      "restricted-fire-points": {
+         "name": "Restricted Fire Points",
+         "text": "No more than one unit can make use of this unit’s Open-topped ability each turn – that unit can contain no more than 5 models."
+      },
+      "automated-weapons": {
+         "name": "Automated Weapons",
+         "text": "Unless a friendly INFANTRY unit is embarked aboard this unit, then when this unit makes a Shoot action it must target the closest enemy unit or the closest enemy unit that can FLY: if more than one such unit is equally close, select one of those units to target."
+      },
+      "imperial-bunker": {
+         "name": "Imperial Bunker",
+         "text": "This unit can transport up to 10 INFANTRY models."
+      },
+      "fully-automated-weapons": {
+         "name": "Fully Automated Weapons",
+         "text": "When this unit makes a Shoot action it must target the closest enemy unit. Weapons with the Anti-air ability this unit is equipped with can instead target the closest enemy unit that can FLY. If more than one such unit is equally close, select one of those units to target."
+      },
+      "projected-void-shields": {
+         "name": "Projected Void Shields",
+         "text": "Improve the Save characteristic (to a maximum of 3+) of friendly units by 1 whilst they are wholly within 12\" of this unit."
+      },
+      "skyshield-landing-pad": {
+         "name": "Skyshield Landing Pad",
+         "text": "At the start of the Damage phase, you can remove one blast marker from one friendly AIRCRAFT unit that is on top of this unit. Small blast markers must be removed before large blast markers."
+      },
+      "threat-level-rising": {
+         "name": "Threat Level Rising",
+         "text": "Add 1 to wound rolls for attacks made by this unit if it has any blast markers next to it."
+      },
+      "mighty-bulwark": {
+         "name": "Mighty Bulwark",
+         "text": "Units embarked aboard this transport can be targeted by enemy units when using ranged weapons and are treated as obscured targets. Add 1 to saving throws taken for units embarked aboard this transport."
+      },
+      "primaris-redoubt": {
+         "name": "Primaris Redoubt",
+         "text": "This unit can only be included in a Fortification Network Detachment that includes no other units. This unit begins the battle as the Commander of its Detachment."
+      },
+      "realm-of-battle": {
+         "name": "Realm of Battle",
+         "text": "This unit is a feature of a Realm of Battle tile, and as such forms part of the battlefield. Once the tile has been placed, this unit it treated as an Obstacle and is not considered to be a unit for any rules purposes until the first turn begins. When this unit is destroyed it is not removed from the battlefield: instead it is treated as a Defensible Terrain feature and is not considered to be a unit for any rules purposes."
+      },
+      "fire-points": {
+         "name": "Fire Points",
+         "text": "No more than one unit can make use of this unit’s Open-topped ability each turn – that unit can contain no more than 10 models."
+      },
+      "automated-weapons-2": {
+         "name": "Automated Weapons",
+         "text": "Unless a friendly INFANTRY unit is embarked aboard this unit, then when this unit makes a Shoot action it must target the closest enemy unit. Weapons with the Anti-air ability this unit is equipped with can instead target the closest enemy unit that can FLY. If more than one such unit is equally close, select one of those units to target."
+      },
+      "extensive-firepoints": {
+         "name": "Extensive Firepoints",
+         "text": "No more than two units can make use of this unit’s Open-topped ability each turn – those units combined can contain no more than 15 models."
+      }
+   },
+   "imports": [
+      "weapons"
+   ]
+}

@@ -1,0 +1,3219 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "genestealer-cults",
+   "name": "Tyranids - Genestealer Cults",
+   "kind": "Faction",
+   "datasheets": {
+      "patriarch": {
+         "name": "Patriarch",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "GENESTEALER",
+            "PATRIARCH"
+         ],
+         "profiles": [
+            {
+               "name": "Patriarch",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 5,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "monstrous-rending-claws"
+         ],
+         "abilities": [
+            "brood-telepathy",
+            "living-idol"
+         ]
+      },
+      "magus": {
+         "name": "Magus",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "MAGUS"
+         ],
+         "profiles": [
+            {
+               "name": "Magus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "magus-force-weapon"
+         ],
+         "abilities": [
+            "spiritual-leader",
+            "master-psyker"
+         ]
+      },
+      "primus": {
+         "name": "Primus",
+         "battlefieldRole": "HQ",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "PRIMUS"
+         ],
+         "profiles": [
+            {
+               "name": "Primus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "elite-cult-weapons"
+         ],
+         "abilities": [
+            "cult-demagogue"
+         ]
+      },
+      "acolyte-iconward": {
+         "name": "Acolyte Iconward",
+         "battlefieldRole": "HQ",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "ACOLYTE ICONWARD"
+         ],
+         "profiles": [
+            {
+               "name": "Acolyte Iconward",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "rending-claw"
+         ],
+         "abilities": [
+            "sacred-cult-banner",
+            "nexus-of-devotion",
+            "ignore-damage-6"
+         ]
+      },
+      "abominant": {
+         "name": "Abominant",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "ABERRANT",
+            "ABOMINANT"
+         ],
+         "profiles": [
+            {
+               "name": "Abominant",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "power-sledgehammer"
+         ],
+         "abilities": [
+            "the-chosen-one",
+            "ignore-damage-6"
+         ]
+      },
+      "jackal-alphus": {
+         "name": "Jackal Alphus",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "BIKER",
+            "CHARACTER",
+            "JACKAL ALPHUS"
+         ],
+         "profiles": [
+            {
+               "name": "Jackal Alphus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "jackal-sniper-rifle",
+            "close-combat-weapons-jackal-alphus"
+         ],
+         "abilities": [
+            "priority-target-sighted",
+            "stealth",
+            "sniper"
+         ]
+      },
+      "acolyte-hybrids": {
+         "name": "Acolyte Hybrids",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "ACOLYTE HYBRIDS"
+         ],
+         "profiles": [
+            {
+               "name": "Acolyte Hybrids",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "acolyte-weapons",
+            "rending-claws"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "demolition-charge",
+                     "name": "Demolition Charge",
+                     "maximum": 8,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "demolition-charge"
+                     ],
+                     "addsAbilities": [
+                        "one-use-only"
+                     ]
+                  },
+                  {
+                     "id": "heavy-rock-drill",
+                     "name": "Heavy Rock Drill",
+                     "maximum": 8,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-rock-drill"
+                     ]
+                  },
+                  {
+                     "id": "heavy-rock-saw",
+                     "name": "Heavy Rock Saw",
+                     "maximum": 8,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-rock-saw"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "15-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "20-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "neophyte-hybrids": {
+         "name": "Neophyte Hybrids",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "NEOPHYTE HYBRIDS"
+         ],
+         "profiles": [
+            {
+               "name": "Neophyte Hybrids",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "scavenged-weapons",
+            "close-combat-weapons-neophyte-hybrids"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "seismic-cannon",
+                     "name": "Seismic Cannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "seismic-cannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "mining-laser",
+                     "name": "Mining Laser",
+                     "maximum": 2,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "mining-laser"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            }
+         ]
+      },
+      "brood-brothers-infantry-squad": {
+         "name": "Brood Brothers Infantry Squad",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "BROOD BROTHERS INFANTRY SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Brood Brothers Infantry Squad (9/10 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
+         ],
+         "weapons": [
+            "lasguns",
+            "close-combat-weapons-brood-brothers"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            },
+            {
+               "id": "weapons-team",
+               "name": "Weapons Team",
+               "options": [
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "autocannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "lascannon"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "mortar",
+                     "name": "Mortar",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "mortar"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "hybrid-metamorphs": {
+         "name": "Hybrid Metamorphs",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "HYBRID METAMORPHS"
+         ],
+         "profiles": [
+            {
+               "name": "Hybrid Metamorphs",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "metamorph-weapons-ranged",
+            "metamorph-weapons-melee"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "aberrants": {
+         "name": "Aberrants",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "ABERRANT"
+         ],
+         "profiles": [
+            {
+               "name": "Aberrants",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "aberrant-weapons"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "purestrain-genestealers": {
+         "name": "Purestrain Genestealers",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "GENESTEALER",
+            "PURESTRAIN GENESTEALERS"
+         ],
+         "profiles": [
+            {
+               "name": "Purestrain Genestealers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "purestrain-talons"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 models",
+                     "cost": 15,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 20,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "clamavus": {
+         "name": "Clamavus",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "CLAMAVUS"
+         ],
+         "profiles": [
+            {
+               "name": "Clamavus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "close-combat-weapons-clamavus"
+         ],
+         "abilities": [
+            "scrambler-array"
+         ]
+      },
+      "locus": {
+         "name": "Locus",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "LOCUS"
+         ],
+         "profiles": [
+            {
+               "name": "Locus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "locus-blades"
+         ],
+         "abilities": [
+            "unquestioning-bodyguard"
+         ]
+      },
+      "sanctus": {
+         "name": "Sanctus",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "SANCTUS"
+         ],
+         "profiles": [
+            {
+               "name": "Sanctus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "familiar-claws"
+         ],
+         "abilities": [
+            "cult-assassin",
+            "infiltrators"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "sanctus-sniper-rifle",
+                     "name": "Sanctus Sniper Rifle",
+                     "addsWeapons": [
+                        "sanctus-sniper-rifle"
+                     ],
+                     "addsAbilities": [
+                        "sniper"
+                     ]
+                  },
+                  {
+                     "id": "sanctus-bio-dagger",
+                     "name": "Sanctus Bio-dagger",
+                     "addsWeapons": [
+                        "sanctus-bio-dagger"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "sanctus-sniper-rifle"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "commander",
+                     "name": "Commander",
+                     "maximum": 1,
+                     "addsKeywords": [
+                        "COMMANDER"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "kelermorph": {
+         "name": "Kelermorph",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "KELERMORPH"
+         ],
+         "profiles": [
+            {
+               "name": "Kelermorph",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "liberator-autostubs",
+            "cultist-knife"
+         ],
+         "abilities": [
+            "folk-hero"
+         ]
+      },
+      "nexos": {
+         "name": "Nexos",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "NEXOS"
+         ],
+         "profiles": [
+            {
+               "name": "Nexos",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "close-combat-weapons-nexos"
+         ],
+         "abilities": [
+            "strategic-coordinator"
+         ]
+      },
+      "biophagus": {
+         "name": "Biophagus",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "BIOPHAGUS"
+         ],
+         "profiles": [
+            {
+               "name": "Biophagus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "injector-goad"
+         ],
+         "abilities": [
+            "genomic-enhancement"
+         ]
+      },
+      "achilles-ridgerunners": {
+         "name": "Achilles Ridgerunners",
+         "battlefieldRole": "FastAttack",
+         "cost": 6,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "VEHICLE",
+            "ACHILLES RIDGERUNNERS"
+         ],
+         "profiles": [
+            {
+               "name": "Achilles Ridgerunners",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "heavy-stubbers"
+         ],
+         "abilities": [
+            "infiltrators"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "OptionGroup",
+                     "group": "ridgerunners"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 2
+                        },
+                        "wounds": 4
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "OptionGroup",
+                        "group": "ridgerunners"
+                     },
+                     "maximum": 2
+                  }
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 3
+                        },
+                        "wounds": 6
+                     }
+                  }
+               ]
+            }
+         ],
+         "costChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "OptionGroup",
+                     "group": "ridgerunners"
+                  },
+                  "minimum": 1
+               },
+               "set": 0
+            }
+         ],
+         "wargear": [
+            {
+               "id": "ridgerunners",
+               "name": "Ridgerunners",
+               "options": [
+                  {
+                     "id": "heavy-mortar",
+                     "name": "Heavy Mortar",
+                     "maximum": 3,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "heavy-mortar"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "heavy-mining-laser",
+                     "name": "Heavy Mining Laser",
+                     "maximum": 3,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "heavy-mining-laser"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 3,
+                     "cost": 6,
+                     "addsWeapons": [
+                        "missile-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 3
+            }
+         ]
+      },
+      "atalan-jackals": {
+         "name": "Atalan Jackals",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "BIKER",
+            "ATALAN JACKALS"
+         ],
+         "profiles": [
+            {
+               "name": "Atalan Jackals",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "autopistols",
+            "close-combat-weapons-atalan-jackals"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "4-models",
+                     "name": "4 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "8-models",
+                     "name": "8 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "12-models",
+                     "name": "12 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "4-models"
+            },
+            {
+               "id": "wolfquads",
+               "name": "Wolfquads",
+               "options": [
+                  {
+                     "id": "atalan-incinerator",
+                     "name": "Atalan Incinerator",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "atalan-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "mining-laser",
+                     "name": "Mining Laser",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "mining-laser"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "8-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "cult-armoured-sentinels": {
+         "name": "Cult Armoured Sentinels",
+         "battlefieldRole": "FastAttack",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "VEHICLE",
+            "CULT ARMOURED SENTINELS"
+         ],
+         "profiles": [
+            {
+               "name": "Cult Armoured Sentinels",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
+         ],
+         "weapons": [
+            "armoured-feet"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "OptionGroup",
+                     "group": "sentinels"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 2
+                        },
+                        "wounds": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "OptionGroup",
+                        "group": "sentinels"
+                     },
+                     "maximum": 2
+                  }
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 3
+                        },
+                        "wounds": 3
+                     }
+                  }
+               ]
+            }
+         ],
+         "costChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "OptionGroup",
+                     "group": "sentinels"
+                  },
+                  "minimum": 1
+               },
+               "set": 0
+            }
+         ],
+         "wargear": [
+            {
+               "id": "sentinels",
+               "name": "Sentinels",
+               "options": [
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "autocannon"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "lascannon"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-laser",
+                     "name": "Multi-laser",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "multi-laser"
+                     ]
+                  },
+                  {
+                     "id": "plasma-cannon",
+                     "name": "Plasma Cannon",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsAbilities": [
+                        "supercharge"
+                     ],
+                     "addsWeapons": [
+                        "plasma-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 3
+            }
+         ]
+      },
+      "cult-scout-sentinels": {
+         "name": "Cult Scout Sentinels",
+         "battlefieldRole": "FastAttack",
+         "cost": 4,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "VEHICLE",
+            "CULT SCOUT SENTINELS"
+         ],
+         "profiles": [
+            {
+               "name": "Cult Scout Sentinels",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
+         ],
+         "weapons": [
+            "armoured-feet"
+         ],
+         "abilities": [
+            "infiltrators"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "OptionGroup",
+                     "group": "sentinels"
+                  },
+                  "minimum": 2,
+                  "maximum": 2
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 2
+                        },
+                        "wounds": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "OptionGroup",
+                        "group": "sentinels"
+                     },
+                     "maximum": 2
+                  }
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "attacks": {
+                           "kind": "Fixed",
+                           "value": 3
+                        },
+                        "wounds": 3
+                     }
+                  }
+               ]
+            }
+         ],
+         "costChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "OptionGroup",
+                     "group": "sentinels"
+                  },
+                  "minimum": 1
+               },
+               "set": 1
+            }
+         ],
+         "wargear": [
+            {
+               "id": "sentinels",
+               "name": "Sentinels",
+               "options": [
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "autocannon"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "lascannon"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-laser",
+                     "name": "Multi-laser",
+                     "maximum": 3,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "multi-laser"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 3
+            }
+         ]
+      },
+      "cult-leman-russ": {
+         "name": "Cult Leman Russ",
+         "battlefieldRole": "HeavySupport",
+         "cost": 8,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "VEHICLE",
+            "CULT LEMAN RUSS"
+         ],
+         "profiles": [
+            {
+               "name": "Cult Leman Russ",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
+         ],
+         "weapons": [
+            "grinding-tracks"
+         ],
+         "abilities": [
+            "grinding-advance"
+         ],
+         "wargear": [
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "battle-cannon",
+                     "name": "Battle Cannon",
+                     "addsWeapons": [
+                        "battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "eradicator-nova-cannon",
+                     "name": "Eradicator Nova Cannon",
+                     "addsWeapons": [
+                        "eradicator-nova-cannon"
+                     ]
+                  },
+                  {
+                     "id": "exterminator-autocannon",
+                     "name": "Exterminator Autocannon",
+                     "addsWeapons": [
+                        "exterminator-autocannon"
+                     ]
+                  },
+                  {
+                     "id": "vanquisher-battle-cannon",
+                     "name": "Vanquisher Battle Cannon",
+                     "addsWeapons": [
+                        "vanquisher-battle-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "battle-cannon"
+            },
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "addsWeapons": [
+                        "lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "sponsons",
+               "name": "Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "2x-plasma-cannon",
+                     "name": "2x Plasma Cannon",
+                     "cost": 2,
+                     "addsAbilities": [
+                        "supercharge"
+                     ],
+                     "addsWeapons": [
+                        "plasma-cannon"
+                     ]
+                  },
+                  {
+                     "id": "2x-multi-melta",
+                     "name": "2x Multi-melta",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "brood-brothers-heavy-weapons-squad": {
+         "name": "Brood Brothers Heavy Weapons Squad",
+         "battlefieldRole": "HeavySupport",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "BROOD BROTHERS HEAVY WEAPONS SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Brood Brothers Heavy Weapons Squad (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
+         ],
+         "weapons": [
+            "close-combat-weapons-brood-brothers"
+         ],
+         "abilities": [
+            "weapon-teams"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "addsWeapons": [
+                        "autocannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "addsWeapons": [
+                        "lascannon"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "addsWeapons": [
+                        "missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "mortar",
+                     "name": "Mortar",
+                     "addsWeapons": [
+                        "mortar"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  }
+               ],
+               "minimum": 3,
+               "maximum": 3
+            }
+         ]
+      },
+      "goliath-rockgrinder": {
+         "name": "Goliath Rockgrinder",
+         "battlefieldRole": "HeavySupport",
+         "cost": 7,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "GOLIATH ROCKGRINDER"
+         ],
+         "profiles": [
+            {
+               "name": "Goliath Rockgrinder",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "drilldozer-blade",
+            "heavy-stubber"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "transport": "This unit can transport up to 6 friendly <CULT> INFANTRY models. Each PATRIARCH model takes the space of 5 other INFANTRY models.",
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "heavy-seismic-cannon",
+                     "name": "Heavy Seismic Cannon",
+                     "addsWeapons": [
+                        "heavy-seismic-cannon"
+                     ]
+                  },
+                  {
+                     "id": "clearance-incinerator",
+                     "name": "Clearance Incinerator",
+                     "addsWeapons": [
+                        "clearance-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "heavy-mining-laser",
+                     "name": "Heavy Mining Laser",
+                     "addsWeapons": [
+                        "heavy-mining-laser"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-mining-laser"
+            }
+         ]
+      },
+      "goliath-truck": {
+         "name": "Goliath Truck",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "GOLIATH TRUCK"
+         ],
+         "profiles": [
+            {
+               "name": "Goliath Truck",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "<CULT>"
+         ],
+         "weapons": [
+            "twin-autocannon",
+            "tough-chassis",
+            "heavy-stubber"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 10 friendly <CULT> INFANTRY models. Each PATRIARCH model takes the space of 5 other INFANTRY models."
+      },
+      "cult-chimera": {
+         "name": "Cult Chimera",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 7,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "CULT CHIMERA"
+         ],
+         "profiles": [
+            {
+               "name": "Cult Chimera",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
+         ],
+         "weapons": [
+            "armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 12 friendly BROOD BROTHER INFANTRY models. Each weapons team model takes the space of 2 other INFANTRY models.",
+         "wargear": [
+            {
+               "id": "main-weapons",
+               "name": "Main Weapons",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-laser",
+                     "name": "Multi-laser",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "multi-laser"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "lasgun-array",
+                     "name": "Lasgun Array",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "lasgun-array"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "tectonic-fragdrill-2": {
+         "name": "Tectonic Fragdrill",
+         "battlefieldRole": "Fortification",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "SECTOR MECHANICUS",
+            "TECTONIC FRAGDRILL"
+         ],
+         "factionKeywords": [
+            "GENESTEALER CULTS"
+         ],
+         "abilities": [
+            "tectonic-fragdrill",
+            "seismic-quake"
+         ]
+      }
+   },
+   "detachmentAbilities": {
+      "cult-ambush-2": {
+         "ability": "cult-ambush",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Any",
+               "conditions": [
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "ad-hoc"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "super-heavy-auxiliary"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "fortification-network"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "patrol"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "air-wing"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "weapons": {
+      "monstrous-rending-claws": {
+         "name": "Monstrous Rending Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 7
+      },
+      "magus-force-weapon": {
+         "name": "Magus Force Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "elite-cult-weapons": {
+         "name": "Elite Cult Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "rending-claw": {
+         "name": "Rending Claw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "power-sledgehammer": {
+         "name": "Power Sledgehammer",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "jackal-sniper-rifle": {
+         "name": "Jackal Sniper Rifle",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Sniper"
+      },
+      "close-combat-weapons-jackal-alphus": {
+         "name": "Close Combat Weapons (Jackal Alphus)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "scavenged-weapons": {
+         "name": "Scavenged Weapons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "close-combat-weapons-neophyte-hybrids": {
+         "name": "Close Combat Weapons (Neophyte Hybrids)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "seismic-cannon": {
+         "name": "Seismic Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "metamorph-weapons-ranged": {
+         "name": "Metamorph Weapons (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "metamorph-weapons-melee": {
+         "name": "Metamorph Weapons (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "aberrant-weapons": {
+         "name": "Aberrant Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "purestrain-talons": {
+         "name": "Purestrain Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "close-combat-weapons-clamavus": {
+         "name": "Close Combat Weapons (Clamavus)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "locus-blades": {
+         "name": "Locus Blades",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "familiar-claws": {
+         "name": "Familiar Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 12
+      },
+      "sanctus-sniper-rifle": {
+         "name": "Sanctus Sniper Rifle",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "sanctus-bio-dagger": {
+         "name": "Sanctus Bio-dagger",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "liberator-autostubs": {
+         "name": "Liberator Autostubs",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "cultist-knife": {
+         "name": "Cultist Knife",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 12
+      },
+      "close-combat-weapons-nexos": {
+         "name": "Close Combat Weapons (Nexos)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "injector-goad": {
+         "name": "Injector Goad",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12
+      },
+      "heavy-stubbers": {
+         "name": "Heavy Stubbers",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "heavy-mortar": {
+         "name": "Heavy Mortar",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Barrage"
+      },
+      "autopistols": {
+         "name": "Autopistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "close-combat-weapons-atalan-jackals": {
+         "name": "Close Combat Weapons (Atalan Jackals)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "atalan-incinerator": {
+         "name": "Atalan Incinerator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "grinding-tracks": {
+         "name": "Grinding Tracks",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "battle-cannon": {
+         "name": "Battle Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "eradicator-nova-cannon": {
+         "name": "Eradicator Nova Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 9
+      },
+      "exterminator-autocannon": {
+         "name": "Exterminator Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "vanquisher-battle-cannon": {
+         "name": "Vanquisher Battle Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "multi-melta": {
+         "name": "Multi-melta",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "close-combat-weapons-brood-brothers": {
+         "name": "Close Combat Weapons (Brood Brothers)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "drilldozer-blade": {
+         "name": "Drilldozer Blade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "heavy-seismic-cannon": {
+         "name": "Heavy Seismic Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "clearance-incinerator": {
+         "name": "Clearance Incinerator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "twin-autocannon": {
+         "name": "Twin Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "tough-chassis": {
+         "name": "Tough Chassis",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "lasgun-array": {
+         "name": "Lasgun Array",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "armoured-tracks": {
+         "name": "Armoured Tracks",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "acolyte-weapons": {
+         "name": "Acolyte Weapons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "rending-claws": {
+         "name": "Rending Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "demolition-charge": {
+         "name": "Demolition Charge",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 6
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 4,
+         "text": "One Use Only"
+      },
+      "heavy-rock-drill": {
+         "name": "Heavy Rock Drill",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 5
+      },
+      "heavy-rock-saw": {
+         "name": "Heavy Rock Saw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "heavy-stubber": {
+         "name": "Heavy Stubber",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "mining-laser": {
+         "name": "Mining Laser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 6
+      },
+      "lasguns": {
+         "name": "Lasguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "autocannon": {
+         "name": "Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "lascannon": {
+         "name": "Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "missile-launcher": {
+         "name": "Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "mortar": {
+         "name": "Mortar",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Barrage"
+      },
+      "heavy-mining-laser": {
+         "name": "Heavy Mining Laser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5
+      },
+      "multi-laser": {
+         "name": "Multi-laser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "armoured-feet": {
+         "name": "Armoured Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 12
+      },
+      "storm-bolter": {
+         "name": "Storm Bolter",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "heavy-bolter": {
+         "name": "Heavy Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "heavy-flamer": {
+         "name": "Heavy Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "plasma-cannon": {
+         "name": "Plasma Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Supercharge"
+      }
+   },
+   "abilities": {
+      "cult-ambush": {
+         "name": "Cult Ambush",
+         "text": "LIGHT GENESTEALER CULTS units in this Detachment have the Deep Strike ability (pg 51). In addition, each time a LIGHT GENESTEALER CULTS unit in this Detachment makes a Move action, it can return to the shadows instead of making a move. If it does, remove it from the battlefield - it is placed into Tactical Reserves, up to D3 damage markers can be removed from it, and it can be set bup on the battlefield again during a subsequent turn. A unit cannot return to the shadows in the same turn it was set up on the battlefield, or if there are any enemy units in base contact with it, or whilst there are any blast markers next to it. Units in Tactical Reserves as a result of returning to the shadows count as being destroyed if they have not arrived by the end of the battle, instead of by the end of the fourth turn."
+      },
+      "brood-telepathy": {
+         "name": "Brood Telepathy",
+         "text": "Add 1 to hit rolls for attacks made with melee weapons by <CULT> GENESTEALER units whilst they are within 6\" of any friendly <CULT> units with this ability"
+      },
+      "living-idol": {
+         "name": "Living Idol",
+         "text": "Morale tests taken for friendly <CULT> units are automatically passed whilst they are within 6\" of this unit."
+      },
+      "spiritual-leader": {
+         "name": "Spiritual Leader",
+         "text": "Friendly <CULT> units can use this unit's Leadership characteristic instead of their own whilst they are within 6\" of this unit."
+      },
+      "master-psyker": {
+         "name": "Master Psyker",
+         "text": "Once per battle, at the end of the Orders phase, you can look through your Command Asset deck and draw either one Genestealer Cults Command Asset of your choice that is a psychic power, or the Deny the Witch or Adamantium Will card. Add the drawn card to your hand, then shuffle the Command Asset deck and place it face down."
+      },
+      "cult-demagogue": {
+         "name": "Cult Demagogue",
+         "text": "Add 1 to hit rolls for attacks made with melee weapons by <CULT> units whilst they are within 6\" of any friendly <CULT> units with this ability."
+      },
+      "sacred-cult-banner": {
+         "name": "Sacred Cult Banner",
+         "text": "Morale tests taken for friendly <CULT> units are automatically passed whilst they are within 6\" of this unit."
+      },
+      "nexus-of-devotion": {
+         "name": "Nexus of Devotion",
+         "text": "Friendly <CULT> LIGHT units have the Ignore Damage (6+) ability whilst they are within 6\" of this unit."
+      },
+      "the-chosen-one": {
+         "name": "The Chosen One",
+         "text": "When an unmodified hit roll of 6+ is rolled for an attack made with a melee weapon by a <CULT> ABERRANT unit whilst it is within 6\" of any friendly <CULT> units with this ability, that attack scores 2 hits instead of 1 – make a separate wound roll for each hit."
+      },
+      "priority-target-sighted": {
+         "name": "Priority Target Sighted",
+         "text": "When this unit's Detachment is chosen to carry out an order, before any actions are made, select one enemy unit visible to and within 36\" of this unit. Until the end of the turn, add 1 to hit rolls for attacks made with ranged weapons by friendly <CULT> units whilst they are within 6\" of this unit if those attacks target the selected unit. An enemy unit can only be affected by this ability once per turn."
+      },
+      "scrambler-array": {
+         "name": "Scrambler Array",
+         "text": "Enemy units that arrive as reinforcements using the Deep Strike ability cannot be set up within 12\" of this unit."
+      },
+      "unquestioning-bodyguard": {
+         "name": "Unquestioning Bodyguard",
+         "text": "At the start of the Damage phase, you can select one friendly <CULT> LIGHT CHARACTER unit within 6\" of this unit; remove up to D3 blast markers from that CHARACTER unit and place them next to this unit."
+      },
+      "cult-assassin": {
+         "name": "Cult Assassin",
+         "text": "This unit cannot be a WARLORD."
+      },
+      "folk-hero": {
+         "name": "Folk Hero",
+         "text": "If this unit successfully wounds an enemy unit with its Liberator Autostubs then, until the end of the turn, re-roll hit rolls of 1 for attacks made with ranged weapons by friendly <CULT> INFANTRY units whilst they are within 6\" of this unit."
+      },
+      "strategic-coordinator": {
+         "name": "Strategic Coordinator",
+         "text": "If any friendly units with this ability are on the battlefield at the start of the Generate Command Assets step, you generate one extra Command Asset."
+      },
+      "genomic-enhancement": {
+         "name": "Genomic Enhancement",
+         "text": "At the start of the Action phase, you can enhance one friendly <CULT> ABERRANT unit within 1\" of this unit. Add 1 to that unit's Attacks characteristic until the end of the battle. A unit can only be enhanced once per battle."
+      },
+      "grinding-advance": {
+         "name": "Grinding Advance",
+         "text": "When this unit makes a Shoot action, if it has remained stationary or moved a distance less than half its Move characteristic this turn, double the Attacks characteristic of its Battle Cannon, Eradicator Nova Cannon, Exterminator Autocannon and Vanquisher Battle Cannon for that action."
+      },
+      "weapon-teams": {
+         "name": "Weapon Teams",
+         "text": "For the purposes of determining what models a unit can transport, models in this unit are weapons team models."
+      },
+      "tectonic-fragdrill": {
+         "name": "Tectonic Fragdrill",
+         "text": "This model cannot be set up on an objective marker and must be set up more than 1\" from any other terrain features. After this unit is set up, it is treated as Defensible Terrain, and is no longer considered to be a unit for any rules purposes."
+      },
+      "seismic-quake": {
+         "name": "Seismic Quake",
+         "text": "Once per battle, at the start of the second or subsequent Action phase, the player who set up this terrain feature can trigger a seismic quake if there are any GENESTEALER CULTS units from their army within 1\" of this terrain feature. If they do, draw a straight imaginary line, 1mm in thickness, from any point of one battlefield edge to any point of another battlefield edge in such a way that it crosses this terrain feature. Roll one D6 for each unit without the FLY keyword and each unit garrisoning a Defensible Terrain feature that this line crosses; on a 5+ place one blast marker next to the unit being rolled for."
+      }
+   }
+}

@@ -1,0 +1,399 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "gellerpox-infected",
+   "name": "Chaos - Gellerpox Infected",
+   "kind": "Faction",
+   "datasheets": {
+      "vulgrar-thrice-cursed": {
+         "name": "Vulgrar Thrice-cursed",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "NURGLE",
+            "CHARACTER",
+            "INFANTRY",
+            "TWISTED LORD",
+            "VULGRAR THRICE-CURSED"
+         ],
+         "profiles": [
+            {
+               "name": "Vulgrar Thrice-cursed",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "GELLERPOX INFECTED"
+         ],
+         "weapons": [
+            "belly-flamer",
+            "fleshripper-claws"
+         ],
+         "abilities": [
+            "lord-of-resentment",
+            "ignore-damage-6",
+            "terror-troops",
+            "inferno"
+         ],
+         "maximumPerArmy": 1
+      },
+      "the-vox-shamblers": {
+         "name": "The Vox-Shamblers",
+         "battlefieldRole": "Troops",
+         "cost": 1,
+         "keywords": [
+            "LIGHT",
+            "NURGLE",
+            "INFANTRY",
+            "GELLERPOX MUTANTS",
+            "THE VOX-SHAMBLERS"
+         ],
+         "profiles": [
+            {
+               "name": "The Vox Shamblers (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "GELLERPOX INFECTED"
+         ],
+         "weapons": [
+            "mutated-limbs-improvised-weapons"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "maximumPerArmy": 1
+      },
+      "glitchlings": {
+         "name": "Glitchlings",
+         "battlefieldRole": "Troops",
+         "cost": 1,
+         "keywords": [
+            "LIGHT",
+            "NURGLE",
+            "INFANTRY",
+            "DAEMON",
+            "GLITCHLINGS"
+         ],
+         "profiles": [
+            {
+               "name": "Glitchlings (4 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "GELLERPOX INFECTED"
+         ],
+         "weapons": [
+            "diseased-claws-fangs"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "stealth"
+         ],
+         "maximumPerArmy": 1
+      },
+      "the-hullbreakers": {
+         "name": "The Hullbreakers",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "NURGLE",
+            "INFANTRY",
+            "NIGHTMARE HULKS",
+            "THE HULLBREAKERS"
+         ],
+         "profiles": [
+            {
+               "name": "The Hullbreakers (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "GELLERPOX INFECTED"
+         ],
+         "weapons": [
+            "hideous-mutations"
+         ],
+         "abilities": [
+            "plague-cleaver",
+            "ignore-damage-6",
+            "terror-troops"
+         ],
+         "maximumPerArmy": 1
+      },
+      "mutoid-vermin-2": {
+         "name": "Mutoid Vermin",
+         "battlefieldRole": "FastAttack",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "NURGLE",
+            "SWARM",
+            "MUTOID VERMIN"
+         ],
+         "profiles": [
+            {
+               "name": "Mutoid Vermin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 11
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "GELLERPOX INFECTED"
+         ],
+         "weapons": [
+            "insectile-appendages"
+         ],
+         "abilities": [
+            "caustic-vermin"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "VULGRAR THRICE-CURSED"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "mutoid-vermin"
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "VULGRAR THRICE-CURSED"
+               },
+               "minimum": 1,
+               "maximum": 1
+            }
+         }
+      },
+      "mutoid-vermin-3": {
+         "name": "Mutoid Vermin",
+         "battlefieldRole": "FastAttack",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "NURGLE",
+            "SWARM",
+            "MUTOID VERMIN"
+         ],
+         "profiles": [
+            {
+               "name": "Mutoid Vermin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 11
+            }
+         ],
+         "factionKeywords": [
+            "CHAOS",
+            "GELLERPOX INFECTED"
+         ],
+         "weapons": [
+            "insectile-appendages"
+         ],
+         "abilities": [
+            "caustic-vermin"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "VULGRAR THRICE-CURSED"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "mutoid-vermin"
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "VULGRAR THRICE-CURSED"
+               },
+               "maximum": 0
+            }
+         }
+      }
+   },
+   "weapons": {
+      "belly-flamer": {
+         "name": "Belly Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "fleshripper-claws": {
+         "name": "Fleshripper Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "mutated-limbs-improvised-weapons": {
+         "name": "Mutated Limbs & Improvised Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "diseased-claws-fangs": {
+         "name": "Diseased Claws & Fangs",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 12
+      },
+      "hideous-mutations": {
+         "name": "Hideous Mutations",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "insectile-appendages": {
+         "name": "Insectile Appendages",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 10,
+         "antiTank": 12
+      }
+   },
+   "abilities": {
+      "lord-of-resentment": {
+         "name": "Lord of Resentment",
+         "text": "Re-roll hit rolls of 1 made for friendly GELLERPOX INFECTED units whilst they are within 6\" of this unit."
+      },
+      "plague-cleaver": {
+         "name": "Plague Cleaver",
+         "text": "Re-roll wound rolls of 1 for attacks made with melee weapons by this unit."
+      },
+      "caustic-vermin": {
+         "name": "Caustic Vermin",
+         "text": "When a blast marker is placed next to this unit, if it is in base contact with any enemy units, select one of those units and roll one D6. On a 5+ place one blast marker next to that unit."
+      },
+      "mutoid-vermin": {
+         "name": "Mutoid Vermin",
+         "text": "This unit does not take up slots in a Detachment that contains VULGRAR THRICE-CURSED."
+      }
+   }
+}

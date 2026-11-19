@@ -1,0 +1,1777 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "weapons",
+   "name": "Library - Weapons",
+   "kind": "Library",
+   "datasheets": {
+      "cypher": {
+         "name": "Cypher",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "CYPHER"
+         ],
+         "profiles": [
+            {
+               "name": "Cypher",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "CHAOS",
+            "FALLEN"
+         ],
+         "weapons": [
+            "cyphers-pistols-ranged",
+            "cyphers-pistols-melee"
+         ],
+         "abilities": [
+            "lord-cypher",
+            "blazing-weapons",
+            "rapid-fire"
+         ],
+         "maximumPerArmy": 1
+      },
+      "fallen": {
+         "name": "Fallen",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY"
+         ],
+         "profiles": [
+            {
+               "name": "Fallen",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "CHAOS",
+            "FALLEN"
+         ],
+         "abilities": [
+            "fallen-angels"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "05-models",
+                     "name": "05 models",
+                     "cost": 6
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 11,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "05-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "boltguns-and-close-combat-weapons",
+                     "name": "Boltguns and Close Combat Weapons",
+                     "addsWeapons": [
+                        "boltguns",
+                        "close-combat-weapons"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "bolt-pistols-and-chainswords",
+                     "name": "Bolt pistols and Chainswords",
+                     "addsWeapons": [
+                        "bolt-pistols",
+                        "chainswords"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "boltguns-and-close-combat-weapons"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "addsWeapons": [
+                        "autocannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "addsWeapons": [
+                        "lascannon"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "addsWeapons": [
+                        "missile-launcher"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      }
+   },
+   "weapons": {
+      "heavy-stubber": {
+         "name": "Heavy Stubber",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "avenger-gatling-cannon": {
+         "name": "Avenger Gatling Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8
+      },
+      "ironstorm-missile-pod": {
+         "name": "Ironstorm Missile Pod",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Barrage"
+      },
+      "rapid-fire-battle-cannon": {
+         "name": "Rapid-fire Battle Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "thermal-cannon": {
+         "name": "Thermal Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 4,
+         "text": "Destroyer"
+      },
+      "twin-icarus-autocannon": {
+         "name": "Twin Icarus Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Anti-air"
+      },
+      "reaper-chainsword": {
+         "name": "Reaper Chainsword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "thunderstrike-gauntlet": {
+         "name": "Thunderstrike Gauntlet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "titanic-feet": {
+         "name": "Titanic Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "conflagration-cannon": {
+         "name": "Conflagration Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "plasma-decimator": {
+         "name": "Plasma Decimator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Supercharge"
+      },
+      "shieldbreaker-missile": {
+         "name": "Shieldbreaker Missile",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5,
+         "text": "One Use Only"
+      },
+      "thundercoil-harpoon": {
+         "name": "Thundercoil Harpoon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 2,
+         "text": "Apocalyptic Destroyer"
+      },
+      "twin-meltagun": {
+         "name": "Twin Meltagun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 11,
+         "antiTank": 4
+      },
+      "twin-siegebreaker-cannon": {
+         "name": "Twin Siegebreaker Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "volcano-lance": {
+         "name": "Volcano Lance",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 80
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "acheron-flame-cannon": {
+         "name": "Acheron Flame Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Inferno"
+      },
+      "twin-heavy-bolter": {
+         "name": "Twin Heavy Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "reaper-chainfist": {
+         "name": "Reaper Chainfist",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "cerastus-shock-lance-melee": {
+         "name": "Cerastus Shock Lance (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "cerastus-shock-lance-ranged": {
+         "name": "Cerastus Shock Lance (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "castigator-bolt-cannon": {
+         "name": "Castigator Bolt Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "tempest-warblade": {
+         "name": "Tempest Warblade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "atropos-lascutter-melee": {
+         "name": "Atropos Lascutter (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "atropos-lascutter-ranged": {
+         "name": "Atropos Lascutter (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "graviton-singularity-cannon": {
+         "name": "Graviton Singularity Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 3,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "lightning-cannon": {
+         "name": "Lightning Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 7
+      },
+      "phased-plasma-fusil": {
+         "name": "Phased plasma-fusil",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "twin-rad-cleanser": {
+         "name": "Twin Rad Cleanser",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "hekaton-siege-claw": {
+         "name": "Hekaton Siege Claw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "autocannon": {
+         "name": "Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "helios-defense-missiles": {
+         "name": "Helios Defense Missiles",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 60
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Anti-air"
+      },
+      "lascannon": {
+         "name": "Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "twin-magna-lascannon": {
+         "name": "Twin Magna Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "graviton-crusher": {
+         "name": "Graviton Crusher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "volkite-chieorovile": {
+         "name": "Volkite Chieorovile",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 45
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 6
+      },
+      "combi-bolter": {
+         "name": "Combi-bolter",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "multi-melta": {
+         "name": "Multi-melta",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "twin-lascannon": {
+         "name": "Twin Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "c-beam-cannon": {
+         "name": "C-beam Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 7
+      },
+      "kheres-assault-cannon": {
+         "name": "Kheres Assault Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "twin-autocannon": {
+         "name": "Twin Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "twin-heavy-flamer": {
+         "name": "Twin Heavy Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "twin-multi-melta": {
+         "name": "Twin Multi-melta",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "predator-autocannon": {
+         "name": "Predator Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "magna-melta-cannon": {
+         "name": "Magna-melta Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 11,
+         "antiTank": 3
+      },
+      "plasma-destroyer": {
+         "name": "Plasma Destroyer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 7,
+         "text": "Supercharge"
+      },
+      "heavy-bolter": {
+         "name": "Heavy Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "infernus-cannon": {
+         "name": "Infernus Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "scorpius-multi-launcher": {
+         "name": "Scorpius Multi-launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10,
+         "text": "Barrage"
+      },
+      "twin-accelerator-autocannon": {
+         "name": "Twin Accelerator Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Anti-air"
+      },
+      "laser-destroyer": {
+         "name": "Laser Destroyer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "quad-lascannon": {
+         "name": "Quad Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 9,
+         "antiTank": 3
+      },
+      "titan-plasma-blastgun": {
+         "name": "Titan Plasma Blastgun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 4,
+         "antiTank": 4,
+         "text": "Supercharge"
+      },
+      "titan-vulcan-mega-bolter": {
+         "name": "Titan Vulcan Mega-bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8
+      },
+      "titan-dual-turbo-laser-destructor": {
+         "name": "Titan Dual Turbo-laser Destructor",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 4,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "titanic-armoured-feet": {
+         "name": "Titanic Armoured Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 5
+      },
+      "titan-inferno-gun": {
+         "name": "Titan Inferno Gun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 8
+         },
+         "antiPersonnel": 4,
+         "antiTank": 7,
+         "text": "Inferno"
+      },
+      "apocalypse-missile-launcher": {
+         "name": "Apocalypse Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 360
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Barrage"
+      },
+      "reaver-power-fist": {
+         "name": "Reaver Power Fist",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 3,
+         "antiTank": 4,
+         "text": "Apocalyptic Destroyer"
+      },
+      "reaver-chainfist": {
+         "name": "Reaver Chainfist",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 4,
+         "antiTank": 3,
+         "text": "Apocalyptic Destroyer"
+      },
+      "reaver-volcano-cannon": {
+         "name": "Reaver Volcano Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 180
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 11,
+         "antiTank": 3,
+         "text": "Apocalyptic Destroyer"
+      },
+      "reaver-melta-cannon": {
+         "name": "Reaver Melta Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 5,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "reaver-laser-blaster": {
+         "name": "Reaver Laser Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "reaver-gatling-blaster": {
+         "name": "Reaver Gatling Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "incinerator-missile-bank": {
+         "name": "Incinerator Missile Bank",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 360
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 5,
+         "antiTank": 9
+      },
+      "nemesis-quake-cannon": {
+         "name": "Nemesis Quake Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 480
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5,
+         "text": "Destroyer, Barrage"
+      },
+      "anvillus-pattern-defence-battery": {
+         "name": "Anvillus-pattern Defence Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 7,
+         "text": "Anti-air"
+      },
+      "ardex-defensor-mauler": {
+         "name": "Ardex-defensor Mauler",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "arioch-power-claw": {
+         "name": "Arioch Power Claw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 3,
+         "antiTank": 3,
+         "text": "Apocalyptic Destroyer"
+      },
+      "warlord-gatling-blaster": {
+         "name": "Warlord Gatling Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 12
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "twin-titan-vulcan-mega-bolter": {
+         "name": "Twin Titan Vulcan Mega-bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 12
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8
+      },
+      "sunfury-plasma-annihilator": {
+         "name": "Sunfury Plasma Annihilator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 3,
+         "antiTank": 4,
+         "text": "Destroyer, Supercharge"
+      },
+      "saturnyne-lascutter-ranged": {
+         "name": "Saturnyne Lascutter (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 4,
+         "text": "Destroyer"
+      },
+      "saturnyne-lascutter-melee": {
+         "name": "Saturnyne Lascutter (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 4,
+         "text": "Apocalyptic Destroyer"
+      },
+      "mori-quake-cannon": {
+         "name": "Mori Quake Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 360
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 4,
+         "antiTank": 4,
+         "text": "Destroyer, Barrage"
+      },
+      "belicosa-volcano-cannon": {
+         "name": "Belicosa Volcano Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 180
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 9,
+         "antiTank": 2,
+         "text": "Apocalyptic Destroyer"
+      },
+      "ardex-defensor-twin-lascannon": {
+         "name": "Ardex-defensor Twin Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "quad-heavy-bolter": {
+         "name": "Quad Heavy Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "grav-flux-bombard": {
+         "name": "Grav-flux Bombard",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Destroyer"
+      },
+      "demolisher-cannon": {
+         "name": "Demolisher Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "twin-volcano-cannon": {
+         "name": "Twin Volcano Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 120
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 3,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "siege-melta-array": {
+         "name": "Siege Melta Array",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 11,
+         "antiTank": 3
+      },
+      "skyreaper-battery": {
+         "name": "Skyreaper Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5,
+         "text": "Anti-air"
+      },
+      "vengeance-launcher": {
+         "name": "Vengeance Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "hellstrike-missiles": {
+         "name": "Hellstrike Missiles",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "reaper-battery": {
+         "name": "Reaper Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 5
+      },
+      "twin-avenger-bolt-cannon": {
+         "name": "Twin Avenger Bolt Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "turbo-laser-destructor": {
+         "name": "Turbo-laser Destructor",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 96
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 3,
+         "text": "Destroyer"
+      },
+      "thunderhawk-heavy-cannon": {
+         "name": "Thunderhawk Heavy Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "storm-bolter": {
+         "name": "Storm Bolter",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "plasma-cannon": {
+         "name": "Plasma Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Supercharge"
+      },
+      "power-axe": {
+         "name": "Power Axe",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "bolt-pistols": {
+         "name": "Bolt Pistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "boltguns": {
+         "name": "Boltguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "chainswords": {
+         "name": "Chainswords",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "twin-boltguns": {
+         "name": "Twin Boltguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "lightning-claws": {
+         "name": "Lightning Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "battle-cannon": {
+         "name": "Battle Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "cyphers-pistols-ranged": {
+         "name": "Cypher's Pistols (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 16
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Rapid Fire"
+      },
+      "cyphers-pistols-melee": {
+         "name": "Cypher's Pistols (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "flamer": {
+         "name": "Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "grav-cannon": {
+         "name": "Grav-Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 6
+      },
+      "storm-bolters": {
+         "name": "Storm Bolters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "missile-launcher": {
+         "name": "Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "heavy-flamer": {
+         "name": "Heavy Flamer",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "meltagun": {
+         "name": "Meltagun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 11,
+         "antiTank": 7
+      },
+      "ectoplasma-fusil": {
+         "name": "Ectoplasma Fusil",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9,
+         "text": "Rapid Fire"
+      },
+      "hellburner-chieorovile": {
+         "name": "Hellburner Chieorovile",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 45
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 6
+      },
+      "infernal-flamestorm-cannon": {
+         "name": "Infernal Flamestorm Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "melta-rifle": {
+         "name": "Melta Rifle",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 11,
+         "antiTank": 7
+      },
+      "hammerfall-heavy-flamer-array": {
+         "name": "Hammerfall Heavy Flamer Array",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "stormspear-rocket-pod": {
+         "name": "Stormspear Rocket Pod",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5
+      }
+   },
+   "abilities": {
+      "thunderhawk-cluster-bombs": {
+         "name": "Thunderhawk Cluster Bombs",
+         "text": "When a unit with Thunderhawk Cluster Bombs finishes making a Move action, select one enemy unit it moved over whilst making that Move action. Roll six D6, subtracting 1 from each result if that unit is a Character; for each result of 4+ place one blast marker next to that unit."
+      },
+      "siege-shield": {
+         "name": "Siege Shield",
+         "text": "If this unit has a Siege Shield, it has a Save characteristic of 4+."
+      },
+      "lord-cypher": {
+         "name": "Lord Cypher",
+         "text": "You can re-roll hit rolls for attacks made by friendly FALLEN units whilst they are within 6\" of this unit."
+      },
+      "blazing-weapons": {
+         "name": "Blazing Weapons",
+         "text": "This unit can make a Shoot action in a turn in which it Fell Back."
+      },
+      "fallen-angels": {
+         "name": "Fallen Angels",
+         "text": "Re-roll hit rolls of 1 for attacks made by this unit with ranged weapons."
+      }
+   }
+}

@@ -1,0 +1,3482 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "drukhari",
+   "name": "Aeldari - Drukhari",
+   "kind": "Faction",
+   "datasheets": {
+      "archon": {
+         "name": "Archon",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "CHARACTER",
+            "ARCHON",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Archon",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "husk-blade"
+         ],
+         "abilities": [
+            "shadowfield",
+            "overlord"
+         ]
+      },
+      "beastmaster-2": {
+         "name": "Beastmaster",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "BEASTMASTER",
+            "FLY",
+            "INFANTRY",
+            "LIGHT",
+            "SKYBOARD"
+         ],
+         "profiles": [
+            {
+               "name": "Beastmaster",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "agoniser"
+         ],
+         "abilities": [
+            "beastmaster"
+         ]
+      },
+      "clawed-fiends": {
+         "name": "Clawed Fiends",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "BEAST",
+            "CLAWED FIENDS",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "1 Model",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "clawed-fists"
+         ],
+         "abilities": [
+            "beserk-rage"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 Model",
+                     "maximum": 1,
+                     "cost": 2
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "maximum": 1,
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "maximum": 1,
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "cronos": {
+         "name": "Cronos",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "FLY"
+         ],
+         "profiles": [
+            {
+               "name": "Cronos",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "<HAEMONCULUS COVEN>",
+            "DRUKHARI"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "spirit-vortex",
+                     "name": "Spirit Vortex",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "cronos"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "spirit-vortex"
+                     ]
+                  },
+                  {
+                     "id": "cronos",
+                     "name": "Cronos",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 5,
+                     "addsAbilities": [
+                        "spirit-probe"
+                     ],
+                     "addsWeapons": [
+                        "spirit-leech-tentacles",
+                        "spirit-syphon"
+                     ]
+                  },
+                  {
+                     "id": "pain-engines",
+                     "name": "Pain Engines",
+                     "addsAbilities": [
+                        "pain-engines"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "drazhar": {
+         "name": "Drazhar",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "CHARACTER",
+            "DRAZHAR",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Drazhar",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI",
+            "INCUBI"
+         ],
+         "weapons": [
+            "demiklaives"
+         ],
+         "abilities": [
+            "master-of-blades"
+         ],
+         "maximumPerArmy": 1
+      },
+      "grotesques": {
+         "name": "Grotesques",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "GROTESQUES",
+            "LIGHT",
+            "INFANTRY"
+         ],
+         "profiles": [
+            {
+               "name": "3 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 6,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI",
+            "<HAEMONCULUS COVEN>"
+         ],
+         "weapons": [
+            "flesh-gauntlets"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "maximum": 1,
+                     "cost": 5
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 Models",
+                     "maximum": 1,
+                     "cost": 18,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 7
+                              },
+                              "wounds": 7
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "maximum": 1,
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 20,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 7
+                              },
+                              "wounds": 7
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "additional-weapons",
+               "name": "Additional Weapons",
+               "options": [
+                  {
+                     "id": "liquifier-gun",
+                     "name": "Liquifier Gun",
+                     "addsWeapons": [
+                        "liquifier-gun"
+                     ]
+                  },
+                  {
+                     "id": "monstrous-cleaver",
+                     "name": "Monstrous Cleaver",
+                     "addsWeapons": [
+                        "monstrous-cleaver"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 7
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 3,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 7
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "haemonculus": {
+         "name": "Haemonculus",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "HAEMONCULUS",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Haemonculus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "<HAEMONCULUS COVEN>",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "haemonculus-tools"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "master-of-pain-2"
+         ]
+      },
+      "hellions": {
+         "name": "Hellions",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "FLY",
+            "INFANTRY",
+            "LIGHT",
+            "SKYBOARD",
+            "HELLIONS"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "splinter-pods",
+            "hellglaives"
+         ],
+         "abilities": [
+            "hit-and-run"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 5
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 Models",
+                     "maximum": 1,
+                     "cost": 13,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 Models",
+                     "maximum": 1,
+                     "cost": 17,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "incubi": {
+         "name": "Incubi",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "INCUBI",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI",
+            "INCUBI"
+         ],
+         "weapons": [
+            "klaives"
+         ],
+         "abilities": [
+            "tormentors"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "kabalite-warriors": {
+         "name": "Kabalite Warriors",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "KABALITE WARRIORS",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "kabalite-close-combat-weapons",
+            "splinter-rifle"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 2
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 Models",
+                     "maximum": 1,
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 Models",
+                     "maximum": 1,
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "optional-weapons",
+               "name": "Optional Weapons",
+               "options": [
+                  {
+                     "id": "dark-lance",
+                     "name": "Dark Lance",
+                     "maximum": 2,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Count",
+                           "scope": "Unit",
+                           "of": {
+                              "kind": "Option",
+                              "option": "5-models"
+                           },
+                           "minimum": 1,
+                           "maximum": 1
+                        }
+                     },
+                     "addsWeapons": [
+                        "dark-lance"
+                     ]
+                  },
+                  {
+                     "id": "splinter-cannon",
+                     "name": "Splinter Cannon",
+                     "maximum": 2,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Count",
+                           "scope": "Unit",
+                           "of": {
+                              "kind": "Option",
+                              "option": "5-models"
+                           },
+                           "minimum": 1,
+                           "maximum": 1
+                        }
+                     },
+                     "addsWeapons": [
+                        "splinter-cannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "15-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "20-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "khymerae": {
+         "name": "Khymerae",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "BEAST",
+            "KHYMERAE",
+            "LIGHT",
+            "DAEMON"
+         ],
+         "profiles": [
+            {
+               "name": "1 Model",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "claws-talons"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 Model",
+                     "maximum": 1,
+                     "cost": 1
+                  },
+                  {
+                     "id": "2-models",
+                     "name": "2 Models",
+                     "maximum": 1,
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "maximum": 1,
+                     "cost": 3,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "8-models",
+                     "name": "8 Models",
+                     "maximum": 1,
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 5
+                              },
+                              "wounds": 5
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "12-models",
+                     "name": "12 Models",
+                     "maximum": 1,
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "lelith-hesperax": {
+         "name": "Lelith Hesperax",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "SUCCUBUS",
+            "LELITH HESPERAX",
+            "LIGHT",
+            "INFANTRY"
+         ],
+         "profiles": [
+            {
+               "name": "Lelith Hesperax",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI",
+            "CULT OF STRIFE"
+         ],
+         "weapons": [
+            "penetrating-blades"
+         ],
+         "abilities": [
+            "a-league-apart",
+            "brides-of-death",
+            "no-escape"
+         ],
+         "maximumPerArmy": 1
+      },
+      "lhamaean": {
+         "name": "Lhamaean",
+         "battlefieldRole": "Elites",
+         "cost": 1,
+         "keywords": [
+            "COURT OF THE ARCHON",
+            "INFANTRY",
+            "LHAMAEAN",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Lhamaean",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "shaimeshi-blade"
+         ],
+         "abilities": [
+            "court-of-the-archon"
+         ]
+      },
+      "mandrakes": {
+         "name": "Mandrakes",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "MANDRAKES"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "baleblasts",
+            "glimmersteel-blades"
+         ],
+         "abilities": [
+            "deep-strike",
+            "stealth"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "medusae": {
+         "name": "Medusae",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "COURT OF THE ARCHON",
+            "INFANTRY",
+            "LIGHT",
+            "MEDUSAE"
+         ],
+         "profiles": [
+            {
+               "name": "Medusae",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "eyeburst-attack-ranged",
+            "eyeburst-attack-melee"
+         ],
+         "abilities": [
+            "court-of-the-archon"
+         ]
+      },
+      "raider": {
+         "name": "Raider",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RAIDER"
+         ],
+         "profiles": [
+            {
+               "name": "Raider",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "<HAEMONCULUS COVEN>",
+            "<KABAL>",
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "bladevanes"
+         ],
+         "abilities": [
+            "hover",
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 10 friendly Drukhari Infantry models. Each Grotesque model takes the space of 2 other Infantry models. It cannot transport Scourge or Skyboard units.",
+         "wargear": [
+            {
+               "id": "weapon-option",
+               "name": "Weapon Option",
+               "options": [
+                  {
+                     "id": "dark-lance",
+                     "name": "Dark Lance",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "dark-lance"
+                     ]
+                  },
+                  {
+                     "id": "disintegrator-cannon",
+                     "name": "Disintegrator Cannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "disintegrator-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "dark-lance"
+            }
+         ]
+      },
+      "ravager": {
+         "name": "Ravager",
+         "battlefieldRole": "HeavySupport",
+         "cost": 7,
+         "keywords": [
+            "HEAVY",
+            "FLY",
+            "VEHICLE",
+            "RAVAGER"
+         ],
+         "profiles": [
+            {
+               "name": "Ravager",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "bladevanes"
+         ],
+         "abilities": [
+            "hover"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "dark-lance",
+                     "name": "Dark Lance",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "dark-lance"
+                     ]
+                  },
+                  {
+                     "id": "disintegrator-cannon",
+                     "name": "Disintegrator Cannon",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "disintegrator-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 3,
+               "maximum": 3,
+               "default": "dark-lance"
+            }
+         ]
+      },
+      "razorwing-flocks": {
+         "name": "Razorwing Flocks",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "FLY",
+            "BEAST",
+            "LIGHT",
+            "RAZORWING FLOCKS",
+            "SWARM"
+         ],
+         "profiles": [
+            {
+               "name": "3 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "DRUKHARI",
+            "AELDARI"
+         ],
+         "weapons": [
+            "razor-feathers"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "maximum": 1,
+                     "cost": 2
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 Models",
+                     "maximum": 1,
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "maximum": 1,
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "12-models",
+                     "name": "12 Models",
+                     "maximum": 1,
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 8
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "razorwing-jetfighter": {
+         "name": "Razorwing Jetfighter",
+         "battlefieldRole": "Flyer",
+         "cost": 10,
+         "keywords": [
+            "HEAVY",
+            "AIRCRAFT",
+            "FLY",
+            "VEHICLE",
+            "RAZORWING JETFIGHTER"
+         ],
+         "profiles": [
+            {
+               "name": "Razorwing Jetfighter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 72
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "razorwing-missiles",
+            "bladed-wings"
+         ],
+         "abilities": [
+            "supersonic"
+         ],
+         "wargear": [
+            {
+               "id": "disintegrator-cannon-option",
+               "name": "Disintegrator Cannon Option",
+               "options": [
+                  {
+                     "id": "disintegrator-cannon",
+                     "name": "2 Disintegrator Cannons",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "disintegrator-cannon"
+                     ]
+                  },
+                  {
+                     "id": "dark-lance",
+                     "name": "2 Dark Lances",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "dark-lance"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "disintegrator-cannon"
+            },
+            {
+               "id": "splinter-rifle-option",
+               "name": "Splinter Rifle Option",
+               "options": [
+                  {
+                     "id": "twin-splinter-rifle",
+                     "name": "Twin Splinter Rifle",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "twin-splinter-rifle"
+                     ]
+                  },
+                  {
+                     "id": "splinter-cannon",
+                     "name": "Splinter Cannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "splinter-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ]
+      },
+      "reavers": {
+         "name": "Reavers",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "FLY",
+            "LIGHT",
+            "REAVERS",
+            "BIKER"
+         ],
+         "profiles": [
+            {
+               "name": "3 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 20
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "DRUKHARI",
+            "<WYCH CULT>",
+            "AELDARI"
+         ],
+         "weapons": [
+            "splinter-rifles",
+            "close-combat-weapons"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "maximum": 1,
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 Models",
+                     "maximum": 1,
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "12-models",
+                     "name": "12 Models",
+                     "maximum": 1,
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "blaster",
+                     "name": "Blaster",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "blaster"
+                     ]
+                  },
+                  {
+                     "id": "heat-lance",
+                     "name": "Heat Lance",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heat-lance"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "12-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "scourges": {
+         "name": "Scourges",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "FLY",
+            "INFANTRY",
+            "LIGHT",
+            "SCOURGES"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "DRUKHARI",
+            "AELDARI"
+         ],
+         "weapons": [
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "heavy-weapon-option",
+               "name": "Heavy Weapon Option",
+               "options": [
+                  {
+                     "id": "blaster",
+                     "name": "Blaster",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "blaster"
+                     ]
+                  },
+                  {
+                     "id": "dark-lance",
+                     "name": "Dark Lance",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "dark-lance"
+                     ]
+                  },
+                  {
+                     "id": "haywire-blaster",
+                     "name": "Haywire Blaster",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "haywire-blaster"
+                     ]
+                  },
+                  {
+                     "id": "heat-lance",
+                     "name": "Heat Lance",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "heat-lance"
+                     ]
+                  },
+                  {
+                     "id": "shredder",
+                     "name": "Shredder",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "shredder"
+                     ]
+                  },
+                  {
+                     "id": "splinter-cannon",
+                     "name": "Splinter Cannon",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "splinter-cannon"
+                     ]
+                  }
+               ],
+               "maximum": 4
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "shardcarbines",
+                     "name": "Shardcarbines",
+                     "maximum": 1,
+                     "requiredWhen": {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "OptionGroup",
+                                 "group": "heavy-weapon-option"
+                              },
+                              "maximum": 0
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1,
+                              "maximum": 1
+                           }
+                        ]
+                     },
+                     "availableWhen": {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "OptionGroup",
+                                 "group": "heavy-weapon-option"
+                              },
+                              "maximum": 0
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1,
+                              "maximum": 1
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "shardcarbines"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "sslyth": {
+         "name": "Sslyth",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "SSLYTH",
+            "COURT OF THE ARCHON"
+         ],
+         "profiles": [
+            {
+               "name": "Sslyth",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "sslyth-battle-blade"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "court-of-the-archon"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cold-blooded-bodyguard",
+                     "name": "Cold-Blooded Bodyguard",
+                     "addsAbilities": [
+                        "cold-blooded-bodyguard"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "succubus": {
+         "name": "Succubus",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "SUCCUBUS"
+         ],
+         "profiles": [
+            {
+               "name": "Succubus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "wych-cult-weapons"
+         ],
+         "abilities": [
+            "brides-of-death-2",
+            "no-escape"
+         ]
+      },
+      "talos": {
+         "name": "Talos",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "FLY",
+            "MONSTER",
+            "TALOS"
+         ],
+         "profiles": [
+            {
+               "name": "Talos",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI",
+            "<HAEMONCULUS COVEN>"
+         ],
+         "wargear": [
+            {
+               "id": "gruesome-weapon-replacement",
+               "name": "Gruesome Weapon Replacement",
+               "options": [
+                  {
+                     "id": "gruesome-combat-weapon",
+                     "name": "Gruesome Combat Weapon",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "gruesome-combat-weapon"
+                     ]
+                  },
+                  {
+                     "id": "twin-liquifier-gun",
+                     "name": "Twin Liquifier Gun",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "twin-liquifier-gun"
+                     ]
+                  }
+               ],
+               "maximum": 2,
+               "default": "gruesome-combat-weapon"
+            },
+            {
+               "id": "splinter-cannon-replacement",
+               "name": "Splinter Cannon Replacement",
+               "options": [
+                  {
+                     "id": "splinter-cannon",
+                     "name": "2 Splinter Cannons",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "splinter-cannon"
+                     ]
+                  },
+                  {
+                     "id": "haywire-blaster",
+                     "name": "2 Haywire Blasters",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "haywire-blaster"
+                     ]
+                  },
+                  {
+                     "id": "heat-lance",
+                     "name": "2 Heat Lances",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "heat-lance"
+                     ]
+                  },
+                  {
+                     "id": "stinger-pod",
+                     "name": "Stinger Pod",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "talos"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "stinger-pod"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "splinter-cannon"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "talos",
+                     "name": "Talos",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 7
+                  },
+                  {
+                     "id": "pain-engines",
+                     "name": "Pain Engines",
+                     "addsAbilities": [
+                        "pain-engines"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "ur-ghul": {
+         "name": "Ur-Ghul",
+         "battlefieldRole": "Elites",
+         "cost": 1,
+         "keywords": [
+            "COURT OF THE ARCHON",
+            "INFANTRY",
+            "LIGHT",
+            "UR-GHUL"
+         ],
+         "profiles": [
+            {
+               "name": "Ur-Ghul",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "claws-talons"
+         ],
+         "abilities": [
+            "court-of-the-archon"
+         ]
+      },
+      "urien-rakarth": {
+         "name": "Urien Rakarth",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "HAEMONCULUS",
+            "INFANTRY",
+            "LIGHT",
+            "URIEN RAKARTH"
+         ],
+         "profiles": [
+            {
+               "name": "Urien Rakarth",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI",
+            "PROPHETS OF FLESH"
+         ],
+         "weapons": [
+            "the-casket-of-flensing",
+            "haemonculus-tools"
+         ],
+         "abilities": [
+            "ignore-damage-6",
+            "sculptor-of-torments",
+            "master-of-pain",
+            "contempt-for-death"
+         ],
+         "maximumPerArmy": 1
+      },
+      "venom": {
+         "name": "Venom",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "VENOM"
+         ],
+         "profiles": [
+            {
+               "name": "Venom",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "AELDARI",
+            "DRUKHARI",
+            "<HAEMONCULUS COVEN>",
+            "<KABAL>",
+            "<WYCH CULT>"
+         ],
+         "weapons": [
+            "bladevanes"
+         ],
+         "abilities": [
+            "hover",
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 5 friendly Drukhari Infantry models. It cannot transport Grotesque, Scourge or Skyboard units.",
+         "wargear": [
+            {
+               "id": "weapon-options",
+               "name": "Weapon Options",
+               "options": [
+                  {
+                     "id": "splinter-cannon",
+                     "name": "Splinter Cannon",
+                     "maximum": 2,
+                     "minimum": 1,
+                     "addsWeapons": [
+                        "splinter-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-splinter-rifle",
+                     "name": "Twin Splinter Rifle",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "twin-splinter-rifle"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2,
+               "default": "twin-splinter-rifle"
+            }
+         ]
+      },
+      "voidraven-bomber": {
+         "name": "Voidraven Bomber",
+         "battlefieldRole": "Flyer",
+         "cost": 9,
+         "keywords": [
+            "FLY",
+            "AIRCRAFT",
+            "HEAVY",
+            "VEHICLE",
+            "VOIDRAVEN BOMBER"
+         ],
+         "profiles": [
+            {
+               "name": "Voidraven Bomber",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 72
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "<KABAL>",
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "bladed-wings"
+         ],
+         "abilities": [
+            "supersonic",
+            "void-mine"
+         ],
+         "wargear": [
+            {
+               "id": "void-lance-option",
+               "name": "Void Lance Option",
+               "options": [
+                  {
+                     "id": "2-void-lances",
+                     "name": "2 Void Lances",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "2-void-lances"
+                     ]
+                  },
+                  {
+                     "id": "2-dark-scythes",
+                     "name": "2 Dark Scythes",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "2-dark-scythes"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2-void-lances"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "voidraven-missiles",
+                     "name": "Voidraven Missiles",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "voidraven-missiles"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "wracks": {
+         "name": "Wracks",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "WRACKS",
+            "LIGHT",
+            "INFANTRY"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "<HAEMONCULUS COVEN>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "haemonculus-tools"
+         ],
+         "abilities": [
+            "ignore-damage-6"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "wyches": {
+         "name": "Wyches",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "WYCHES"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "splinter-pistols",
+            "wych-weapons"
+         ],
+         "abilities": [
+            "no-escape"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 2
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 Models",
+                     "maximum": 1,
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 Models",
+                     "maximum": 1,
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "reaper": {
+         "name": "Reaper",
+         "battlefieldRole": "HeavySupport",
+         "cost": 8,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "REAPER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Reaper",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "<HAEMONCULUS COVEN>",
+            "<KABAL>",
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "storm-vortex-projector",
+            "scythevanes"
+         ],
+         "abilities": [
+            "hover"
+         ]
+      },
+      "tantalus": {
+         "name": "Tantalus",
+         "battlefieldRole": "HeavySupport",
+         "cost": 15,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "TANTALUS",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Tantalus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 4,
+               "leadership": 5,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<HAEMONCULUS COVEN>",
+            "<KABAL>",
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "pulse-disintegrator",
+            "dire-scythe-blade"
+         ],
+         "abilities": [
+            "hover",
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 16 friendly Drukhari Infantry models. Each Grotesque model takes the space of 2 other Infantry models. It cannot transport Scourge or Skyboard units."
+      },
+      "raven-strike-fighter": {
+         "name": "Raven Strike Fighter",
+         "battlefieldRole": "Flyer",
+         "cost": 10,
+         "keywords": [
+            "AIRCRAFT",
+            "FLY",
+            "HEAVY",
+            "RAVEN STRIKE FIGHTER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Raven Strike Fighter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 72
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "<HAEMONCULUS COVEN>",
+            "<KABAL>",
+            "<WYCH CULT>",
+            "AELDARI",
+            "DRUKHARI"
+         ],
+         "weapons": [
+            "aeldariweapons/dark-lance",
+            "splinterstorm-cannon",
+            "bladed-hull"
+         ],
+         "abilities": [
+            "supersonic"
+         ]
+      }
+   },
+   "datasheetLinks": {
+      "webway-gate": {
+         "datasheet": "aeldariweapons/webway-gate-2"
+      }
+   },
+   "weapons": {
+      "husk-blade": {
+         "name": "Husk Blade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "demiklaives": {
+         "name": "Demiklaives",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "penetrating-blades": {
+         "name": "Penetrating Blades",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "wych-cult-weapons": {
+         "name": "Wych Cult Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "the-casket-of-flensing": {
+         "name": "The Casket of Flensing",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9,
+         "text": "One Use Only"
+      },
+      "splinter-pistols": {
+         "name": "Splinter Pistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12
+      },
+      "wych-weapons": {
+         "name": "Wych Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "shaimeshi-blade": {
+         "name": "Shaimeshi Blade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 12
+      },
+      "eyeburst-attack-ranged": {
+         "name": "Eyeburst Attack (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "eyeburst-attack-melee": {
+         "name": "Eyeburst Attack (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 12
+      },
+      "sslyth-battle-blade": {
+         "name": "Sslyth Battle-blade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "claws-talons": {
+         "name": "Claws & Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "klaives": {
+         "name": "Klaives",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 9
+      },
+      "baleblasts": {
+         "name": "Baleblasts",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "glimmersteel-blades": {
+         "name": "Glimmersteel Blades",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "agoniser": {
+         "name": "Agoniser",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 12
+      },
+      "flesh-gauntlets": {
+         "name": "Flesh Gauntlets",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "liquifier-gun": {
+         "name": "Liquifier Gun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "monstrous-cleaver": {
+         "name": "Monstrous Cleaver",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "clawed-fists": {
+         "name": "Clawed Fists",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "razor-feathers": {
+         "name": "Razor Feathers",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "splinter-pods": {
+         "name": "Splinter Pods",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12
+      },
+      "hellglaives": {
+         "name": "Hellglaives",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "gruesome-combat-weapon": {
+         "name": "Gruesome Combat Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "twin-liquifier-gun": {
+         "name": "Twin Liquifier Gun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10,
+         "text": "Inferno"
+      },
+      "spirit-leech-tentacles": {
+         "name": "Spirit Leech Tentacles",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "spirit-syphon": {
+         "name": "Spirit Syphon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "spirit-vortex": {
+         "name": "Spirit Vortex",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "razorwing-missiles": {
+         "name": "Razorwing Missiles",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "voidraven-missiles": {
+         "name": "Voidraven Missiles",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "2-void-lances": {
+         "name": "2 Void Lances",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 4
+      },
+      "2-dark-scythes": {
+         "name": "2 Dark Scythes",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 4,
+         "antiTank": 9
+      },
+      "haemonculus-tools": {
+         "name": "Haemonculus Tools",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 12
+      },
+      "dark-lance": {
+         "name": "Dark Lance",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "splinter-cannon": {
+         "name": "Splinter Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12,
+         "text": "Rapid Fire"
+      },
+      "splinter-rifles": {
+         "name": "Splinter Rifles",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12,
+         "text": "Rapid Fire"
+      },
+      "blaster": {
+         "name": "Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "heat-lance": {
+         "name": "Heat Lance",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 6
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "haywire-blaster": {
+         "name": "Haywire Blaster",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 12,
+         "antiTank": 4
+      },
+      "shredder": {
+         "name": "Shredder",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "shardcarbines": {
+         "name": "Shardcarbines",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12
+      },
+      "stinger-pod": {
+         "name": "Stinger Pod",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12
+      },
+      "bladevanes": {
+         "name": "Bladevanes",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "disintegrator-cannon": {
+         "name": "Disintegrator Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 10
+      },
+      "twin-splinter-rifle": {
+         "name": "Twin Splinter Rifle",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12,
+         "text": "Rapid Fire"
+      },
+      "bladed-wings": {
+         "name": "Bladed Wings",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "storm-vortex-projector": {
+         "name": "Storm Vortex Projector",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 5
+      },
+      "scythevanes": {
+         "name": "Scythevanes",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 11
+      },
+      "pulse-disintegrator": {
+         "name": "Pulse-disintegrator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 4,
+         "antiTank": 9
+      },
+      "dire-scythe-blade": {
+         "name": "Dire Scythe Blade",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "splinterstorm-cannon": {
+         "name": "Splinterstorm Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 12,
+         "text": "Rapid Fire"
+      },
+      "bladed-hull": {
+         "name": "Bladed Hull",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "splinter-rifle": {
+         "name": "Splinter Rifle",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12,
+         "text": "Rapid Fire"
+      },
+      "kabalite-close-combat-weapons": {
+         "name": "Kabalite Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      }
+   },
+   "abilities": {
+      "shadowfield": {
+         "name": "Shadowfield",
+         "text": "Saving throws taken for this unit cannot be re-rolled for any reason. The first time the result of a saving throw taken for this unit is a 1 or 2, for the rest of the battle this unit’s Save characteristic is 8+."
+      },
+      "overlord": {
+         "name": "Overlord",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly <Kabal> units whilst they are within 6\" of this unit."
+      },
+      "master-of-blades": {
+         "name": "Master of Blades",
+         "text": "Add 1 to hit rolls for attacks made with melee weapons by friendly Incubi units\nwhilst they are within 6\" of this unit."
+      },
+      "a-league-apart": {
+         "name": "A League Apart",
+         "text": "You can re-roll hit rolls and wound rolls for attacks made with melee weapons by\nthis unit that target Character units."
+      },
+      "brides-of-death": {
+         "name": "Brides of Death",
+         "text": "Re-roll hit rolls of 1 for attacks made with melee weapons by friendly Cult of\nStrife units whilst they are within 6\" of this unit."
+      },
+      "no-escape": {
+         "name": "No Escape",
+         "text": "If an INFANTRY unit within 1\" of any enemy units with this ability wishes to Fall Back, the players must roll off. The unit can only Fall Back if the player controlling it wins the roll-off."
+      },
+      "brides-of-death-2": {
+         "name": "Brides of Death",
+         "text": "Re-roll hit rolls of 1 for attacks made with melee weapons by friendly <WYCH CULT> units whilst they are within 6\" of this unit."
+      },
+      "sculptor-of-torments": {
+         "name": "Sculptor of Torments",
+         "text": "Add 1 to wound rolls for attacks made by friendly Prophets of Flesh\nunits when using melee weapons whilst they are within 6\" of this unit."
+      },
+      "master-of-pain": {
+         "name": "Master of Pain",
+         "text": "Add 1 to saving throws taken for friendly Prophets of Flesh units whilst they\nare within 6\" of any Prophets of Flesh units from your army with this ability."
+      },
+      "contempt-for-death": {
+         "name": "Contempt for Death",
+         "text": "At the start of the Damage phase, you can remove half of the blast markers,\nrounding down, from this unit. Small blast markers must be removed before large blast markers."
+      },
+      "master-of-pain-2": {
+         "name": "Master of Pain",
+         "text": "Add 1 to saving throws taken for friendly <HAEMONCULUS COVEN> units whilst they are within 6\" of any <HAEMONCULUS COVEN> units from your army with this ability."
+      },
+      "cold-blooded-bodyguard": {
+         "name": "Cold-Blooded Bodyguard",
+         "text": "At the start of the Damage phase, you can select one friendly <Kabal> Archon unit that has at least one blast marker next to it and is within 3\" of this unit. Remove up to D3 blast markers from that Archon unit and place them next to this unit."
+      },
+      "tormentors": {
+         "name": "Tormentors",
+         "text": "If the result of a Morale test taken for an enemy unit within 6\" of any Incubi units from your army is equal to the Leadership value of that enemy unit, that Morale test is failed."
+      },
+      "beastmaster": {
+         "name": "Beastmaster",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly Drukhari Beast units whilst they are within 6\" of this unit. Friendly Drukhari Beast units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit. Drukhari Beast units do not take up slots in a Detachment that contains any units with this ability."
+      },
+      "beserk-rage": {
+         "name": "Beserk Rage",
+         "text": "This unit does not suffer the penalty for being critically damaged. Whilst this unit has any damage markers next to it, add 1 to its Attacks Characteristic."
+      },
+      "hit-and-run": {
+         "name": "Hit and Run",
+         "text": "Whilst this unit Falls Back, double its Move characteristic. When this unit Falls Back, it can finish that Move action in base contact with enemy models."
+      },
+      "spirit-probe": {
+         "name": "Spirit Probe",
+         "text": "Re-roll wound rolls of 1 for attacks made with melee weapons by friendly Drukhari units whilst they are within 6\" of this unit."
+      },
+      "void-mine": {
+         "name": "Void Mine",
+         "text": "Once per battle, after this unit makes a Move action, select one enemy unit it passed within 1\" of during that Move action. Roll two D6; for each 2+ place one blast marker next to that unit."
+      },
+      "court-of-the-archon": {
+         "name": "Court of the Archon",
+         "text": "You can re-roll hit rolls for attacks made by this unit whilst it is within 3\" of any friendly <Kabal> Archon units. This unit does not take up a slot in a Detachment that includes any <Kabal> Archon units."
+      },
+      "pain-engines": {
+         "name": "Pain Engines",
+         "text": "Each Heavy Support slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single Heavy Support slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      }
+   },
+   "imports": [
+      "aeldariweapons"
+   ]
+}

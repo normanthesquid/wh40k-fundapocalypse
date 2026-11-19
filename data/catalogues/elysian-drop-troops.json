@@ -1,0 +1,2167 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "elysian-drop-troops",
+   "name": "Imperium - Elysian Drop Troops",
+   "kind": "Faction",
+   "datasheets": {
+      "elysian-company-commander": {
+         "name": "Elysian Company Commander",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "ELYSIAN COMPANY COMMANDER",
+            "INFANTRY",
+            "LIGHT",
+            "CHARACTER",
+            "OFFICER"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Company Commander",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "ELYSIAN DROP TROOPS",
+            "ASTRA MILITARUM",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "officer-weapons"
+         ],
+         "abilities": [
+            "officer",
+            "iron-disipline",
+            "deep-strike"
+         ]
+      },
+      "elysian-lord-commissar": {
+         "name": "Elysian Lord Commissar",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "COMMISSAR",
+            "ELYSIAN LORD COMMISSAR",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Lord Commissar",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM",
+            "OFFICIO PREFECTUS"
+         ],
+         "weapons": [
+            "commissar-weapons"
+         ],
+         "abilities": [
+            "aura-of-disipline",
+            "deep-strike",
+            "iron-disipline"
+         ]
+      },
+      "elysian-drop-trooper-squad": {
+         "name": "Elysian Drop Trooper Squad",
+         "battlefieldRole": "Troops",
+         "cost": 5,
+         "keywords": [
+            "ELYSIAN DROP TROOPER SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Drop Trooper Squad (10 Models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-2",
+            "lasguns"
+         ],
+         "abilities": [
+            "deep-strike"
+         ]
+      },
+      "elysian-special-weapons-squad": {
+         "name": "Elysian Special Weapons Squad",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "ELYSIAN SPECIAL WEAPONS SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Special Weapons Squad (6 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "breacher-charges",
+            "special-weapons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ]
+      },
+      "elysian-veteran-squad": {
+         "name": "Elysian Veteran Squad",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "ELYSIAN VETERAN SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Veteran Squad (9/10 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "veteran-wargear",
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "mortar",
+                     "name": "Mortar",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "mortar"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "heavy-weapons-team",
+                     "name": "Heavy Weapons Team",
+                     "maximum": 1,
+                     "cost": 1
+                  }
+               ]
+            }
+         ]
+      },
+      "elysian-command-squad": {
+         "name": "Elysian Command Squad",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "ELYSIAN COMMAND SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Command Squad (3/4 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "lasguns",
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "mortar",
+                     "name": "Mortar",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "mortar"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-weapons-team",
+                     "name": "Heavy Weapons Team",
+                     "maximum": 1,
+                     "cost": 1
+                  },
+                  {
+                     "id": "regimental-standard",
+                     "name": "Regimental Standard",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "regimental-standard"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "elysian-drop-sentinels": {
+         "name": "Elysian Drop Sentinels",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "ELYSIAN DROP SENTINELS",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Drop Sentinel",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapon",
+               "name": "Heavy Weapon",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "elysian-drop-sentinel"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "elysian-drop-sentinel"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "elysian-drop-sentinel"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "elysian-drop-sentinel",
+                     "name": "Elysian Drop Sentinel",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 3,
+                     "addsWeapons": [
+                        "armoured-feet"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "increment": {
+                              "wounds": 2,
+                              "attacks": 2
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "elysian-platoon-commander": {
+         "name": "Elysian Platoon Commander",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "ELYSIAN PLATOON COMMANDER",
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "OFFICER"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Platoon Commander",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "officer-weapons"
+         ],
+         "abilities": [
+            "officer",
+            "iron-disipline",
+            "deep-strike"
+         ]
+      },
+      "elysian-sniper-squad": {
+         "name": "Elysian Sniper Squad",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "ELYSIAN SNIPER SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Sniper Squad (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "sniper-rifles"
+         ],
+         "abilities": [
+            "deep-strike"
+         ]
+      },
+      "elysian-heavy-weapons-squad": {
+         "name": "Elysian Heavy Weapons Squad",
+         "battlefieldRole": "HeavySupport",
+         "cost": 6,
+         "keywords": [
+            "ELYSIAN HEAVY WEAPON SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Elysian Heavy Weapons Squad (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "mortar",
+                     "name": "Mortar",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "mortar"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-weapons-team",
+                     "name": "Heavy Weapons Team",
+                     "maximum": 3,
+                     "minimum": 3,
+                     "addsAbilities": [
+                        "weapons-teams",
+                        "deep-strike"
+                     ],
+                     "addsWeapons": [
+                        "close-combat-weapons-2"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "valkyrie-sky-talon": {
+         "name": "Valkyrie Sky Talon",
+         "battlefieldRole": "Flyer",
+         "cost": 13,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "TRANSPORT",
+            "VALKYRIE SKY TALON",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Valkyrie Sky Talon",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "armoured-hull",
+            "astra-militarum-library/heavy-bolter"
+         ],
+         "abilities": [
+            "astra-militarum-library/grav-chute-insertion",
+            "astra-militarum-library/hover-jet",
+            "supersonic"
+         ],
+         "transport": "This unit can transport 1 friendly Elysian Drop Troops Tauros model or up to 2 Elysian Drop Sentinel models.",
+         "wargear": [
+            {
+               "id": "wing-weapons",
+               "name": "Wing Weapons",
+               "options": [
+                  {
+                     "id": "2x-multiple-rocket-pod",
+                     "name": "2x Multiple Rocket Pod",
+                     "addsWeapons": [
+                        "astra-militarum-library/multiple-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "hellstrike-missiles",
+                     "name": "Hellstrike Missiles",
+                     "addsWeapons": [
+                        "astra-militarum-library/hellstrike-missiles"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "hellstrike-missiles"
+            }
+         ]
+      },
+      "officer-of-the-fleet": {
+         "name": "Officer of the Fleet",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "OFFICER",
+            "OFFICER OF THE FLEET"
+         ],
+         "profiles": [
+            {
+               "name": "Officer of the Fleet",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/close-combat-weapons"
+         ],
+         "abilities": [
+            "astra-militarum-library/strafing-coordinates"
+         ]
+      },
+      "tauros-assault-vehicle-squadron": {
+         "name": "Tauros Assault Vehicle Squadron",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "TAUROS",
+            "TAUROS ASSAULT VEHICLE",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Tauros Assault Vehicle",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "tauros-grenade-launcher",
+                     "name": "Tauros Grenade Launcher",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "tauros-assault-vehicle"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/tauros-grenade-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "tauros-assault-vehicle"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "tauros-grenade-launcher"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "tauros-assault-vehicle",
+                     "name": "Tauros Assault Vehicle",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 3,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "tauros-venator-squadron": {
+         "name": "Tauros Venator Squadron",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "TAUROS",
+            "TAUROS VENATOR",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Tauros Venator",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 15
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "twin-multi-laser",
+                     "name": "Twin Multi-laser",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "tauros-venator"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-multi-laser"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "tauros-venator"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "twin-multi-laser"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "tauros-venator",
+                     "name": "Tauros Venator",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 4,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "cyclops-demolition-vehicle-squadron": {
+         "name": "Cyclops Demolition Vehicle Squadron",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "CYCLOPS DEMOLITION VEHICLE",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Cyclops Demolition Vehicle",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cyclops-demolition-vehicle",
+                     "name": "Cyclops Demolition Vehicle",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 6,
+                     "addsAbilities": [
+                        "astra-militarum-library/self-destruct",
+                        "vehicle-squadron",
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/cyclops-demolition-charge-ranged",
+                        "astra-militarum-library/cyclops-demolition-charge-melee"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "tarantula-sentry-gun-battery": {
+         "name": "Tarantula Sentry Gun Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "ARTILLERY",
+            "HEAVY",
+            "TARANTULA SENTRY GUN"
+         ],
+         "profiles": [
+            {
+               "name": "Tarantula Sentry Gun",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "tarantula-sentry-gun"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "tarantula-sentry-gun"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "tarantula-sentry-gun",
+                     "name": "Tarantula Sentry Gun",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 2,
+                     "addsAbilities": [
+                        "astra-militarum-library/automated-artillery",
+                        "astra-militarum-library/immobile-2",
+                        "artillery-battery"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "avenger-strike-fighter": {
+         "name": "Avenger Strike Fighter",
+         "battlefieldRole": "Flyer",
+         "cost": 14,
+         "keywords": [
+            "AIRCRAFT",
+            "AVENGER STRIKE FIGHTER",
+            "FLY",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Avenger Strike Fighter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/avenger-bolt-cannon",
+            "astra-militarum-library/defensive-heavy-stubber",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "supersonic",
+            "anti-air"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "2x-autocannon",
+                     "name": "2x Autocannon",
+                     "cost": 2
+                  },
+                  {
+                     "id": "2x-avenger-missile",
+                     "name": "2x Avenger Missile",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/avenger-missile"
+                     ]
+                  },
+                  {
+                     "id": "2x-missile-launcher",
+                     "name": "2x Missile Launcher",
+                     "cost": 2
+                  },
+                  {
+                     "id": "2x-multi-laser",
+                     "name": "2x Multi-laser",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/multi-laser"
+                     ]
+                  },
+                  {
+                     "id": "tactical-bombs",
+                     "name": "Tactical Bombs",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "astra-militarum-library/tactical-bombs"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "2x-autocannon"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "2x-missile-launcher"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/missile-launcher"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "lightning-strike-fighter": {
+         "name": "Lightning Strike Fighter",
+         "battlefieldRole": "Flyer",
+         "cost": 13,
+         "keywords": [
+            "AIRCRAFT",
+            "LIGHTNING STRIKE FIGHTER",
+            "HEAVY",
+            "FLY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Lightning Strike Fighter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/long-barrelled-autocannon",
+            "weapons/twin-lascannon",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "supersonic"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "lightning-missiles",
+                     "name": "Lightning Missiles",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/lightning-missiles"
+                     ],
+                     "addsAbilities": [
+                        "astra-militarum-library/lightning-missiles-2",
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "tactical-bombs",
+                     "name": "Tactical Bombs",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "astra-militarum-library/tactical-bombs"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "thunderbolt-heavy-fighter": {
+         "name": "Thunderbolt Heavy Fighter",
+         "battlefieldRole": "Flyer",
+         "cost": 15,
+         "keywords": [
+            "AIRCRAFT",
+            "FLY",
+            "HEAVY",
+            "THUNDERBOLT HEAVY FIGHTER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Thunderbolt Heavy Fighter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/twin-autocannon",
+            "astra-militarum-library/armoured-hull",
+            "weapons/twin-lascannon"
+         ],
+         "abilities": [
+            "supersonic"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "thunderbolt-missiles",
+                     "name": "Thunderbolt Missiles",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/thunderbolt-missiles"
+                     ],
+                     "addsAbilities": [
+                        "astra-militarum-library/thunderbolt-missiles-2",
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "tactical-bombs",
+                     "name": "Tactical Bombs",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "astra-militarum-library/tactical-bombs"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "valkyrie-squadron": {
+         "name": "Valkyrie Squadron",
+         "battlefieldRole": "Flyer",
+         "cost": 0,
+         "keywords": [
+            "AIRCRAFT",
+            "FLY",
+            "HEAVY",
+            "VALKYRIE",
+            "VEHICLE",
+            "TRANSPORT"
+         ],
+         "profiles": [
+            {
+               "name": "Valkyrie",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "nose-weapon",
+               "name": "Nose Weapon",
+               "options": [
+                  {
+                     "id": "multi-laser",
+                     "name": "Multi-laser",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/multi-laser"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "multi-laser"
+            },
+            {
+               "id": "wing-weapons",
+               "name": "Wing Weapons",
+               "options": [
+                  {
+                     "id": "2x-multiple-rocket-pod",
+                     "name": "2x Multiple Rocket Pod",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/multiple-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "hellstrike-missiles",
+                     "name": "Hellstrike Missiles",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/hellstrike-missiles"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "hellstrike-missiles"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "maximum": 1,
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "valkyrie"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "valkyrie",
+                     "name": "Valkyrie",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 8,
+                     "addsAbilities": [
+                        "supersonic",
+                        "vehicle-squadron",
+                        "astra-militarum-library/grav-chute-insertion",
+                        "astra-militarum-library/hover-jet"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "vendetta-squadron": {
+         "name": "Vendetta Squadron",
+         "battlefieldRole": "Flyer",
+         "cost": 0,
+         "keywords": [
+            "AIRCRAFT",
+            "FLY",
+            "HEAVY",
+            "TRANSPORT",
+            "VEHICLE",
+            "VENDETTA GUNSHIP"
+         ],
+         "profiles": [
+            {
+               "name": "Vendetta Gunship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "ELYSIAN DROP TROOPS",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "maximum": 1,
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vendetta-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-hellfury-missile",
+                     "name": "2x Hellfury Missile",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vendetta-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/hellfury-missile"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vendetta-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "vendetta-gunship",
+                     "name": "Vendetta Gunship",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 15,
+                     "addsAbilities": [
+                        "supersonic",
+                        "astra-militarum-library/grav-chute-insertion",
+                        "astra-militarum-library/hover-jet",
+                        "aircraft-squadron"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "vulture-squadron": {
+         "name": "Vulture Squadron",
+         "battlefieldRole": "Flyer",
+         "cost": 0,
+         "keywords": [
+            "VULTURE GUNSHIP",
+            "VEHICLE",
+            "HEAVY",
+            "FLY",
+            "AIRCRAFT"
+         ],
+         "profiles": [
+            {
+               "name": "Vulture Gunship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ELYSIAN DROP TROOPS",
+            "ASTRA MILITARUM"
+         ],
+         "wargear": [
+            {
+               "id": "inner-weapons",
+               "name": "Inner Weapons",
+               "options": [
+                  {
+                     "id": "twin-multi-laser",
+                     "name": "Twin Multi-laser",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-multi-laser"
+                     ]
+                  },
+                  {
+                     "id": "twin-autocannon",
+                     "name": "Twin Autocannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-autocannon"
+                     ]
+                  },
+                  {
+                     "id": "2x-multiple-rocket-pod",
+                     "name": "2x Multiple Rocket Pod",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/multiple-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "2x-multiple-rocket-pod"
+            },
+            {
+               "id": "outer-weapons",
+               "name": "Outer Weapons",
+               "options": [
+                  {
+                     "id": "vulture-missiles",
+                     "name": "Vulture Missiles",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/vulture-missiles"
+                     ],
+                     "addsAbilities": [
+                        "astra-militarum-library/vulture-missiles-2",
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "2x-multiple-rocket-pod-2",
+                     "name": "2x Multiple Rocket Pod",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/multiple-rocket-pod"
+                     ]
+                  },
+                  {
+                     "id": "tactical-bombs",
+                     "name": "Tactical Bombs",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "astra-militarum-library/tactical-bombs"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "2x-multiple-rocket-pod-2"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "twin-punisher-gatling-cannon",
+                     "name": "Twin Punisher Gatling Cannon",
+                     "maximum": 1,
+                     "cost": 9,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-punisher-gatling-cannon"
+                     ]
+                  },
+                  {
+                     "id": "4x-multiple-rocket-pod",
+                     "name": "4x Multiple Rocket Pod",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vulture-gunship"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/multiple-rocket-pod"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 2,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "twin-punisher-gatling-cannon"
+                        },
+                        "scope": "Unit",
+                        "amount": -1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4x-multiple-rocket-pod"
+                        },
+                        "scope": "Unit",
+                        "amount": -1
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "vulture-gunship",
+                     "name": "Vulture Gunship",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 15,
+                     "addsAbilities": [
+                        "astra-militarum-library/strafing-run",
+                        "supersonic",
+                        "astra-militarum-library/hover-jet",
+                        "aircraft-squadron"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "weapons": {
+      "commissar-weapons": {
+         "name": "Commissar Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "breacher-charges": {
+         "name": "Breacher Charges",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 6
+      },
+      "special-weapons": {
+         "name": "Special Weapons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "veteran-wargear": {
+         "name": "Veteran wargear",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "armoured-feet": {
+         "name": "Armoured Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 12
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 12
+      },
+      "sniper-rifles": {
+         "name": "Sniper Rifles",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Sniper"
+      },
+      "armoured-hull": {
+         "name": "Armoured Hull",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "officer-weapons": {
+         "name": "Officer Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "lasguns": {
+         "name": "Lasguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "mortar": {
+         "name": "Mortar",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Barrage"
+      }
+   },
+   "abilities": {
+      "aura-of-disipline": {
+         "name": "Aura of Disipline",
+         "text": "Friendly Elysian Drop Troops units can use this unit’s Leadership\ncharacteristic instead of their own whilst they are within 6\" of this unit."
+      },
+      "regimental-standard": {
+         "name": "Regimental Standard",
+         "text": "Add 1 to the Leadership characteristic of Elysian Drop Troops units\nwhilst they are within 6\" of any friendly Elysian Drop Troops units with a Regimental Standard."
+      },
+      "weapons-teams": {
+         "name": "Weapons Teams",
+         "text": "For the purposes of determining what models a unit can transport, models in this unit are weapons team models."
+      },
+      "officer": {
+         "name": "Officer",
+         "text": "At the start of the Generate Command Assets step, if this unit is a Warlord and is on the battlefield, you generate one extra Command Asset."
+      },
+      "iron-disipline": {
+         "name": "Iron Disipline",
+         "text": "You can re-roll Morale tests taken for friendly Elysian Drop Troops units whilst\nthey are within 6\" of this unit."
+      },
+      "vehicle-squadron": {
+         "name": "Vehicle Squadron",
+         "text": "Each slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      },
+      "artillery-battery": {
+         "name": "Artillery Battery",
+         "text": "Each slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      },
+      "aircraft-squadron": {
+         "name": "Aircraft Squadron",
+         "text": "Each slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      }
+   },
+   "imports": [
+      "astra-militarum-library",
+      "weapons"
+   ]
+}

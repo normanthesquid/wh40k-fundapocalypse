@@ -1,0 +1,5449 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "death-korps-of-krieg",
+   "name": "Imperium - Death Korps of Krieg",
+   "kind": "Faction",
+   "datasheets": {
+      "death-korps-marshal-karis-venner": {
+         "name": "Death Korps Marshal Karis Venner",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "CHARACTER",
+            "DEATH KORPS MARHSAL KARIS VENNER",
+            "INFANTRY",
+            "LIGHT",
+            "OFFICER"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Marshal Karis Venner",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "officer-weapons"
+         ],
+         "abilities": [
+            "command-in-chief",
+            "momento-mori",
+            "officer"
+         ]
+      },
+      "death-korps-mashal": {
+         "name": "Death Korps Mashal",
+         "battlefieldRole": "HQ",
+         "cost": 3,
+         "keywords": [
+            "CHARACTER",
+            "DEATH KORPS MARSHAL",
+            "INFANTRY",
+            "LIGHT",
+            "OFFICER"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Mashal",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "officer-weapons"
+         ],
+         "abilities": [
+            "officer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "momento-mori",
+                     "name": "Momento Mori",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "momento-mori"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-field-officer": {
+         "name": "Death Korps Field Officer",
+         "battlefieldRole": "HQ",
+         "cost": 2,
+         "keywords": [
+            "CHARACTER",
+            "DEATH KORPS FIELD OFFICER",
+            "INFANTRY",
+            "LIGHT",
+            "OFFICER"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Field Officer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "field-officer-weapons"
+         ],
+         "abilities": [
+            "officer"
+         ]
+      },
+      "death-korps-death-rider-squadron-commander": {
+         "name": "Death Korps Death Rider Squadron Commander",
+         "battlefieldRole": "HQ",
+         "cost": 3,
+         "keywords": [
+            "CAVALRY",
+            "CHARACTER",
+            "DEATH KORPS DEATH RIDER SQUADRON COMMANDER",
+            "DEATH RIDERS",
+            "LIGHT",
+            "OFFICER"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Death Rider Squadron Commander",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "death-korps-hunting-lance"
+         ],
+         "abilities": [
+            "officer",
+            "augmented-mount"
+         ]
+      },
+      "death-korps-infantry-squad": {
+         "name": "Death Korps Infantry Squad",
+         "battlefieldRole": "Troops",
+         "cost": 3,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "DEATH KORPS INFANTRY SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Infantry Squad (10 Models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-4",
+            "lasguns"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "platoon-standard",
+                     "name": "Platoon Standard",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "platoon-standard"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-grenadier-storm-squad": {
+         "name": "Death Korps Grenadier Storm Squad",
+         "battlefieldRole": "Troops",
+         "cost": 2,
+         "keywords": [
+            "DEATH KORPS GRENADIER STORM SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Grenadier Storm Squad (4/5 Models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-4",
+            "hot-shot-lasguns"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-flamer-team",
+                     "name": "Heavy Flamer Team",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "5-additional-grenadiers",
+                     "name": "5 additional Grenadiers",
+                     "maximum": 1,
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-centaur-light-assault-carrier": {
+         "name": "Death Korps Centaur Light Assault Carrier",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "DEATH KORPS CENTAUR LIGHT ASSAULT CARRIER"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Centaur Light Assault Carrier",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "armoured-hull",
+            "astra-militarum-library/heavy-stubber"
+         ],
+         "abilities": [
+            "assault-team-transport",
+            "artillery-tractor"
+         ],
+         "transport": "This unit can transport up to 5 Astra Militarum Infantry models. Each weapons team model takes the space of 2 other Infantry models and each Ogryn model takes the space of 3 other Infantry models."
+      },
+      "death-korps-of-krieg-storm-chimera": {
+         "name": "Death Korps of Krieg Storm Chimera",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 7,
+         "keywords": [
+            "DEATH KORPS OF KRIEG STORM CHIMERA",
+            "HEAVY",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps of Krieg Storm Chimera",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "lasgun-array",
+            "armoured-hull",
+            "astra-militarum-library/autocannon"
+         ],
+         "transport": "This unit can transport up to 12 Astra Militarum Infantry models. Each weapons team model takes the space of 2 other Infantry models and each Ogryn model takes the space of 3 other Infantry models.",
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "ablative-storm-armour-and-mine-plough",
+                     "name": "Ablative Storm Armour and Mine Plough",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "ignore-damage-6"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-of-krieg-command-squad": {
+         "name": "Death Korps of Krieg Command Squad",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "DEATH KORPS OF KRIEG COMMAND SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps of Krieg Command Squad (4 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-4",
+            "lasguns"
+         ],
+         "wargear": [
+            {
+               "id": "this-unit-can-have-one-of-the-following",
+               "name": "This unit can have one of the following",
+               "options": [
+                  {
+                     "id": "regimental-standard",
+                     "name": "Regimental Standard",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "regimental-standard"
+                     ]
+                  },
+                  {
+                     "id": "platoon-standard",
+                     "name": "Platoon Standard",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsAbilities": [
+                        "platoon-standard"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "death-korps-combat-engineer-squad": {
+         "name": "Death Korps Combat Engineer Squad",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "DEATH KORPS COMBAT ENGINEER SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Combat Engineer Squad (4/5 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "krieg-combat-shotguns",
+            "close-combat-weapons-4"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "mole-launcher",
+                     "name": "Mole Launcher",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "mole-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "5-additional-engineers",
+                     "name": "5 Additional Engineers",
+                     "maximum": 1,
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "heavy-weapons-team",
+                     "name": "Heavy Weapons Team",
+                     "maximum": 1,
+                     "cost": 1
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-commissar": {
+         "name": "Death Korps Commissar",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "DEATH KORPS COMMISSAR",
+            "CHARACTER",
+            "COMMISSAR",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Commissar",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "OFFICIO PREFECTUS",
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "commissar-weapons"
+         ],
+         "abilities": [
+            "aura-of-discipline"
+         ]
+      },
+      "death-korps-of-krieg-hades-breaching-drill-squadron": {
+         "name": "Death Korps of Krieg Hades Breaching Drill Squadron",
+         "battlefieldRole": "Elites",
+         "cost": 8,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "DEATH KORPS OF KRIEG HADES BREACHING DRILL SQUADRON"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps of Krieg Hades Breaching Drill Squadron (11 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "melta-cutter-drill",
+            "close-combat-weapons-2",
+            "shotguns"
+         ],
+         "abilities": [
+            "fortification-breacher",
+            "deep-strike"
+         ]
+      },
+      "death-korps-quartermaster-cadre": {
+         "name": "Death Korps Quartermaster Cadre",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "DEATH KORPS QUARTERMASTER CADRE",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Quartermaster Cadre (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-3"
+         ],
+         "abilities": [
+            "vitae-mortis"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "2-additional-servitors",
+                     "name": "2 Additional servitors",
+                     "maximum": 1,
+                     "cost": 1,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-death-rider-command-squadron": {
+         "name": "Death Korps Death Rider Command Squadron",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "CAVALRY",
+            "DEATH KORPS DEATH RIDER COMMAND SQUADRON",
+            "DEATH RIDERS",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Death Rider Command Squadron (4 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-4",
+            "laspistols",
+            "death-korps-hunting-lances"
+         ],
+         "abilities": [
+            "flanking-manoeuvres",
+            "augmented-mount",
+            "deep-strike"
+         ]
+      },
+      "death-korps-death-rider-commissar": {
+         "name": "Death Korps Death Rider Commissar",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "CAVALRY",
+            "DEATH KORPS DEATH RIDER COMMISSAR",
+            "COMMISSAR",
+            "CHARACTER",
+            "DEATH RIDERS",
+            "OFFICER"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Death Rider Commissar",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM",
+            "OFFICIO PREFECTUS"
+         ],
+         "weapons": [
+            "commissar-weapons"
+         ],
+         "abilities": [
+            "augmented-mount",
+            "aura-of-discipline"
+         ]
+      },
+      "death-korps-death-rider-squadron": {
+         "name": "Death Korps Death Rider Squadron",
+         "battlefieldRole": "FastAttack",
+         "cost": 5,
+         "keywords": [
+            "CAVALRY",
+            "DEATH KORPS DEATH RIDER SQUADRON",
+            "DEATH RIDERS",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Death Rider Squadron (5 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "laspistols",
+            "death-korps-hunting-lances",
+            "close-combat-weapons-4"
+         ],
+         "abilities": [
+            "augmented-mount"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "5-additional-riders",
+                     "name": "5 Additional Riders",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-heavy-weapons-squad": {
+         "name": "Death Korps Heavy Weapons Squad",
+         "battlefieldRole": "HeavySupport",
+         "cost": 4,
+         "keywords": [
+            "DEATH KORPS HEAVY WEAPONS SQUAD",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Heavy Weapons Squad (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "heavy-weapons",
+               "name": "Heavy Weapons",
+               "options": [
+                  {
+                     "id": "mortar",
+                     "name": "Mortar",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "mortar"
+                     ]
+                  },
+                  {
+                     "id": "missile-launcher",
+                     "name": "Missile Launcher",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/missile-launcher"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-stubber",
+                     "name": "Twin Heavy Stubber",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "twin-heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-weapons-team"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/autocannon"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-weapons-team",
+                     "name": "Heavy Weapons Team",
+                     "maximum": 3,
+                     "minimum": 3,
+                     "addsAbilities": [
+                        "weapons-teams"
+                     ],
+                     "addsWeapons": [
+                        "close-combat-weapons-4"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "death-korps-leman-russ-mars-alpha-battle-tank": {
+         "name": "Death Korps Leman Russ Mars-Alpha Battle Tank",
+         "battlefieldRole": "HeavySupport",
+         "cost": 10,
+         "keywords": [
+            "LEMAN RUSS",
+            "HEAVY",
+            "DEATH KORPS LEMAN RUSS MARS-ALPHA BATTLE TANKS",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Death Korps Leman Russ Mars-Alpha Battle Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vanquisher-battle-cannon"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "PrimaryFaction",
+                              "faction": "genestealer-cults"
+                           },
+                           {
+                              "kind": "PrimaryFaction",
+                              "faction": "astra-militarum"
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "removesWeapons": [
+                  "astra-militarum-library/vanquisher-battle-cannon"
+               ],
+               "addsWeapons": [
+                  "astra-militarum-library/vanquisher-battle-cannon-2"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "conqueror-cannon-and-storm-bolter",
+                     "name": "Conqueror Cannon and Storm Bolter",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "conqueror-cannon",
+                        "astra-militarum-library/storm-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "battle-cannon",
+                     "name": "Battle Cannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "eradicator-nova-cannon",
+                     "name": "Eradicator Nova Cannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/eradicator-nova-cannon"
+                     ]
+                  },
+                  {
+                     "id": "executioner-plasma-cannon",
+                     "name": "Executioner Plasma Cannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/executioner-plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "exterminator-autocannon",
+                     "name": "Exterminator Autocannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/exterminator-autocannon"
+                     ]
+                  },
+                  {
+                     "id": "punisher-gatling-cannon",
+                     "name": "Punisher Gatling Cannon",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/punisher-gatling-cannon"
+                     ]
+                  },
+                  {
+                     "id": "vanquisher-battle-cannon",
+                     "name": "Vanquisher Battle Cannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/vanquisher-battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "demolisher-cannon",
+                     "name": "Demolisher Cannon",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/demolisher-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "plasma-cannon",
+                     "name": "Plasma Cannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/plasma-cannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Keyword",
+                                 "keyword": "LEMAN RUSS"
+                              },
+                              "minimum": 1
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "availableWhen": {
+                        "kind": "All",
+                        "conditions": [
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                              },
+                              "minimum": 1
+                           },
+                           {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Keyword",
+                                 "keyword": "HELLHOUND"
+                              },
+                              "minimum": 1
+                           }
+                        ]
+                     },
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "sponsons",
+               "name": "Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "maximum": 1,
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "maximum": 1,
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "2x-multi-melta",
+                     "name": "2x Multi-melta",
+                     "maximum": 1,
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "2x-plasma-cannon",
+                     "name": "2x Plasma Cannon",
+                     "maximum": 1,
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "astra-militarum-library/plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "death-korps-leman-russ-mars-alpha-battle-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "death-korps-leman-russ-mars-alpha-battle-tank",
+                     "name": "Death Korps Leman Russ Mars-Alpha Battle Tank",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 10,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron",
+                        "astra-militarum-library/grinding-advance",
+                        "ignore-damage-6"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/grinding-tracks"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "tank-commander": {
+         "name": "Tank Commander",
+         "battlefieldRole": "HQ",
+         "cost": 12,
+         "keywords": [
+            "CHARACTER",
+            "LEMAN RUSS",
+            "HEAVY",
+            "TANK COMMANDER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Tank Commander",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/grinding-tracks"
+         ],
+         "abilities": [
+            "astra-militarum-library/tank-commander",
+            "astra-militarum-library/grinding-advance"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "All",
+                  "conditions": [
+                     {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "vanquisher-battle-cannon"
+                        },
+                        "minimum": 1
+                     },
+                     {
+                        "kind": "Any",
+                        "conditions": [
+                           {
+                              "kind": "PrimaryFaction",
+                              "faction": "genestealer-cults"
+                           },
+                           {
+                              "kind": "PrimaryFaction",
+                              "faction": "astra-militarum"
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "removesWeapons": [
+                  "astra-militarum-library/vanquisher-battle-cannon"
+               ],
+               "addsWeapons": [
+                  "astra-militarum-library/vanquisher-battle-cannon-2"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "battle-cannon",
+                     "name": "Battle Cannon",
+                     "addsWeapons": [
+                        "weapons/battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "eradicator-nova-cannon",
+                     "name": "Eradicator Nova Cannon",
+                     "addsWeapons": [
+                        "astra-militarum-library/eradicator-nova-cannon"
+                     ]
+                  },
+                  {
+                     "id": "executioner-plasma-cannon",
+                     "name": "Executioner Plasma Cannon",
+                     "addsWeapons": [
+                        "astra-militarum-library/executioner-plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "exterminator-autocannon",
+                     "name": "Exterminator Autocannon",
+                     "addsWeapons": [
+                        "astra-militarum-library/exterminator-autocannon"
+                     ]
+                  },
+                  {
+                     "id": "punisher-gatling-cannon",
+                     "name": "Punisher Gatling Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/punisher-gatling-cannon"
+                     ]
+                  },
+                  {
+                     "id": "vanquisher-battle-cannon",
+                     "name": "Vanquisher Battle Cannon",
+                     "addsWeapons": [
+                        "astra-militarum-library/vanquisher-battle-cannon"
+                     ]
+                  },
+                  {
+                     "id": "demolisher-cannon",
+                     "name": "Demolisher Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/demolisher-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "battle-cannon"
+            },
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "sponsons",
+               "name": "Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "2x-multi-melta",
+                     "name": "2x Multi-melta",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "2x-plasma-cannon",
+                     "name": "2x Plasma Cannon",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "atlas-recovery-tank": {
+         "name": "Atlas Recovery Tank",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "ATLAS RECOVERY TANK",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Atlas Recovery Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/armoured-hull",
+            "weapons/heavy-bolter"
+         ],
+         "abilities": [
+            "astra-militarum-library/recovery-vehicle"
+         ],
+         "wargear": [
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "master-of-ordnance": {
+         "name": "Master of Ordnance",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "MASTER OF ORDNANCE",
+            "OFFICER",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER"
+         ],
+         "profiles": [
+            {
+               "name": "Master of Ordnance",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/artillery-barrage",
+            "astra-militarum-library/close-combat-weapons"
+         ],
+         "abilities": [
+            "astra-militarum-library/master-of-ballistics",
+            "barrage"
+         ]
+      },
+      "hellhound-squadron": {
+         "name": "Hellhound Squadron",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "VEHICLE",
+            "HELLHOUND",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Hellhound",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hellhound"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "hellhound",
+                     "name": "Hellhound",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 6,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron",
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/inferno-cannon",
+                        "astra-militarum-library/armoured-tracks"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "salamander-scout-tank-squadron": {
+         "name": "Salamander Scout Tank Squadron",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "VEHICLE",
+            "SALAMANDER SCOUT TANK",
+            "SALAMANDER",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Salamander Scout Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "wargear": [
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "salamander-scout-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "salamander-scout-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "salamander-scout-tank",
+                     "name": "Salamander Scout Tank",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 6,
+                     "addsAbilities": [
+                        "infiltrators",
+                        "astra-militarum-library/tank-squadron"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-bolter",
+                        "weapons/autocannon",
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "armageddon-pattern-medusa-battery": {
+         "name": "Armageddon Pattern Medusa Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "ARMAGEDDON PATTERN MEDUSA",
+            "MEDUSA",
+            "VEHICLE",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Armageddon Pattern Medusa",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "armageddon-pattern-medusa"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "armageddon-pattern-medusa",
+                     "name": "Armageddon Pattern Medusa",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 7,
+                     "addsAbilities": [
+                        "artillery-battery",
+                        "barrage"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/medusa-siege-cannon",
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "basilisk-squadron": {
+         "name": "Basilisk Squadron",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "BASILISK",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Basilisk",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "basilisk"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "basilisk",
+                     "name": "Basilisk",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 7,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron",
+                        "barrage"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/armoured-tracks",
+                        "astra-militarum-library/earthshaker-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "colossus-bombard-battery": {
+         "name": "Colossus Bombard Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "COLOSSUS BOMBARD",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Colossus Bombard",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "colossus-bombard"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "colossus-bombard",
+                     "name": "Colossus Bombard",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsAbilities": [
+                        "artillery-battery",
+                        "astra-militarum-library/siege-mortar",
+                        "barrage"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/colossus-siege-mortar",
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "cyclops-demolition-vehicle-squadron": {
+         "name": "Cyclops Demolition Vehicle Squadron",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "CYCLOPS DEMOLITION VEHICLE",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Cyclops Demolition Vehicle",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "cyclops-demolition-vehicle",
+                     "name": "Cyclops Demolition Vehicle",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 6,
+                     "addsAbilities": [
+                        "astra-militarum-library/self-destruct",
+                        "vehicle-squadron",
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/cyclops-demolition-charge-ranged",
+                        "astra-militarum-library/cyclops-demolition-charge-melee"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "earthshaker-carriage-battery": {
+         "name": "Earthshaker Carriage Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "EARTHSHAKER CARRIAGE BATTERY",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Earthshaker Carriage Battery (5 models)",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "earthshaker-carriage-battery",
+                     "name": "Earthshaker Carriage Battery",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 3,
+                     "addsAbilities": [
+                        "astra-militarum-library/immobile-2",
+                        "artillery-battery",
+                        "barrage",
+                        "rapid-fire"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/close-combat-weapons-earthshaker-carriage",
+                        "astra-militarum-library/earthshaker-cannon",
+                        "astra-militarum-library/crew-lasguns"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "griffon-mortar-carrier-battery": {
+         "name": "Griffon Mortar Carrier Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "GRIFFON MORTAR CARRIER",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Griffon Mortar Carrier",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "griffon-mortar-carrier"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "griffon-mortar-carrier",
+                     "name": "Griffon Mortar Carrier",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 5,
+                     "addsAbilities": [
+                        "artillery-battery",
+                        "barrage"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/griffon-heavy-mortar",
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "heavy-mortar-battery": {
+         "name": "Heavy Mortar Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 2,
+         "keywords": [
+            "ARTILLERY",
+            "HEAVY",
+            "HEAVY MORTAR",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Heavy Mortar",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-mortar",
+                     "name": "Heavy Mortar",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 2,
+                     "addsAbilities": [
+                        "artillery-battery",
+                        "astra-militarum-library/immobile-2",
+                        "barrage",
+                        "rapid-fire"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-mortar",
+                        "astra-militarum-library/close-combat-weapons-heavy-mortar",
+                        "astra-militarum-library/crew-lasguns"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "heavy-quad-launcher-battery": {
+         "name": "Heavy Quad Launcher Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "ARTILLERY",
+            "HEAVY",
+            "HEAVY QUAD LAUNCHER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Heavy Quad Launcher",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-quad-launcher",
+                     "name": "Heavy Quad Launcher",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 3,
+                     "addsAbilities": [
+                        "astra-militarum-library/immobile-2",
+                        "artillery-battery",
+                        "barrage",
+                        "rapid-fire"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-quad-launcher",
+                        "astra-militarum-library/close-combat-weapons-heavy-quad-launcher",
+                        "astra-militarum-library/crew-lasguns"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "hydra-squadron": {
+         "name": "Hydra Squadron",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "HEAVY",
+            "HYDRA",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Hydra",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hydra"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "hydra",
+                     "name": "Hydra",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 7,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron",
+                        "anti-air"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/armoured-tracks",
+                        "astra-militarum-library/hydra-quad-autocannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "malcador-annihilator": {
+         "name": "Malcador Annihilator",
+         "battlefieldRole": "HeavySupport",
+         "cost": 12,
+         "keywords": [
+            "HEAVY",
+            "MALCADOR",
+            "MALCADOR ANNIHILATOR",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Malcador Annihilator",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "weapons/twin-lascannon",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "astra-militarum-library/lumbering-advance-2"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "addsWeapons": [
+                        "weapons/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "demolisher-cannon",
+                     "name": "Demolisher Cannon",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "weapons/demolisher-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "lascannon"
+            },
+            {
+               "id": "malacador-sponsons",
+               "name": "Malacador Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-stubber",
+                     "name": "2x Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "2x-autocannon",
+                     "name": "2x Autocannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "2x-lascannon",
+                     "name": "2x Lascannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2x-heavy-stubber"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "malcador-defender": {
+         "name": "Malcador Defender",
+         "battlefieldRole": "HeavySupport",
+         "cost": 18,
+         "keywords": [
+            "HEAVY",
+            "MALCADOR",
+            "MALCADOR DEFENDER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Malcador Defender",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "weapons/demolisher-cannon",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "astra-militarum-library/lumbering-advance-2",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "sponsons",
+               "name": "Sponsons",
+               "options": [
+                  {
+                     "id": "2x-autocannon",
+                     "name": "2x Autocannon",
+                     "addsWeapons": [
+                        "astra-militarum-library/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "2x-lascannon",
+                     "name": "2x Lascannon",
+                     "addsWeapons": [
+                        "astra-militarum-library/lascannon"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "7x-heavy-bolter",
+                     "name": "7x Heavy Bolter",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "malcador-heavy-tank": {
+         "name": "Malcador Heavy Tank",
+         "battlefieldRole": "HeavySupport",
+         "cost": 10,
+         "keywords": [
+            "HEAVY",
+            "MALCADOR",
+            "MALCADOR HEAVY TANK",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Malcador Heavy Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/armoured-hull",
+            "weapons/battle-cannon"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "addsWeapons": [
+                        "weapons/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "malacador-sponsons",
+               "name": "Malacador Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-stubber",
+                     "name": "2x Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "2x-autocannon",
+                     "name": "2x Autocannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "2x-lascannon",
+                     "name": "2x Lascannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2x-heavy-stubber"
+            }
+         ]
+      },
+      "malcador-infernus": {
+         "name": "Malcador Infernus",
+         "battlefieldRole": "HeavySupport",
+         "cost": 11,
+         "keywords": [
+            "HEAVY",
+            "MALCADOR",
+            "MALCADOR INFERNUS",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Malcador Infernus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/inferno-gun",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "inferno"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "autocannon",
+                     "name": "Autocannon",
+                     "addsWeapons": [
+                        "weapons/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "malacador-sponsons",
+               "name": "Malacador Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-stubber",
+                     "name": "2x Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "2x-autocannon",
+                     "name": "2x Autocannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/autocannon"
+                     ]
+                  },
+                  {
+                     "id": "2x-lascannon",
+                     "name": "2x Lascannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2x-heavy-stubber"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "medusa-carriage-battery": {
+         "name": "Medusa Carriage Battery",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "ARTILLERY",
+            "HEAVY",
+            "MEDUSA CARRIAGE",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Medusa Carriage (5 models)",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "medusa-carriage",
+                     "name": "Medusa Carriage",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 3,
+                     "addsAbilities": [
+                        "astra-militarum-library/immobile-2",
+                        "artillery-battery",
+                        "barrage",
+                        "rapid-fire"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/close-combat-weapons-medusa-carriage",
+                        "astra-militarum-library/medusa-siege-gun",
+                        "astra-militarum-library/crew-lasguns"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "rapier-laser-destroyer": {
+         "name": "Rapier Laser Destroyer",
+         "battlefieldRole": "HeavySupport",
+         "cost": 4,
+         "keywords": [
+            "ARTILLERY",
+            "HEAVY",
+            "RAPIER LASER DESTROYER",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Rapier Laser Destroyer (3 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 3
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/laser-destroyer",
+            "astra-militarum-library/close-combat-weapons-rapier-laser-destroyer",
+            "astra-militarum-library/crew-lasguns"
+         ],
+         "abilities": [
+            "destroyer",
+            "rapid-fire"
+         ]
+      },
+      "stygies-destroyer-tank-hunter-squadron": {
+         "name": "Stygies Destroyer Tank Hunter Squadron",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "VEHICLE",
+            "STYGIES DESTROYER TANK HUNTER",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Stygies Destroyer Tank Hunter",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "wargear": [
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stygies-destroyer-tank-hunter"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stygies-destroyer-tank-hunter"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "stygies-destroyer-tank-hunter",
+                     "name": "Stygies Destroyer Tank Hunter",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 9,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron",
+                        "destroyer"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-laser-destroyer-array",
+                        "astra-militarum-library/armoured-hull"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "stygies-thunderer-siege-tank-squadron": {
+         "name": "Stygies Thunderer Siege Tank Squadron",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "VEHICLE",
+            "STYGIES THUNDERER SIEGE TANK",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Stygies Thunderer Siege Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "wargear": [
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stygies-thunderer-siege-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stygies-thunderer-siege-tank"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "stygies-thunderer-siege-tank",
+                     "name": "Stygies Thunderer Siege Tank",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 10,
+                     "addsAbilities": [
+                        "astra-militarum-library/tank-squadron",
+                        "astra-militarum-library/lumbering-advance-2",
+                        "destroyer"
+                     ],
+                     "addsWeapons": [
+                        "astra-militarum-library/armoured-hull",
+                        "weapons/demolisher-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "centaur-light-carrier": {
+         "name": "Centaur Light Carrier",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 7,
+         "keywords": [
+            "CENTAUR LIGHT CARRIER",
+            "VEHICLE",
+            "TRANSPORT",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Centaur Light Carrier",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "astra-militarum-library/artillery-tractor"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "trojan-support-vehicle": {
+         "name": "Trojan Support Vehicle",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "VEHICLE",
+            "TROJAN SUPPORT VEHICLE",
+            "TRANSPORT",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Trojan Support Vehicle",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "astra-militarum-library/support-vehicle"
+         ],
+         "wargear": [
+            {
+               "id": "hull-weapon",
+               "name": "Hull Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "arkurian-pattern-stormblade": {
+         "name": "Arkurian Pattern Stormblade",
+         "battlefieldRole": "LordOfWar",
+         "cost": 19,
+         "keywords": [
+            "ARKURIAN PATTERN STORMBLADE",
+            "STORMBLADE",
+            "SUPER-HEAVY",
+            "TITANIC",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Arkurian Pattern Stormblade",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 5,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/plasma-blastgun",
+            "weapons/heavy-bolter",
+            "astra-militarum-library/adamantium-tracks"
+         ],
+         "abilities": [
+            "supercharge"
+         ],
+         "wargear": [
+            {
+               "id": "baneblade-sponsons",
+               "name": "Baneblade Sponsons",
+               "options": [
+                  {
+                     "id": "heavy-bolter-sponson",
+                     "name": "Heavy Bolter Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-bolter",
+                        "astra-militarum-library/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer-sponson",
+                     "name": "Heavy Flamer Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-flamer",
+                        "astra-militarum-library/lascannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 4,
+               "multipleOf": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "stormblade-anti-personnel-weapons",
+                     "name": "Stormblade Anti-personnel Weapons",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/stormblade-anti-personnel-weapons"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "baneblade": {
+         "name": "Baneblade",
+         "battlefieldRole": "LordOfWar",
+         "cost": 28,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "BANEBLADE"
+         ],
+         "profiles": [
+            {
+               "name": "Baneblade",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 5,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/baneblade-cannon",
+            "astra-militarum-library/adamantium-tracks",
+            "weapons/autocannon",
+            "weapons/demolisher-cannon",
+            "weapons/twin-heavy-bolter"
+         ],
+         "abilities": [
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "baneblade-sponsons",
+               "name": "Baneblade Sponsons",
+               "options": [
+                  {
+                     "id": "heavy-bolter-sponson",
+                     "name": "Heavy Bolter Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-bolter",
+                        "astra-militarum-library/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer-sponson",
+                     "name": "Heavy Flamer Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-flamer",
+                        "astra-militarum-library/lascannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 4,
+               "multipleOf": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "baneblade-anti-personnel-weapons",
+                     "name": "Baneblade Anti-personnel Weapons",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/baneblade-anti-personnel-weapons"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "gorgon-heavy-transporter": {
+         "name": "Gorgon Heavy Transporter",
+         "battlefieldRole": "LordOfWar",
+         "cost": 20,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "TRANSPORT",
+            "SUPER-HEAVY",
+            "GORGON HEAVY TRANSPORTER"
+         ],
+         "profiles": [
+            {
+               "name": "Gorgon Heavy Transporter",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 6,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/armoured-hull"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "2x-gorgon-mortar",
+                     "name": "2x Gorgon Mortar",
+                     "addsWeapons": [
+                        "astra-militarum-library/gorgon-mortar"
+                     ],
+                     "addsAbilities": [
+                        "astra-militarum-library/siege-weapon-2"
+                     ]
+                  },
+                  {
+                     "id": "4x-heavy-bolter",
+                     "name": "4x Heavy Bolter",
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "4x-heavy-flamer",
+                     "name": "4x Heavy Flamer",
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "4x-lascannon",
+                     "name": "4x Lascannon",
+                     "addsWeapons": [
+                        "astra-militarum-library/lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2x-gorgon-mortar"
+            }
+         ]
+      },
+      "macharius-heavy-tank": {
+         "name": "Macharius Heavy Tank",
+         "battlefieldRole": "LordOfWar",
+         "cost": 18,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "MACHARIUS",
+            "MACHARIUS HEAVY TANK"
+         ],
+         "profiles": [
+            {
+               "name": "Macharius Heavy Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 4,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/macharius-battle-cannon",
+            "astra-militarum-library/armoured-hull",
+            "astra-militarum-library/twin-heavy-stubber"
+         ],
+         "wargear": [
+            {
+               "id": "macharius-sponsons",
+               "name": "Macharius Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-stubber",
+                     "name": "2x Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2x-heavy-stubber"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "macharius-omega": {
+         "name": "Macharius Omega",
+         "battlefieldRole": "LordOfWar",
+         "cost": 18,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "MACHARIUS OMEGA",
+            "MACHARIUS"
+         ],
+         "profiles": [
+            {
+               "name": "Macharius Omega",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 4,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/omega-pattern-plasma-blastgun",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "supercharge"
+         ],
+         "wargear": [
+            {
+               "id": "macharius-sponsons",
+               "name": "Macharius Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "2x-autocannon",
+                     "name": "2x Autocannon",
+                     "cost": 2,
+                     "addsWeapons": [
+                        "astra-militarum-library/autocannon"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "macharius-vanquisher": {
+         "name": "Macharius Vanquisher",
+         "battlefieldRole": "LordOfWar",
+         "cost": 18,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "MACHARIUS VANQUISHER",
+            "MACHARIUS"
+         ],
+         "profiles": [
+            {
+               "name": "Macharius Vanquisher",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 4,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/macharius-vanquisher-cannon",
+            "astra-militarum-library/twin-heavy-stubber",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "wargear": [
+            {
+               "id": "macharius-sponsons",
+               "name": "Macharius Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-stubber",
+                     "name": "2x Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2x-heavy-stubber"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "macharius-vulcan": {
+         "name": "Macharius Vulcan",
+         "battlefieldRole": "LordOfWar",
+         "cost": 21,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "MACHARIUS VULCAN",
+            "MACHARIUS"
+         ],
+         "profiles": [
+            {
+               "name": "Macharius Vulcan",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 4,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/macharius-vulcan-mega-bolter",
+            "astra-militarum-library/armoured-hull",
+            "astra-militarum-library/twin-heavy-stubber"
+         ],
+         "abilities": [
+            "astra-militarum-library/lumbering-advance"
+         ],
+         "wargear": [
+            {
+               "id": "macharius-sponsons",
+               "name": "Macharius Sponsons",
+               "options": [
+                  {
+                     "id": "2x-heavy-stubber",
+                     "name": "2x Heavy Stubber",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-bolter",
+                     "name": "2x Heavy Bolter",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "2x-heavy-flamer",
+                     "name": "2x Heavy Flamer",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2x-heavy-stubber"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "minotaur-artillery-tank": {
+         "name": "Minotaur Artillery Tank",
+         "battlefieldRole": "LordOfWar",
+         "cost": 13,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "MINOTAUR ARTILLERY TANK"
+         ],
+         "profiles": [
+            {
+               "name": "Minotaur Artillery Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 4,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/twin-earthshaker-cannon",
+            "astra-militarum-library/armoured-hull"
+         ],
+         "abilities": [
+            "barrage"
+         ],
+         "wargear": [
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "heavy-stubber",
+                     "name": "Heavy Stubber",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "shadowsword": {
+         "name": "Shadowsword",
+         "battlefieldRole": "LordOfWar",
+         "cost": 25,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "SHADOWSWORD"
+         ],
+         "profiles": [
+            {
+               "name": "Shadowsword",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 5,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "DEATH KORPS OF KRIEG",
+            "ASTRA MILITARUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/volcano-cannon",
+            "astra-militarum-library/twin-heavy-bolter",
+            "astra-militarum-library/adamantium-tracks"
+         ],
+         "abilities": [
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "baneblade-sponsons",
+               "name": "Baneblade Sponsons",
+               "options": [
+                  {
+                     "id": "heavy-bolter-sponson",
+                     "name": "Heavy Bolter Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-bolter",
+                        "astra-militarum-library/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer-sponson",
+                     "name": "Heavy Flamer Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-flamer",
+                        "astra-militarum-library/lascannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 4,
+               "multipleOf": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "shadowsword-anti-personnel-weapons",
+                     "name": "Shadowsword Anti-personnel Weapons",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/shadowsword-anti-personnel-weapons"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "stormsword": {
+         "name": "Stormsword",
+         "battlefieldRole": "LordOfWar",
+         "cost": 26,
+         "keywords": [
+            "VEHICLE",
+            "TITANIC",
+            "SUPER-HEAVY",
+            "STORMSWORD"
+         ],
+         "profiles": [
+            {
+               "name": "Stormsword",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 5,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ASTRA MILITARUM",
+            "DEATH KORPS OF KRIEG",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "astra-militarum-library/stormsword-siege-cannon",
+            "astra-militarum-library/adamantium-tracks",
+            "astra-militarum-library/twin-heavy-bolter"
+         ],
+         "abilities": [
+            "astra-militarum-library/siege-weapon-2"
+         ],
+         "wargear": [
+            {
+               "id": "baneblade-sponsons",
+               "name": "Baneblade Sponsons",
+               "options": [
+                  {
+                     "id": "heavy-bolter-sponson",
+                     "name": "Heavy Bolter Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-bolter",
+                        "astra-militarum-library/lascannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer-sponson",
+                     "name": "Heavy Flamer Sponson",
+                     "maximum": 4,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/twin-heavy-flamer",
+                        "astra-militarum-library/lascannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "maximum": 4,
+               "multipleOf": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "stormsword-anti-personnel-weapons",
+                     "name": "Stormsword Anti-personnel Weapons",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "astra-militarum-library/stormsword-anti-personnel-weapons"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "weapons": {
+      "field-officer-weapons": {
+         "name": "Field Officer Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 11
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "lasgun-array": {
+         "name": "Lasgun Array",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "krieg-combat-shotguns": {
+         "name": "Krieg Combat Shotguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 12
+      },
+      "mole-launcher": {
+         "name": "Mole Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8,
+         "text": "Barrage"
+      },
+      "melta-cutter-drill": {
+         "name": "Melta Cutter Drill",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 4
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "shotguns": {
+         "name": "Shotguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 11
+      },
+      "close-combat-weapons-3": {
+         "name": "Close Combat weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "twin-heavy-stubber": {
+         "name": "Twin Heavy Stubber",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "conqueror-cannon": {
+         "name": "Conqueror Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "twin-lascannon": {
+         "name": "Twin Lascannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "close-combat-weapons-4": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "lasguns": {
+         "name": "Lasguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "mortar": {
+         "name": "Mortar",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Barrage"
+      },
+      "officer-weapons": {
+         "name": "Officer Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 11
+      },
+      "death-korps-hunting-lance": {
+         "name": "Death Korps Hunting Lance",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9,
+         "text": "One Use Only"
+      },
+      "hot-shot-lasguns": {
+         "name": "Hot-shot Lasguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "armoured-hull": {
+         "name": "Armoured Hull",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "commissar-weapons": {
+         "name": "Commissar Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 11
+      },
+      "laspistols": {
+         "name": "Laspistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "death-korps-hunting-lances": {
+         "name": "Death Korps Hunting Lances",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "One Use Only"
+      }
+   },
+   "abilities": {
+      "command-in-chief": {
+         "name": "Command-in-Chief",
+         "text": "Friendly Death Korps of Krieg units can use this unit’s Leadership\ncharacteristic instead of their own whilst they are within 12\" of this unit."
+      },
+      "assault-team-transport": {
+         "name": "Assault Team Transport",
+         "text": "If a Death Korps Grenadier Storm Squad unit is set up embarked\naboard this unit during deployment, this unit has the Infiltrators ability."
+      },
+      "artillery-tractor": {
+         "name": "Artillery Tractor",
+         "text": "When this unit makes a Move action, you can select one friendly Death Korps of Krieg Artillery unit from the same Detachment that is within 3\" of this unit, as long as that unit has not made a Move action this turn, and neither unit is within 1\" of any enemy units. Change the Move characteristic of that unit to 12\" until the end of the turn. If that unit makes a Move action this turn, it must end that move within 1\" of this unit."
+      },
+      "regimental-standard": {
+         "name": "Regimental Standard",
+         "text": "Add 1 to the Leadership characteristic of Death Korps of Krieg units\nwhilst they are within 6\" of any friendly Death Korps of Krieg units with a Regimental Standard."
+      },
+      "fortification-breacher": {
+         "name": "Fortification Breacher",
+         "text": "When this unit makes an attack with its Melta-cutter Drill that targets a Building, add the Destroyer ability to its Melta-cutter Drill for that attack."
+      },
+      "vitae-mortis": {
+         "name": "Vitae Mortis",
+         "text": "Friendly Death Korps of Krieg Infantry and Death Korps of Krieg\nCavalry units gain the Ignore Damage (6+) ability whilst they are within 6\" of this unit."
+      },
+      "flanking-manoeuvres": {
+         "name": "Flanking Manoeuvres",
+         "text": "When this unit is set up in Tactical Reserves using the Deep Strike rule, you can also set up up to 5 other Death Korps of Krieg Death Rider units in Tactical Reserve. When this unit arrives as reinforcements, in addition to the normal Deep Strike restrictions it must be set up wholly within 7\" of a battlefield edge. Any other units set up in Tactical Reserve at the same time as this unit using this rule are then set up following the same restrictions, and within 6\" of this model."
+      },
+      "weapons-teams": {
+         "name": "Weapons Teams",
+         "text": "For the purposes of determining what models a unit can transport, models in this unit are weapons team models."
+      },
+      "platoon-standard": {
+         "name": "Platoon Standard",
+         "text": "Add 1 to the Leadership characteristic of Death Korps of Krieg units whilst they are within 6\" of any friendly Death Korps of Krieg units with a Platoon Standard."
+      },
+      "officer": {
+         "name": "Officer",
+         "text": "At the start of the Generate Command Assets step, if this unit is a Warlord and is on the battlefield, you generate one extra Command Asset."
+      },
+      "momento-mori": {
+         "name": "Momento Mori",
+         "text": "When multiple blast markers would be placed next to this unit, half that number are placed (rounding up)."
+      },
+      "augmented-mount": {
+         "name": "Augmented Mount",
+         "text": "If this unit has no Ignore Damage abilities, each time you fail a saving throw for this unit, roll one D12; on a 12, no damage marker is placed next to this unit."
+      },
+      "aura-of-discipline": {
+         "name": "Aura of Discipline",
+         "text": "Friendly Death Korps of Krieg units can use this unit’s Leadership\ncharacteristic instead of their own whilst they are within 6\" of this unit."
+      },
+      "artillery-battery": {
+         "name": "Artillery Battery",
+         "text": "Each slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      },
+      "vehicle-squadron": {
+         "name": "Vehicle Squadron",
+         "text": "Each slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      }
+   },
+   "imports": [
+      "astra-militarum-library",
+      "weapons"
+   ]
+}

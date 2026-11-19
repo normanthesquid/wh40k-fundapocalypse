@@ -1,0 +1,2887 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "agents-of-the-imperium",
+   "name": "Imperium - Agents of the Imperium",
+   "kind": "Faction",
+   "datasheets": {
+      "prosecutors": {
+         "name": "Prosecutors",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PROSECUTORS"
+         ],
+         "profiles": [
+            {
+               "name": "Prosecutors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA TELEPATHICA",
+            "SISTERS OF SILENCE"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "weapons/boltguns"
+         ],
+         "abilities": [
+            "prosecution-protocols",
+            "psychic-abomination",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "sisters-of-silence"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "vigilators": {
+         "name": "Vigilators",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "VIGILATORS"
+         ],
+         "profiles": [
+            {
+               "name": "Vigilators",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA TELEPATHICA",
+            "SISTERS OF SILENCE"
+         ],
+         "weapons": [
+            "vigilator-great-blades"
+         ],
+         "abilities": [
+            "psychic-abomination"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "sisters-of-silence"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "witchseekers": {
+         "name": "Witchseekers",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "WITCHSEEKERS"
+         ],
+         "profiles": [
+            {
+               "name": "Witchseekers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA TELEPATHICA",
+            "SISTERS OF SILENCE"
+         ],
+         "weapons": [
+            "witchseeker-flamers",
+            "weapons/close-combat-weapons"
+         ],
+         "abilities": [
+            "psychic-abomination"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "sisters-of-silence"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "null-maiden-rhino": {
+         "name": "Null Maiden Rhino",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RHINO",
+            "NULL-MAIDEN RHINO"
+         ],
+         "profiles": [
+            {
+               "name": "Null Maiden Rhino",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA TELEPATHICA",
+            "SISTERS OF SILENCE"
+         ],
+         "weapons": [
+            "armoured-tracks",
+            "weapons/storm-bolter"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "transport": "This unit can transport up to 10 friendly SISTERS OF SILENCE INFANTRY models.",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "sisters-of-silence"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "vindicare-assassin": {
+         "name": "Vindicare Assassin",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "VINDICARE ASSASSIN"
+         ],
+         "profiles": [
+            {
+               "name": "Vindicare Assassin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "OFFICIO ASSASSINORUM"
+         ],
+         "weapons": [
+            "exitus-weapons-ranged",
+            "exitus-weapons-melee"
+         ],
+         "abilities": [
+            "deadshot",
+            "deep-strike",
+            "independent-operative",
+            "sniper"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "officio-assassinorum"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "callidus-assassin": {
+         "name": "Callidus Assassin",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "CALLIDUS ASSASSIN"
+         ],
+         "profiles": [
+            {
+               "name": "Callidus Assassin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "OFFICIO ASSASSINORUM"
+         ],
+         "weapons": [
+            "neural-shredder",
+            "phase-sword"
+         ],
+         "abilities": [
+            "polymorphine",
+            "reign-of-confusion",
+            "deep-strike",
+            "independent-operative",
+            "inferno"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "officio-assassinorum"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "eversor-assassin": {
+         "name": "Eversor Assassin",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "EVERSOR ASSASSIN"
+         ],
+         "profiles": [
+            {
+               "name": "Eversor Assassin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "OFFICIO ASSASSINORUM"
+         ],
+         "weapons": [
+            "executioner-pistol",
+            "neuro-gauntlet-power-sword"
+         ],
+         "abilities": [
+            "bio-meltdown",
+            "deep-strike",
+            "independent-operative"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "officio-assassinorum"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "culexus-assassin": {
+         "name": "Culexus Assassin",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "CULEXUS ASSASSIN"
+         ],
+         "profiles": [
+            {
+               "name": "Culexus Assassin",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "OFFICIO ASSASSINORUM"
+         ],
+         "weapons": [
+            "animus-speculum",
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "psychic-assassin",
+            "deep-strike",
+            "independent-operative",
+            "psychic-abomination"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "officio-assassinorum"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "inquisitor-greyfax": {
+         "name": "Inquisitor Greyfax",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "INQUISITOR",
+            "GREYFAX"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor Greyfax",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION",
+            "ORDO HERETICUS"
+         ],
+         "weapons": [
+            "master-crafted-weapons"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition",
+            "unquestionable-wisdom"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "inquisitor-eisenhorn": {
+         "name": "Inquisitor Eisenhorn",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "INQUISITOR",
+            "EISENHORN"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor Eisenhorn",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION",
+            "ORDO XENOS"
+         ],
+         "weapons": [
+            "barbarisater"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition",
+            "ignore-damage-6"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "DAEMONHOST"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "malus-codicium"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "DAEMONHOST"
+                     },
+                     "minimum": 1
+                  }
+               },
+               "addsAbilities": [
+                  "unquestionable-wisdom"
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "inquisitor-karamazov": {
+         "name": "Inquisitor Karamazov",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "CHARACTER",
+            "INQUISITOR",
+            "KARAMAZOV"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor Karamazov",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION",
+            "ORDO HERETICUS"
+         ],
+         "weapons": [
+            "throne-of-judgement-s-stomping-feet",
+            "master-crafted-multi-melta"
+         ],
+         "abilities": [
+            "unquestionable-wisdom",
+            "terror-troops"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "inquisitor-coteaz": {
+         "name": "Inquisitor Coteaz",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "INQUISITOR",
+            "COTEAZ"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor Coteaz",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION",
+            "ORDO MALLEUS"
+         ],
+         "weapons": [
+            "master-crafted-nemesis-daemon-hammer"
+         ],
+         "abilities": [
+            "spy-network",
+            "unquestionable-wisdom",
+            "authority-of-the-inquisition"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "inquisitor": {
+         "name": "Inquisitor",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "INQUISITOR"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION"
+         ],
+         "weapons": [
+            "master-crafted-weapons"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition",
+            "unquestionable-wisdom"
+         ],
+         "wargear": [
+            {
+               "id": "ordo",
+               "name": "Ordo",
+               "options": [
+                  {
+                     "id": "ordo-hereticus",
+                     "name": "Ordo Hereticus",
+                     "addsFactionKeywords": [
+                        "ORDO HERETICUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-malleus",
+                     "name": "Ordo Malleus",
+                     "addsFactionKeywords": [
+                        "ORDO MALLEUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-xenos",
+                     "name": "Ordo Xenos",
+                     "addsFactionKeywords": [
+                        "ORDO XENOS"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "psyker",
+                     "name": "Psyker",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsKeywords": [
+                        "PSYKER"
+                     ]
+                  },
+                  {
+                     "id": "terminator-armour",
+                     "name": "Terminator Armour",
+                     "maximum": 1,
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "ordo-malleus"
+                        },
+                        "minimum": 1,
+                        "maximum": 1
+                     },
+                     "addsKeywords": [
+                        "TERMINATOR"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 5
+                              },
+                              "save": 4
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "acolytes": {
+         "name": "Acolytes",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ACOLYTES"
+         ],
+         "profiles": [
+            {
+               "name": "Acolytes (6 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION"
+         ],
+         "weapons": [
+            "pistols"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "ORDO HERETICUS"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "loyal-servant"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "ORDO MALLEUS"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "loyal-servant-2"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "ORDO XENOS"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "loyal-servant-3"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "hot-shot-lasguns",
+                     "name": "Hot-shot Lasguns",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "hot-shot-lasguns",
+                        "close-combat-weapons-4"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolters",
+                     "name": "Storm Bolters",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "storm-bolters",
+                        "close-combat-weapons-4"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "chainswords",
+                     "name": "Chainswords",
+                     "addsWeapons": [
+                        "weapons/chainswords"
+                     ]
+                  },
+                  {
+                     "id": "boltguns",
+                     "name": "Boltguns",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/boltguns",
+                        "close-combat-weapons-4"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "chainswords"
+            },
+            {
+               "id": "ordo",
+               "name": "Ordo",
+               "options": [
+                  {
+                     "id": "ordo-hereticus",
+                     "name": "Ordo Hereticus",
+                     "addsFactionKeywords": [
+                        "ORDO HERETICUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-malleus",
+                     "name": "Ordo Malleus",
+                     "addsFactionKeywords": [
+                        "ORDO MALLEUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-xenos",
+                     "name": "Ordo Xenos",
+                     "addsFactionKeywords": [
+                        "ORDO XENOS"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "daemonhost": {
+         "name": "Daemonhost",
+         "battlefieldRole": "Elites",
+         "cost": 1,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "DAEMON",
+            "DAEMONHOST"
+         ],
+         "profiles": [
+            {
+               "name": "Daemonhost",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION"
+         ],
+         "weapons": [
+            "warp-grasp",
+            "unholy-gaze"
+         ],
+         "abilities": [
+            "daemonic-power",
+            "1-daemonic-speed",
+            "2-re-knit-host-form",
+            "3-energy-torrent"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "jokaero-weaponsmith": {
+         "name": "Jokaero Weaponsmith",
+         "battlefieldRole": "Elites",
+         "cost": 2,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "JOKAERO WEAPONSMITH"
+         ],
+         "profiles": [
+            {
+               "name": "Jokaero Weaponsmith",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "JOKAERO",
+            "INQUISITION"
+         ],
+         "weapons": [
+            "digital-weapons-melee",
+            "digital-weapons-ranged"
+         ],
+         "abilities": [
+            "1-augmented-targeting",
+            "2-augmented-penetration",
+            "3-the-works",
+            "authority-of-the-inquisition"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "ORDO HERETICUS"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "inconceivable-customisation"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "ORDO MALLEUS"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "inconceivable-customisation-2"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Keyword",
+                        "keyword": "ORDO XENOS"
+                     },
+                     "maximum": 0
+                  }
+               },
+               "addsAbilities": [
+                  "inconceivable-customisation-3"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "ordo",
+               "name": "Ordo",
+               "options": [
+                  {
+                     "id": "ordo-hereticus",
+                     "name": "Ordo Hereticus",
+                     "addsFactionKeywords": [
+                        "ORDO HERETICUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-malleus",
+                     "name": "Ordo Malleus",
+                     "addsFactionKeywords": [
+                        "ORDO MALLEUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-xenos",
+                     "name": "Ordo Xenos",
+                     "addsFactionKeywords": [
+                        "ORDO XENOS"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "inquisitorial-retinue": {
+         "name": "Inquisitorial Retinue",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "INQUISITORIAL RETINUE"
+         ],
+         "profiles": [
+            {
+               "name": "5 models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Count",
+                     "scope": "Unit",
+                     "of": {
+                        "kind": "Option",
+                        "option": "daemonhost"
+                     },
+                     "minimum": 1
+                  }
+               },
+               "addsAbilities": [
+                  "authority-of-the-inquisition"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "models",
+               "name": "Models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 3
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            },
+            {
+               "id": "replacement-models",
+               "name": "Replacement models",
+               "options": [
+                  {
+                     "id": "jokaero-weaponsmith",
+                     "name": "Jokaero Weaponsmith",
+                     "maximum": 10,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "digital-weapons-ranged"
+                     ]
+                  },
+                  {
+                     "id": "daemonhost",
+                     "name": "Daemonhost",
+                     "maximum": 10,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "unholy-gaze"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 5,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 5
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "hot-shot-lasguns",
+                     "name": "Hot-shot Lasguns",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "hot-shot-lasguns",
+                        "close-combat-weapons-4"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolters",
+                     "name": "Storm Bolters",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "storm-bolters",
+                        "close-combat-weapons-4"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "chainswords",
+                     "name": "Chainswords",
+                     "addsWeapons": [
+                        "weapons/chainswords"
+                     ]
+                  },
+                  {
+                     "id": "boltguns",
+                     "name": "Boltguns",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/boltguns",
+                        "close-combat-weapons-4"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "minimum": 1,
+               "availableWhen": {
+                  "kind": "Not",
+                  "condition": {
+                     "kind": "Any",
+                     "conditions": [
+                        {
+                           "kind": "All",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "OptionGroup",
+                                    "group": "replacement-models"
+                                 },
+                                 "minimum": 5
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "5-models"
+                                 },
+                                 "minimum": 1,
+                                 "maximum": 1
+                              }
+                           ]
+                        },
+                        {
+                           "kind": "All",
+                           "conditions": [
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "OptionGroup",
+                                    "group": "replacement-models"
+                                 },
+                                 "minimum": 10,
+                                 "maximum": 10
+                              },
+                              {
+                                 "kind": "Count",
+                                 "scope": "Unit",
+                                 "of": {
+                                    "kind": "Option",
+                                    "option": "10-models"
+                                 },
+                                 "minimum": 1,
+                                 "maximum": 1
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               },
+               "default": "chainswords"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "pistols",
+                     "name": "Pistols",
+                     "maximum": 1,
+                     "minimum": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "Any",
+                           "conditions": [
+                              {
+                                 "kind": "All",
+                                 "conditions": [
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "OptionGroup",
+                                          "group": "replacement-models"
+                                       },
+                                       "minimum": 10,
+                                       "maximum": 10
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "10-models"
+                                       },
+                                       "minimum": 1,
+                                       "maximum": 1
+                                    }
+                                 ]
+                              },
+                              {
+                                 "kind": "All",
+                                 "conditions": [
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "OptionGroup",
+                                          "group": "replacement-models"
+                                       },
+                                       "minimum": 5
+                                    },
+                                    {
+                                       "kind": "Count",
+                                       "scope": "Unit",
+                                       "of": {
+                                          "kind": "Option",
+                                          "option": "5-models"
+                                       },
+                                       "minimum": 1,
+                                       "maximum": 1
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     },
+                     "addsWeapons": [
+                        "pistols"
+                     ]
+                  }
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "elucidian-starstriders": {
+         "name": "Elucidian Starstriders",
+         "battlefieldRole": "Elites",
+         "cost": 9,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "ELUCIDIAN STARSTRIDERS"
+         ],
+         "profiles": [
+            {
+               "name": "Elucidian Starstriders (9 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA CARTOGRAPHICA",
+            "ELUCIDIAN STARSTRIDERS"
+         ],
+         "weapons": [
+            "rotor-cannon",
+            "lasguns",
+            "weapons/close-combat-weapons"
+         ],
+         "abilities": [
+            "sanastasia-minst",
+            "larsen-van-der-grauss",
+            "warrant-of-trade",
+            "rapid-fire"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "astra-cartographica"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "elucia-vhane": {
+         "name": "Elucia Vhane",
+         "battlefieldRole": "HQ",
+         "cost": 3,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "ROGUE TRADER",
+            "ELUCIA VHANE"
+         ],
+         "profiles": [
+            {
+               "name": "Elucia Vhane",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA CARTOGRAPHICA",
+            "ELUCIDIAN STARSTRIDERS"
+         ],
+         "weapons": [
+            "monomolecular-cane-rapier",
+            "heirloom-pistol"
+         ],
+         "abilities": [
+            "multi-spectral-auspicator",
+            "warrant-of-trade",
+            "sniper"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "astra-cartographica"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "janus-draik": {
+         "name": "Janus Draik",
+         "battlefieldRole": "HQ",
+         "cost": 2,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "ROGUE TRADER",
+            "JANUS DRAIK"
+         ],
+         "profiles": [
+            {
+               "name": "Janus Draik",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA CARTOGRAPHICA"
+         ],
+         "weapons": [
+            "monomolecular-rapier",
+            "heirloom-pistol"
+         ],
+         "abilities": [
+            "multi-spectral-auspicator-2",
+            "warrant-of-trade",
+            "sniper"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "astra-cartographica"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "draik-s-blackstone-fortress-explorers": {
+         "name": "Draik’s Blackstone Fortress Explorers",
+         "battlefieldRole": "Elites",
+         "cost": 11,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "DRAIK’S BLACKSTONE FORTRESS EXPLORERS"
+         ],
+         "profiles": [
+            {
+               "name": "Draik’s Blackstone Fortress Explorers (8 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 4,
+               "leadership": 5,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA CARTOGRAPHICA"
+         ],
+         "weapons": [
+            "mk1-assault-cannon",
+            "explorers-rifles",
+            "vindicator",
+            "weapons/close-combat-weapons"
+         ],
+         "abilities": [
+            "sniper",
+            "inferno"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "astra-cartographica"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "neyam-shai-murad": {
+         "name": "Neyam Shai Murad",
+         "battlefieldRole": "HQ",
+         "cost": 2,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "ROGUE TRADER",
+            "NEYAM SHAI MURAD"
+         ],
+         "profiles": [
+            {
+               "name": "Neyam Shai Murad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA CARTOGRAPHICA"
+         ],
+         "weapons": [
+            "negotiator-pistols-ranged",
+            "negotiator-pistols-melee"
+         ],
+         "abilities": [
+            "warrant-of-trade"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "astra-cartographica"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "murad-s-blackstone-fortress-explorers": {
+         "name": "Murad’s Blackstone Fortress Explorers",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "MURAD’S BLACKSTONE FORTRESS EXPLORERS"
+         ],
+         "profiles": [
+            {
+               "name": "Murad’s Blackstone Fortress Explorers (4 models)",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA CARTOGRAPHICA"
+         ],
+         "weapons": [
+            "power-sword",
+            "close-combat-weapons-3",
+            "eradication-pistol",
+            "grav-gun"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "astra-cartographica"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      },
+      "inquisitor-lord-hector-rex": {
+         "name": "Inquisitor-Lord Hector Rex",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "INQUISITOR",
+            "INQUISITOR-LORD HECTOR REX"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor-Lord Hector Rex",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION",
+            "ORDO MALLEUS"
+         ],
+         "weapons": [
+            "arias"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition",
+            "unquestionable-wisdom",
+            "deep-strike"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "inquisitor-lord-solomon-lok": {
+         "name": "Inquisitor-Lord Solomon Lok",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "INQUISITOR",
+            "INQUISITOR-LORD SOLOMON LOK"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisitor-Lord Solomon Lok",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION",
+            "ORDO XENOS"
+         ],
+         "weapons": [
+            "blade-of-surety"
+         ],
+         "abilities": [
+            "authority-of-the-inquisition",
+            "unquestionable-wisdom",
+            "ignore-damage-6"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "inquisition-land-raider-prometheus": {
+         "name": "Inquisition Land Raider Prometheus",
+         "battlefieldRole": "HeavySupport",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "INQUISITION LAND RAIDER PROMETHEUS"
+         ],
+         "profiles": [
+            {
+               "name": "Inquisition Land Raider Prometheus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION"
+         ],
+         "weapons": [
+            "armoured-tracks"
+         ],
+         "abilities": [
+            "battle-auspex"
+         ],
+         "transport": "This unit can transport up to 10 friendly ORDO XENOS INFANTRY models. Each TERMINATOR model takes the space of 2 other INFANTRY models.",
+         "wargear": [
+            {
+               "id": "ordo",
+               "name": "Ordo",
+               "options": [
+                  {
+                     "id": "ordo-hereticus",
+                     "name": "Ordo Hereticus",
+                     "addsFactionKeywords": [
+                        "ORDO HERETICUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-malleus",
+                     "name": "Ordo Malleus",
+                     "addsFactionKeywords": [
+                        "ORDO MALLEUS"
+                     ]
+                  },
+                  {
+                     "id": "ordo-xenos",
+                     "name": "Ordo Xenos",
+                     "addsFactionKeywords": [
+                        "ORDO XENOS"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "quad-heavy-bolter",
+                     "name": "Quad Heavy Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/quad-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ]
+            }
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         }
+      },
+      "lord-inquisitor-kyria-draxus": {
+         "name": "Lord Inquisitor Kyria Draxus",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "INQUISITOR",
+            "KYRIA DRAXUS"
+         ],
+         "profiles": [
+            {
+               "name": "Lord Inquisitor Kyria Draxus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "INQUISITION",
+            "ORDO XENOS"
+         ],
+         "weapons": [
+            "power-fist",
+            "dirgesinger"
+         ],
+         "abilities": [
+            "paralysis-grenades",
+            "authority-of-the-inquisition",
+            "unquestionable-wisdom"
+         ],
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "DetachmentChoice",
+                  "option": "inquisition"
+               },
+               "maximum": 0
+            }
+         },
+         "maximumPerArmy": 1
+      }
+   },
+   "detachmentChoices": {
+      "faction-filter": {
+         "name": "Faction Filter",
+         "options": {
+            "sisters-of-silence": {
+               "name": "Sisters of Silence"
+            },
+            "inquisition": {
+               "name": "Inquisition"
+            },
+            "astra-cartographica": {
+               "name": "Astra Cartographica"
+            },
+            "officio-assassinorum": {
+               "name": "Officio Assassinorum"
+            }
+         },
+         "minimum": 1,
+         "maximum": 1
+      }
+   },
+   "weapons": {
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "vigilator-great-blades": {
+         "name": "Vigilator Great-blades",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "witchseeker-flamers": {
+         "name": "Witchseeker Flamers",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "armoured-tracks": {
+         "name": "Armoured Tracks",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "exitus-weapons-ranged": {
+         "name": "Exitus Weapons (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 72
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Sniper"
+      },
+      "exitus-weapons-melee": {
+         "name": "Exitus Weapons (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "neural-shredder": {
+         "name": "Neural Shredder",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "phase-sword": {
+         "name": "Phase Sword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "executioner-pistol": {
+         "name": "Executioner Pistol",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "neuro-gauntlet-power-sword": {
+         "name": "Neuro-gauntlet & Power Sword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "animus-speculum": {
+         "name": "Animus Speculum",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 11
+      },
+      "barbarisater": {
+         "name": "Barbarisater",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "throne-of-judgement-s-stomping-feet": {
+         "name": "Throne of Judgement’s Stomping Feet",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "master-crafted-multi-melta": {
+         "name": "Master-crafted Multi-melta",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 30
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 10,
+         "antiTank": 4
+      },
+      "master-crafted-nemesis-daemon-hammer": {
+         "name": "Master-crafted Nemesis Daemon Hammer",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "pistols": {
+         "name": "Pistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "hot-shot-lasguns": {
+         "name": "Hot-shot Lasguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "storm-bolters": {
+         "name": "Storm Bolters",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "warp-grasp": {
+         "name": "Warp Grasp",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "unholy-gaze": {
+         "name": "Unholy Gaze",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "digital-weapons-melee": {
+         "name": "Digital Weapons (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 11
+      },
+      "rotor-cannon": {
+         "name": "Rotor Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 10
+      },
+      "lasguns": {
+         "name": "Lasguns",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10,
+         "text": "Rapid Fire"
+      },
+      "monomolecular-cane-rapier": {
+         "name": "Monomolecular Cane-rapier",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "monomolecular-rapier": {
+         "name": "Monomolecular Rapier",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "mk1-assault-cannon": {
+         "name": "Mk1 Assault Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "explorers-rifles": {
+         "name": "Explorer's Rifles",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Sniper"
+      },
+      "vindicator": {
+         "name": "Vindicator",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "negotiator-pistols-ranged": {
+         "name": "Negotiator Pistols (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "negotiator-pistols-melee": {
+         "name": "Negotiator Pistols (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "power-sword": {
+         "name": "Power Sword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "close-combat-weapons-3": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "eradication-pistol": {
+         "name": "Eradication Pistol",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 10
+      },
+      "grav-gun": {
+         "name": "Grav-gun",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 8,
+         "text": "Rapid Fire"
+      },
+      "arias": {
+         "name": "Arias",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "blade-of-surety": {
+         "name": "Blade of Surety",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "power-fist": {
+         "name": "Power Fist",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "dirgesinger": {
+         "name": "Dirgesinger",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "master-crafted-weapons": {
+         "name": "Master-crafted Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "heirloom-pistol": {
+         "name": "Heirloom Pistol",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 12,
+         "text": "Sniper"
+      },
+      "close-combat-weapons-4": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "digital-weapons-ranged": {
+         "name": "Digital Weapons (Ranged)",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      }
+   },
+   "abilities": {
+      "prosecution-protocols": {
+         "name": "Prosecution Protocols",
+         "text": "This unit [does] not suffer the penalty for attacks made with ranged weapons that target obscured PSYKER units."
+      },
+      "deadshot": {
+         "name": "Deadshot",
+         "text": "You can re-roll wound rolls for attacks made with ranged weapons by this unit that target CHARACTER units."
+      },
+      "polymorphine": {
+         "name": "Polymorphine",
+         "text": "When this unit uses the Deep Strike ability, you can set it up anywhere on the battlefield that is more than D6+3\" away from any enemy units, instead of 9\"."
+      },
+      "reign-of-confusion": {
+         "name": "Reign of Confusion",
+         "text": "If you have any CALLIDUS ASSASSINS in your army, then during the first turn your opponent generates one fewer Command Asset card than they normally would."
+      },
+      "bio-meltdown": {
+         "name": "Bio-meltdown",
+         "text": "In the Damage phase, damage must be resolved for units with this ability before damage is resolved for any other units (including SUPER-HEAVY units). If this unit is destroyed, before removing it from the battlefield, roll a D12 for each other LIGHT unit within 3\" of this unit; on a 9+ place one blast marker next to the unit being rolled for."
+      },
+      "psychic-assassin": {
+         "name": "Psychic Assassin",
+         "text": "This unit [does] not suffer the penalty for attacks made with ranged weapons that target obscured PSYKER units."
+      },
+      "malus-codicium": {
+         "name": "Malus Codicium",
+         "text": "After this unit is set up on the battlefield for the first time, you can select one friendly DAEMONHOST unit from this unit’s Detachment; add 1 to hit rolls for attacks made by that DAEMONHOST unit whilst it is within 6\" of this unit."
+      },
+      "spy-network": {
+         "name": "Spy Network",
+         "text": "Whilst this unit is on the battlefield, increase the number of Command Asset cards you can have in your hand by 1."
+      },
+      "loyal-servant": {
+         "name": "Loyal Servant",
+         "text": "At the start of the Damage phase, you can select one friendly ORDO HERETICUS INQUISITOR unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that INQUISITOR unit and place them next to this unit."
+      },
+      "loyal-servant-2": {
+         "name": "Loyal Servant",
+         "text": "At the start of the Damage phase, you can select one friendly ORDO MALLEUS INQUISITOR unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that INQUISITOR unit and place them next to this unit."
+      },
+      "loyal-servant-3": {
+         "name": "Loyal Servant",
+         "text": "At the start of the Damage phase, you can select one friendly ORDO XENOS INQUISITOR unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that INQUISITOR unit and place them next to this unit."
+      },
+      "daemonic-power": {
+         "name": "Daemonic Power",
+         "text": "When you select this unit’s Detachment to carry out its order, but before any units in that Detachment make an action (excluding free actions) that phase, roll one D3, and apply the result from the following table."
+      },
+      "1-daemonic-speed": {
+         "name": "1 - Daemonic Speed",
+         "text": "Until the end of the turn, this unit has a Move characteristic of 12\" and has the FLY keyword."
+      },
+      "2-re-knit-host-form": {
+         "name": "2 - Re-knit Host Form",
+         "text": "Remove one small blast marker from this unit."
+      },
+      "3-energy-torrent": {
+         "name": "3 - Energy Torrent",
+         "text": "Until the end of the turn, add 1 to wound rolls for attacks made with ranged weapons by this unit."
+      },
+      "inconceivable-customisation": {
+         "name": "Inconceivable Customisation",
+         "text": "After this unit makes a Move action, select one friendly ORDO HERETICUS unit within 3\" of this unit and roll a D3. Apply the result from the following table to that unit until the end of the turn."
+      },
+      "inconceivable-customisation-2": {
+         "name": "Inconceivable Customisation",
+         "text": "After this unit makes a Move action, select one friendly ORDO MALLEUS unit within 3\" of this unit and roll a D3. Apply the result from the following table to that unit until the end of the turn."
+      },
+      "inconceivable-customisation-3": {
+         "name": "Inconceivable Customisation",
+         "text": "After this unit makes a Move action, select one friendly ORDO XENOS unit within 3\" of this unit and roll a D3. Apply the result from the following table to that unit until the end of the turn."
+      },
+      "1-augmented-targeting": {
+         "name": "1 - Augmented Targeting",
+         "text": "You can re-roll hit rolls for attacks made by this unit."
+      },
+      "2-augmented-penetration": {
+         "name": "2 - Augmented Penetration",
+         "text": "You can re-roll wound rolls for attacks made by this unit."
+      },
+      "3-the-works": {
+         "name": "3 - The Works",
+         "text": "You can re-roll hit rolls and wound rolls for attacks made by this unit."
+      },
+      "sanastasia-minst": {
+         "name": "Sanastasia Minst",
+         "text": "At the start of each Action phase, you can remove one damage marker from this unit."
+      },
+      "larsen-van-der-grauss": {
+         "name": "Larsen van der Grauss",
+         "text": "Re-roll saving throws of 1 made for this unit."
+      },
+      "multi-spectral-auspicator": {
+         "name": "Multi-spectral Auspicator",
+         "text": "Re-roll hit rolls of 1 made for friendly ELUCIDIAN STARSTRIDERS units whilst they are within 6\" of this unit."
+      },
+      "multi-spectral-auspicator-2": {
+         "name": "Multi-spectral Auspicator",
+         "text": "Re-roll hit rolls of 1 made for this unit."
+      },
+      "battle-auspex": {
+         "name": "Battle Auspex",
+         "text": "This unit does not suffer the penalty for attacks made with ranged weapons that target obscured targets."
+      },
+      "paralysis-grenades": {
+         "name": "Paralysis Grenades",
+         "text": "Subtract 1 from hit rolls for attacks made with melee weapons by enemy units that target this unit."
+      },
+      "psychic-abomination": {
+         "name": "Psychic Abomination",
+         "text": "This unit cannot be targeted or affected by Command Assets that are psychic powers, or weapons with the Witchfire ability. PSYKER units within 6\" of this unit cannot be selected to manifest psychic powers."
+      },
+      "independent-operative": {
+         "name": "Independent Operative",
+         "text": "This unit cannot be a WARLORD."
+      },
+      "authority-of-the-inquisition": {
+         "name": "Authority of the Inquisition",
+         "text": "This unit can embark aboard any IMPERIUM TRANSPORT, even though the transport in question might normally only permit models with other Faction keywords to do so. All other restrictions apply normally."
+      },
+      "unquestionable-wisdom": {
+         "name": "Unquestionable Wisdom",
+         "text": "Friendly IMPERIUM units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit."
+      },
+      "warrant-of-trade": {
+         "name": "Warrant of Trade",
+         "text": "This unit can embark aboard any IMPERIUM TRANSPORT, even though the transport in question might normally only permit models with other Faction keywords to do so. All other restrictions apply normally."
+      }
+   },
+   "imports": [
+      "weapons"
+   ]
+}

@@ -1,0 +1,5045 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "hive-fleets",
+   "name": "Tyranids - Hive Fleets",
+   "kind": "Faction",
+   "datasheets": {
+      "tyranid-shrikes": {
+         "name": "Tyranid Shrikes",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "FLY",
+            "SPORE MINES",
+            "MEIOTIC SPORES"
+         ],
+         "profiles": [
+            {
+               "name": "Tyranid Shrikes",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "ranged-bio-weapons",
+            "melee-bio-weapons"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 15,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "barbed-strangler",
+                     "name": "Barbed Strangler",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "barbed-strangler"
+                     ]
+                  },
+                  {
+                     "id": "venom-cannon",
+                     "name": "Venom Cannon",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "venom-cannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "sky-slasher-swarms": {
+         "name": "Sky-slasher Swarms",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "SWARM",
+            "FLY",
+            "SKY-SLASHER SWARMS"
+         ],
+         "profiles": [
+            {
+               "name": "Sky-slasher Swarms",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 5,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 11
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "claws-teeth"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "broodlord": {
+         "name": "Broodlord",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "PSYKER",
+            "CHARACTER",
+            "GENESTEALER",
+            "SYNAPSE CREATURE",
+            "BROODLORD"
+         ],
+         "profiles": [
+            {
+               "name": "Broodlord",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 7
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "monstrous-rending-claws"
+         ],
+         "abilities": [
+            "brood-telepathy"
+         ]
+      },
+      "hive-tyrant": {
+         "name": "Hive Tyrant",
+         "battlefieldRole": "HQ",
+         "cost": 9,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "PSYKER",
+            "CHARACTER",
+            "SYNAPSE CREATURE",
+            "HIVE TYRANT"
+         ],
+         "profiles": [
+            {
+               "name": "Hive Tyrant",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "prehencile-pincer-tail"
+         ],
+         "abilities": [
+            "the-will-of-the-hive-mind"
+         ],
+         "wargear": [
+            {
+               "id": "bio-cannons",
+               "name": "Bio-cannons",
+               "options": [
+                  {
+                     "id": "heavy-venom-cannon",
+                     "name": "Heavy Venom Cannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "heavy-venom-cannon"
+                     ]
+                  },
+                  {
+                     "id": "stranglethorn-cannon",
+                     "name": "Stranglethorn Cannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "stranglethorn-cannon"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "monstrous-scything-talons",
+                     "name": "Monstrous Scything Talons",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "monstrous-scything-talons"
+                     ]
+                  },
+                  {
+                     "id": "monstrous-bio-weapons",
+                     "name": "Monstrous Bio-weapons",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "monstrous-bio-weapons"
+                     ]
+                  },
+                  {
+                     "id": "deathspitters-with-slimer-maggots",
+                     "name": "Deathspitters with Slimer Maggots",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "deathspitters-with-slimer-maggots"
+                     ]
+                  },
+                  {
+                     "id": "devourers-with-brainleech-worms",
+                     "name": "Devourers with Brainleech Worms",
+                     "maximum": 2,
+                     "addsWeapons": [
+                        "devourers-with-brainleech-worms"
+                     ]
+                  }
+               ],
+               "minimum": 2,
+               "maximum": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "wings",
+                     "name": "Wings",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsKeywords": [
+                        "FLY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 16
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "the-swarmlord": {
+         "name": "The Swarmlord",
+         "battlefieldRole": "HQ",
+         "cost": 12,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "PSYKER",
+            "CHARACTER",
+            "SYNAPSE CREATURE",
+            "HIVE TYRANT",
+            "THE SWARMLORD"
+         ],
+         "profiles": [
+            {
+               "name": "The Swarmlord",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "bone-sabres",
+            "prehencile-pincer-tail"
+         ],
+         "abilities": [
+            "hive-commander",
+            "the-will-of-the-hive-mind",
+            "destroyer"
+         ],
+         "maximumPerArmy": 1
+      },
+      "tyranid-prime": {
+         "name": "Tyranid Prime",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "SYNAPSE CREATURE",
+            "TYRANID PRIME"
+         ],
+         "profiles": [
+            {
+               "name": "Tyranid Prime",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "ranged-bio-weapons",
+            "melee-bio-weapons"
+         ],
+         "abilities": [
+            "alpha-warrior"
+         ]
+      },
+      "tervigon": {
+         "name": "Tervigon",
+         "battlefieldRole": "HQ",
+         "cost": 10,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "PSYKER",
+            "CHARACTER",
+            "SYNAPSE CREATURE",
+            "TERVIGON"
+         ],
+         "profiles": [
+            {
+               "name": "Tervigon",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "stinger-salvo"
+         ],
+         "abilities": [
+            "brood-progenitor",
+            "synaptic-backlash",
+            "spawn-termagants"
+         ],
+         "wargear": [
+            {
+               "id": "melee-weapon",
+               "name": "Melee Weapon",
+               "options": [
+                  {
+                     "id": "massive-crushing-claws",
+                     "name": "Massive Crushing Claws",
+                     "addsWeapons": [
+                        "massive-scything-talons-2"
+                     ]
+                  },
+                  {
+                     "id": "massive-scything-talons",
+                     "name": "Massive Scything Talons",
+                     "addsWeapons": [
+                        "massive-scything-talons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "massive-scything-talons"
+            }
+         ]
+      },
+      "neurothrope": {
+         "name": "Neurothrope",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "FLY",
+            "PSYKER",
+            "CHARACTER",
+            "INFANTRY",
+            "ZOANTHROPE",
+            "SYNAPSE CREATURE",
+            "NEUROTHROPE"
+         ],
+         "profiles": [
+            {
+               "name": "Neurothrope",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "spirit-leech",
+            "claws-teeth"
+         ],
+         "abilities": [
+            "warp-field",
+            "witchfire"
+         ]
+      },
+      "old-one-eye": {
+         "name": "Old One Eye",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "CHARACTER",
+            "CARNIFEX",
+            "OLD ONE EYE"
+         ],
+         "profiles": [
+            {
+               "name": "Old One Eye",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "monstrous-scything-talons",
+            "monstrous-crushing-claws"
+         ],
+         "abilities": [
+            "alpha-leader",
+            "regeneration"
+         ],
+         "maximumPerArmy": 1
+      },
+      "tyranid-warriors": {
+         "name": "Tyranid Warriors",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "SYNAPSE CREATURE",
+            "TYRANID WARRIORS"
+         ],
+         "profiles": [
+            {
+               "name": "Tyranid Warriors",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "ranged-bio-weapons",
+            "melee-bio-weapons"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "bio-cannons",
+               "name": "Bio-cannons",
+               "options": [
+                  {
+                     "id": "barbed-strangler",
+                     "name": "Barbed Strangler",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "barbed-strangler"
+                     ]
+                  },
+                  {
+                     "id": "venom-cannon",
+                     "name": "Venom Cannon",
+                     "maximum": 3,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "venom-cannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "9-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "genestealers": {
+         "name": "Genestealers",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "GENESTEALER"
+         ],
+         "profiles": [
+            {
+               "name": "Genestealers",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 9
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "genestealer-melee-weapons"
+         ],
+         "abilities": [
+            "infiltrators"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 9,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "15-models",
+                     "name": "15 models",
+                     "cost": 13,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 17,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 5
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "termagants": {
+         "name": "Termagants",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "TERMAGANTS"
+         ],
+         "profiles": [
+            {
+               "name": "Termagants",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "termagant-melee-weapons"
+         ],
+         "abilities": [
+            "hail-of-living-ammunition"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "30-models",
+                     "name": "30 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "fleshborers",
+                     "name": "Fleshborers",
+                     "addsWeapons": [
+                        "fleshborers"
+                     ]
+                  },
+                  {
+                     "id": "spinefists",
+                     "name": "Spinefists",
+                     "costChanges": [
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1
+                           },
+                           "set": 1
+                        },
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "20-models"
+                              },
+                              "minimum": 1
+                           },
+                           "set": 2
+                        },
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "30-models"
+                              },
+                              "minimum": 1
+                           },
+                           "set": 3
+                        }
+                     ],
+                     "addsWeapons": [
+                        "spinefists"
+                     ]
+                  },
+                  {
+                     "id": "devourers",
+                     "name": "Devourers",
+                     "costChanges": [
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "10-models"
+                              },
+                              "minimum": 1
+                           },
+                           "set": 2
+                        },
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "20-models"
+                              },
+                              "minimum": 1
+                           },
+                           "set": 4
+                        },
+                        {
+                           "when": {
+                              "kind": "Count",
+                              "scope": "Unit",
+                              "of": {
+                                 "kind": "Option",
+                                 "option": "30-models"
+                              },
+                              "minimum": 1
+                           },
+                           "set": 6
+                        }
+                     ],
+                     "addsWeapons": [
+                        "devourers"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "fleshborers"
+            }
+         ]
+      },
+      "hormagaunts": {
+         "name": "Hormagaunts",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "HORMAGAUNTS"
+         ],
+         "profiles": [
+            {
+               "name": "Hormagaunts",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "scything-talons"
+         ],
+         "abilities": [
+            "hungering-swarm"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "30-models",
+                     "name": "30 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      },
+      "ripper-swarms": {
+         "name": "Ripper Swarms",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "SWARM",
+            "RIPPERS"
+         ],
+         "profiles": [
+            {
+               "name": "Ripper Swarms",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 5,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 11
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "claws-teeth"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "tyrant-guard": {
+         "name": "Tyrant Guard",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "TYRANT GUARD"
+         ],
+         "profiles": [
+            {
+               "name": "Tyrant Guard",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "tyrant-guard-melee-weapons"
+         ],
+         "abilities": [
+            "shieldwall"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "hive-guard": {
+         "name": "Hive Guard",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "HIVE GUARD"
+         ],
+         "profiles": [
+            {
+               "name": "Hive Guard",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "forelimbs"
+         ],
+         "abilities": [
+            "shieldwall"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "impaler-cannons",
+                     "name": "Impaler Cannons",
+                     "addsWeapons": [
+                        "impaler-cannons"
+                     ],
+                     "addsAbilities": [
+                        "barrage"
+                     ]
+                  },
+                  {
+                     "id": "shockcannons",
+                     "name": "Shockcannons",
+                     "addsWeapons": [
+                        "shockcannons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "impaler-cannons"
+            }
+         ]
+      },
+      "lictor": {
+         "name": "Lictor",
+         "battlefieldRole": "Elites",
+         "cost": 3,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "LICTOR"
+         ],
+         "profiles": [
+            {
+               "name": "Lictor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "flesh-hooks",
+            "grasping-talons"
+         ],
+         "abilities": [
+            "deep-strike",
+            "stealth"
+         ]
+      },
+      "deathleaper": {
+         "name": "Deathleaper",
+         "battlefieldRole": "Elites",
+         "cost": 4,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "LICTOR",
+            "DEATHLEAPER"
+         ],
+         "profiles": [
+            {
+               "name": "Deathleaper",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "flesh-hooks",
+            "grasping-talons"
+         ],
+         "abilities": [
+            "deep-strike",
+            "stealth",
+            "terror-troops"
+         ],
+         "maximumPerArmy": 1
+      },
+      "zoanthropes": {
+         "name": "Zoanthropes",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "PSYKER",
+            "SYNAPSE CREATURE",
+            "ZOANTHROPE"
+         ],
+         "profiles": [
+            {
+               "name": "Zoanthropes",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "zoanthrope-melee-weapons",
+            "warp-blast"
+         ],
+         "abilities": [
+            "warp-field",
+            "witchfire"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "maleceptor": {
+         "name": "Maleceptor",
+         "battlefieldRole": "Elites",
+         "cost": 9,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "PSYKER",
+            "SYNAPSE CREATURE",
+            "MALECEPTOR"
+         ],
+         "profiles": [
+            {
+               "name": "Maleceptor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "psychic-overload",
+            "massive-scything-talons"
+         ],
+         "abilities": [
+            "witchfire"
+         ]
+      },
+      "venomthropes": {
+         "name": "Venomthropes",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "VENOMTHROPES"
+         ],
+         "profiles": [
+            {
+               "name": "Venomthropes",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "toxic-lashes-ranged",
+            "toxic-lashes-melee"
+         ],
+         "abilities": [
+            "shrouding-spores",
+            "toxic-miasma",
+            "stealth"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "pyrovores": {
+         "name": "Pyrovores",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "PYROVORES"
+         ],
+         "profiles": [
+            {
+               "name": "Pyrovores",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "flamespurt",
+            "acid-maw"
+         ],
+         "abilities": [
+            "acid-blood",
+            "inferno"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 3
+                  },
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 5,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 7,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "haruspex": {
+         "name": "Haruspex",
+         "battlefieldRole": "Elites",
+         "cost": 7,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "HARUSPEX"
+         ],
+         "profiles": [
+            {
+               "name": "Haruspex",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 4,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "grasping-tongue",
+            "ravenous-maw",
+            "shovelling-claws"
+         ],
+         "abilities": [
+            "rapacious-hunger",
+            "acid-blood"
+         ]
+      },
+      "gargoyles": {
+         "name": "Gargoyles",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "FLY",
+            "GARGOYLES"
+         ],
+         "profiles": [
+            {
+               "name": "Gargoyles",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "blinding-venom",
+            "fleshborers"
+         ],
+         "abilities": [
+            "hail-of-living-ammunition",
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "10-models",
+                     "name": "10 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "20-models",
+                     "name": "20 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 4
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "30-models",
+                     "name": "30 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "10-models"
+            }
+         ]
+      },
+      "raveners": {
+         "name": "Raveners",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "RAVENER"
+         ],
+         "profiles": [
+            {
+               "name": "Raveners",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "ravener-ranged-weapons",
+            "ravener-melee-weapons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 5
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 10,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 15,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "the-red-terror": {
+         "name": "The Red Terror",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "RAVENER",
+            "THE RED TERROR"
+         ],
+         "profiles": [
+            {
+               "name": "The Red Terror",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "prehencile-pincer-tail",
+            "scything-talons"
+         ],
+         "abilities": [
+            "feeding-frenzy",
+            "deep-strike"
+         ],
+         "maximumPerArmy": 1
+      },
+      "mucolid-spores": {
+         "name": "Mucolid Spores",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "FLY",
+            "MUCOLID SPORES"
+         ],
+         "profiles": [
+            {
+               "name": "Mucolid Spores",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 3
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 12
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "abilities": [
+            "floating-death-mucolid-spores",
+            "deep-strike",
+            "living-bombs"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 1
+                  },
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 2,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 3,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "spore-mines": {
+         "name": "Spore Mines",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "FLY",
+            "SPORE MINES"
+         ],
+         "profiles": [
+            {
+               "name": "Spore Mines",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 3
+               },
+               "wounds": 1,
+               "leadership": 8,
+               "save": 12
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "abilities": [
+            "floating-death-spore-mines",
+            "deep-strike",
+            "living-bombs"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 2
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "exocrine": {
+         "name": "Exocrine",
+         "battlefieldRole": "HeavySupport",
+         "cost": 10,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "EXOCRINE"
+         ],
+         "profiles": [
+            {
+               "name": "Exocrine",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 4,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "bio-plasmic-cannon",
+            "powerful-limbs"
+         ],
+         "abilities": [
+            "weapon-beast-exocrine"
+         ]
+      },
+      "tyrannofex": {
+         "name": "Tyrannofex",
+         "battlefieldRole": "HeavySupport",
+         "cost": 11,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "TYRANNOFEX"
+         ],
+         "profiles": [
+            {
+               "name": "Tyrannofex",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "powerful-limbs",
+            "stinger-salvo"
+         ],
+         "abilities": [
+            "weapon-beast-tyrannofex"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "acid-spray",
+                     "name": "Acid Spray",
+                     "addsWeapons": [
+                        "acid-spray"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  },
+                  {
+                     "id": "fleshborer-hive",
+                     "name": "Fleshborer Hive",
+                     "addsWeapons": [
+                        "fleshborer-hive"
+                     ]
+                  },
+                  {
+                     "id": "rupture-cannon",
+                     "name": "Rupture Cannon",
+                     "addsWeapons": [
+                        "rupture-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "acid-spray"
+            }
+         ]
+      },
+      "biovores": {
+         "name": "Biovores",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "INFANTRY",
+            "BIOVORES"
+         ],
+         "profiles": [
+            {
+               "name": "Biovores",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 4,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "spore-mine-launcher",
+            "close-combat-weapons"
+         ],
+         "abilities": [
+            "barrage"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 2
+                  },
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 4,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 6,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "toxicrene": {
+         "name": "Toxicrene",
+         "battlefieldRole": "HeavySupport",
+         "cost": 8,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "TOXICRENE"
+         ],
+         "profiles": [
+            {
+               "name": "Toxicrene",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "choking-spores",
+            "massive-toxic-lashes-ranged",
+            "massive-toxic-lashes-melee"
+         ],
+         "abilities": [
+            "hypertoxic-miasma",
+            "acid-blood"
+         ]
+      },
+      "mawloc": {
+         "name": "Mawloc",
+         "battlefieldRole": "HeavySupport",
+         "cost": 7,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "MAWLOC"
+         ],
+         "profiles": [
+            {
+               "name": "Mawloc",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "distensible-jaws",
+            "scything-talons"
+         ],
+         "abilities": [
+            "burrow",
+            "terror-from-the-deep",
+            "deep-strike"
+         ]
+      },
+      "trygon": {
+         "name": "Trygon",
+         "battlefieldRole": "HeavySupport",
+         "cost": 10,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "TRYGON"
+         ],
+         "profiles": [
+            {
+               "name": "Trygon",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 3,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "bio-electric-pulse",
+            "massive-scything-talons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ]
+      },
+      "trygon-prime": {
+         "name": "Trygon Prime",
+         "battlefieldRole": "HeavySupport",
+         "cost": 11,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "CHARACTER",
+            "SYNAPSE CREATURE",
+            "TRYGON PRIME"
+         ],
+         "profiles": [
+            {
+               "name": "Trygon Prime",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "bio-electric-pulse-with-containment-spines",
+            "massive-scything-talons"
+         ],
+         "abilities": [
+            "deep-strike"
+         ]
+      },
+      "tyrannocyte": {
+         "name": "Tyrannocyte",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 8,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "FLY",
+            "TYRANNOCYTE"
+         ],
+         "profiles": [
+            {
+               "name": "Tyrannocyte",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 5,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "barbed-tentacles"
+         ],
+         "abilities": [
+            "transport-spore",
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "deathspitters",
+                     "name": "Deathspitters",
+                     "addsWeapons": [
+                        "deathspitters"
+                     ]
+                  },
+                  {
+                     "id": "barbed-stranglers",
+                     "name": "Barbed Stranglers",
+                     "addsWeapons": [
+                        "barbed-stranglers"
+                     ]
+                  },
+                  {
+                     "id": "venom-cannons",
+                     "name": "Venom Cannons",
+                     "addsWeapons": [
+                        "venom-cannons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "deathspitters"
+            }
+         ]
+      },
+      "harpy": {
+         "name": "Harpy",
+         "battlefieldRole": "Flyer",
+         "cost": 9,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "FLY",
+            "HARPY"
+         ],
+         "profiles": [
+            {
+               "name": "Harpy",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 30
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "stinger-salvo",
+            "scything-wings"
+         ],
+         "abilities": [
+            "spore-mine-cysts"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "stranglethorn-cannons",
+                     "name": "Stranglethorn Cannons",
+                     "addsWeapons": [
+                        "stranglethorn-cannons"
+                     ]
+                  },
+                  {
+                     "id": "heavy-venom-cannons",
+                     "name": "Heavy Venom Cannons",
+                     "addsWeapons": [
+                        "heavy-venom-cannons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "stranglethorn-cannons"
+            }
+         ]
+      },
+      "hive-crone": {
+         "name": "Hive Crone",
+         "battlefieldRole": "Flyer",
+         "cost": 9,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "FLY",
+            "HIVE CRONE"
+         ],
+         "profiles": [
+            {
+               "name": "Hive Crone",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 30
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "drool-cannon",
+            "tentaclids",
+            "wicked-spur",
+            "scything-wings",
+            "stinger-salvo"
+         ],
+         "abilities": [
+            "inferno",
+            "anti-air"
+         ]
+      },
+      "sporocyst": {
+         "name": "Sporocyst",
+         "battlefieldRole": "Fortification",
+         "cost": 7,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "SYNAPSE CREATURE",
+            "SPOROCYST"
+         ],
+         "profiles": [
+            {
+               "name": "Sporocyst",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 5,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "spore-node",
+            "barbed-tentacles"
+         ],
+         "abilities": [
+            "immobile-2",
+            "bio-fortress",
+            "deep-strike",
+            "barrage"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "deathspitters",
+                     "name": "Deathspitters",
+                     "addsWeapons": [
+                        "deathspitters"
+                     ]
+                  },
+                  {
+                     "id": "barbed-stranglers",
+                     "name": "Barbed Stranglers",
+                     "addsWeapons": [
+                        "barbed-stranglers"
+                     ]
+                  },
+                  {
+                     "id": "venom-cannons",
+                     "name": "Venom Cannons",
+                     "addsWeapons": [
+                        "venom-cannons"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "deathspitters"
+            }
+         ]
+      },
+      "carnifex-brood": {
+         "name": "Carnifex Brood",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "Carnifex",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 6
+            }
+         ],
+         "wargear": [
+            {
+               "id": "bio-cannons",
+               "name": "Bio-cannons",
+               "options": [
+                  {
+                     "id": "heavy-venom-cannon",
+                     "name": "Heavy Venom Cannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "heavy-venom-cannon"
+                     ]
+                  },
+                  {
+                     "id": "stranglethorn-cannon",
+                     "name": "Stranglethorn Cannon",
+                     "maximum": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "stranglethorn-cannon"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "carnifex-melee-weapons",
+                     "name": "Carnifex Melee Weapons",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "carnifex-melee-weapons"
+                     ]
+                  },
+                  {
+                     "id": "deathspitters-with-slimer-maggots",
+                     "name": "Deathspitters with Slimer Maggots",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "deathspitters-with-slimer-maggots"
+                     ]
+                  },
+                  {
+                     "id": "devourers-with-brainleech-worms",
+                     "name": "Devourers with Brainleech Worms",
+                     "maximum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "devourers-with-brainleech-worms"
+                     ]
+                  }
+               ],
+               "maximum": 2
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "enhanced-senses",
+                     "name": "Enhanced Senses",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "ballisticSkill": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "spine-banks",
+                     "name": "Spine Banks",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "spine-banks"
+                     ]
+                  },
+                  {
+                     "id": "chitin-thorns",
+                     "name": "Chitin Thorns",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "chitin-thorns"
+                     ]
+                  },
+                  {
+                     "id": "carnifex",
+                     "name": "Carnifex",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 5,
+                     "addsKeywords": [
+                        "TYRANIDS",
+                        "HEAVY",
+                        "MONSTER",
+                        "CARNIFEX"
+                     ],
+                     "addsFactionKeywords": [
+                        "TYRANID HIVE FLEETS",
+                        "<HIVE FLEET>"
+                     ],
+                     "addsAbilities": [
+                        "monstrous-brood"
+                     ],
+                     "addsWeapons": [
+                        "carnifex-jaws"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "screamer-killer-brood": {
+         "name": "Screamer-Killer Brood",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "Screamer-Killer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 6
+            }
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "screamer-killer",
+                     "name": "Screamer-Killer",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 6,
+                     "addsKeywords": [
+                        "TYRANIDS",
+                        "HEAVY",
+                        "MONSTER",
+                        "CARNIFEX",
+                        "SCREAMER-KILLER"
+                     ],
+                     "addsFactionKeywords": [
+                        "TYRANID HIVE FLEETS",
+                        "<HIVE FLEET>"
+                     ],
+                     "addsAbilities": [
+                        "terror-troops",
+                        "monstrous-brood"
+                     ],
+                     "addsWeapons": [
+                        "bio-plasmic-scream",
+                        "screamer-killer-talons"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "thornback-brood": {
+         "name": "Thornback Brood",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "Thornback",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 6
+            }
+         ],
+         "wargear": [
+            {
+               "id": "weapon-a",
+               "name": "Weapon A",
+               "options": [
+                  {
+                     "id": "deathspitters-with-slimer-maggots",
+                     "name": "Deathspitters with Slimer Maggots",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "deathspitters-with-slimer-maggots"
+                     ]
+                  },
+                  {
+                     "id": "devourers-with-brainleech-worms",
+                     "name": "Devourers with Brainleech Worms",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "devourers-with-brainleech-worms"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "devourers-with-brainleech-worms"
+            },
+            {
+               "id": "weapon-b",
+               "name": "Weapon B",
+               "options": [
+                  {
+                     "id": "monstrous-scything-talons",
+                     "name": "Monstrous Scything Talons",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "monstrous-scything-talons"
+                     ]
+                  },
+                  {
+                     "id": "stranglethorn-cannon",
+                     "name": "Stranglethorn Cannon",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "stranglethorn-cannon"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "monstrous-scything-talons"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "enhanced-senses",
+                     "name": "Enhanced Senses",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "minimum": 1
+                     },
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "ballisticSkill": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "spine-banks",
+                     "name": "Spine Banks",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "thornback"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "spine-banks"
+                     ]
+                  },
+                  {
+                     "id": "thornback",
+                     "name": "Thornback",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 6,
+                     "addsKeywords": [
+                        "TYRANIDS",
+                        "HEAVY",
+                        "MONSTER",
+                        "CARNIFEX",
+                        "THORNBACK"
+                     ],
+                     "addsFactionKeywords": [
+                        "TYRANID HIVE FLEETS",
+                        "<HIVE FLEET>"
+                     ],
+                     "addsAbilities": [
+                        "monstrous-brood",
+                        "chitin-thorns"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "malanthrope": {
+         "name": "Malanthrope",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "FLY",
+            "CHARACTER",
+            "SYNAPSE CREATURE",
+            "MALANTHROPE"
+         ],
+         "profiles": [
+            {
+               "name": "Malanthrope",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 10
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "grasping-tail"
+         ],
+         "abilities": [
+            "toxic-miasma-2",
+            "shrouding-spores-2",
+            "stealth"
+         ]
+      },
+      "dimachaeron": {
+         "name": "Dimachaeron",
+         "battlefieldRole": "FastAttack",
+         "cost": 11,
+         "keywords": [
+            "TYRANIDS",
+            "HEAVY",
+            "MONSTER",
+            "DIMACHAERON"
+         ],
+         "profiles": [
+            {
+               "name": "Dimachaeron",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 8,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "grasping-talons-thorax-spine-maw",
+            "sickle-claws"
+         ]
+      },
+      "meiotic-spores": {
+         "name": "Meiotic Spores",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "TYRANIDS",
+            "LIGHT",
+            "FLY",
+            "SPORE MINES",
+            "MEIOTIC SPORES"
+         ],
+         "profiles": [
+            {
+               "name": "Meiotic Spores",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 3
+               },
+               "wounds": 2,
+               "leadership": 8,
+               "save": 12
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "abilities": [
+            "living-bombs",
+            "floating-death-meiotic-spores",
+            "deep-strike"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit Size",
+               "options": [
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 4
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 4
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 6
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            }
+         ]
+      },
+      "stone-crusher-brood": {
+         "name": "Stone Crusher Brood",
+         "battlefieldRole": "HeavySupport",
+         "cost": 0,
+         "keywords": [],
+         "profiles": [
+            {
+               "name": "Stone Crusher Carnifex",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 7
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 4,
+               "save": 6
+            }
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "2x-wrecker-claw",
+                     "name": "2x Wrecker Claw",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stone-crusher-carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "wrecker-claw"
+                     ]
+                  },
+                  {
+                     "id": "bio-flail-wrecker-claw",
+                     "name": "Bio-flail, Wrecker Claw",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stone-crusher-carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "bio-flail",
+                        "wrecker-claw"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "2x-wrecker-claw"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "bio-plasma",
+                     "name": "Bio-plasma",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "stone-crusher-carnifex"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "bio-plasma"
+                     ]
+                  },
+                  {
+                     "id": "stone-crusher-carnifex",
+                     "name": "Stone Crusher Carnifex",
+                     "maximum": 3,
+                     "minimum": 1,
+                     "cost": 5,
+                     "addsKeywords": [
+                        "TYRANIDS",
+                        "HEAVY",
+                        "MONSTER",
+                        "CARNIFEX",
+                        "STONE CRUSHER CARNIFEX"
+                     ],
+                     "addsFactionKeywords": [
+                        "TYRANID HIVE FLEETS",
+                        "<HIVE FLEET>"
+                     ],
+                     "addsAbilities": [
+                        "monstrous-brood"
+                     ],
+                     "addsWeapons": [
+                        "carnifex-tail-weapon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "barbed-hierodule": {
+         "name": "Barbed Hierodule",
+         "battlefieldRole": "LordOfWar",
+         "cost": 14,
+         "keywords": [
+            "TYRANIDS",
+            "SUPER-HEAVY",
+            "MONSTER",
+            "TITANIC",
+            "BARBED HIERODULE"
+         ],
+         "profiles": [
+            {
+               "name": "Barbed Hierodule",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 5,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "hierodule-scything-talons"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "bio-cannon",
+                     "name": "Bio-cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "bio-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "scythed-hierodule": {
+         "name": "Scythed Hierodule",
+         "battlefieldRole": "LordOfWar",
+         "cost": 14,
+         "keywords": [
+            "TYRANIDS",
+            "SUPER-HEAVY",
+            "MONSTER",
+            "TITANIC",
+            "SCYTHED HIERODULE"
+         ],
+         "profiles": [
+            {
+               "name": "Scythed Hierodule",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 4,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 5,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "pairs-of-hierodule-scything-talons",
+            "bio-acid-spray"
+         ],
+         "abilities": [
+            "inferno"
+         ]
+      },
+      "harridan": {
+         "name": "Harridan",
+         "battlefieldRole": "LordOfWar",
+         "cost": 24,
+         "keywords": [
+            "TYRANIDS",
+            "SUPER-HEAVY",
+            "MONSTER",
+            "FLY",
+            "TRANSPORT",
+            "TITANIC",
+            "HARRIDAN"
+         ],
+         "profiles": [
+            {
+               "name": "Harridan",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 30
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 6,
+               "leadership": 8,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "harridan-scything-talons"
+         ],
+         "abilities": [
+            "sky-attack",
+            "frenzied-metabolism"
+         ],
+         "transport": "This unit can transport up to 20 friendly <HIVE FLEET> GARGOYLE models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "bio-cannon",
+                     "name": "Bio-cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "bio-cannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "hierophant-bio-titan": {
+         "name": "Hierophant Bio-titan",
+         "battlefieldRole": "LordOfWar",
+         "cost": 95,
+         "keywords": [
+            "TYRANIDS",
+            "SUPER-HEAVY",
+            "MONSTER",
+            "TRANSPORT",
+            "TITANIC",
+            "HIEROPHANT BIO-TITAN"
+         ],
+         "profiles": [
+            {
+               "name": "Hierophant Bio-titan",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 6
+               },
+               "wounds": 8,
+               "leadership": 8,
+               "save": 3
+            }
+         ],
+         "factionKeywords": [
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
+         "weapons": [
+            "lashwhip-pods",
+            "bio-plasma-torrent",
+            "gargantuan-scything-talons"
+         ],
+         "abilities": [
+            "incendiary-ichor",
+            "frenzied-metabolism",
+            "inferno",
+            "destroyer"
+         ],
+         "transport": "This unit can transport up to 20 friendly <HIVE FLEET> GENESTEALERS, TERMAGANTS, HORMAGAUNTS, HIVE GUARD, TYRANT GUARD or TYRANID WARRIORS models. Each HIVE GUARD, TYRANT GUARD or TYRANID WARRIOR model takes up the space of 3 other models. It can also transport 1 friendly <HIVE FLEET> TYRANID PRIME or BROODLORD.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "dire-bio-cannon",
+                     "name": "Dire Bio-cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "dire-bio-cannon"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "detachmentAbilities": {
+      "synapse-2": {
+         "ability": "synapse",
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Any",
+               "conditions": [
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "ad-hoc"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "super-heavy-auxiliary"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "Count",
+                     "scope": "Detachment",
+                     "of": {
+                        "kind": "Detachment",
+                        "detachment": "fortification-network"
+                     },
+                     "minimum": 1
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "patrol"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  },
+                  {
+                     "kind": "All",
+                     "conditions": [
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "Detachment",
+                              "detachment": "air-wing"
+                           },
+                           "minimum": 1
+                        },
+                        {
+                           "kind": "Count",
+                           "scope": "Detachment",
+                           "of": {
+                              "kind": "AnyUnit"
+                           },
+                           "maximum": 2
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "weapons": {
+      "ranged-bio-weapons": {
+         "name": "Ranged Bio-weapons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "melee-bio-weapons": {
+         "name": "Melee Bio-weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "claws-teeth": {
+         "name": "Claws & Teeth",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "monstrous-rending-claws": {
+         "name": "Monstrous Rending Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 7
+      },
+      "monstrous-scything-talons": {
+         "name": "Monstrous Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6
+      },
+      "heavy-venom-cannon": {
+         "name": "Heavy Venom Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 4
+      },
+      "monstrous-bio-weapons": {
+         "name": "Monstrous Bio-weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7
+      },
+      "deathspitters-with-slimer-maggots": {
+         "name": "Deathspitters with Slimer Maggots",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "devourers-with-brainleech-worms": {
+         "name": "Devourers with Brainleech Worms",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "stranglethorn-cannon": {
+         "name": "Stranglethorn Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8
+      },
+      "prehencile-pincer-tail": {
+         "name": "Prehencile Pincer Tail",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "bone-sabres": {
+         "name": "Bone Sabres",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Destroyer"
+      },
+      "massive-scything-talons": {
+         "name": "Massive Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 7
+      },
+      "massive-scything-talons-2": {
+         "name": "Massive Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5
+      },
+      "stinger-salvo": {
+         "name": "Stinger Salvo",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "spirit-leech": {
+         "name": "Spirit Leech",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Witchfire"
+      },
+      "monstrous-crushing-claws": {
+         "name": "Monstrous Crushing Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5
+      },
+      "venom-cannon": {
+         "name": "Venom Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 7
+      },
+      "barbed-strangler": {
+         "name": "Barbed Strangler",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "genestealer-melee-weapons": {
+         "name": "Genestealer Melee Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "termagant-melee-weapons": {
+         "name": "Termagant Melee Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "fleshborers": {
+         "name": "Fleshborers",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "spinefists": {
+         "name": "Spinefists",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 10
+      },
+      "devourers": {
+         "name": "Devourers",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "scything-talons": {
+         "name": "Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "tyrant-guard-melee-weapons": {
+         "name": "Tyrant Guard Melee Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8
+      },
+      "forelimbs": {
+         "name": "Forelimbs",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "impaler-cannons": {
+         "name": "Impaler Cannons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 7,
+         "text": "Barrage"
+      },
+      "shockcannons": {
+         "name": "Shockcannons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5
+      },
+      "flesh-hooks": {
+         "name": "Flesh Hooks",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 6
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "grasping-talons": {
+         "name": "Grasping Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "zoanthrope-melee-weapons": {
+         "name": "Zoanthrope Melee Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "warp-blast": {
+         "name": "Warp Blast",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 4,
+         "text": "Witchfire"
+      },
+      "psychic-overload": {
+         "name": "Psychic Overload",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 6
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7,
+         "text": "Witchfire"
+      },
+      "toxic-lashes-ranged": {
+         "name": "Toxic Lashes (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 6
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 9
+      },
+      "toxic-lashes-melee": {
+         "name": "Toxic Lashes (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 9
+      },
+      "flamespurt": {
+         "name": "Flamespurt",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 10
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "acid-maw": {
+         "name": "Acid Maw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "grasping-tongue": {
+         "name": "Grasping Tongue",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "ravenous-maw": {
+         "name": "Ravenous Maw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "shovelling-claws": {
+         "name": "Shovelling Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 4
+      },
+      "blinding-venom": {
+         "name": "Blinding Venom",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "ravener-ranged-weapons": {
+         "name": "Ravener Ranged Weapons",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "ravener-melee-weapons": {
+         "name": "Ravener Melee Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "bio-plasmic-cannon": {
+         "name": "Bio-plasmic Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 4,
+         "antiTank": 6
+      },
+      "powerful-limbs": {
+         "name": "Powerful Limbs",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "acid-spray": {
+         "name": "Acid Spray",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "fleshborer-hive": {
+         "name": "Fleshborer Hive",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 5
+         },
+         "antiPersonnel": 4,
+         "antiTank": 9
+      },
+      "rupture-cannon": {
+         "name": "Rupture Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 9,
+         "antiTank": 4
+      },
+      "spore-mine-launcher": {
+         "name": "Spore Mine Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Barrage"
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "choking-spores": {
+         "name": "Choking Spores",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "massive-toxic-lashes-ranged": {
+         "name": "Massive Toxic Lashes (Ranged)",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "massive-toxic-lashes-melee": {
+         "name": "Massive Toxic Lashes (Melee)",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "carnifex-jaws": {
+         "name": "Carnifex Jaws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 11,
+         "antiTank": 11
+      },
+      "carnifex-melee-weapons": {
+         "name": "Carnifex Melee Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5
+      },
+      "spine-banks": {
+         "name": "Spine Banks",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 6
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "bio-plasmic-scream": {
+         "name": "Bio-plasmic Scream",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "screamer-killer-talons": {
+         "name": "Screamer-Killer Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6
+      },
+      "distensible-jaws": {
+         "name": "Distensible Jaws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6
+      },
+      "bio-electric-pulse": {
+         "name": "Bio-electric Pulse",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "bio-electric-pulse-with-containment-spines": {
+         "name": "Bio-electric Pulse with Containment Spines",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 4
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "deathspitters": {
+         "name": "Deathspitters",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 5
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "barbed-stranglers": {
+         "name": "Barbed Stranglers",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 5
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      },
+      "venom-cannons": {
+         "name": "Venom Cannons",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 5
+         },
+         "antiPersonnel": 9,
+         "antiTank": 7
+      },
+      "barbed-tentacles": {
+         "name": "Barbed Tentacles",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "stranglethorn-cannons": {
+         "name": "Stranglethorn Cannons",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8
+      },
+      "heavy-venom-cannons": {
+         "name": "Heavy Venom Cannons",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 4
+      },
+      "drool-cannon": {
+         "name": "Drool Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8,
+         "text": "Inferno"
+      },
+      "tentaclids": {
+         "name": "Tentaclids",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5,
+         "text": "Anti-air"
+      },
+      "wicked-spur": {
+         "name": "Wicked Spur",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5
+      },
+      "scything-wings": {
+         "name": "Scything Wings",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "spore-node": {
+         "name": "Spore Node",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 9
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 4,
+         "antiTank": 4,
+         "text": "Barrage"
+      },
+      "grasping-tail": {
+         "name": "Grasping Tail",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "grasping-talons-thorax-spine-maw": {
+         "name": "Grasping Talons & Thorax Spine-maw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 8
+      },
+      "sickle-claws": {
+         "name": "Sickle Claws",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 4
+      },
+      "bio-plasma": {
+         "name": "Bio-plasma",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "carnifex-tail-weapon": {
+         "name": "Carnifex Tail Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 5
+      },
+      "bio-flail": {
+         "name": "Bio-flail",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 9
+      },
+      "hierodule-scything-talons": {
+         "name": "Hierodule Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 4
+      },
+      "pairs-of-hierodule-scything-talons": {
+         "name": "Pairs of Hierodule Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 4
+      },
+      "bio-acid-spray": {
+         "name": "Bio-acid Spray",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "harridan-scything-talons": {
+         "name": "Harridan Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 5
+      },
+      "dire-bio-cannon": {
+         "name": "Dire Bio-cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 8,
+         "antiTank": 4,
+         "text": "Destroyer"
+      },
+      "lashwhip-pods": {
+         "name": "Lashwhip Pods",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "bio-plasma-torrent": {
+         "name": "Bio-plasma Torrent",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 8
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 5
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9,
+         "text": "Inferno"
+      },
+      "gargantuan-scything-talons": {
+         "name": "Gargantuan Scything Talons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 4,
+         "text": "Destroyer"
+      },
+      "bio-cannon": {
+         "name": "Bio-cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 48
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "wrecker-claw": {
+         "name": "Wrecker Claw",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 4
+      }
+   },
+   "abilities": {
+      "synapse": {
+         "name": "Synapse",
+         "text": "TYRANID HIVE FLEETS units in this Detachment automatically pass Morale tests whilst they are within 12\" of a friendly SYNAPSE unit."
+      },
+      "brood-telepathy": {
+         "name": "Brood Telepathy",
+         "text": "Add 1 to hit rolls for attacks made with melee weapons by <HIVE FLEET> GENESTEALER units whilst they are within 6\" of any friendly <HIVE FLEET> units with this ability."
+      },
+      "hive-commander": {
+         "name": "Hive Commander",
+         "text": "Morale tests taken for friendly <HIVE FLEET> units are automatically passed whilst they are within 18\" of this unit."
+      },
+      "alpha-warrior": {
+         "name": "Alpha Warrior",
+         "text": "Alpha Warrior: Add 1 to hit rolls for attacks made by <HIVE FLEET> TYRANID WARRIOR units whilst they are within 6\" of any friendly units with this ability."
+      },
+      "brood-progenitor": {
+         "name": "Brood Progenitor",
+         "text": "Re-roll hit rolls of 1 for attacks made with ranged weapons by friendly <HIVE FLEET> TERMAGANT units whilst they are within 6\" of this unit."
+      },
+      "synaptic-backlash": {
+         "name": "Synaptic Backlash",
+         "text": "If this unit is destroyed, place one blast marker next to every friendly <HIVE FLEET> TERMAGANT unit within 6\" of this unit before removing it from the battlefield."
+      },
+      "spawn-termagants": {
+         "name": "Spawn Termagants",
+         "text": "Once per turn, at the start of the Set Up Reinforcements step of the Orders phase, this unit can spawn Termagants. If it does, add a new unit of 10 TERMAGANT models equipped with Fleshborers to your army: it is part of this unit's Detachment and has the <HIVE FLEET> keyword. Set the new unit up on the battlefield wholly within 6\" of this unit and more than 1\" from enemy units. If the unit cannot be placed in this way, it is destroyed. Then roll a D6; on a 1-3 this unit cannot use this ability again this battle."
+      },
+      "alpha-leader": {
+         "name": "Alpha Leader",
+         "text": "Add 1 to hit rolls for attacks made with melee weapons by friendly <HIVE FLEET> CARNIFEX units whilst they are within 6\" of this unit."
+      },
+      "regeneration": {
+         "name": "Regeneration",
+         "text": "At the start of the Action phase, you can remove one damage marker from this unit."
+      },
+      "hungering-swarm": {
+         "name": "Hungering Swarm",
+         "text": "If this unit contains 30 models, re-roll wound rolls of 1 for attacks made with melee weapons by this unit."
+      },
+      "shieldwall": {
+         "name": "Shieldwall",
+         "text": "At the start of the Damage phase, you can select one friendly <HIVE FLEET> HIVE TYRANT unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that HIVE TYRANT unit and place them next to this unit."
+      },
+      "shrouding-spores": {
+         "name": "Shrouding Spores",
+         "text": "Friendly LIGHT <HIVE FLEET> and HEAVY <HIVE FLEET> units have the Stealth ability whilst they are within 6\" of this unit. If this unit contains 6 models, the range of this ability is increased by 3\"."
+      },
+      "toxic-miasma": {
+         "name": "Toxic Miasma",
+         "text": "At the end of the Action phase, roll one D6 for each unit within 6\" of any enemy units with this ability; on a 6 place one blast marker next to the unit being rolled for."
+      },
+      "rapacious-hunger": {
+         "name": "Rapacious Hunger",
+         "text": "When an enemy LIGHT unit is destroyed whilst in base contact with this unit, if this unit has at least one damage marker next to it, remove one damage marker from this unit."
+      },
+      "feeding-frenzy": {
+         "name": "Feeding Frenzy",
+         "text": "Add 1 to hit rolls for attacks made with melee weapons by friendly <HIVE FLEET> RAVENER units whilst they are within 6\" of this unit."
+      },
+      "floating-death-mucolid-spores": {
+         "name": "Floating Death (Mucolid Spores)",
+         "text": "After a Move action (made by any unit), if this unit is within 3\" of an enemy unit, roll one D6 for each model in this unit. For each 2 or 3 place one blast marker next to the closest enemy unit, and for each 4+ place two blast markers next to the closest enemy unit. Then, this unit is destroyed."
+      },
+      "floating-death-spore-mines": {
+         "name": "Floating Death (Spore Mines)",
+         "text": "After a Move action (made by any unit), if this unit is within 3\" of an enemy unit, roll one D6 for each model in this unit. For each 3+ place one blast marker next to the closest enemy unit. Then, this unit is destroyed."
+      },
+      "weapon-beast-exocrine": {
+         "name": "Weapon Beast (Exocrine)",
+         "text": "When this unit makes a Shoot action, if it has remained stationary this turn, double the Attacks characteristic of its Bio-plasmic Cannon for that action."
+      },
+      "weapon-beast-tyrannofex": {
+         "name": "Weapon Beast (Tyrannofex)",
+         "text": "When this unit makes a Shoot action, if it has remained stationary this turn, double the Attacks characteristic of its Acid Spray, Fleshborer Hive, Rupture Cannon and Stinger Salvo for that action."
+      },
+      "hypertoxic-miasma": {
+         "name": "Hypertoxic Miasma",
+         "text": "At the end of the Action phase, roll one D6 for each unit within 6\" of any enemy units with this ability; on a 5+ place one blast marker next to the unit being rolled for."
+      },
+      "burrow": {
+         "name": "Burrow",
+         "text": "When this unit makes a Move action, it can borrow instead of moving. If it does, it is removed from the battlefield and placed into Tactical Reserves. When this unit arrives as reinforcements, set it up as described in the Terror from the Deep ability. A unit cannot burrow if it was set up on the battlefield this turn, if there are any enemy units in base contact with it, or if there are any blast markers next to it."
+      },
+      "terror-from-the-deep": {
+         "name": "Terror from the Deep",
+         "text": "When this unit uses the Deep Strike ability, you can set it up anywhere on the battlefield that is more than 1\" away from any enemy units, instead of 9\". After setting this unit up using the Deep Strike ability, if there are any enemy units within 3\" of it, select one of those units and roll one D12. On a 3-5 place one blast marker next to that unit, on a 6-9 place two blast markers next to that unit and on a 10+ place three blast markers next to that unit."
+      },
+      "transport-spore": {
+         "name": "Transport Spore",
+         "text": "When this unit is set up in Tactical Reserves, you can also set up a friendly <HIVE FLEET> INFANTRY unit of up to 20 models or a <HIVE FLEET> MONSTER unit with a Wounds characteristic of 4 or less inside it (this cannot be a Tyrannocyte or Sporocyst). When this unit uses its Deep Strike ability, set any unit inside it up on the battlefield wholly within 6\" of this unit and more than 9\" from enemy units. If that unit cannot be placed in this way, it is destroyed."
+      },
+      "spore-mine-cysts": {
+         "name": "Spore Mine Cysts",
+         "text": "After this unit makes a Move action, you can select one enemy unit it moved over whilst making that Move action. Roll one D6; on a 3+ place one blast marker next to that unit."
+      },
+      "immobile-2": {
+         "name": "Immobile",
+         "text": "This unit is never Out of Command: an Out of Command marker is never placed next to it."
+      },
+      "bio-fortress": {
+         "name": "Bio-fortress",
+         "text": "When this unit makes a Shoot action, it can target enemy units in base contact with it."
+      },
+      "toxic-miasma-2": {
+         "name": "Toxic Miasma",
+         "text": "At the end of the Action phase, roll one D6 for each unit within 6\" of any enemy units with this ability; on a 5+ place one blast marker next to the unit being rolled for."
+      },
+      "shrouding-spores-2": {
+         "name": "Shrouding Spores",
+         "text": "Friendly LIGHT <HIVE FLEET> and HEAVY <HIVE FLEET> units have the Stealth ability whilst they are within 6\" of this unit."
+      },
+      "living-bombs": {
+         "name": "Living Bombs",
+         "text": "Morale tests taken for this unit are automatically passed."
+      },
+      "floating-death-meiotic-spores": {
+         "name": "Floating Death (Meiotic Spores)",
+         "text": "After a Move action (made by any unit), if this unit is within 3\" of an enemy unit, roll one D6 for each model in this unit. For each 2 or 3 place one blast marker next to the closest enemy unit, and for each 4+ place two blast markers next to the closest enemy unit. Then, this unit is destroyed."
+      },
+      "monstrous-brood": {
+         "name": "Monstrous Brood",
+         "text": "Each Heavy Support slot in a Detachment allows you to take up to three of this unit in your army, instead of one. Each unit taken for a single Heavy Support slot must be placed at the same time and within 6\" of each other unit taken for the same slot the first time they are set up."
+      },
+      "sky-attack": {
+         "name": "Sky Attack",
+         "text": "After this unit makes a Move action, select one enemy unit it moved over whilst making that Move action. Roll one D6; on a 2+ place one blast marker next to that unit."
+      },
+      "frenzied-metabolism": {
+         "name": "Frenzied Metabolism",
+         "text": "When this unit makes a Shoot action, you can place one blast marker next to this unit. If you do so, add 1 to wound rolls for attacks made by this unit for that action."
+      },
+      "incendiary-ichor": {
+         "name": "Incendiary Ichor",
+         "text": "Each time a blast marker is placed next to this unit, if there are any enemy units in base contact with this unit, roll one D6; on a 3+ place one blast marker next to an enemy unit in base contact with this unit."
+      },
+      "the-will-of-the-hive-mind": {
+         "name": "The Will of the Hive Mind",
+         "text": "At the start of the Generate Command Assets step, if this unit is a WARLORD and is on the battlefield, you generate one extra Command Asset."
+      },
+      "warp-field": {
+         "name": "Warp Field",
+         "text": "Roll D12s when making saving throws for this unit, irrespective of the size of the blast markers next to it."
+      },
+      "acid-blood": {
+         "name": "Acid Blood",
+         "text": "When a blast marker is placed next to this unit, if it is in base contact with any enemy units, select one of those units and roll one D6. On a 4+ place one blast marker next to that unit."
+      },
+      "hail-of-living-ammunition": {
+         "name": "Hail of Living Ammunition",
+         "text": "If this unit contains 30 models, re-roll wound rolls of 1 for attacks made with ranged weapons by this unit."
+      },
+      "chitin-thorns": {
+         "name": "Chitin Thorns",
+         "text": "At the end of the Action phase, roll a D6 for each unit within 6\" of any enemy units with Chitin Thorns; on a 6 place one blast marker next to the unit being rolled for."
+      }
+   }
+}

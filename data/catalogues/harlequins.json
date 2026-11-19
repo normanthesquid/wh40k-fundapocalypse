@@ -1,0 +1,1104 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "harlequins",
+   "name": "Aeldari - Harlequins",
+   "kind": "Faction",
+   "datasheets": {
+      "death-jester": {
+         "name": "Death Jester",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "DEATH JESTER",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Death Jester",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "close-combat-weapons",
+            "shrieker-cannon"
+         ],
+         "abilities": [
+            "flip-belt",
+            "holo-fields"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "the-jest-inescapable"
+                  },
+                  "maximum": 0
+               },
+               "removesWeapons": [
+                  "shrieker-cannon"
+               ],
+               "addsWeapons": [
+                  "shrieker-cannon-2"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "pivotal-role",
+               "name": "Pivotal Role",
+               "options": [
+                  {
+                     "id": "terror-troops",
+                     "name": "Terror Troops",
+                     "addsAbilities": [
+                        "terror-troops"
+                     ]
+                  },
+                  {
+                     "id": "harvester-of-torment",
+                     "name": "Harvester of Torment",
+                     "addsAbilities": [
+                        "harvester-of-torment"
+                     ]
+                  },
+                  {
+                     "id": "the-jest-inescapable",
+                     "name": "The Jest Inescapable",
+                     "addsAbilities": [
+                        "the-jest-inescapable"
+                     ]
+                  },
+                  {
+                     "id": "humbling-cruelty",
+                     "name": "Humbling Cruelty",
+                     "addsAbilities": [
+                        "humbling-cruelty"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ]
+      },
+      "shadowseer": {
+         "name": "Shadowseer",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "PSYKER",
+            "SHADOWSEER"
+         ],
+         "profiles": [
+            {
+               "name": "Shadowseer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "hallucinogen-grenade-launcher",
+            "miststave"
+         ],
+         "abilities": [
+            "flip-belt",
+            "holo-fields"
+         ],
+         "wargear": [
+            {
+               "id": "pivotal-role",
+               "name": "Pivotal Role",
+               "options": [
+                  {
+                     "id": "veil-of-illusion",
+                     "name": "Veil of Illusion",
+                     "addsAbilities": [
+                        "veil-of-illusion"
+                     ]
+                  },
+                  {
+                     "id": "agent-of-bedlam",
+                     "name": "Agent of Bedlam",
+                     "addsAbilities": [
+                        "agent-of-bedlam"
+                     ]
+                  },
+                  {
+                     "id": "gloomwake",
+                     "name": "Gloomwake",
+                     "addsAbilities": [
+                        "gloomwake"
+                     ]
+                  },
+                  {
+                     "id": "shield-from-harm",
+                     "name": "Shield from Harm",
+                     "addsAbilities": [
+                        "shield-from-harm"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ]
+      },
+      "skyweavers": {
+         "name": "Skyweavers",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "FLY",
+            "BIKER",
+            "LIGHT",
+            "SKYWEAVERS"
+         ],
+         "profiles": [
+            {
+               "name": "2 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 17
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "skyweaver-close-combat-weapons"
+         ],
+         "abilities": [
+            "holo-fields"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit size",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 Models",
+                     "maximum": 1,
+                     "cost": 7
+                  },
+                  {
+                     "id": "4-models",
+                     "name": "4 Models",
+                     "maximum": 1,
+                     "cost": 17,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "6-models",
+                     "name": "6 Models",
+                     "maximum": 1,
+                     "cost": 26,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "2-models"
+            },
+            {
+               "id": "star-bolas-zephyrglaive",
+               "name": "Star Bolas / Zephyrglaive",
+               "options": [
+                  {
+                     "id": "star-bolas",
+                     "name": "Star Bolas",
+                     "addsWeapons": [
+                        "star-bolas"
+                     ]
+                  },
+                  {
+                     "id": "zephyrglaive",
+                     "name": "Zephyrglaive",
+                     "addsWeapons": [
+                        "zephyrglaive"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "shuriken-haywire-cannon",
+               "name": "Shuriken / Haywire Cannon",
+               "options": [
+                  {
+                     "id": "shuriken-cannon",
+                     "name": "Shuriken Cannon",
+                     "addsWeapons": [
+                        "shuriken-cannon"
+                     ]
+                  },
+                  {
+                     "id": "haywire-cannon",
+                     "name": "Haywire Cannon",
+                     "addsWeapons": [
+                        "haywire-cannon"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "4-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 4
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "6-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 6
+                     }
+                  ]
+               }
+            }
+         ]
+      },
+      "solitaire": {
+         "name": "Solitaire",
+         "battlefieldRole": "Elites",
+         "cost": 8,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "SOLITAIRE"
+         ],
+         "profiles": [
+            {
+               "name": "Solitaire",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 4
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "solitaire-weapons"
+         ],
+         "abilities": [
+            "the-path-of-damnation",
+            "flip-belt",
+            "holo-fields"
+         ],
+         "wargear": [
+            {
+               "id": "pivotal-role",
+               "name": "Pivotal Role",
+               "options": [
+                  {
+                     "id": "shocking-emergence",
+                     "name": "Shocking Emergence",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "shocking-emergence",
+                        "deep-strike"
+                     ]
+                  },
+                  {
+                     "id": "chromatic-rush",
+                     "name": "Chromatic Rush",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "chromatic-rush"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 15
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "unnatural-acrobatics",
+                     "name": "Unnatural Acrobatics",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "unnatural-acrobatics"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "starweaver": {
+         "name": "Starweaver",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 7,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "STARWEAVER"
+         ],
+         "profiles": [
+            {
+               "name": "Starweaver",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 17
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "aeldariweapons/shuriken-cannon-hv",
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "open-topped-2",
+            "holo-fields"
+         ],
+         "transport": "This unit can transport up to 6 friendly <MASQUE> INFANTRY models."
+      },
+      "troupe": {
+         "name": "Troupe",
+         "battlefieldRole": "Troops",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "TROUPE"
+         ],
+         "profiles": [
+            {
+               "name": "5 Models",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "troupe-pistols",
+            "troupe-weapons"
+         ],
+         "abilities": [
+            "flip-belt",
+            "holo-fields"
+         ],
+         "wargear": [
+            {
+               "id": "unit-size",
+               "name": "Unit size",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "maximum": 1,
+                     "cost": 8
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "maximum": 1,
+                     "cost": 15,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "12-models",
+                     "name": "12 Models",
+                     "maximum": 1,
+                     "cost": 18,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "troupe-master": {
+         "name": "Troupe Master",
+         "battlefieldRole": "HQ",
+         "cost": 4,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "TROUPE MASTER"
+         ],
+         "profiles": [
+            {
+               "name": "Troupe Master",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 9
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "troupe-master-weapons"
+         ],
+         "abilities": [
+            "flip-belt",
+            "holo-fields"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Option",
+                     "option": "twilights-grasp"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "removesWeapons": [
+                  "troupe-master-weapons"
+               ],
+               "addsWeapons": [
+                  "troupe-master-weapons-2"
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "pivotal-role",
+               "name": "Pivotal Role",
+               "options": [
+                  {
+                     "id": "darkness-bite",
+                     "name": "Darkness' Bite",
+                     "addsAbilities": [
+                        "darkness-bite"
+                     ]
+                  },
+                  {
+                     "id": "choreographer-of-war",
+                     "name": "Choreographer of War",
+                     "addsAbilities": [
+                        "choreographer-of-war"
+                     ]
+                  },
+                  {
+                     "id": "twilights-grasp",
+                     "name": "Twilight's Grasp",
+                     "addsAbilities": [
+                        "twilights-grasp"
+                     ]
+                  },
+                  {
+                     "id": "prince-of-light",
+                     "name": "Prince of Light",
+                     "addsAbilities": [
+                        "prince-of-light"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            }
+         ]
+      },
+      "voidweaver": {
+         "name": "Voidweaver",
+         "battlefieldRole": "HeavySupport",
+         "cost": 9,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "VEHICLE",
+            "VOIDWEAVER"
+         ],
+         "profiles": [
+            {
+               "name": "Voidweaver",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 17
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "<MASQUE>",
+            "AELDARI",
+            "HARLEQUINS"
+         ],
+         "weapons": [
+            "aeldariweapons/shuriken-cannon-hv",
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "holo-fields"
+         ],
+         "wargear": [
+            {
+               "id": "cannon-option",
+               "name": "Cannon Option",
+               "options": [
+                  {
+                     "id": "haywire-cannon",
+                     "name": "Haywire Cannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "haywire-cannon"
+                     ]
+                  },
+                  {
+                     "id": "prismatic-cannon",
+                     "name": "Prismatic Cannon",
+                     "maximum": 1,
+                     "addsWeapons": [
+                        "prismatic-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "haywire-cannon"
+            }
+         ]
+      }
+   },
+   "datasheetLinks": {
+      "webway-gate": {
+         "datasheet": "aeldariweapons/webway-gate-2"
+      }
+   },
+   "weapons": {
+      "troupe-master-weapons": {
+         "name": "Troupe Master Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "hallucinogen-grenade-launcher": {
+         "name": "Hallucinogen Grenade Launcher",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "miststave": {
+         "name": "Miststave",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "troupe-pistols": {
+         "name": "Troupe Pistols",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "troupe-weapons": {
+         "name": "Troupe Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 8
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 9
+      },
+      "shrieker-cannon": {
+         "name": "Shrieker Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7,
+         "text": "Sniper"
+      },
+      "solitaire-weapons": {
+         "name": "Solitaire Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 4,
+         "antiTank": 5
+      },
+      "skyweaver-close-combat-weapons": {
+         "name": "Skyweaver Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 11
+      },
+      "star-bolas": {
+         "name": "Star Bolas",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 12
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "zephyrglaive": {
+         "name": "Zephyrglaive",
+         "type": "Melee",
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 5,
+         "antiTank": 5
+      },
+      "shuriken-cannon": {
+         "name": "Shuriken Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 8
+      },
+      "haywire-cannon": {
+         "name": "Haywire Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 8,
+         "antiTank": 4
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "prismatic-cannon": {
+         "name": "Prismatic Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6
+      },
+      "shrieker-cannon-2": {
+         "name": "Shrieker Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 6,
+         "antiTank": 7,
+         "text": "Sniper"
+      },
+      "troupe-master-weapons-2": {
+         "name": "Troupe Master Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 3,
+         "antiTank": 7
+      }
+   },
+   "abilities": {
+      "darkness-bite": {
+         "name": "Darkness' Bite",
+         "text": "At the end of the Fight phase, you can select one enemy unit this model made an attack against and place one blast marker next to it."
+      },
+      "choreographer-of-war": {
+         "name": "Choreographer of War",
+         "text": "You can re-roll wound rolls for attacks made with melee weapons by friendly <MASQUE> units whilst they are within 6\" of this unit."
+      },
+      "twilights-grasp": {
+         "name": "Twilight's Grasp",
+         "text": "Each time a melee attack is made by this model against a LIGHT unit, a wound roll of of 3+ is always successful (already reflected in the profile)."
+      },
+      "prince-of-light": {
+         "name": "Prince of Light",
+         "text": "Add 1\" to <MASQUE> units' movement characteristic whilst they are within 6\" of any friendly units with this ability"
+      },
+      "veil-of-illusion": {
+         "name": "Veil of Illusion",
+         "text": "Whilst a friendly <MASQUE> unit is within 6\" of this model, when determining if that unit is within range of attacks made by enemy models with ranged weapons, add 6\" to the distance measured."
+      },
+      "agent-of-bedlam": {
+         "name": "Agent of Bedlam",
+         "text": "Units must re-roll successful hit rolls whilst they are within 6\" of any enemy units with this ability."
+      },
+      "gloomwake": {
+         "name": "Gloomwake",
+         "text": "Friendly <MASQUE> units are always obscured targets whilst they are within 6\" of any friendly units with this ability."
+      },
+      "shield-from-harm": {
+         "name": "Shield from Harm",
+         "text": "Subtract 1 from wound rolls for attacks that target LIGHT <MASQUE> units whilst they are within 6\" of any friendly units with this ability."
+      },
+      "harvester-of-torment": {
+         "name": "Harvester of Torment",
+         "text": "You can re-roll wound rolls for attacks made with this unit's Shrieker Cannon that target units with 6 or more models."
+      },
+      "the-jest-inescapable": {
+         "name": "The Jest Inescapable",
+         "text": "Add 12\" to the Range characteristic of this unit's Shrieker Cannon (already reflected in the profile). This unit does not suffer the penalty for attacks made with ranged weapons that target obscured targets."
+      },
+      "humbling-cruelty": {
+         "name": "Humbling Cruelty",
+         "text": "Each time an attack made by this model scores a hit, that unit is pinned until after it carries out its next order. While a unit is pinned, subtract 2\" from its Move Characteristic."
+      },
+      "the-path-of-damnation": {
+         "name": "The Path of Damnation",
+         "text": "This unit cannot be a WARLORD."
+      },
+      "shocking-emergence": {
+         "name": "Shocking Emergence",
+         "text": "When this unit arrives as reinforcements, add 1\" to its Move characteristic until the end of the turn."
+      },
+      "chromatic-rush": {
+         "name": "Chromatic Rush",
+         "text": "Add 1\" to this models movement characteristic (already reflected in the profile). In addition when this unit piles in, it can move an additional 3\"."
+      },
+      "unnatural-acrobatics": {
+         "name": "Unnatural Acrobatics",
+         "text": "Subtract 1 from hit rolls for attacks made by enemy units that target this unit."
+      },
+      "open-topped-2": {
+         "name": "Open-topped",
+         "text": "Open-topped"
+      },
+      "holo-fields": {
+         "name": "Holo-fields",
+         "text": "Roll D12s when making saving throws for this unit, irrespective of the size of the blast markers next to it."
+      },
+      "flip-belt": {
+         "name": "Flip Belt",
+         "text": "This unit can move across models and terrain as if they were not there."
+      }
+   },
+   "imports": [
+      "aeldariweapons"
+   ]
+}

@@ -1,0 +1,5418 @@
+{
+   "$schema": "../../schema/catalogue.schema.json",
+   "id": "dark-angels",
+   "name": "Imperium - Dark Angels",
+   "kind": "Faction",
+   "datasheets": {
+      "techmarine": {
+         "name": "Techmarine",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "TECHMARINE"
+         ],
+         "profiles": [
+            {
+               "name": "Techmarine",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/servo-arm-power-weapon"
+         ],
+         "abilities": [
+            "blessing-of-the-omnissiah"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "JUMP PACK"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 12
+                        }
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "BIKER"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 14
+                        }
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "no-wargear",
+                     "name": "No wargear",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "jump-pack",
+                     "name": "Jump Pack",
+                     "cost": 2,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "PrimaryFaction",
+                           "faction": "grey-knights"
+                        }
+                     },
+                     "addsKeywords": [
+                        "INFANTRY",
+                        "JUMP PACK",
+                        "FLY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  },
+                  {
+                     "id": "bike",
+                     "name": "Bike",
+                     "maximum": 1,
+                     "cost": 1,
+                     "availableWhen": {
+                        "kind": "Not",
+                        "condition": {
+                           "kind": "PrimaryFaction",
+                           "faction": "grey-knights"
+                        }
+                     },
+                     "addsKeywords": [
+                        "BIKER"
+                     ]
+                  },
+                  {
+                     "id": "servo-harness",
+                     "name": "Servo-harness",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/flamer-plasma-cutter"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-wargear"
+            }
+         ]
+      },
+      "land-raider-excelsior": {
+         "name": "Land Raider Excelsior",
+         "battlefieldRole": "HQ",
+         "cost": 15,
+         "keywords": [
+            "HEAVY",
+            "LAND RAIDER",
+            "LAND RAIDER EXCELSIOR",
+            "TRANSPORT",
+            "VEHICLE",
+            "CHARACTER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "weapons/grav-cannon",
+            "space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "data-augurs",
+            "rites-of-battle"
+         ],
+         "transport": "This unit can transport up to 10 friendly DARK ANGELS INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "rhino-primaris": {
+         "name": "Rhino Primaris",
+         "battlefieldRole": "HQ",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "TRANSPORT",
+            "VEHICLE",
+            "RHINO PRIMARIS"
+         ],
+         "profiles": [
+            {
+               "name": "Rhino Primaris",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/orbital-array",
+            "space-marines/armoured-tracks",
+            "space-marines/twin-plasma-gun"
+         ],
+         "abilities": [
+            "servo-skull-hub",
+            "destroyer",
+            "barrage",
+            "one-use-only",
+            "rapid-fire",
+            "supercharge"
+         ],
+         "transport": "This unit can transport up to 6 friendly DARK ANGELS INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units."
+      },
+      "land-raider": {
+         "name": "Land Raider",
+         "battlefieldRole": "HeavySupport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "LAND RAIDER",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "weapons/twin-heavy-bolter",
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 10 friendly DARK ANGELS INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-crusader": {
+         "name": "Land Raider Crusader",
+         "battlefieldRole": "HeavySupport",
+         "cost": 19,
+         "keywords": [
+            "HEAVY",
+            "LAND RAIDER",
+            "TRANSPORT",
+            "VEHICLE",
+            "LAND RAIDER CRUSADER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Crusader",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/twin-assault-cannon",
+            "space-marines/armoured-tracks",
+            "space-marines/frag-assault-launchers"
+         ],
+         "transport": "This unit can transport up to 16 friendly DARK ANGELS INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-redeemer": {
+         "name": "Land Raider Redeemer",
+         "battlefieldRole": "HeavySupport",
+         "cost": 19,
+         "keywords": [
+            "HEAVY",
+            "TRANSPORT",
+            "VEHICLE",
+            "LAND RAIDER",
+            "LAND RAIDER REDEEMER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Redeemer",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "space-marines/frag-assault-launchers",
+            "space-marines/twin-assault-cannon"
+         ],
+         "transport": "This unit can transport up to 12 friendly DARK ANGELS INFANTRY models. Each JUMP PACK or TERMINATOR model takes the space of 2 other INFANTRY models. It cannot transport PRIMARIS units.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "flamestorm-cannon",
+                     "name": "Flamestorm Cannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/flamestorm-cannon"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "rhino": {
+         "name": "Rhino",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "VEHICLE",
+            "TRANSPORT",
+            "RHINO",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Rhino",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/storm-bolter"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "transport": "This unit can transport up to 10 friendly DARK ANGELS INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units."
+      },
+      "razorback": {
+         "name": "Razorback",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "VEHICLE",
+            "TRANSPORT",
+            "HEAVY",
+            "RAZORBACK"
+         ],
+         "profiles": [
+            {
+               "name": "Razorback",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 6 friendly DARK ANGELS INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            }
+         ]
+      },
+      "drop-pod": {
+         "name": "Drop Pod",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "DROP POD",
+            "VEHICLE",
+            "TRANSPORT",
+            "HEAVY"
+         ],
+         "profiles": [
+            {
+               "name": "Drop Pod",
+               "movement": {
+                  "kind": "Immobile"
+               },
+               "ballisticSkill": 3,
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "abilities": [
+            "deep-strike",
+            "space-marines/drop-pod-assault",
+            "immobile"
+         ],
+         "transport": "This unit can transport up to 10 friendly DARK ANGELS INFANTRY models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "deathwind-launcher",
+                     "name": "Deathwind Launcher",
+                     "addsWeapons": [
+                        "space-marines/deathwind-launcher"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "storm-bolter"
+            }
+         ]
+      },
+      "land-speeder-storm": {
+         "name": "Land Speeder Storm",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "FLY",
+            "LAND SPEEDER STORM",
+            "SCOUT",
+            "LAND SPEEDER"
+         ],
+         "profiles": [
+            {
+               "name": "Land Speeder Storm",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 18
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 8
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/close-combat-weapons-7",
+            "space-marines/cerberus-missile-launcher",
+            "weapons/heavy-bolter"
+         ],
+         "abilities": [
+            "open-topped"
+         ],
+         "transport": "This unit can transport up to 5 friendly DARK ANGELS INFANTRY SCOUT models. It cannot transport PRIMARIS, TERMINATOR or JUMP PACK units."
+      },
+      "repulsor": {
+         "name": "Repulsor",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 13,
+         "keywords": [
+            "FLY",
+            "HEAVY",
+            "REPULSOR",
+            "TRANSPORT",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Repulsor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/repulsor-defensive-weapons-system",
+            "space-marines/repulsor-field",
+            "space-marines/icarus-weapons"
+         ],
+         "abilities": [
+            "hover",
+            "anti-air"
+         ],
+         "transport": "This unit can transport up to 10 friendly DARK ANGELS PRIMARIS INFANTRY models. Each MK X GRAVIS model takes up the space of 2 other models. It cannot transport JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "front-weapon",
+               "name": "Front Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "heavy-onslaught-gatling-cannon",
+                     "name": "Heavy Onslaught Gatling Cannon",
+                     "cost": 3,
+                     "addsWeapons": [
+                        "space-marines/heavy-onslaught-gatling-cannon"
+                     ]
+                  },
+                  {
+                     "id": "las-talon",
+                     "name": "Las-talon",
+                     "addsWeapons": [
+                        "space-marines/las-talon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "las-talon"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle Weapon",
+               "options": [
+                  {
+                     "id": "ironhail-heavy-stubber-2",
+                     "name": "Ironhail Heavy Stubber",
+                     "addsWeapons": [
+                        "space-marines/ironhail-heavy-stubber"
+                     ]
+                  },
+                  {
+                     "id": "onslaught-gatling-cannon",
+                     "name": "Onslaught Gatling Cannon",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/onslaught-gatling-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "ironhail-heavy-stubber-2"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "ironhail-heavy-stubber",
+                     "name": "Ironhail Heavy Stubber",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/ironhail-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "stormraven-gunship": {
+         "name": "Stormraven Gunship",
+         "battlefieldRole": "Flyer",
+         "cost": 20,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "AIRCRAFT",
+            "TRANSPORT",
+            "STORMRAVEN GUNSHIP"
+         ],
+         "profiles": [
+            {
+               "name": "Stormraven Gunship",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 45
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/armoured-bulk"
+         ],
+         "abilities": [
+            "supersonic",
+            "space-marines/hover-jet"
+         ],
+         "transport": "This unit can transport up to 12 friendly <Chapter> Infantry models and 1 friendly <Chapter> Dreadnought. Each Jump Pack, Wulfen, or Terminator model takes the space of 2 other Infantry models, and each Centurion model takes the space of 3 other Infantry models. It cannot transport Primaris units.",
+         "wargear": [
+            {
+               "id": "turret-weapon",
+               "name": "Turret Weapon",
+               "options": [
+                  {
+                     "id": "twin-assault-cannon",
+                     "name": "Twin Assault Cannon",
+                     "addsWeapons": [
+                        "space-marines/twin-assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-plasma-cannon",
+                     "name": "Twin Heavy Plasma Cannon",
+                     "addsWeapons": [
+                        "space-marines/twin-heavy-plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-assault-cannon"
+            },
+            {
+               "id": "front-weapon",
+               "name": "Front Weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-multi-melta",
+                     "name": "Twin Multi-melta",
+                     "addsWeapons": [
+                        "weapons/twin-multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "typhoon-missile-launcher",
+                     "name": "Typhoon Missile Launcher",
+                     "addsWeapons": [
+                        "space-marines/typhoon-missile-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "hurricane-bolters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "space-marines/hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "hurricane-bolters",
+                     "name": "Hurricane Bolters",
+                     "maximum": 1,
+                     "cost": 4
+                  },
+                  {
+                     "id": "stormstrike-missile-launchers",
+                     "name": "Stormstrike Missile Launchers",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/stormstrike-missile-launchers"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "azrael": {
+         "name": "Azrael",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "AZRAEL",
+            "CHAPTER MASTER",
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Azrael",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DEATHWING",
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "the-sword-of-secrets"
+         ],
+         "abilities": [
+            "the-lion-helm",
+            "chapter-master",
+            "supreme-tactician"
+         ],
+         "maximumPerDetachment": 1
+      },
+      "belial": {
+         "name": "Belial",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "BELIAL",
+            "CHARACTER",
+            "GRAND MASTER",
+            "INFANTRY",
+            "LIGHT",
+            "TERMINATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Belial",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "the-sword-of-silence"
+         ],
+         "abilities": [
+            "grand-master-of-the-deathwing",
+            "deep-strike",
+            "inner-circle",
+            "rites-of-battle"
+         ],
+         "maximumPerDetachment": 1
+      },
+      "asmodai": {
+         "name": "Asmodai",
+         "battlefieldRole": "HQ",
+         "cost": 7,
+         "keywords": [
+            "ASMODAI",
+            "INFANTRY",
+            "INTERROGATOR-CHAPLAIN",
+            "LIGHT",
+            "PRIEST",
+            "CHAPLAIN"
+         ],
+         "profiles": [
+            {
+               "name": "Asmodai",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "DEATHWING",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "the-blades-of-reason",
+            "space-marines/crozius-arcanum"
+         ],
+         "abilities": [
+            "exemplar-of-hate",
+            "terror-troops",
+            "inner-circle",
+            "space-marines/spiritual-leader"
+         ],
+         "maximumPerDetachment": 1
+      },
+      "ravenwing-talonmaster": {
+         "name": "Ravenwing Talonmaster",
+         "battlefieldRole": "HQ",
+         "cost": 11,
+         "keywords": [
+            "CHARACTER",
+            "FLY",
+            "GRAND MASTER",
+            "TALONMASTER",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Talonmaster",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "RAVENWING",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/twin-assault-cannon",
+            "weapons/twin-heavy-bolter",
+            "power-sword"
+         ],
+         "abilities": [
+            "tactical-precision",
+            "no-escape"
+         ]
+      },
+      "sammael-in-sableclaw": {
+         "name": "Sammael in Sableclaw",
+         "battlefieldRole": "HQ",
+         "cost": 13,
+         "keywords": [
+            "CHARACTER",
+            "FLY",
+            "GRAND MASTER",
+            "SAMMAEL",
+            "HEAVY",
+            "VEHICLE"
+         ],
+         "profiles": [
+            {
+               "name": "Sammael in Sableclaw",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "RAVENWING",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "the-raven-sword",
+            "space-marines/twin-assault-cannon",
+            "weapons/twin-heavy-bolter"
+         ],
+         "abilities": [
+            "grand-master-of-the-ravenwing",
+            "rites-of-battle",
+            "inner-circle"
+         ],
+         "maximumPerDetachment": 1,
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Datasheet",
+                  "datasheet": "sammael-on-corvex"
+               },
+               "minimum": 1,
+               "maximum": 1
+            }
+         }
+      },
+      "sammael-on-corvex": {
+         "name": "Sammael on Corvex",
+         "battlefieldRole": "HQ",
+         "cost": 8,
+         "keywords": [
+            "CHARACTER",
+            "BIKER",
+            "FLY",
+            "GRAND MASTER",
+            "LIGHT",
+            "SAMMAEL"
+         ],
+         "profiles": [
+            {
+               "name": "Sammael on Corvex",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "RAVENWING",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "the-raven-sword",
+            "weapons/plasma-cannon"
+         ],
+         "abilities": [
+            "grand-master-of-the-ravenwing",
+            "rites-of-battle",
+            "inner-circle",
+            "supercharge"
+         ],
+         "maximumPerDetachment": 1,
+         "availableWhen": {
+            "kind": "Not",
+            "condition": {
+               "kind": "Count",
+               "scope": "Detachment",
+               "of": {
+                  "kind": "Datasheet",
+                  "datasheet": "sammael-in-sableclaw"
+               },
+               "minimum": 1,
+               "maximum": 1
+            }
+         }
+      },
+      "ezekiel": {
+         "name": "Ezekiel",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "PSYKER",
+            "CHARACTER",
+            "INFANTRY",
+            "LIBRARIAN",
+            "EZEKIEL",
+            "CHIEF LIBRARIAN"
+         ],
+         "profiles": [
+            {
+               "name": "Ezekiel",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "DEATHWING",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "traitors-bane"
+         ],
+         "abilities": [
+            "book-of-salvation",
+            "inner-circle"
+         ],
+         "maximumPerDetachment": 1
+      },
+      "primaris-master": {
+         "name": "Primaris Master",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "COMMANDER",
+            "INFANTRY",
+            "LIGHT",
+            "MASTER"
+         ],
+         "profiles": [
+            {
+               "name": "Primaris Master",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DARK ANGELS",
+            "DEATHWING"
+         ],
+         "weapons": [
+            "space-marines/master-crafted-weapons"
+         ],
+         "abilities": [
+            "rites-of-battle"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "MK X GRAVIS"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 5
+                        },
+                        "save": 4
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "no-wargear",
+                     "name": "No wargear",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "gravis-armor",
+                     "name": "Gravis Armor",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsKeywords": [
+                        "MK X GRAVIS"
+                     ]
+                  },
+                  {
+                     "id": "phobos-armor",
+                     "name": "Phobos Armor",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsKeywords": [
+                        "PHOBOS"
+                     ],
+                     "addsAbilities": [
+                        "stealth",
+                        "infiltrators"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-wargear"
+            }
+         ]
+      },
+      "interrogator-chaplain": {
+         "name": "Interrogator-Chaplain",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "CHAPLAIN",
+            "CHARACTER",
+            "INFANTRY",
+            "INTERROGATOR-CHAPLAIN",
+            "LIGHT",
+            "PRIEST"
+         ],
+         "profiles": [
+            {
+               "name": "Interrogator-Chaplain",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "DEATHWING",
+            "IMPERIUM"
+         ],
+         "abilities": [
+            "terror-troops",
+            "inner-circle",
+            "litanies-of-hate",
+            "spiritual-leader"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "JUMP PACK"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 12
+                        }
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "TERMINATOR"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 5
+                        },
+                        "save": 4
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "crozius-arcanum",
+                     "name": "Crozius Arcanum",
+                     "addsWeapons": [
+                        "space-marines/crozius-arcanum"
+                     ]
+                  },
+                  {
+                     "id": "power-fist",
+                     "name": "Power Fist",
+                     "addsWeapons": [
+                        "power-fist"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "crozius-arcanum"
+            },
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "terminator-armour",
+                     "name": "Terminator Armour",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsKeywords": [
+                        "INFANTRY",
+                        "TERMINATOR"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  },
+                  {
+                     "id": "jump-pack",
+                     "name": "Jump Pack",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "JUMP PACK",
+                        "FLY",
+                        "INFANTRY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "master": {
+         "name": "Master",
+         "battlefieldRole": "HQ",
+         "cost": 5,
+         "keywords": [
+            "CHARACTER",
+            "COMMANDER",
+            "INFANTRY",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Master",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DARK ANGELS"
+         ],
+         "weapons": [
+            "space-marines/master-crafted-weapons"
+         ],
+         "abilities": [
+            "rites-of-battle",
+            "inner-circle"
+         ],
+         "conditionalChanges": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "TERMINATOR"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 5
+                        },
+                        "save": 4
+                     }
+                  }
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "JUMP PACK"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "profileChanges": [
+                  {
+                     "set": {
+                        "movement": {
+                           "kind": "Inches",
+                           "inches": 12
+                        }
+                     }
+                  }
+               ]
+            }
+         ],
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "no-wargear",
+                     "name": "No wargear",
+                     "addsKeywords": [
+                        "INFANTRY"
+                     ]
+                  },
+                  {
+                     "id": "jump-pack",
+                     "name": "Jump Pack",
+                     "cost": 2,
+                     "addsKeywords": [
+                        "INFANTRY",
+                        "JUMP PACK",
+                        "FLY"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  },
+                  {
+                     "id": "bike",
+                     "name": "Bike",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsKeywords": [
+                        "BIKER"
+                     ]
+                  },
+                  {
+                     "id": "terminator-armour",
+                     "name": "Terminator Armour",
+                     "maximum": 1,
+                     "cost": 2,
+                     "addsKeywords": [
+                        "INFANTRY",
+                        "TERMINATOR"
+                     ],
+                     "addsAbilities": [
+                        "deep-strike"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "no-wargear"
+            }
+         ]
+      },
+      "deathwing-ancient": {
+         "name": "Deathwing Ancient",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "CHARACTER",
+            "ANCIENT",
+            "TERMINATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Deathwing Ancient",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DEATHWING"
+         ],
+         "weapons": [
+            "terminator-power-weapon"
+         ],
+         "abilities": [
+            "deathwing-company-banner",
+            "deep-strike",
+            "inner-circle"
+         ]
+      },
+      "deathwing-apothecary": {
+         "name": "Deathwing Apothecary",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "CHARACTER",
+            "APOTHECARY",
+            "TERMINATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Deathwing Apothecary",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "reductor"
+         ],
+         "abilities": [
+            "deep-strike",
+            "inner-circle",
+            "narthecium"
+         ]
+      },
+      "deathwing-champion": {
+         "name": "Deathwing Champion",
+         "battlefieldRole": "Elites",
+         "cost": 5,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "CHARACTER",
+            "ANCIENT",
+            "TERMINATOR"
+         ],
+         "profiles": [
+            {
+               "name": "Deathwing Champion",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DEATHWING"
+         ],
+         "weapons": [
+            "halberd-of-caliban"
+         ],
+         "abilities": [
+            "deep-strike",
+            "inner-circle",
+            "honour-or-death"
+         ]
+      },
+      "deathwing-knights": {
+         "name": "Deathwing Knights",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "CHARACTER",
+            "TERMINATOR",
+            "DEATHWING KNIGHTS"
+         ],
+         "profiles": [
+            {
+               "name": "Deathwing Knights",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DEATHWING"
+         ],
+         "weapons": [
+            "deathwing-knight-weapons"
+         ],
+         "abilities": [
+            "deep-strike",
+            "inner-circle"
+         ],
+         "wargear": [
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "cost": 12
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "cost": 24,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 4,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "ravenwing-ancient": {
+         "name": "Ravenwing Ancient",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "CHARACTER",
+            "ANCIENT",
+            "BIKER"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Ancient",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "RAVENWING"
+         ],
+         "weapons": [
+            "space-marines/close-combat-weapons-3"
+         ],
+         "abilities": [
+            "ravenwing-banner",
+            "inner-circle"
+         ],
+         "wargear": [
+            {
+               "id": "bike-weapon",
+               "name": "Bike Weapon",
+               "options": [
+                  {
+                     "id": "plasma-talon",
+                     "name": "Plasma Talon",
+                     "addsWeapons": [
+                        "plasma-talon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "ravenwing-grenade-launcher",
+                     "name": "Ravenwing Grenade Launcher",
+                     "addsWeapons": [
+                        "ravenwing-grenade-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "plasma-talon"
+            }
+         ]
+      },
+      "ravenwing-apothecary": {
+         "name": "Ravenwing Apothecary",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "CHARACTER",
+            "BIKER",
+            "APOTHECARY"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Apothecary",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "RAVENWING"
+         ],
+         "weapons": [
+            "space-marines/close-combat-weapons-3"
+         ],
+         "abilities": [
+            "inner-circle",
+            "narthecium"
+         ],
+         "wargear": [
+            {
+               "id": "bike-weapon",
+               "name": "Bike Weapon",
+               "options": [
+                  {
+                     "id": "plasma-talon",
+                     "name": "Plasma Talon",
+                     "addsWeapons": [
+                        "plasma-talon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "ravenwing-grenade-launcher",
+                     "name": "Ravenwing Grenade Launcher",
+                     "addsWeapons": [
+                        "ravenwing-grenade-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "plasma-talon"
+            }
+         ]
+      },
+      "ravenwing-champion": {
+         "name": "Ravenwing Champion",
+         "battlefieldRole": "Elites",
+         "cost": 6,
+         "keywords": [
+            "LIGHT",
+            "CHARACTER",
+            "BIKER",
+            "RAVENWING CHAMPION"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Champion",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "RAVENWING"
+         ],
+         "weapons": [
+            "space-marines/close-combat-weapons-3"
+         ],
+         "abilities": [
+            "inner-circle",
+            "honour-or-death"
+         ],
+         "wargear": [
+            {
+               "id": "bike-weapon",
+               "name": "Bike Weapon",
+               "options": [
+                  {
+                     "id": "plasma-talon",
+                     "name": "Plasma Talon",
+                     "addsWeapons": [
+                        "plasma-talon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "ravenwing-grenade-launcher",
+                     "name": "Ravenwing Grenade Launcher",
+                     "addsWeapons": [
+                        "ravenwing-grenade-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "plasma-talon"
+            }
+         ]
+      },
+      "ravenwing-bike-squad": {
+         "name": "Ravenwing Bike Squad",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "BIKER",
+            "BIKE SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Bike Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "weapons/twin-boltguns",
+            "weapons/close-combat-weapons"
+         ],
+         "abilities": [
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "attack-bike"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "attack-bike"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ],
+               "maximum": 1,
+               "default": "heavy-bolter"
+            },
+            {
+               "id": "3-9-models",
+               "name": "3 - 9 models",
+               "options": [
+                  {
+                     "id": "6-models",
+                     "name": "6 models",
+                     "cost": 16,
+                     "profileChanges": [
+                        {
+                           "increment": {
+                              "attacks": 1,
+                              "wounds": 1
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 8
+                  },
+                  {
+                     "id": "9-models",
+                     "name": "9 models",
+                     "cost": 24,
+                     "profileChanges": [
+                        {
+                           "increment": {
+                              "attacks": 2,
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "attack-bike",
+                     "name": "Attack Bike",
+                     "maximum": 1,
+                     "cost": 1,
+                     "profileChanges": [
+                        {
+                           "increment": {
+                              "wounds": 1
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-speeders": {
+         "name": "Ravenwing Land Speeders",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "VEHICLE",
+            "LAND SPEEDERS",
+            "HEAVY",
+            "FLY"
+         ],
+         "profiles": [
+            {
+               "name": "Land Speeders",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 16
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 5,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/close-combat-weapons-6"
+         ],
+         "wargear": [
+            {
+               "id": "main-weapons",
+               "name": "Main Weapons",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               },
+               "default": "heavy-bolter",
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "optional-weapons",
+               "name": "Optional Weapons",
+               "options": [
+                  {
+                     "id": "assault-cannon",
+                     "name": "Assault Cannon",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "space-marines/assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 3,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "typhoon-missile-launcher",
+                     "name": "Typhoon Missile Launcher",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "space-marines/typhoon-missile-launcher"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "1-3-models",
+               "name": "1 -3 models",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 3,
+                              "movement": {
+                                 "kind": "Inches",
+                                 "inches": 20
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 4
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "ravenwing-attack-bike-squad": {
+         "name": "Ravenwing Attack Bike Squad",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "ATTACK BIKE SQUAD",
+            "BIKER",
+            "LIGHT"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Attack Bike Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DARK ANGELS",
+            "RAVENWING"
+         ],
+         "weapons": [
+            "close-combat-weapons"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "maximum": 3,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     }
+                  ]
+               },
+               "minimum": {
+                  "base": 0,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "1-model"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "2-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 2
+                     },
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "3-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 3
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "1-3-models",
+               "name": "1 -3 models",
+               "options": [
+                  {
+                     "id": "2-models",
+                     "name": "2 models",
+                     "cost": 8,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 2,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 12,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "1-model",
+                     "name": "1 model",
+                     "cost": 4
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "1-model"
+            }
+         ]
+      },
+      "deathwing-terminator-squad": {
+         "name": "Deathwing Terminator Squad",
+         "battlefieldRole": "Elites",
+         "cost": 0,
+         "keywords": [
+            "INFANTRY",
+            "LIGHT",
+            "CHARACTER",
+            "TERMINATOR",
+            "TERMINATOR SQUAD"
+         ],
+         "profiles": [
+            {
+               "name": "Deathwing Terminator Squad",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 5
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DEATHWING"
+         ],
+         "weapons": [
+            "deathwing-power-weapons",
+            "weapons/storm-bolter"
+         ],
+         "abilities": [
+            "deep-strike",
+            "inner-circle",
+            "rapid-fire"
+         ],
+         "wargear": [
+            {
+               "id": "weapons",
+               "name": "Weapons",
+               "options": [
+                  {
+                     "id": "assault-cannon",
+                     "name": "Assault Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/assault-cannon"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "plasma-cannon",
+                     "name": "Plasma Cannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/plasma-cannon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "reaper-autocannon",
+                     "name": "Reaper Autocannon",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "reaper-autocannon"
+                     ]
+                  },
+                  {
+                     "id": "cyclone-missile-launcher",
+                     "name": "Cyclone Missile Launcher",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "cyclone-missile-launcher"
+                     ]
+                  }
+               ],
+               "maximum": {
+                  "base": 1,
+                  "terms": [
+                     {
+                        "per": {
+                           "kind": "Option",
+                           "option": "10-models"
+                        },
+                        "scope": "Unit",
+                        "amount": 1
+                     }
+                  ]
+               }
+            },
+            {
+               "id": "5-10-models",
+               "name": "5 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "cost": 11
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "cost": 21,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "wounds": 4,
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 2
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "5-models"
+            }
+         ]
+      },
+      "ravenwing-darkshroud": {
+         "name": "Ravenwing Darkshroud",
+         "battlefieldRole": "FastAttack",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "LAND SPEEDER",
+            "FLY",
+            "DARKSHROUD"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Darkshroud",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "RAVENWING",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "icon-of-old-caliban"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "assault-cannon",
+                     "name": "Assault Cannon",
+                     "addsWeapons": [
+                        "space-marines/assault-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            }
+         ]
+      },
+      "ravenwing-land-speeder-vengeance-2": {
+         "name": "Ravenwing Land Speeder Vengeance",
+         "battlefieldRole": "FastAttack",
+         "cost": 8,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "LAND SPEEDER",
+            "FLY",
+            "DARKSHROUD"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Land Speeder Vengeance",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "RAVENWING",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "plasma-storm-battery",
+            "close-combat-weapons-2"
+         ],
+         "abilities": [
+            "ravenwing-land-speeder-vengeance",
+            "supercharge"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "assault-cannon",
+                     "name": "Assault Cannon",
+                     "addsWeapons": [
+                        "space-marines/assault-cannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "heavy-bolter"
+            }
+         ]
+      },
+      "ravenwing-black-knights": {
+         "name": "Ravenwing Black Knights",
+         "battlefieldRole": "FastAttack",
+         "cost": 0,
+         "keywords": [
+            "LIGHT",
+            "BIKER",
+            "RAVENWING BLACK KNIGHTS"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Black Knights",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "RAVENWING",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "black-knight-combat-weapons"
+         ],
+         "abilities": [
+            "inner-circle"
+         ],
+         "wargear": [
+            {
+               "id": "3-10-models",
+               "name": "3 - 10 models",
+               "options": [
+                  {
+                     "id": "5-models",
+                     "name": "5 Models",
+                     "cost": 15,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 3
+                              },
+                              "wounds": 2
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "10-models",
+                     "name": "10 Models",
+                     "cost": 19,
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "attacks": {
+                                 "kind": "Fixed",
+                                 "value": 6
+                              },
+                              "wounds": 3
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "3-models",
+                     "name": "3 models",
+                     "cost": 8
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "3-models"
+            },
+            {
+               "id": "bike-weapon",
+               "name": "Bike Weapon",
+               "options": [
+                  {
+                     "id": "plasma-talon",
+                     "name": "Plasma Talon",
+                     "addsWeapons": [
+                        "plasma-talon"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  },
+                  {
+                     "id": "ravenwing-grenade-launcher",
+                     "name": "Ravenwing Grenade Launcher",
+                     "addsWeapons": [
+                        "ravenwing-grenade-launcher"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "plasma-talon"
+            }
+         ]
+      },
+      "repulsor-executioner": {
+         "name": "Repulsor Executioner",
+         "battlefieldRole": "HeavySupport",
+         "cost": 24,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "REPULSOR EXECUTIONER"
+         ],
+         "profiles": [
+            {
+               "name": "Repulsor Executioner",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 3
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/heavy-onslaught-gatling-cannon",
+            "space-marines/repulsor-defensive-weapons-system",
+            "space-marines/repulsor-field",
+            "space-marines/icarus-weapons",
+            "weapons/twin-heavy-bolter"
+         ],
+         "abilities": [
+            "space-marines/aquilon-optics",
+            "hover",
+            "anti-air"
+         ],
+         "transport": "This unit can transport up to 6 friendly DARK ANGELS PRIMARIS INFANTRY models. Each MK X GRAVIS model takes up the space of 2 other models. It cannot transport JUMP PACK units.",
+         "wargear": [
+            {
+               "id": "main-weapon",
+               "name": "Main Weapon",
+               "options": [
+                  {
+                     "id": "heavy-laser-destroyer",
+                     "name": "Heavy Laser Destroyer",
+                     "addsWeapons": [
+                        "space-marines/heavy-laser-destroyer"
+                     ]
+                  },
+                  {
+                     "id": "macro-plasma-incinerator",
+                     "name": "Macro Plasma Incinerator",
+                     "addsWeapons": [
+                        "space-marines/macro-plasma-incinerator"
+                     ],
+                     "addsAbilities": [
+                        "supercharge"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "macro-plasma-incinerator"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "ironhail-heavy-stubber",
+                     "name": "Ironhail Heavy Stubber",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/ironhail-heavy-stubber"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "ravenwing-dark-talon": {
+         "name": "Ravenwing Dark Talon",
+         "battlefieldRole": "Flyer",
+         "cost": 16,
+         "keywords": [
+            "FLY",
+            "VEHICLE",
+            "HEAVY",
+            "AIRCRAFT",
+            "DARK TALON"
+         ],
+         "profiles": [
+            {
+               "name": "Ravenwing Dark Talon",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 40
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "IMPERIUM",
+            "RAVENWING"
+         ],
+         "weapons": [
+            "rift-cannon",
+            "space-marines/armoured-bulk"
+         ],
+         "abilities": [
+            "stasis-bomb",
+            "supersonic",
+            "space-marines/hover-jet",
+            "destroyer"
+         ],
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "hurricane-bolter",
+                     "name": "Hurricane Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "space-marines/hurricane-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "nephilim-jetfighter": {
+         "name": "Nephilim Jetfighter",
+         "battlefieldRole": "Flyer",
+         "cost": 16,
+         "keywords": [
+            "FLY",
+            "VEHICLE",
+            "HEAVY",
+            "AIRCRAFT"
+         ],
+         "profiles": [
+            {
+               "name": "Nephilim Jetfighter",
+               "movement": {
+                  "kind": "Range",
+                  "minimum": 20,
+                  "maximum": 50
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "DARK ANGELS",
+            "IMPERIUM",
+            "RAVENWING"
+         ],
+         "weapons": [
+            "blacksword-missile-launchers",
+            "space-marines/armoured-bulk",
+            "weapons/twin-heavy-bolter"
+         ],
+         "abilities": [
+            "supersonic"
+         ],
+         "wargear": [
+            {
+               "id": "weapon",
+               "name": "Weapon",
+               "options": [
+                  {
+                     "id": "avenger-mega-bolter",
+                     "name": "Avenger Mega Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "avenger-mega-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-lascannon"
+            }
+         ]
+      },
+      "infernum-pattern-razorback": {
+         "name": "Infernum Pattern Razorback",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 5,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RAZORBACK",
+            "INFERNUM PATTERN RAZORBACK"
+         ],
+         "profiles": [
+            {
+               "name": "Infernum Pattern Razorback",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 12
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "weapons/multi-melta",
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 6 friendly DARK ANGELS INFANTRY models. It cannot transport TERMINATOR, JUMP PACK, CENTURION or PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "relic-land-raider-proteus": {
+         "name": "Relic Land Raider Proteus",
+         "battlefieldRole": "HeavySupport",
+         "cost": 15,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RELIC",
+            "RELIC LAND RAIDER PROTEUS"
+         ],
+         "profiles": [
+            {
+               "name": "Relic Land Raider Proteus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "space-marines/explorator-augury-web"
+         ],
+         "transport": "This unit can transport up to 10 friendly DARK ANGELS INFANTRY models. TERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "front-weapon",
+               "name": "Front weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-flamer",
+                     "name": "Twin Heavy Flamer",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/twin-heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-helios": {
+         "name": "Land Raider Helios",
+         "battlefieldRole": "HeavySupport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "LAND RAIDER HELIOS"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Helios",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/helios-launcher",
+            "space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "anti-air"
+         ],
+         "transport": "This unit can transport up to 6 friendly DARK ANGELS INFANTRY models. TERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "twin-lascannon",
+                     "name": "Twin Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/twin-lascannon"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "terrax-pattern-termite-assault-drill": {
+         "name": "Terrax-pattern Termite Assault Drill",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "TERMITE ASSAULT DRILL"
+         ],
+         "profiles": [
+            {
+               "name": "Terrax-pattern Termite Assault Drill",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 8
+               },
+               "weaponSkill": 4,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/melta-cutter",
+            "space-marines/termite-drill"
+         ],
+         "abilities": [
+            "deep-strike",
+            "destroyer"
+         ],
+         "transport": "This unit can transport up to 12 friendly DARK ANGELS INFANTRY models. It cannot transport JUMP PACK, TERMINATOR or PRIMARIS  models.",
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "storm-bolters",
+                     "name": "Storm Bolters"
+                  },
+                  {
+                     "id": "heavy-flamers",
+                     "name": "Heavy Flamers"
+                  },
+                  {
+                     "id": "twin-volkite-chargers",
+                     "name": "Twin Volkite Chargers"
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "storm-bolters"
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "storm-bolters"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "heavy-flamers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "twin-volkite-charger",
+                     "name": "Twin Volkite Charger",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "twin-volkite-chargers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "space-marines/twin-volkite-charger"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-prometheus": {
+         "name": "Land Raider Prometheus",
+         "battlefieldRole": "HeavySupport",
+         "cost": 13,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "LAND RAIDER PROMETHEUS"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Prometheus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "abilities": [
+            "space-marines/battle-auspex"
+         ],
+         "transport": "This unit can transport up to 10 friendly DARK ANGELS INFANTRY models. TERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "quad-heavy-bolter",
+                     "name": "Quad Heavy Bolter",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/quad-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "land-raider-achilles": {
+         "name": "Land Raider Achilles",
+         "battlefieldRole": "HeavySupport",
+         "cost": 14,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "LAND RAIDER",
+            "LAND RAIDER ACHILLES"
+         ],
+         "profiles": [
+            {
+               "name": "Land Raider Achilles",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 3,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/twin-multi-melta",
+            "space-marines/quad-launcher"
+         ],
+         "abilities": [
+            "barrage"
+         ],
+         "transport": "This unit can transport up to 6 friendly Dark Angels INFANTRY models. TERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "maximum": 1,
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "relic-spartan-assault-tank": {
+         "name": "Relic Spartan Assault Tank",
+         "battlefieldRole": "LordOfWar",
+         "cost": 22,
+         "keywords": [
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "TRANSPORT",
+            "RELIC",
+            "RELIC SPARTAN ASSAULT TANK"
+         ],
+         "profiles": [
+            {
+               "name": "Relic Spartan Assault Tank",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 4,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks"
+         ],
+         "transport": "This unit can transport up to 25 friendly DARK ANGELS INFANTRY models. TERMINATOR and JUMP PACK models take up the space of 2 other models and each CENTURION model takes up the space of 3 other models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "main-weapons",
+               "name": "Main weapons",
+               "options": [
+                  {
+                     "id": "laser-destroyers",
+                     "name": "Laser Destroyers"
+                  },
+                  {
+                     "id": "quad-lascannons",
+                     "name": "Quad Lascannons"
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "laser-destroyers"
+            },
+            {
+               "id": "front-weapon",
+               "name": "Front weapon",
+               "options": [
+                  {
+                     "id": "twin-heavy-bolter",
+                     "name": "Twin Heavy Bolter",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "twin-heavy-flamer",
+                     "name": "Twin Heavy Flamer",
+                     "addsWeapons": [
+                        "weapons/twin-heavy-flamer"
+                     ],
+                     "addsAbilities": [
+                        "inferno"
+                     ]
+                  }
+               ],
+               "minimum": 1,
+               "maximum": 1,
+               "default": "twin-heavy-bolter"
+            },
+            {
+               "id": "pintle-weapon",
+               "name": "Pintle weapon",
+               "options": [
+                  {
+                     "id": "heavy-bolter",
+                     "name": "Heavy Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/heavy-bolter"
+                     ]
+                  },
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "cost": 1,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "multi-melta",
+                     "name": "Multi-melta",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/multi-melta"
+                     ]
+                  },
+                  {
+                     "id": "storm-bolter",
+                     "name": "Storm Bolter",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "weapons/storm-bolter"
+                     ],
+                     "addsAbilities": [
+                        "rapid-fire"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            },
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "laser-destroyer",
+                     "name": "Laser Destroyer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "laser-destroyers"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/laser-destroyer"
+                     ],
+                     "addsAbilities": [
+                        "destroyer"
+                     ]
+                  },
+                  {
+                     "id": "quad-lascannon",
+                     "name": "Quad Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "availableWhen": {
+                        "kind": "Count",
+                        "scope": "Unit",
+                        "of": {
+                           "kind": "Option",
+                           "option": "quad-lascannons"
+                        },
+                        "minimum": 1
+                     },
+                     "addsWeapons": [
+                        "weapons/quad-lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "relic-mastodon-super-heavy-siege-transport": {
+         "name": "Relic Mastodon Super-heavy Siege Transport",
+         "battlefieldRole": "LordOfWar",
+         "cost": 36,
+         "keywords": [
+            "SUPER-HEAVY",
+            "VEHICLE",
+            "TITANIC",
+            "TRANSPORT",
+            "RELIC",
+            "MASTODON SUPER-HEAVY SIEGE TRANSPORT"
+         ],
+         "profiles": [
+            {
+               "name": "Relic Mastodon Super-heavy Siege Transport",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 10
+               },
+               "weaponSkill": 5,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 2
+               },
+               "wounds": 6,
+               "leadership": 7,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/armoured-tracks",
+            "weapons/siege-melta-array",
+            "weapons/skyreaper-battery"
+         ],
+         "abilities": [
+            "space-marines/void-shields",
+            "anti-air"
+         ],
+         "transport": "This unit can transport friendly DARK ANGELS  models in one of the following combinations:\n-- Up to 40 INFANTRY models.\n-- Up to 30 INFANTRY models and 1 Dreadnought model.\n-- Up to 20 INFANTRY models and up to 2 Dreadnought models.\nEach TERMINATOR and JUMP PACK model takes the space of 2 other INFANTRY models and each CENTURION model takes the space of 3 other INFANTRY models. It cannot transport PRIMARIS models.",
+         "wargear": [
+            {
+               "id": "upgrades",
+               "name": "Upgrades",
+               "options": [
+                  {
+                     "id": "heavy-flamer",
+                     "name": "Heavy Flamer",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsAbilities": [
+                        "inferno"
+                     ],
+                     "addsWeapons": [
+                        "weapons/heavy-flamer"
+                     ]
+                  },
+                  {
+                     "id": "lascannon",
+                     "name": "Lascannon",
+                     "maximum": 2,
+                     "minimum": 2,
+                     "addsWeapons": [
+                        "weapons/lascannon"
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      "impulsor": {
+         "name": "Impulsor",
+         "battlefieldRole": "DedicatedTransport",
+         "cost": 6,
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "IMPULSOR"
+         ],
+         "profiles": [
+            {
+               "name": "Impulsor",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 14
+               },
+               "weaponSkill": 6,
+               "ballisticSkill": 3,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 2,
+               "leadership": 6,
+               "save": 6
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "IMPERIUM",
+            "ADEPTUS ASTARTES"
+         ],
+         "weapons": [
+            "space-marines/impulsor-defensive-weapon-system",
+            "space-marines/ironhail-heavy-stubber",
+            "space-marines/repulsor-field"
+         ],
+         "abilities": [
+            "hover"
+         ],
+         "transport": "This unit can transport up to 6 friendly DARK ANGELS PRIMARIS INFANTRY models. It cannot transport JUMP PACK or MK X GRAVIS units.",
+         "wargear": [
+            {
+               "id": "wargear",
+               "name": "Wargear",
+               "options": [
+                  {
+                     "id": "oribital-array",
+                     "name": "Oribital Array",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/oribital-array"
+                     ],
+                     "addsAbilities": [
+                        "one-use-only",
+                        "barrage",
+                        "destroyer"
+                     ],
+                     "profileChanges": [
+                        {
+                           "set": {
+                              "save": 5
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "id": "shield-dome",
+                     "name": "Shield Dome",
+                     "cost": 1
+                  },
+                  {
+                     "id": "impulsor-missile-array",
+                     "name": "Impulsor Missile Array",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/impulsor-missile-array"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  },
+                  {
+                     "id": "ironhail-skytalon-array",
+                     "name": "Ironhail Skytalon Array",
+                     "cost": 1,
+                     "addsWeapons": [
+                        "space-marines/ironhail-skytalon-array"
+                     ],
+                     "addsAbilities": [
+                        "anti-air"
+                     ]
+                  }
+               ],
+               "maximum": 1
+            }
+         ]
+      },
+      "primaris-techmarine": {
+         "name": "Primaris Techmarine",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "CHARACTER",
+            "INFANTRY",
+            "LIGHT",
+            "TECHMARINE",
+            "PRIMARIS"
+         ],
+         "profiles": [
+            {
+               "name": "Primaris Techmarine",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 3,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 6,
+               "save": 4
+            }
+         ],
+         "factionKeywords": [
+            "DARK ANGELS",
+            "ADEPTUS ASTARTES",
+            "IMPERIUM"
+         ],
+         "weapons": [
+            "space-marines/servo-arm-power-weapon",
+            "space-marines/forge-bolter"
+         ],
+         "abilities": [
+            "blessing-of-the-omnissiah"
+         ]
+      },
+      "lazarus": {
+         "name": "Lazarus",
+         "battlefieldRole": "HQ",
+         "cost": 6,
+         "keywords": [
+            "CHARACTER",
+            "COMMANDER",
+            "INFANTRY",
+            "LIGHT",
+            "MASTER",
+            "LAZARUS",
+            "PRIMARIS",
+            "CAPTAIN",
+            "INNER CIRCLE"
+         ],
+         "profiles": [
+            {
+               "name": "Lazarus",
+               "movement": {
+                  "kind": "Inches",
+                  "inches": 6
+               },
+               "weaponSkill": 2,
+               "ballisticSkill": 2,
+               "attacks": {
+                  "kind": "Fixed",
+                  "value": 1
+               },
+               "wounds": 1,
+               "leadership": 7,
+               "save": 5
+            }
+         ],
+         "factionKeywords": [
+            "ADEPTUS ASTARTES",
+            "IMPERIUM",
+            "DARK ANGELS"
+         ],
+         "weapons": [
+            "enmitys-edge"
+         ],
+         "abilities": [
+            "the-spiritshield-helm",
+            "intractable-will",
+            "rites-of-battle",
+            "inner-circle"
+         ]
+      }
+   },
+   "datasheetLinks": {
+      "tactical-squad": {
+         "datasheet": "space-marines/tactical-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "scout-squad": {
+         "datasheet": "space-marines/scout-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "intercessor-squad": {
+         "datasheet": "space-marines/intercessor-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "infiltrator-squad": {
+         "datasheet": "space-marines/infiltrator-squad-2",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "chaplain": {
+         "datasheet": "space-marines/chaplain",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "litanies-of-hate",
+            "spiritual-leader"
+         ],
+         "conditionalKeywords": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "TERMINATOR"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "addsFactionKeywords": [
+                  "DEATHWING"
+               ]
+            }
+         ]
+      },
+      "librarian": {
+         "datasheet": "space-marines/librarian",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING"
+         ],
+         "addsAbilities": [
+            "inner-circle"
+         ]
+      },
+      "primaris-librarian": {
+         "datasheet": "space-marines/primaris-librarian",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING"
+         ],
+         "addsAbilities": [
+            "inner-circle"
+         ]
+      },
+      "lieutenants": {
+         "datasheet": "space-marines/lieutenants",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "tactical-precision"
+         ]
+      },
+      "primaris-lieutenants": {
+         "datasheet": "space-marines/primaris-lieutenants",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "tactical-precision"
+         ]
+      },
+      "servitors": {
+         "datasheet": "space-marines/servitors",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "apothecary": {
+         "datasheet": "space-marines/apothecary",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "narthecium"
+         ]
+      },
+      "company-ancient": {
+         "datasheet": "space-marines/company-ancient",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "astartes-banner"
+         ]
+      },
+      "primaris-ancient": {
+         "datasheet": "space-marines/primaris-ancient",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "astartes-banner"
+         ]
+      },
+      "company-champion": {
+         "datasheet": "space-marines/company-champion",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "company-veterans": {
+         "datasheet": "space-marines/company-veterans",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "command-squad-bodyguard"
+         ]
+      },
+      "dreadnought": {
+         "datasheet": "space-marines/dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "venerable-dreadnought": {
+         "datasheet": "space-marines/venerable-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "contemptor-dreadnought": {
+         "datasheet": "space-marines/contemptor-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "redemptor-dreadnought": {
+         "datasheet": "space-marines/redemptor-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "primaris-apothecary": {
+         "datasheet": "space-marines/primaris-apothecary",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "narthecium"
+         ]
+      },
+      "reiver-squad": {
+         "datasheet": "space-marines/reiver-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "aggressor-squad": {
+         "datasheet": "space-marines/aggressor-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "imperial-space-marine": {
+         "datasheet": "space-marines/imperial-space-marine",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "chapter-ancient": {
+         "datasheet": "space-marines/chapter-ancient",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "devastator-squad": {
+         "datasheet": "space-marines/devastator-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "hellblaster-squad": {
+         "datasheet": "space-marines/hellblaster-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "hunter": {
+         "datasheet": "space-marines/hunter",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "stalker": {
+         "datasheet": "space-marines/stalker",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "whirlwind": {
+         "datasheet": "space-marines/whirlwind",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "predator": {
+         "datasheet": "space-marines/predator",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "vindicator": {
+         "datasheet": "space-marines/vindicator",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "eliminator-squad": {
+         "datasheet": "space-marines/eliminator-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "assault-squad": {
+         "datasheet": "space-marines/assault-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "scout-bike-squad": {
+         "datasheet": "space-marines/scout-bike-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "inceptor-squad": {
+         "datasheet": "space-marines/inceptor-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "suppressor-squad": {
+         "datasheet": "space-marines/suppressor-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "primaris-chaplain": {
+         "datasheet": "space-marines/primaris-chaplain",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "litanies-of-hate",
+            "space-marines/spiritual-leader"
+         ],
+         "conditionalKeywords": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "BIKER"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "addsFactionKeywords": [
+                  "RAVENWING"
+               ]
+            }
+         ]
+      },
+      "deimos-pattern-relic-predator": {
+         "datasheet": "space-marines/deimos-pattern-relic-predator",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "deimos-pattern-vindicator-laser-destroyer": {
+         "datasheet": "space-marines/deimos-pattern-vindicator-laser-destroyer",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-sicaran-battle-tank": {
+         "datasheet": "space-marines/relic-sicaran-battle-tank",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-sicaran-venator-tank-destroyer": {
+         "datasheet": "space-marines/relic-sicaran-venator-tank-destroyer",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-sicaran-punisher-assault-tank": {
+         "datasheet": "space-marines/relic-sicaran-punisher-assault-tank",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-typhon-heavy-siege-tank": {
+         "datasheet": "space-marines/relic-typhon-heavy-siege-tank"
+      },
+      "relic-cerberus-heavy-tank-destroyer": {
+         "datasheet": "space-marines/relic-cerberus-heavy-tank-destroyer",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-fellblade-super-heavy-tank": {
+         "datasheet": "space-marines/relic-fellblade-super-heavy-tank",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-falchion-super-heavy-tank-destroyer": {
+         "datasheet": "space-marines/relic-falchion-super-heavy-tank-destroyer",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "astraeus-super-heavy-tank": {
+         "datasheet": "space-marines/astraeus-super-heavy-tank",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "mortis-dreadnought": {
+         "datasheet": "space-marines/mortis-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "siege-dreadnought": {
+         "datasheet": "space-marines/siege-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "contemptor-mortis-dreadnought": {
+         "datasheet": "space-marines/contemptor-mortis-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "chaplain-venerable-dreadnought": {
+         "datasheet": "space-marines/chaplain-venerable-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-contemptor-dreadnought": {
+         "datasheet": "space-marines/relic-contemptor-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-deredeo-dreadnought": {
+         "datasheet": "space-marines/relic-deredeo-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-leviathan-dreadnought": {
+         "datasheet": "space-marines/relic-leviathan-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "land-speeder-tempests": {
+         "datasheet": "space-marines/land-speeder-tempests",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-javelin-attack-speeder": {
+         "datasheet": "space-marines/relic-javelin-attack-speeder",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "xiphon-interceptor": {
+         "datasheet": "space-marines/xiphon-interceptor",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "storm-eagle-assault-gunship": {
+         "datasheet": "space-marines/storm-eagle-assault-gunship",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "storm-eagle-assault-gunship-roc-pattern": {
+         "datasheet": "space-marines/storm-eagle-assault-gunship-roc-pattern",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "fire-raptor-assault-gunship": {
+         "datasheet": "space-marines/fire-raptor-assault-gunship",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "caestus-assault-ram": {
+         "datasheet": "space-marines/caestus-assault-ram",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "thunderhawk-assault-gunship": {
+         "datasheet": "space-marines/thunderhawk-assault-gunship",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "thunderhawk-transporter": {
+         "datasheet": "space-marines/thunderhawk-transporter",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "sokar-pattern-stormbird": {
+         "datasheet": "space-marines/sokar-pattern-stormbird",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "damocles-command-rhino": {
+         "datasheet": "space-marines/damocles-command-rhino",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "whirlwind-hyperios": {
+         "datasheet": "space-marines/whirlwind-hyperios",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "relic-whirlwind-scorpius": {
+         "datasheet": "space-marines/relic-whirlwind-scorpius",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "rapier-carrier": {
+         "datasheet": "space-marines/rapier-carrier",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "tarantula-battery": {
+         "datasheet": "space-marines/tarantula-battery-2",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "tarantula-air-defence-battery": {
+         "datasheet": "space-marines/tarantula-air-defence-battery",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "lucius-pattern-dreadnought-drop-pod": {
+         "datasheet": "space-marines/lucius-pattern-dreadnought-drop-pod",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "deathstorm-drop-pod": {
+         "datasheet": "space-marines/deathstorm-drop-pod",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "castellum-stronghold-tacticus-bunker": {
+         "datasheet": "space-marines/castellum-stronghold-tacticus-bunker",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "castellum-stronghold-bunker-annex": {
+         "datasheet": "space-marines/castellum-stronghold-bunker-annex",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "incursor-squad": {
+         "datasheet": "space-marines/incursor-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "invictor-tactical-warsuit": {
+         "datasheet": "space-marines/invictor-tactical-warsuit",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "primaris-captain": {
+         "datasheet": "space-marines/primaris-captain",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "rites-of-battle"
+         ]
+      },
+      "captain": {
+         "datasheet": "space-marines/captain",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ],
+         "addsAbilities": [
+            "rites-of-battle"
+         ],
+         "conditionalKeywords": [
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "TERMINATOR"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "addsFactionKeywords": [
+                  "DEATHWING"
+               ]
+            },
+            {
+               "when": {
+                  "kind": "Count",
+                  "scope": "Unit",
+                  "of": {
+                     "kind": "Keyword",
+                     "keyword": "BIKER"
+                  },
+                  "minimum": 1,
+                  "maximum": 1
+               },
+               "addsFactionKeywords": [
+                  "RAVENWING"
+               ]
+            }
+         ]
+      },
+      "assault-intercessor-squad": {
+         "datasheet": "space-marines/assault-intercessor-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "heavy-intercessor-squad": {
+         "datasheet": "space-marines/heavy-intercessor-squad-2",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "bladeguard-ancient": {
+         "datasheet": "space-marines/bladeguard-ancient",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING"
+         ]
+      },
+      "ancient-in-terminator-armour": {
+         "datasheet": "space-marines/ancient-in-terminator-armour",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING"
+         ]
+      },
+      "veteran-intercessor-squad": {
+         "datasheet": "space-marines/veteran-intercessor-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "bladeguard-veteran-squad": {
+         "datasheet": "space-marines/bladeguard-veteran-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING"
+         ]
+      },
+      "judiciar": {
+         "datasheet": "space-marines/judiciar",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "terminator-assault-squad": {
+         "datasheet": "space-marines/terminator-assault-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING"
+         ]
+      },
+      "terminator-squad": {
+         "datasheet": "space-marines/terminator-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "DEATHWING"
+         ]
+      },
+      "centurion-assault-squad": {
+         "datasheet": "space-marines/centurion-assault-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "ironclad-dreadnought": {
+         "datasheet": "space-marines/ironclad-dreadnought",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "outrider-squad": {
+         "datasheet": "space-marines/outrider-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING"
+         ]
+      },
+      "invader-atv-squad": {
+         "datasheet": "space-marines/invader-atv-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING"
+         ]
+      },
+      "bike-squad": {
+         "datasheet": "space-marines/bike-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING"
+         ]
+      },
+      "attack-bike-squad": {
+         "datasheet": "space-marines/attack-bike-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING"
+         ]
+      },
+      "storm-speeder-hailstrike": {
+         "datasheet": "space-marines/storm-speeder-hailstrike",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING"
+         ]
+      },
+      "storm-speeder-thunderstrike": {
+         "datasheet": "space-marines/storm-speeder-thunderstrike",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING"
+         ]
+      },
+      "storm-speeder-hammerstrike": {
+         "datasheet": "space-marines/storm-speeder-hammerstrike",
+         "addsFactionKeywords": [
+            "DARK ANGELS",
+            "RAVENWING"
+         ]
+      },
+      "centurion-devastator-squad": {
+         "datasheet": "space-marines/centurion-devastator-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "eradicator-squad": {
+         "datasheet": "space-marines/eradicator-squad",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "thunderfire-cannon": {
+         "datasheet": "space-marines/thunderfire-cannon-2",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "firestrike-servo-turrets": {
+         "datasheet": "space-marines/firestrike-servo-turrets",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "gladiator-lancer": {
+         "datasheet": "space-marines/gladiator-lancer",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "gladiator-reaper": {
+         "datasheet": "space-marines/gladiator-reaper",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "gladiator-valiant": {
+         "datasheet": "space-marines/gladiator-valiant",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "stormhawk-interceptor": {
+         "datasheet": "space-marines/stormhawk-interceptor",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "stormtalon-gunship": {
+         "datasheet": "space-marines/stormtalon-gunship",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      },
+      "hammerfall-bunker": {
+         "datasheet": "space-marines/hammerfall-bunker",
+         "addsFactionKeywords": [
+            "DARK ANGELS"
+         ]
+      }
+   },
+   "weapons": {
+      "the-sword-of-secrets": {
+         "name": "The Sword of Secrets",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "the-sword-of-silence": {
+         "name": "The Sword of Silence",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "the-raven-sword": {
+         "name": "The Raven Sword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "power-fist": {
+         "name": "Power Fist",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "power-sword": {
+         "name": "Power Sword",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 9
+      },
+      "the-blades-of-reason": {
+         "name": "The Blades oF Reason",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 6,
+         "antiTank": 11
+      },
+      "traitors-bane": {
+         "name": "Traitor's Bane",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "terminator-power-weapon": {
+         "name": "Terminator Power Weapon",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "reductor": {
+         "name": "Reductor",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 11
+      },
+      "halberd-of-caliban": {
+         "name": "Halberd of Caliban",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "deathwing-power-weapons": {
+         "name": "Deathwing Power Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 2
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6
+      },
+      "cyclone-missile-launcher": {
+         "name": "Cyclone Missile Launcher",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "reaper-autocannon": {
+         "name": "Reaper Autocannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8
+      },
+      "deathwing-knight-weapons": {
+         "name": "Deathwing Knight Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "UserMultiplied",
+            "multiplier": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 6
+      },
+      "close-combat-weapons": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 9,
+         "antiTank": 10
+      },
+      "close-combat-weapons-2": {
+         "name": "Close Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 10,
+         "antiTank": 10
+      },
+      "plasma-storm-battery": {
+         "name": "Plasma Storm Battery",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 6,
+         "antiTank": 6,
+         "text": "Supercharge"
+      },
+      "black-knight-combat-weapons": {
+         "name": "Black Knight Combat Weapons",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 8
+      },
+      "rift-cannon": {
+         "name": "Rift Cannon",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 1
+         },
+         "antiPersonnel": 9,
+         "antiTank": 5,
+         "text": "Destroyer"
+      },
+      "blacksword-missile-launchers": {
+         "name": "Blacksword Missile Launchers",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 2
+         },
+         "antiPersonnel": 7,
+         "antiTank": 7
+      },
+      "avenger-mega-bolter": {
+         "name": "Avenger Mega Bolter",
+         "type": "Heavy",
+         "range": {
+            "kind": "Inches",
+            "inches": 36
+         },
+         "attacks": {
+            "kind": "Fixed",
+            "value": 3
+         },
+         "antiPersonnel": 5,
+         "antiTank": 8
+      },
+      "enmitys-edge": {
+         "name": "Enmity's Edge",
+         "type": "Melee",
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "If a wound roll for an attack made with this weapon is successful, and the target is a PSYKER, place two blast markers next to the target unit instead of one."
+      },
+      "plasma-talon": {
+         "name": "Plasma Talon",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 18
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 8,
+         "antiTank": 8,
+         "text": "Supercharge"
+      },
+      "ravenwing-grenade-launcher": {
+         "name": "Ravenwing Grenade Launcher",
+         "type": "SmallArms",
+         "range": {
+            "kind": "Inches",
+            "inches": 24
+         },
+         "attacks": {
+            "kind": "User"
+         },
+         "antiPersonnel": 7,
+         "antiTank": 9
+      }
+   },
+   "abilities": {
+      "blessing-of-the-omnissiah": {
+         "name": "Blessing of the Omnissiah",
+         "text": "At the end of the Action phase, this unit can attempt to repair one friendly DARK ANGELS Vehicle unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that Vehicle unit. Only one attempt to repair each unit can be made each turn."
+      },
+      "data-augurs": {
+         "name": "Data Augurs",
+         "text": "Change this unit’s Ballistic Skill characteristic to 2+ whilst it is within 6\" of any friendly DARK ANGELS RHINO PRIMARIS units."
+      },
+      "servo-skull-hub": {
+         "name": "Servo-skull Hub",
+         "text": "At the start of the Damage phase, you can remove one small blast marker from one friendly DARK ANGELS Vehicle unit within 6\" of this unit."
+      },
+      "the-lion-helm": {
+         "name": "The Lion Helm",
+         "text": "Improve the Save characteristic (to a maximum of 4+) of friendly LIGHT DARK ANGELS units by 1 whilst they are within 6\" of this unit."
+      },
+      "chapter-master": {
+         "name": "Chapter Master",
+         "text": "You can re-roll hit rolls for attacks made by friendly DARK ANGELS units whilst they are within 6\" of this unit."
+      },
+      "supreme-tactician": {
+         "name": "Supreme Tactician",
+         "text": "Roll one D6 if this unit is on the battlefield at the start of the Orders phase, or is embarked aboard a Transport that is on the battlefield at the start of the Orders phase. On a 4+ you can generate one extra Command Asset."
+      },
+      "grand-master-of-the-deathwing": {
+         "name": "Grand Master of the Deathwing",
+         "text": "You can re-roll hit rolls for attacks made by friendly Deathwingunits whilst they are within 6\" of this unit."
+      },
+      "grand-master-of-the-ravenwing": {
+         "name": "Grand Master of the Ravenwing",
+         "text": "You can re-roll hit rolls for attacks made by friendly Ravenwing units whilst they are within 6\" of this unit."
+      },
+      "exemplar-of-hate": {
+         "name": "Exemplar of Hate",
+         "text": "You can re-roll hit rolls for attacks made with melee weapons by friendly DARK ANGELS units whilst they are within 6\" of this unit. In addition, improve the Attacks characteristic of friendly LIGHT DARK ANGELS units by 1 whilst they are within 6\" of this unit."
+      },
+      "book-of-salvation": {
+         "name": "Book of Salvation",
+         "text": "Add 1 to hit rolls for attacks made with melee weapons by friendly LIGHT DARK ANGELS units whilst they are within 6\" of this unit."
+      },
+      "deathwing-company-banner": {
+         "name": "Deathwing Company Banner",
+         "text": "Add 1 to the Attacks characteristic of Deathwing units when making Fight actions whilst they are within 6\" of any friendly units with this ability."
+      },
+      "ravenwing-banner": {
+         "name": "Ravenwing Banner",
+         "text": "Add 1 to the Attacks characteristic of Ravenwing units when making Fight actions whilst they are within 6\" of any friendly units with this ability."
+      },
+      "icon-of-old-caliban": {
+         "name": "Icon of Old Caliban",
+         "text": "Icon of Old Caliban: Friendly DARK ANGELS LIGHT and DARK ANGELS HEAVY units have the Stealth ability whilst they are within 6\" of this unit."
+      },
+      "ravenwing-land-speeder-vengeance": {
+         "name": "Ravenwing Land Speeder Vengeance",
+         "text": "Icon of Old Caliban: Friendly DARK ANGELS LIGHT and DARK ANGELS HEAVY units have the Stealth ability whilst they are within 6\" of this unit."
+      },
+      "stasis-bomb": {
+         "name": "Stasis Bomb",
+         "text": "Once per battle, when this unit finishes making a Move action, select one enemy unit it moved over whilst making that Move action and roll three D6, adding 1 to the result if that unit is a CHARACTER and/or INFANTRY; for each result of 4+ place one blast marker next to that unit."
+      },
+      "the-spiritshield-helm": {
+         "name": "The Spiritshield Helm",
+         "text": "Friendly DARK ANGELS units gain the Ignore Damage (6+) ability whilst they are within 6\" of this unit."
+      },
+      "intractable-will": {
+         "name": "Intractable Will",
+         "text": "Morale tests taken for this unit are automatically passed."
+      },
+      "inner-circle": {
+         "name": "Inner Circle",
+         "text": "You can re-roll hit rolls for attacks made by this unit that target FALLEN units."
+      },
+      "rites-of-battle": {
+         "name": "Rites of Battle",
+         "text": "Re-roll hit rolls of 1 for attacks made by friendly DARK ANGELS units whilst they are within 6\" of this unit."
+      },
+      "tactical-precision": {
+         "name": "Tactical Precision",
+         "text": "Re-roll wound rolls of 1 for attacks made by friendly DARK ANGELS units whilst they are within 6\" of this unit."
+      },
+      "no-escape": {
+         "name": "No Escape",
+         "text": "Ravenwing units within 6\" of this unit do not suffer the penalty for attacks made with ranged weapons that target obscured units."
+      },
+      "narthecium": {
+         "name": "Narthecium",
+         "text": "At the end of the Action phase, this unit can attempt to heal one friendly DARK ANGELS LIGHT unit in base contact with it. If it does, roll one D6; on a 4+ remove one damage marker from that LIGHT unit. Only one attempt to heal each unit can be made each turn."
+      },
+      "honour-or-death": {
+         "name": "Honour or Death",
+         "text": "You can re-roll wound rolls for attacks made with melee weapons by this unit that target CHARACTER units."
+      },
+      "litanies-of-hate": {
+         "name": "Litanies of Hate",
+         "text": "You can re-roll hit rolls for attacks made with melee weapons by friendly DARK ANGELS units whilst they are within 6\" of this unit"
+      },
+      "spiritual-leader": {
+         "name": "Spiritual Leader",
+         "text": "Friendly DARK ANGELS units can use this unit’s Leadership characteristic instead of their own whilst they are within 6\" of this unit."
+      },
+      "astartes-banner": {
+         "name": "Astartes Banner",
+         "text": "Morale tests taken for friendly DARK ANGELS units are automatically passed whilst they are within 6\" of this unit."
+      },
+      "command-squad-bodyguard": {
+         "name": "Command Squad Bodyguard",
+         "text": "At the start of the Damage phase, you can select one friendly DARK ANGELS LIGHT CHARACTER unit that has at least one blast marker next to it and is within 6\" of this unit. Remove up to D3 blast markers from that CHARACTER unit and place them next to this unit."
+      }
+   },
+   "imports": [
+      "space-marines",
+      "weapons"
+   ]
+}
