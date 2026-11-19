@@ -148,11 +148,14 @@ export function weaponFromCharacteristics(characteristics: Characteristics, prof
    const antiPersonnel = take(parseTwoDiceTarget(characteristics.get("SAP") ?? "-"), profile, "SAP", report);
    const antiTank = take(parseTwoDiceTarget(characteristics.get("SAT") ?? "-"), profile, "SAT", report);
    if ([range, attacks, antiPersonnel, antiTank].includes(null)) return undefined;
-   if ((type === "Melee") !== (range === undefined)) {
+   const isStarredMelee = type === "Melee" && range?.kind === "Special";
+   if (isStarredMelee) report.recordDropped(profile, "melee range * that the unit's abilities explain");
+   const keptRange = isStarredMelee ? undefined : range;
+   if ((type === "Melee") !== (keptRange === undefined)) {
       report.failUnhandled(profile, `a ${type} weapon with range ${characteristics.get("Range")}`);
       return undefined;
    }
-   if (range) weapon.range = range;
+   if (keptRange) weapon.range = keptRange;
    if (attacks) weapon.attacks = attacks;
    if (antiPersonnel) weapon.antiPersonnel = antiPersonnel;
    if (antiTank) weapon.antiTank = antiTank;
