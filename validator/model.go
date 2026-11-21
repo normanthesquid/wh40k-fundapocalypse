@@ -237,11 +237,12 @@ type Catalogue struct {
 }
 
 type Detachment struct {
-	MaximumPerArmy *Limit                  `json:"maximumPerArmy"`
-	AvailableWhen  *Condition              `json:"availableWhen"`
-	Slots          map[string]BoundedLimit `json:"slots"`
-	KeywordLimits  map[string]BoundedLimit `json:"keywordLimits"`
-	Abilities      []string                `json:"abilities"`
+	UnitsShareFaction bool                    `json:"unitsShareFaction"`
+	MaximumPerArmy    *Limit                  `json:"maximumPerArmy"`
+	AvailableWhen     *Condition              `json:"availableWhen"`
+	Slots             map[string]BoundedLimit `json:"slots"`
+	KeywordLimits     map[string]BoundedLimit `json:"keywordLimits"`
+	Abilities         []string                `json:"abilities"`
 }
 
 type GameSystem struct {
