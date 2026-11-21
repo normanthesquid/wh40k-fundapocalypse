@@ -1695,7 +1695,8 @@
             "enslaved-star-god",
             "terror-troops"
          ],
-         "maximumPerArmy": 1
+         "maximumPerArmy": 1,
+         "cannotBeWarlord": true
       },
       "ctan-shard-of-the-deceiver": {
          "name": "C'tan Shard of the Deceiver",
@@ -1738,7 +1739,8 @@
             "immune-to-natural-law",
             "enslaved-star-god"
          ],
-         "maximumPerArmy": 1
+         "maximumPerArmy": 1,
+         "cannotBeWarlord": true
       },
       "canoptek-wraiths": {
          "name": "Canoptek Wraiths",
@@ -3598,7 +3600,8 @@
                   }
                ]
             }
-         }
+         },
+         "beginsAsCommander": true
       },
       "royal-warden": {
          "name": "Royal Warden",
@@ -4643,7 +4646,8 @@
             "immune-to-natural-law",
             "enslaved-star-god"
          ],
-         "maximumPerArmy": 1
+         "maximumPerArmy": 1,
+         "cannotBeWarlord": true
       },
       "the-silent-king-2": {
          "name": "The Silent King",

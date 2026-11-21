@@ -53,7 +53,8 @@
                   "minimum": 3
                }
             ]
-         }
+         },
+         "makesCharacter": true
       }
    },
    "abilities": {
