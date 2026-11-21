@@ -2,6 +2,12 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.3.0
+
+* Commander, Warmaster and Character are no longer datasheet upgrades. The rules nominate them after deployment, and Knight Lances and Fallen Courts are Faction abilities. Removed: the game-wide `commander` and `warmaster` options and with them universal options; the Knights', C'tan and Sanctus upgrades; and every COMMANDER and WARMASTER keyword limit, and with them `keywordLimits` and `armyKeywordLimits`. An option's `maximumPerDetachment` is removed too, since nothing used it any more.
+* The Renegade Commander has its printed Chaos Covenant ability, replacing 50 conditional covenant abilities on other Renegades and Heretics datasheets.
+* The Primaris Redoubt and the Dark Angels Master, Primaris Master and Lazarus no longer have a COMMANDER keyword, matching their datasheets.
+
 ## 2.2.0
 
 * An option's `maximumPerArmy` is removed from the format. No option used it; per-army limits are on whole units.
