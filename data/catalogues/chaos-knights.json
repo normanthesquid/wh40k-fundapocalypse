@@ -45,67 +45,6 @@
          ],
          "abilities": [
             "destroyer"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  }
-               ]
-            }
          ]
       },
       "knight-desecrator": {
@@ -179,65 +118,6 @@
                "minimum": 1,
                "maximum": 1,
                "default": "reaper-chainsword"
-            },
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  }
-               ]
             }
          ]
       },
@@ -309,59 +189,6 @@
                      ],
                      "addsAbilities": [
                         "destroyer"
-                     ]
-                  },
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
                      ]
                   }
                ]
@@ -564,82 +391,6 @@
                      ]
                   },
                   {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "All",
-                        "conditions": [
-                           {
-                              "kind": "Count",
-                              "scope": "Unit",
-                              "of": {
-                                 "kind": "Option",
-                                 "option": "war-dog-moirax"
-                              },
-                              "minimum": 1
-                           },
-                           {
-                              "kind": "Not",
-                              "condition": {
-                                 "kind": "Any",
-                                 "conditions": [
-                                    {
-                                       "kind": "Count",
-                                       "scope": "Detachment",
-                                       "of": {
-                                          "kind": "Detachment",
-                                          "detachment": "ad-hoc"
-                                       },
-                                       "minimum": 1
-                                    },
-                                    {
-                                       "kind": "Count",
-                                       "scope": "Unit",
-                                       "of": {
-                                          "kind": "Option",
-                                          "option": "character-fallen-courts",
-                                          "datasheet": "war-dog-squadron"
-                                       },
-                                       "maximum": 0
-                                    },
-                                    {
-                                       "kind": "Count",
-                                       "scope": "Unit",
-                                       "of": {
-                                          "kind": "Keyword",
-                                          "keyword": "COMMANDER"
-                                       },
-                                       "maximum": 0
-                                    }
-                                 ]
-                              }
-                           }
-                        ]
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  },
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "availableWhen": {
-                        "kind": "Count",
-                        "scope": "Unit",
-                        "of": {
-                           "kind": "Option",
-                           "option": "war-dog-moirax"
-                        },
-                        "minimum": 1
-                     },
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
                      "id": "war-dog-moirax",
                      "name": "War Dog Moirax",
                      "maximum": 3,
@@ -821,81 +572,6 @@
                "name": "Upgrades",
                "options": [
                   {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "availableWhen": {
-                        "kind": "Count",
-                        "scope": "Unit",
-                        "of": {
-                           "kind": "Option",
-                           "option": "war-dog"
-                        },
-                        "minimum": 1
-                     },
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "All",
-                        "conditions": [
-                           {
-                              "kind": "Count",
-                              "scope": "Unit",
-                              "of": {
-                                 "kind": "Option",
-                                 "option": "war-dog"
-                              },
-                              "minimum": 1
-                           },
-                           {
-                              "kind": "Not",
-                              "condition": {
-                                 "kind": "Any",
-                                 "conditions": [
-                                    {
-                                       "kind": "Count",
-                                       "scope": "Detachment",
-                                       "of": {
-                                          "kind": "Detachment",
-                                          "detachment": "ad-hoc"
-                                       },
-                                       "minimum": 1
-                                    },
-                                    {
-                                       "kind": "Count",
-                                       "scope": "Unit",
-                                       "of": {
-                                          "kind": "Option",
-                                          "option": "character-fallen-courts"
-                                       },
-                                       "maximum": 0
-                                    },
-                                    {
-                                       "kind": "Count",
-                                       "scope": "Unit",
-                                       "of": {
-                                          "kind": "Keyword",
-                                          "keyword": "COMMANDER"
-                                       },
-                                       "maximum": 0
-                                    }
-                                 ]
-                              }
-                           }
-                        ]
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  },
-                  {
                      "id": "war-dog-autocannon",
                      "name": "War Dog Autocannon",
                      "maximum": 2,
@@ -1050,59 +726,6 @@
                      "minimum": 2,
                      "addsWeapons": [
                         "weapons/twin-meltagun"
-                     ]
-                  },
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
                      ]
                   }
                ]
@@ -1422,59 +1045,6 @@
                      "addsWeapons": [
                         "weapons/titanic-feet"
                      ]
-                  },
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
                   }
                ]
             }
@@ -1521,67 +1091,6 @@
          "abilities": [
             "inferno",
             "destroyer"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  }
-               ]
-            }
          ]
       },
       "renegade-knight-magaera": {
@@ -1672,59 +1181,6 @@
                      "addsAbilities": [
                         "rapid-fire"
                      ]
-                  },
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
                   }
                ]
             }
@@ -1770,67 +1226,6 @@
          "abilities": [
             "ion-gauntlet-shield",
             "destroyer"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  }
-               ]
-            }
          ]
       },
       "renegade-knight-castigator": {
@@ -1872,67 +1267,6 @@
          ],
          "abilities": [
             "destroyer"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  }
-               ]
-            }
          ]
       },
       "renegade-knight-atropos": {
@@ -1978,67 +1312,6 @@
             "terror-troops",
             "unstable-reactor",
             "destroyer"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  }
-               ]
-            }
          ]
       },
       "renegade-knight-porphyrion": {
@@ -2136,65 +1409,6 @@
                "minimum": 1,
                "maximum": 1,
                "default": "ironstorm-missile-pod"
-            },
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
-                     ]
-                  }
-               ]
             }
          ]
       },
@@ -2282,59 +1496,6 @@
                      "minimum": 1,
                      "addsWeapons": [
                         "weapons/hellburner-chieorovile"
-                     ]
-                  },
-                  {
-                     "id": "character-fallen-courts",
-                     "name": "Character (Fallen Courts)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "addsKeywords": [
-                        "CHARACTER"
-                     ]
-                  },
-                  {
-                     "id": "warmaster",
-                     "name": "Warmaster",
-                     "maximum": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "Detachment",
-                                    "detachment": "ad-hoc"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Option",
-                                    "option": "character-fallen-courts",
-                                    "datasheet": "war-dog-squadron"
-                                 },
-                                 "maximum": 0
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Unit",
-                                 "of": {
-                                    "kind": "Keyword",
-                                    "keyword": "COMMANDER"
-                                 },
-                                 "maximum": 0
-                              }
-                           ]
-                        }
-                     },
-                     "addsKeywords": [
-                        "WARMASTER"
                      ]
                   }
                ]

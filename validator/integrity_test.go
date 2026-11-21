@@ -58,12 +58,6 @@ func TestIntegrityRules(t *testing.T) {
 		want   string
 	}{
 		{"valid fixtures", func(*Dataset) {}, ""},
-		{"unknown universal option counted", func(dataset *Dataset) {
-			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindUniversalOption, Option: "nope"}))
-		}, `universal option "nope" is not a game-system universal option`},
-		{"universal option counted on a missing datasheet", func(dataset *Dataset) {
-			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindUniversalOption, Option: "commander", Datasheet: pointer("nope")}))
-		}, `"nope" does not resolve`},
 		{"growing group maximum names a missing option", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) {
 				inquisitor.Wargear[1].Maximum = &Bound{Growing: &Limit{Base: 1, Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindOption, Option: "nope"}}}}}
@@ -149,15 +143,11 @@ func TestIntegrityRules(t *testing.T) {
 		{"dangling local weapon", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) { option.AddsWeapons = []string{"nope"} })
 		}, `addsWeapons: weapon "nope" does not resolve`},
-		{"weapon from the game system", func(dataset *Dataset) {
-			universal := dataset.GameSystem.UniversalOptions["commander"]
-			universal.AddsWeapons = []string{"bolter"}
-			dataset.GameSystem.UniversalOptions["commander"] = universal
-		}, "the game system has no weapons"},
 		{"game system may name any catalogue", func(dataset *Dataset) {
-			universal := dataset.GameSystem.UniversalOptions["commander"]
-			universal.AddsWeapons = []string{"weapons/master-crafted-weapons"}
-			dataset.GameSystem.UniversalOptions["commander"] = universal
+			dataset.Catalogues["weapons"].Abilities = map[string]NamedEntry{"shared": {}}
+			battalion := dataset.GameSystem.Detachments["battalion"]
+			battalion.Abilities = []string{"weapons/shared"}
+			dataset.GameSystem.Detachments["battalion"] = battalion
 		}, ""},
 		{"reference into a catalogue not imported", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Weapons = []string{libraryID + "/bolter"} })
@@ -300,9 +290,6 @@ func TestIntegrityRules(t *testing.T) {
 		{"keyword nothing adds", func(dataset *Dataset) {
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "TYPO"}))
 		}, `keyword "TYPO" is never added`},
-		{"keyword limit nothing adds", func(dataset *Dataset) {
-			dataset.GameSystem.ArmyKeywordLimits["TYPO"] = BoundedLimit{Minimum: pointer(1)}
-		}, `armyKeywordLimits/TYPO: keyword "TYPO" is never added`},
 		{"keyword only a faction keyword adds", func(dataset *Dataset) {
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "IMPERIUM"}))
 		}, ""},
@@ -430,9 +417,9 @@ func TestIntegrityRules(t *testing.T) {
 		}, ""},
 		{"limit term counting an unknown detachment", func(dataset *Dataset) {
 			battalion := dataset.GameSystem.Detachments["battalion"]
-			battalion.KeywordLimits["COMMANDER"] = BoundedLimit{Maximum: &Limit{Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"}}}}}
+			battalion.Slots["HQ"] = BoundedLimit{Maximum: &Limit{Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"}}}}}
 			dataset.GameSystem.Detachments["battalion"] = battalion
-		}, `keywordLimits/COMMANDER/maximum/terms/0/per: detachment "nope"`},
+		}, `slots/HQ/maximum/terms/0/per: detachment "nope"`},
 		{"alternative role counting an unknown detachment", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) {
 				inquisitor.AlternativeRoles = []AlternativeRole{{When: *count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"})}}
@@ -454,30 +441,9 @@ func TestIntegrityRules(t *testing.T) {
 				AvailableWhen: count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"}),
 			}
 		}, `example-rally-rule/availableWhen/of: detachment "nope"`},
-		{"universal option availability counting an unknown detachment", func(dataset *Dataset) {
-			universal := dataset.GameSystem.UniversalOptions["commander"]
-			universal.AvailableWhen = count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"})
-			dataset.GameSystem.UniversalOptions["commander"] = universal
-		}, `universalOptions/commander/availableWhen/of: detachment "nope"`},
 		{"library importing itself", func(dataset *Dataset) {
 			dataset.Catalogues[libraryID].Imports = []string{libraryID}
 		}, "a catalogue does not import itself"},
-		{"universal option id differing from its key", func(dataset *Dataset) {
-			universal := dataset.GameSystem.UniversalOptions["commander"]
-			universal.ID = pointer("warlord")
-			dataset.GameSystem.UniversalOptions["commander"] = universal
-		}, `universalOptions/commander: id "warlord" differs from its key`},
-		{"universal option id matching its key", func(dataset *Dataset) {
-			universal := dataset.GameSystem.UniversalOptions["commander"]
-			universal.ID = pointer("commander")
-			dataset.GameSystem.UniversalOptions["commander"] = universal
-		}, ""},
-		{"universal option removing a weapon is not checked against a datasheet", func(dataset *Dataset) {
-			universal := dataset.GameSystem.UniversalOptions["commander"]
-			universal.RemovesWeapons = []string{"weapons/master-crafted-weapons"}
-			universal.ProfileChanges = []ProfileChange{{Profile: pointer("Any")}}
-			dataset.GameSystem.UniversalOptions["commander"] = universal
-		}, ""},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
@@ -533,7 +499,9 @@ func TestBrokenLinkIsReportedOnce(t *testing.T) {
 
 func TestUnusedKeywordIsReportedAtEveryUse(t *testing.T) {
 	dataset := loadValidDataset(t)
-	dataset.GameSystem.ArmyKeywordLimits["TYPO"] = BoundedLimit{Minimum: pointer(1)}
+	supreme := dataset.GameSystem.Detachments["supreme-command"]
+	supreme.AvailableWhen = count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "TYPO"})
+	dataset.GameSystem.Detachments["supreme-command"] = supreme
 	setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "TYPO"}))
 	if problems := checkIntegrity(dataset, nil); len(problems) != 2 {
 		t.Fatalf("want two problems, got %v", problems)

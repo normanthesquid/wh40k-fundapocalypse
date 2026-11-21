@@ -30,8 +30,8 @@ func checkIntegrity(dataset *Dataset, expectedRelease *string) []string {
 func (check *checker) checkGameSystem() {
 	gameSystem := check.dataset.GameSystem
 	where := scope{location: gameSystemFileName}
-	check.checkUniqueSlugs(where, sortedKeys(gameSystem.Detachments), sortedKeys(gameSystem.UniversalOptions),
-		sortedKeys(gameSystem.Abilities), sortedKeys(gameSystem.WarmasterTraits))
+	check.checkUniqueSlugs(where, sortedKeys(gameSystem.Detachments), sortedKeys(gameSystem.Abilities),
+		sortedKeys(gameSystem.WarmasterTraits))
 	for _, slug := range sortedKeys(gameSystem.Detachments) {
 		detachment := gameSystem.Detachments[slug]
 		detachmentScope := where.at("detachments/%s", slug)
@@ -40,27 +40,9 @@ func (check *checker) checkGameSystem() {
 		for _, role := range sortedKeys(detachment.Slots) {
 			check.checkBoundedLimit(detachmentScope.at("slots/%s", role), detachment.Slots[role])
 		}
-		check.checkKeywordLimits(detachmentScope.at("keywordLimits"), detachment.KeywordLimits)
 		for _, ability := range detachment.Abilities {
 			check.checkAbility(detachmentScope.at("abilities"), ability)
 		}
-	}
-	for _, slug := range sortedKeys(gameSystem.UniversalOptions) {
-		option := gameSystem.UniversalOptions[slug]
-		optionScope := where.at("universalOptions/%s", slug)
-		if option.ID != nil && *option.ID != slug {
-			check.report(optionScope, "id %q differs from its key", *option.ID)
-		}
-		check.checkOption(optionScope, option.Option)
-	}
-	check.checkKeywordLimits(where.at("armyKeywordLimits"), gameSystem.ArmyKeywordLimits)
-}
-
-func (check *checker) checkKeywordLimits(where scope, limits map[string]BoundedLimit) {
-	for _, keyword := range sortedKeys(limits) {
-		keywordScope := where.at("%s", keyword)
-		check.useKeyword(keywordScope, keyword)
-		check.checkBoundedLimit(keywordScope, limits[keyword])
 	}
 }
 
@@ -263,7 +245,7 @@ func (check *checker) checkWargearChanges(where scope, changes WargearChanges, i
 	}
 	for _, weapon := range changes.RemovesWeapons {
 		check.checkWeapon(where.at("removesWeapons"), weapon)
-		if where.datasheet != nil && !slices.Contains(check.carriedWeapons(where, itself), check.weaponID(where, weapon)) {
+		if !slices.Contains(check.carriedWeapons(where, itself), check.weaponID(where, weapon)) {
 			check.report(where.at("removesWeapons"), "weapon %q is not carried by the datasheet or added by another option or conditional change", weapon)
 		}
 	}
@@ -272,7 +254,7 @@ func (check *checker) checkWargearChanges(where scope, changes WargearChanges, i
 	}
 	for index, change := range changes.ProfileChanges {
 		changeScope := where.at("profileChanges/%d", index)
-		if change.Profile != nil && where.datasheet != nil && !hasProfile(where.datasheet, *change.Profile) {
+		if change.Profile != nil && !hasProfile(where.datasheet, *change.Profile) {
 			check.report(changeScope, "profile %q is not one of the datasheet's profiles", *change.Profile)
 		}
 		if change.Set != nil && change.Set.Movement != nil {

@@ -8,13 +8,6 @@
          "slots": {},
          "maximumPerArmy": {
             "base": 1
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
-               }
-            }
          }
       },
       "battalion": {
@@ -93,13 +86,6 @@
                         "amount": 1
                      }
                   ]
-               }
-            }
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
                }
             }
          },
@@ -185,13 +171,6 @@
                   ]
                }
             }
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
-               }
-            }
          }
       },
       "vanguard": {
@@ -270,13 +249,6 @@
                         "amount": 1
                      }
                   ]
-               }
-            }
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
                }
             }
          }
@@ -361,16 +333,6 @@
                "detachmentKind": "Core"
             },
             "minimum": 1
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
-               }
-            },
-            "WARMASTER": {
-               "minimum": 1
-            }
          }
       },
       "super-heavy": {
@@ -382,13 +344,6 @@
                "minimum": 3,
                "maximum": {
                   "base": 5
-               }
-            }
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
                }
             }
          }
@@ -449,13 +404,6 @@
                   "amount": -1
                }
             ]
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
-               }
-            }
          }
       },
       "outrider": {
@@ -534,13 +482,6 @@
                         "amount": 1
                      }
                   ]
-               }
-            }
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
                }
             }
          }
@@ -668,13 +609,6 @@
                   "amount": -1
                }
             ]
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
-               }
-            }
          }
       },
       "super-heavy-auxiliary": {
@@ -731,13 +665,6 @@
                   "amount": -1
                }
             ]
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
-               }
-            }
          }
       },
       "fortification-network": {
@@ -795,79 +722,6 @@
                   "amount": -1
                }
             ]
-         },
-         "keywordLimits": {
-            "COMMANDER": {
-               "maximum": {
-                  "base": 1
-               }
-            }
-         }
-      }
-   },
-   "universalOptions": {
-      "commander": {
-         "name": "Commander",
-         "addsKeywords": [
-            "COMMANDER"
-         ],
-         "maximum": 1
-      },
-      "warmaster": {
-         "name": "Warmaster",
-         "addsKeywords": [
-            "WARMASTER"
-         ],
-         "maximum": 1,
-         "availableWhen": {
-            "kind": "All",
-            "conditions": [
-               {
-                  "kind": "Count",
-                  "scope": "Unit",
-                  "of": {
-                     "kind": "Keyword",
-                     "keyword": "COMMANDER"
-                  },
-                  "minimum": 1
-               },
-               {
-                  "kind": "Not",
-                  "condition": {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Not",
-                           "condition": {
-                              "kind": "Count",
-                              "scope": "Unit",
-                              "of": {
-                                 "kind": "Keyword",
-                                 "keyword": "CHARACTER"
-                              },
-                              "minimum": 1
-                           }
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "Detachment",
-                              "detachment": "ad-hoc"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  }
-               }
-            ]
-         }
-      }
-   },
-   "armyKeywordLimits": {
-      "WARMASTER": {
-         "maximum": {
-            "base": 1
          }
       }
    },

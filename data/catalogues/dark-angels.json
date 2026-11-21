@@ -1356,7 +1356,6 @@
          "cost": 5,
          "keywords": [
             "CHARACTER",
-            "COMMANDER",
             "INFANTRY",
             "LIGHT",
             "MASTER"
@@ -1611,7 +1610,6 @@
          "cost": 5,
          "keywords": [
             "CHARACTER",
-            "COMMANDER",
             "INFANTRY",
             "LIGHT"
          ],
@@ -4265,7 +4263,6 @@
          "cost": 6,
          "keywords": [
             "CHARACTER",
-            "COMMANDER",
             "INFANTRY",
             "LIGHT",
             "MASTER",

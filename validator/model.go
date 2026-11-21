@@ -34,7 +34,6 @@ const (
 	CountTargetKindDetachment       CountTargetKind = "Detachment"
 	CountTargetKindDetachmentKind   CountTargetKind = "DetachmentKind"
 	CountTargetKindAnyUnit          CountTargetKind = "AnyUnit"
-	CountTargetKindUniversalOption  CountTargetKind = "UniversalOption"
 )
 
 type MovementKind string
@@ -92,7 +91,7 @@ func (bound *Bound) UnmarshalJSON(content []byte) error {
 	return json.Unmarshal(content, bound.Growing)
 }
 
-// BoundedLimit is a slot or keyword limit: a fixed minimum and a growing maximum.
+// BoundedLimit is a slot limit: a fixed minimum and a growing maximum.
 type BoundedLimit struct {
 	Minimum *int   `json:"minimum"`
 	Maximum *Limit `json:"maximum"`
@@ -150,12 +149,6 @@ type Option struct {
 type ConditionalChange struct {
 	WargearChanges
 	When Condition `json:"when"`
-}
-
-// UniversalOption takes its id from its key, so its own `id` is optional.
-type UniversalOption struct {
-	Option
-	ID *string `json:"id"`
 }
 
 type OptionGroup struct {
@@ -239,17 +232,14 @@ type Detachment struct {
 	MaximumPerArmy    *Limit                  `json:"maximumPerArmy"`
 	AvailableWhen     *Condition              `json:"availableWhen"`
 	Slots             map[string]BoundedLimit `json:"slots"`
-	KeywordLimits     map[string]BoundedLimit `json:"keywordLimits"`
 	Abilities         []string                `json:"abilities"`
 }
 
 type GameSystem struct {
-	Release           string                     `json:"release"`
-	Detachments       map[string]Detachment      `json:"detachments"`
-	UniversalOptions  map[string]UniversalOption `json:"universalOptions"`
-	ArmyKeywordLimits map[string]BoundedLimit    `json:"armyKeywordLimits"`
-	Abilities         map[string]NamedEntry      `json:"abilities"`
-	WarmasterTraits   map[string]NamedEntry      `json:"warmasterTraits"`
+	Release         string                `json:"release"`
+	Detachments     map[string]Detachment `json:"detachments"`
+	Abilities       map[string]NamedEntry `json:"abilities"`
+	WarmasterTraits map[string]NamedEntry `json:"warmasterTraits"`
 }
 
 type Dataset struct {

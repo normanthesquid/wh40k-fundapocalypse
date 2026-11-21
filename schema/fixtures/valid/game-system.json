@@ -25,7 +25,6 @@
                }
             }
          },
-         "keywordLimits": { "COMMANDER": { "maximum": { "base": 1 } } },
          "abilities": ["objective-secured"]
       },
       "supreme-command": {
@@ -42,8 +41,7 @@
             "HQ": { "minimum": 3, "maximum": { "base": 5 } },
             "Elites": { "maximum": { "base": 1 } },
             "LordOfWar": { "maximum": { "base": 1 } }
-         },
-         "keywordLimits": { "WARMASTER": { "minimum": 1 } }
+         }
       },
       "air-wing": {
          "name": "Air Wing Detachment",
@@ -66,23 +64,6 @@
       "super-heavy-auxiliary": { "name": "Super-heavy Auxiliary Detachment", "kind": "Special", "slots": {} },
       "fortification-network": { "name": "Fortification Network Detachment", "kind": "Special", "slots": {} }
    },
-   "universalOptions": {
-      "warmaster": {
-         "name": "Warmaster",
-         "addsKeywords": ["WARMASTER"],
-         "availableWhen": {
-            "kind": "Count",
-            "scope": "Unit",
-            "of": { "kind": "Keyword", "keyword": "COMMANDER" },
-            "minimum": 1
-         }
-      },
-      "commander": {
-         "name": "Commander",
-         "addsKeywords": ["COMMANDER"]
-      }
-   },
-   "armyKeywordLimits": { "WARMASTER": { "maximum": { "base": 1 } } },
    "abilities": {
       "objective-secured": {
          "name": "Objective Secured",
