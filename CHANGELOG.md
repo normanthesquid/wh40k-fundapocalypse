@@ -2,6 +2,10 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.4.0
+
+* New markers for list builders that record Commanders and the Warmaster: a datasheet's `cannotBeWarlord` (the three C'tan Shards), a datasheet's `beginsAsCommander` (the Tomb Ziggurat) and a detachment ability's `makesCharacter` (Knight Lances and Fallen Courts).
+
 ## 2.3.0
 
 * Commander, Warmaster and Character are no longer datasheet upgrades. The rules nominate them after deployment, and Knight Lances and Fallen Courts are Faction abilities. Removed: the game-wide `commander` and `warmaster` options and with them universal options; the Knights', C'tan and Sanctus upgrades; and every COMMANDER and WARMASTER keyword limit, and with them `keywordLimits` and `armyKeywordLimits`. An option's `maximumPerDetachment` is removed too, since nothing used it any more.
