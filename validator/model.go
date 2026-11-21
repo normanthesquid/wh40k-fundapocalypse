@@ -138,14 +138,13 @@ type CostChange struct {
 
 type Option struct {
 	WargearChanges
-	ID             string         `json:"id"`
-	Minimum        *int           `json:"minimum"`
-	Maximum        *Bound         `json:"maximum"`
-	MaximumPerArmy *int           `json:"maximumPerArmy"`
-	CostChanges    []CostChange   `json:"costChanges"`
-	AddsProfiles   []ModelProfile `json:"addsProfiles"`
-	AvailableWhen  *Condition     `json:"availableWhen"`
-	RequiredWhen   *Condition     `json:"requiredWhen"`
+	ID            string         `json:"id"`
+	Minimum       *int           `json:"minimum"`
+	Maximum       *Bound         `json:"maximum"`
+	CostChanges   []CostChange   `json:"costChanges"`
+	AddsProfiles  []ModelProfile `json:"addsProfiles"`
+	AvailableWhen *Condition     `json:"availableWhen"`
+	RequiredWhen  *Condition     `json:"requiredWhen"`
 }
 
 type ConditionalChange struct {

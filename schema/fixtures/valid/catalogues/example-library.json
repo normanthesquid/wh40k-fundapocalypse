@@ -166,7 +166,6 @@
                         "minimum": 1
                      },
                      "maximumPerDetachment": 1,
-                     "maximumPerArmy": 3,
                      "addsProfiles": [
                         {
                            "name": "Example Sergeant",

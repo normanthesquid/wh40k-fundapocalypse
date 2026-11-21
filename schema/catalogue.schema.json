@@ -307,7 +307,6 @@
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
             "maximumPerDetachment": { "type": "integer", "minimum": 1 },
-            "maximumPerArmy": { "type": "integer", "minimum": 1 },
             "addsProfiles": {
                "description": "Model profiles the option adds to the unit, e.g. an extra model with its own characteristics.",
                "type": "array",
