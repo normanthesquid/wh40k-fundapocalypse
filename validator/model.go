@@ -141,7 +141,6 @@ type Option struct {
 	ID             string         `json:"id"`
 	Minimum        *int           `json:"minimum"`
 	Maximum        *Bound         `json:"maximum"`
-	MinimumPerArmy *int           `json:"minimumPerArmy"`
 	MaximumPerArmy *int           `json:"maximumPerArmy"`
 	CostChanges    []CostChange   `json:"costChanges"`
 	AddsProfiles   []ModelProfile `json:"addsProfiles"`
