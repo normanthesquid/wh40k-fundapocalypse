@@ -1695,35 +1695,6 @@
             "enslaved-star-god",
             "terror-troops"
          ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "commander-ctan",
-                     "name": "Commander (C'tan)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "UniversalOption",
-                              "option": "commander"
-                           },
-                           "minimum": 1
-                        }
-                     },
-                     "addsKeywords": [
-                        "COMMANDER"
-                     ]
-                  }
-               ]
-            }
-         ],
          "maximumPerArmy": 1
       },
       "ctan-shard-of-the-deceiver": {
@@ -1766,35 +1737,6 @@
             "terror-troops",
             "immune-to-natural-law",
             "enslaved-star-god"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "commander-ctan",
-                     "name": "Commander (C'tan)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "UniversalOption",
-                              "option": "commander"
-                           },
-                           "minimum": 1
-                        }
-                     },
-                     "addsKeywords": [
-                        "COMMANDER"
-                     ]
-                  }
-               ]
-            }
          ],
          "maximumPerArmy": 1
       },
@@ -2695,35 +2637,6 @@
             "cosmic-tyrant",
             "immune-to-natural-law",
             "enslaved-star-god"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "commander-ctan",
-                     "name": "Commander (C'tan)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "UniversalOption",
-                              "option": "commander"
-                           },
-                           "minimum": 1
-                        }
-                     },
-                     "addsKeywords": [
-                        "COMMANDER"
-                     ]
-                  }
-               ]
-            }
          ]
       },
       "canoptek-tomb-stalker": {
@@ -4729,35 +4642,6 @@
             "terror-troops",
             "immune-to-natural-law",
             "enslaved-star-god"
-         ],
-         "wargear": [
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "commander-ctan",
-                     "name": "Commander (C'tan)",
-                     "maximum": 1,
-                     "maximumPerDetachment": 1,
-                     "availableWhen": {
-                        "kind": "Not",
-                        "condition": {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "UniversalOption",
-                              "option": "commander"
-                           },
-                           "minimum": 1
-                        }
-                     },
-                     "addsKeywords": [
-                        "COMMANDER"
-                     ]
-                  }
-               ]
-            }
          ],
          "maximumPerArmy": 1
       },

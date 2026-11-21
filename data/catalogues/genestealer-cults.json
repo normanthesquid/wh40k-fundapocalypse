@@ -1036,20 +1036,6 @@
                "minimum": 1,
                "maximum": 1,
                "default": "sanctus-sniper-rifle"
-            },
-            {
-               "id": "upgrades",
-               "name": "Upgrades",
-               "options": [
-                  {
-                     "id": "commander",
-                     "name": "Commander",
-                     "maximum": 1,
-                     "addsKeywords": [
-                        "COMMANDER"
-                     ]
-                  }
-               ]
             }
          ]
       },

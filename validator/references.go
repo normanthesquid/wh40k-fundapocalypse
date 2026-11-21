@@ -55,10 +55,6 @@ func (check *checker) checkWeapon(where scope, reference string) {
 	if !found {
 		return
 	}
-	if target == nil {
-		check.report(where, "weapon %q does not resolve: the game system has no weapons", reference)
-		return
-	}
 	if _, exists := target.Weapons[slug]; !exists {
 		check.report(where, "weapon %q does not resolve", reference)
 	}
@@ -165,13 +161,6 @@ func (check *checker) checkCountTarget(where scope, target CountTarget) {
 	case CountTargetKindDetachment:
 		if _, exists := check.dataset.GameSystem.Detachments[target.Detachment]; !exists {
 			check.report(where, "detachment %q is not a game-system detachment", target.Detachment)
-		}
-	case CountTargetKindUniversalOption:
-		if _, exists := check.dataset.GameSystem.UniversalOptions[target.Option]; !exists {
-			check.report(where, "universal option %q is not a game-system universal option", target.Option)
-		}
-		if target.Datasheet != nil {
-			check.resolveDatasheet(where, *target.Datasheet)
 		}
 	case CountTargetKindRole, CountTargetKindDetachmentKind, CountTargetKindAnyUnit:
 	}

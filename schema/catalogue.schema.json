@@ -285,7 +285,7 @@
             "options": {
                "description": "The options, in the order they are shown.",
                "type": "array",
-               "items": { "type": "object", "$ref": "#/$defs/option", "properties": { "id": true }, "required": ["id"] },
+               "items": { "$ref": "#/$defs/option" },
                "minItems": 1
             }
          },
@@ -293,7 +293,7 @@
          "additionalProperties": false
       },
       "option": {
-         "description": "One wargear option. Leaving out `maximum` means no limit beyond the group's. `id` is required inside an option group; universal options take their id from their key.",
+         "description": "One wargear option. Leaving out `maximum` means no limit beyond the group's.",
          "type": "object",
          "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
          "properties": {
@@ -306,7 +306,6 @@
             "costChanges": { "type": "array", "items": { "$ref": "#/$defs/costChange" } },
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/growingBound" }] },
-            "maximumPerDetachment": { "type": "integer", "minimum": 1 },
             "addsProfiles": {
                "description": "Model profiles the option adds to the unit, e.g. an extra model with its own characteristics.",
                "type": "array",
@@ -329,7 +328,7 @@
             "addsFactionKeywords": true,
             "addsKeywords": true
          },
-         "required": ["name"],
+         "required": ["id", "name"],
          "unevaluatedProperties": false
       }
    }

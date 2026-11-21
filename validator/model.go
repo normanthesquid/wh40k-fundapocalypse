@@ -34,7 +34,6 @@ const (
 	CountTargetKindDetachment       CountTargetKind = "Detachment"
 	CountTargetKindDetachmentKind   CountTargetKind = "DetachmentKind"
 	CountTargetKindAnyUnit          CountTargetKind = "AnyUnit"
-	CountTargetKindUniversalOption  CountTargetKind = "UniversalOption"
 )
 
 type MovementKind string
@@ -152,12 +151,6 @@ type ConditionalChange struct {
 	When Condition `json:"when"`
 }
 
-// UniversalOption takes its id from its key, so its own `id` is optional.
-type UniversalOption struct {
-	Option
-	ID *string `json:"id"`
-}
-
 type OptionGroup struct {
 	ID            string     `json:"id"`
 	Minimum       *Bound     `json:"minimum"`
@@ -244,12 +237,11 @@ type Detachment struct {
 }
 
 type GameSystem struct {
-	Release           string                     `json:"release"`
-	Detachments       map[string]Detachment      `json:"detachments"`
-	UniversalOptions  map[string]UniversalOption `json:"universalOptions"`
-	ArmyKeywordLimits map[string]BoundedLimit    `json:"armyKeywordLimits"`
-	Abilities         map[string]NamedEntry      `json:"abilities"`
-	WarmasterTraits   map[string]NamedEntry      `json:"warmasterTraits"`
+	Release           string                  `json:"release"`
+	Detachments       map[string]Detachment   `json:"detachments"`
+	ArmyKeywordLimits map[string]BoundedLimit `json:"armyKeywordLimits"`
+	Abilities         map[string]NamedEntry   `json:"abilities"`
+	WarmasterTraits   map[string]NamedEntry   `json:"warmasterTraits"`
 }
 
 type Dataset struct {

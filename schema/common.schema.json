@@ -282,17 +282,6 @@
                "properties": { "kind": { "const": "AnyUnit" } },
                "required": ["kind"],
                "additionalProperties": false
-            },
-            {
-               "description": "Units that took a game-system universal option, e.g. the Commander; with `datasheet`, only units of that datasheet.",
-               "type": "object",
-               "properties": {
-                  "kind": { "const": "UniversalOption" },
-                  "option": { "$ref": "#/$defs/slug" },
-                  "datasheet": { "$ref": "#/$defs/reference" }
-               },
-               "required": ["kind", "option"],
-               "additionalProperties": false
             }
          ]
       },

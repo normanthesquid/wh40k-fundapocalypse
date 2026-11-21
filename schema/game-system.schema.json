@@ -15,14 +15,8 @@
          "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
          "additionalProperties": { "$ref": "#/$defs/detachment" }
       },
-      "universalOptions": {
-         "description": "Options any unit can take when `availableWhen` holds, e.g. making a CHARACTER the detachment's Commander. Their keywords are then capped by `keywordLimits`.",
-         "type": "object",
-         "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
-         "additionalProperties": { "$ref": "catalogue.schema.json#/$defs/option" }
-      },
       "armyKeywordLimits": {
-         "description": "How many units with a keyword the whole army may include, e.g. one WARMASTER.",
+         "description": "How many units with a keyword the whole army may include.",
          "$ref": "#/$defs/keywordLimits"
       },
       "abilities": {
@@ -84,7 +78,7 @@
                "additionalProperties": { "$ref": "#/$defs/slotLimit" }
             },
             "keywordLimits": {
-               "description": "How many units with a keyword this detachment may include, e.g. one COMMANDER.",
+               "description": "How many units with a keyword this detachment may include.",
                "$ref": "#/$defs/keywordLimits"
             },
             "abilities": {
