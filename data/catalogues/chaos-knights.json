@@ -1571,7 +1571,8 @@
                   }
                ]
             }
-         }
+         },
+         "makesCharacter": true
       }
    },
    "weapons": {

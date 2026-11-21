@@ -85,6 +85,8 @@ A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `a
 
 A datasheet's `requiredInDetachment` makes a detachment hold at least `minimum` of the unit while `when` holds, as the parts of a fortification that come together: once a detachment has any part of a Castellum Stronghold, it needs its 3 Bunker Annexes.
 
+Each detachment's Commander is its unit with the highest Leadership, and a CHARACTER Commander is a WARLORD. Three markers record the exceptions: a datasheet's `cannotBeWarlord` (a C'tan Shard's Enslaved Star God), a datasheet's `beginsAsCommander` (a Tomb Ziggurat in its Tomb Citadel), and a detachment ability's `makesCharacter`, under which one of the faction's units in the detachment becomes a CHARACTER with its own Warmaster Trait (Knight Lances and Fallen Courts).
+
 A detachment with `unitsShareFaction` requires all its units to be from the same Faction: every unit shares at least one Faction keyword, as the rulebook's Factions section explains. Super-heavy Auxiliary, Fortification Network and Ad Hoc leave it out, so their units may mix Factions.
 
 An option with `requiredWhen` must be taken while that condition holds, e.g. the Mark of Khorne once the detachment has chosen Khorne. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it. A datasheet with no stat line at all leaves `profiles` out; that is right only where the official datasheet prints none, as for terrain features such as the Aegis Defence Line.
@@ -171,7 +173,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `readme`, `comment` | authoring notes; anything still useful moves to this document or the wiki |
 | `infoGroup` | grouping for BattleScribe's display only |
 | BattleScribe `id`s (`8438-2d0c-...`) | replaced by slugs; the importer kept a one-time mapping in its report |
-| Commander, Warmaster and Warlord upgrades (in the `.gst` and as catalogue options such as Character (Knight Lances)), their keyword limits, and the per-detachment caps on them | the rules nominate these during the game, after deployment, not when the list is built |
+| Commander, Warmaster and Warlord upgrades (in the `.gst` and as catalogue options such as Character (Knight Lances)), their keyword limits, and the per-detachment caps on them | the rules nominate these after deployment, so they aren't datasheet options; a list builder records them itself, using the markers above |
 | `hidden="true"` with no condition | dead entries; the importer listed them for a decision rather than converting them |
 
 Anything the importer met that this table doesn't cover failed the import, so nothing was silently lost.

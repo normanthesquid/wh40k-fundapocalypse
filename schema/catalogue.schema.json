@@ -42,7 +42,11 @@
             "type": "object",
             "properties": {
                "ability": { "$ref": "common.schema.json#/$defs/reference" },
-               "availableWhen": { "$ref": "common.schema.json#/$defs/condition" }
+               "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+               "makesCharacter": {
+                  "description": "One unit of this faction in the detachment becomes a CHARACTER with its own Warmaster Trait, e.g. Knight Lances.",
+                  "const": true
+               }
             },
             "required": ["ability"],
             "additionalProperties": false
@@ -149,6 +153,14 @@
                "description": "1 for a named character or other unique unit.",
                "type": "integer",
                "minimum": 1
+            },
+            "cannotBeWarlord": {
+               "description": "The unit is never a WARLORD, even as a CHARACTER Commander, e.g. a C'tan Shard.",
+               "const": true
+            },
+            "beginsAsCommander": {
+               "description": "The unit is its detachment's Commander whatever the Leadership of the others, e.g. a Tomb Ziggurat.",
+               "const": true
             }
          },
          "required": ["name", "battlefieldRole", "cost", "keywords"],

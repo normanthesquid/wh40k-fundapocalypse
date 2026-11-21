@@ -139,7 +139,9 @@
                "option": "inquisition"
             },
             "minimum": 1
-         }
+         },
+         "cannotBeWarlord": true,
+         "beginsAsCommander": true
       }
    },
    "abilities": {
