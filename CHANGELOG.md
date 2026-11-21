@@ -2,6 +2,10 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.2.0
+
+* An option's `maximumPerArmy` is removed from the format. No option used it; per-army limits are on whole units.
+
 ## 2.1.0
 
 * Detachments carry `unitsShareFaction`: all units must be from the same Faction, sharing at least one Faction keyword. It is set on every detachment except Super-heavy Auxiliary, Fortification Network and Ad Hoc.
