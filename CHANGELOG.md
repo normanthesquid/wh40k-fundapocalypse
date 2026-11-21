@@ -2,6 +2,12 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.1.0
+
+* Detachments carry `unitsShareFaction`: all units must be from the same Faction, sharing at least one Faction keyword. It is set on every detachment except Super-heavy Auxiliary, Fortification Network and Ad Hoc.
+* The Doomsday Ark has its keywords (HEAVY, VEHICLE, FLY, DOOMSDAY ARK) and Faction keywords (NECRONS, `<DYNASTY>`), which were missing.
+* An option's `minimumPerArmy` is removed from the format. No option used it.
+
 ## 2.0.0
 
 * The data moves from BattleScribe catalogues to the JSON format in [docs/data-format.md](docs/data-format.md). All 38 catalogues of `1.10.0` were converted.
