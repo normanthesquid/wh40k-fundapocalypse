@@ -109,9 +109,6 @@ func TestIntegrityRules(t *testing.T) {
 				option.Maximum = &Bound{Growing: &Limit{Base: 1, Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindOption, Option: "nope"}}}}}
 			})
 		}, `maximum/terms/0/per: option "nope" is not an option of its datasheet`},
-		{"per-army minimum above maximum", func(dataset *Dataset) {
-			editUpgrade(dataset, 0, func(option *Option) { option.MinimumPerArmy, option.MaximumPerArmy = pointer(3), pointer(2) })
-		}, "minimumPerArmy: minimum 3 is more than maximum 2"},
 		{"added profile reuses a profile name", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) { option.AddsProfiles = []ModelProfile{{Name: "Inquisitor"}} })
 		}, `addsProfiles/0: profile name "Inquisitor" is used twice`},

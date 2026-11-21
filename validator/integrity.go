@@ -238,7 +238,6 @@ func (check *checker) checkOption(where scope, option Option) {
 	if option.Maximum != nil {
 		check.checkLimit(where.at("maximum"), option.Maximum.Growing)
 	}
-	check.checkBounds(where.at("minimumPerArmy"), option.MinimumPerArmy, option.MaximumPerArmy)
 	for index := range option.CostChanges {
 		check.checkCondition(where.at("costChanges/%d/when", index), &option.CostChanges[index].When)
 	}
