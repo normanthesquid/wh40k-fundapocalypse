@@ -2597,7 +2597,12 @@
          "name": "Doomsday Ark",
          "battlefieldRole": "HeavySupport",
          "cost": 12,
-         "keywords": [],
+         "keywords": [
+            "DOOMSDAY ARK",
+            "FLY",
+            "HEAVY",
+            "VEHICLE"
+         ],
          "profiles": [
             {
                "name": "Doomsday Ark",
@@ -2615,6 +2620,10 @@
                "leadership": 8,
                "save": 7
             }
+         ],
+         "factionKeywords": [
+            "<DYNASTY>",
+            "NECRONS"
          ],
          "weapons": [
             "doomsday-cannon",
