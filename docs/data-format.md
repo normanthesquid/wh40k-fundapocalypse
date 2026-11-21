@@ -85,6 +85,8 @@ A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `a
 
 A datasheet's `requiredInDetachment` makes a detachment hold at least `minimum` of the unit while `when` holds, as the parts of a fortification that come together: once a detachment has any part of a Castellum Stronghold, it needs its 3 Bunker Annexes.
 
+A detachment with `unitsShareFaction` requires all its units to be from the same Faction: every unit shares at least one Faction keyword, as the rulebook's Factions section explains. Super-heavy Auxiliary, Fortification Network and Ad Hoc leave it out, so their units may mix Factions.
+
 Options carry their own army-wide caps where a datasheet would: `maximumPerDetachment`, `maximumPerArmy` and `minimumPerArmy`. An option with `requiredWhen` must be taken while that condition holds, e.g. the Mark of Khorne once the detachment has chosen Khorne. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it. A datasheet with no stat line at all leaves `profiles` out; that is right only where the official datasheet prints none, as for terrain features such as the Aegis Defence Line.
 
 `game-system.schema.json` reuses the catalogue's `option` for universal options, so a validator loads all three schemas together.

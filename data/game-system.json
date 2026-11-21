@@ -20,6 +20,7 @@
       "battalion": {
          "name": "Battalion Detachment",
          "kind": "Core",
+         "unitsShareFaction": true,
          "slots": {
             "HQ": {
                "maximum": {
@@ -109,6 +110,7 @@
       "spearhead": {
          "name": "Spearhead Detachment",
          "kind": "Core",
+         "unitsShareFaction": true,
          "slots": {
             "HQ": {
                "maximum": {
@@ -195,6 +197,7 @@
       "vanguard": {
          "name": "Vanguard Detachment",
          "kind": "Core",
+         "unitsShareFaction": true,
          "slots": {
             "HQ": {
                "maximum": {
@@ -281,6 +284,7 @@
       "supreme-command": {
          "name": "Supreme Command Detachment",
          "kind": "Special",
+         "unitsShareFaction": true,
          "slots": {
             "HQ": {
                "maximum": {
@@ -372,6 +376,7 @@
       "super-heavy": {
          "name": "Super-heavy Detachment",
          "kind": "Core",
+         "unitsShareFaction": true,
          "slots": {
             "LordOfWar": {
                "minimum": 3,
@@ -391,6 +396,7 @@
       "air-wing": {
          "name": "Air Wing Detachment",
          "kind": "Special",
+         "unitsShareFaction": true,
          "slots": {
             "Flyer": {
                "minimum": 1,
@@ -455,6 +461,7 @@
       "outrider": {
          "name": "Outrider Detachment",
          "kind": "Core",
+         "unitsShareFaction": true,
          "slots": {
             "HQ": {
                "maximum": {
@@ -541,6 +548,7 @@
       "patrol": {
          "name": "Patrol Detachment",
          "kind": "Special",
+         "unitsShareFaction": true,
          "slots": {
             "HQ": {
                "maximum": {

@@ -68,6 +68,10 @@
          "properties": {
             "name": { "type": "string", "minLength": 1 },
             "kind": { "$ref": "common.schema.json#/$defs/detachmentKind" },
+            "unitsShareFaction": {
+               "description": "All units must be from the same Faction: they share at least one Faction keyword. Left out, units may mix Factions.",
+               "type": "boolean"
+            },
             "maximumPerArmy": {
                "description": "How many of this detachment an army may include; no limit when left out.",
                "$ref": "common.schema.json#/$defs/limit"
