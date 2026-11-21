@@ -87,7 +87,7 @@ A datasheet's `requiredInDetachment` makes a detachment hold at least `minimum` 
 
 A detachment with `unitsShareFaction` requires all its units to be from the same Faction: every unit shares at least one Faction keyword, as the rulebook's Factions section explains. Super-heavy Auxiliary, Fortification Network and Ad Hoc leave it out, so their units may mix Factions.
 
-Options carry their own army-wide caps where a datasheet would: `maximumPerDetachment` and `maximumPerArmy`. An option with `requiredWhen` must be taken while that condition holds, e.g. the Mark of Khorne once the detachment has chosen Khorne. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it. A datasheet with no stat line at all leaves `profiles` out; that is right only where the official datasheet prints none, as for terrain features such as the Aegis Defence Line.
+An option may carry `maximumPerDetachment`, a cap across every unit in the detachment that takes it, e.g. one Character (Knight Lances) per detachment. An option with `requiredWhen` must be taken while that condition holds, e.g. the Mark of Khorne once the detachment has chosen Khorne. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it. A datasheet with no stat line at all leaves `profiles` out; that is right only where the official datasheet prints none, as for terrain features such as the Aegis Defence Line.
 
 `game-system.schema.json` reuses the catalogue's `option` for universal options, so a validator loads all three schemas together.
 
@@ -156,7 +156,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `modifier` raising an option group's min to the next multiple once one more is taken | — | the group's `multipleOf` |
 | `modifier` on a weapon's characteristics | — | a second weapon, swapped in by an option or a `conditionalChanges` entry |
 | `modifier` set hidden on an ability or weapon, with conditions | — | the option's `addsAbilities`/`addsWeapons` when it depends on one, otherwise `conditionalChanges` |
-| `constraint` on an option, scope force or roster | — | the option's `maximumPerDetachment` or `maximumPerArmy`; no roster minimum on an option survived the import |
+| `constraint` on an option, scope force or roster | — | the option's `maximumPerDetachment`; no roster-scope cap on an option survived the import |
 | `selectionEntry` type `model` with its own Unit profile, optional | — | `addsProfiles` on that option |
 | `modifier` on M/A/W/Sv, when an option is taken | — | `profileChanges` on that option |
 | `modifier` on M/A/W/Sv/name, unconditional (on a link) | — | a catalogue-local entry with its own slug, in place of a link with overrides |
