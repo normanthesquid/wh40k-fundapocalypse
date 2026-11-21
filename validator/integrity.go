@@ -40,19 +40,9 @@ func (check *checker) checkGameSystem() {
 		for _, role := range sortedKeys(detachment.Slots) {
 			check.checkBoundedLimit(detachmentScope.at("slots/%s", role), detachment.Slots[role])
 		}
-		check.checkKeywordLimits(detachmentScope.at("keywordLimits"), detachment.KeywordLimits)
 		for _, ability := range detachment.Abilities {
 			check.checkAbility(detachmentScope.at("abilities"), ability)
 		}
-	}
-	check.checkKeywordLimits(where.at("armyKeywordLimits"), gameSystem.ArmyKeywordLimits)
-}
-
-func (check *checker) checkKeywordLimits(where scope, limits map[string]BoundedLimit) {
-	for _, keyword := range sortedKeys(limits) {
-		keywordScope := where.at("%s", keyword)
-		check.useKeyword(keywordScope, keyword)
-		check.checkBoundedLimit(keywordScope, limits[keyword])
 	}
 }
 

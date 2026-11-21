@@ -15,10 +15,6 @@
          "propertyNames": { "$ref": "common.schema.json#/$defs/slug" },
          "additionalProperties": { "$ref": "#/$defs/detachment" }
       },
-      "armyKeywordLimits": {
-         "description": "How many units with a keyword the whole army may include.",
-         "$ref": "#/$defs/keywordLimits"
-      },
       "abilities": {
          "description": "Universal abilities shared by every catalogue, e.g. Deep Strike.",
          "type": "object",
@@ -34,20 +30,6 @@
    "required": ["release", "detachments"],
    "additionalProperties": false,
    "$defs": {
-      "keywordLimits": {
-         "description": "How many units with each keyword are required (`minimum`) or allowed (`maximum`).",
-         "type": "object",
-         "propertyNames": { "$ref": "common.schema.json#/$defs/keyword" },
-         "additionalProperties": {
-            "type": "object",
-            "properties": {
-               "minimum": { "type": "integer", "minimum": 0 },
-               "maximum": { "$ref": "common.schema.json#/$defs/limit" }
-            },
-            "additionalProperties": false,
-            "minProperties": 1
-         }
-      },
       "slotLimit": {
          "type": "object",
          "properties": {
@@ -76,10 +58,6 @@
                "type": "object",
                "propertyNames": { "$ref": "common.schema.json#/$defs/battlefieldRole" },
                "additionalProperties": { "$ref": "#/$defs/slotLimit" }
-            },
-            "keywordLimits": {
-               "description": "How many units with a keyword this detachment may include.",
-               "$ref": "#/$defs/keywordLimits"
             },
             "abilities": {
                "description": "Rules the detachment grants, e.g. Objective Secured for its Troops.",

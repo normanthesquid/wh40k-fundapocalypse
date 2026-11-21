@@ -290,12 +290,6 @@ func TestIntegrityRules(t *testing.T) {
 		{"keyword nothing adds", func(dataset *Dataset) {
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "TYPO"}))
 		}, `keyword "TYPO" is never added`},
-		{"keyword limit nothing adds", func(dataset *Dataset) {
-			dataset.GameSystem.ArmyKeywordLimits = map[string]BoundedLimit{"TYPO": {Minimum: pointer(1)}}
-		}, `armyKeywordLimits/TYPO: keyword "TYPO" is never added`},
-		{"keyword limit a datasheet adds", func(dataset *Dataset) {
-			dataset.GameSystem.ArmyKeywordLimits = map[string]BoundedLimit{"INQUISITOR": {Maximum: &Limit{Base: 1}}}
-		}, ""},
 		{"keyword only a faction keyword adds", func(dataset *Dataset) {
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "IMPERIUM"}))
 		}, ""},
@@ -423,9 +417,9 @@ func TestIntegrityRules(t *testing.T) {
 		}, ""},
 		{"limit term counting an unknown detachment", func(dataset *Dataset) {
 			battalion := dataset.GameSystem.Detachments["battalion"]
-			battalion.KeywordLimits = map[string]BoundedLimit{"INQUISITOR": {Maximum: &Limit{Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"}}}}}}
+			battalion.Slots["HQ"] = BoundedLimit{Maximum: &Limit{Terms: []LimitTerm{{Per: CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"}}}}}
 			dataset.GameSystem.Detachments["battalion"] = battalion
-		}, `keywordLimits/INQUISITOR/maximum/terms/0/per: detachment "nope"`},
+		}, `slots/HQ/maximum/terms/0/per: detachment "nope"`},
 		{"alternative role counting an unknown detachment", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) {
 				inquisitor.AlternativeRoles = []AlternativeRole{{When: *count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"})}}
@@ -505,7 +499,9 @@ func TestBrokenLinkIsReportedOnce(t *testing.T) {
 
 func TestUnusedKeywordIsReportedAtEveryUse(t *testing.T) {
 	dataset := loadValidDataset(t)
-	dataset.GameSystem.ArmyKeywordLimits = map[string]BoundedLimit{"TYPO": {Minimum: pointer(1)}}
+	supreme := dataset.GameSystem.Detachments["supreme-command"]
+	supreme.AvailableWhen = count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "TYPO"})
+	dataset.GameSystem.Detachments["supreme-command"] = supreme
 	setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "TYPO"}))
 	if problems := checkIntegrity(dataset, nil); len(problems) != 2 {
 		t.Fatalf("want two problems, got %v", problems)

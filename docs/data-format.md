@@ -9,7 +9,7 @@ BSData, the upstream of these catalogues, has been taken down. That frees Fundap
 ```
 schema/
   common.schema.json       shared types: ids, profiles, weapons, conditions, limits
-  game-system.schema.json  detachments, keyword limits, release version
+  game-system.schema.json  detachments, release version
   catalogue.schema.json    a faction or a shared library
   fixtures/valid/          a small data set that must pass, laid out like data/
   fixtures/invalid/        catalogues the schema must reject, each for the reason in its name
@@ -81,7 +81,7 @@ It's used by `availableWhen` on datasheets, links, options, detachments and deta
 * **`conditionalChanges`** on a datasheet add weapons, abilities, keywords or profile changes, or remove weapons, e.g. an ability only one Ordo's Acolytes have. A weapon whose characteristics change becomes a second weapon, swapped in this way or by an option.
 * **`costChanges`** on an option or a datasheet `set` or `increment` its cost, in order, e.g. a jump pack that costs more in a larger unit, or a unit whose power rating rises once it takes any drones.
 
-A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Supreme Command, Super-heavy Auxiliary, Patrol or Fortification Network detachment. Slot maximums, detachments per army, and keyword maximums are all limits. A keyword limit can also set a `minimum`. An option group's `minimum` or `maximum`, or an option's `maximum`, may be a limit too, counting the unit's own options, e.g. one heavy weapon, plus one if the unit takes its 10-model option. An option group's `availableWhen` makes the whole group, its minimum included, apply only while a condition holds, e.g. an Inquisitorial Retinue's weapon swap once no Acolytes are left to carry it. An option group's `multipleOf` makes the number of options taken a multiple of it, e.g. a Baneblade's two or four sponsons.
+A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `amount` for each thing counted. For example, a Battalion's Dedicated Transport maximum is 0, plus 1 per HQ, Troops, Elites, Fast Attack and Heavy Support unit in it. An Air Wing's maximum per army is 3 per Core detachment, minus 1 per Supreme Command, Super-heavy Auxiliary, Patrol or Fortification Network detachment. Slot maximums and detachments per army are both limits. An option group's `minimum` or `maximum`, or an option's `maximum`, may be a limit too, counting the unit's own options, e.g. one heavy weapon, plus one if the unit takes its 10-model option. An option group's `availableWhen` makes the whole group, its minimum included, apply only while a condition holds, e.g. an Inquisitorial Retinue's weapon swap once no Acolytes are left to carry it. An option group's `multipleOf` makes the number of options taken a multiple of it, e.g. a Baneblade's two or four sponsons.
 
 A datasheet's `requiredInDetachment` makes a detachment hold at least `minimum` of the unit while `when` holds, as the parts of a fortification that come together: once a detachment has any part of a Castellum Stronghold, it needs its 3 Bunker Annexes.
 
@@ -97,10 +97,10 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 2. Every reference resolves. A `catalogue-id/` reference only points into an imported catalogue; `imports` only names `kind: Library` catalogues that exist; a catalogue's `id` matches its file name.
 3. `datasheetLinks`, `detachmentChoices` and `detachmentAbilities` appear only in `kind: Faction` catalogues, and a `datasheetLinks` target is a library datasheet.
 4. Count targets resolve: a `Detachment` names a game-system detachment; a `DetachmentChoice` names an option of some `detachmentChoices` entry; an `Option` names an option of its datasheet (or of `datasheet`, when given); an `OptionGroup` names an option group of its datasheet; `PrimaryFaction` names a `kind: Faction` catalogue.
-5. Every keyword used in a count target or a keyword limit is a keyword some datasheet, option, link or choice actually adds, which catches typos.
+5. Every keyword used in a count target is a keyword some datasheet, option, link or choice actually adds, which catches typos.
 6. An option group's `default` is one of its options, and its `minimum` is no more than its options' `maximum`s add up to (any option without a fixed `maximum` lifts the cap). A group bound written as a limit always has terms, so it depends on the unit and is not compared.
 7. `removesWeapons` only names weapons the datasheet carries, another of its options adds, or a conditional change adds, and `profileChange.profile` names one of the datasheet's profiles, including those its options add.
-8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot or keyword limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.
+8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.
 9. `game-system.json`'s `release` matches the tag being released (`go run . -release 2.0.0`; CI passes it on a tag push).
 
 ## Revisions are computed, not stored
@@ -171,7 +171,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `readme`, `comment` | authoring notes; anything still useful moves to this document or the wiki |
 | `infoGroup` | grouping for BattleScribe's display only |
 | BattleScribe `id`s (`8438-2d0c-...`) | replaced by slugs; the importer kept a one-time mapping in its report |
-| Commander, Warmaster and Warlord upgrades (in the `.gst` and as catalogue options such as Character (Knight Lances)), their limits, and the per-detachment caps on them | the rules nominate these during the game, after deployment, not when the list is built |
+| Commander, Warmaster and Warlord upgrades (in the `.gst` and as catalogue options such as Character (Knight Lances)), their keyword limits, and the per-detachment caps on them | the rules nominate these during the game, after deployment, not when the list is built |
 | `hidden="true"` with no condition | dead entries; the importer listed them for a decision rather than converting them |
 
 Anything the importer met that this table doesn't cover failed the import, so nothing was silently lost.

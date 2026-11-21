@@ -91,7 +91,7 @@ func (bound *Bound) UnmarshalJSON(content []byte) error {
 	return json.Unmarshal(content, bound.Growing)
 }
 
-// BoundedLimit is a slot or keyword limit: a fixed minimum and a growing maximum.
+// BoundedLimit is a slot limit: a fixed minimum and a growing maximum.
 type BoundedLimit struct {
 	Minimum *int   `json:"minimum"`
 	Maximum *Limit `json:"maximum"`
@@ -232,16 +232,14 @@ type Detachment struct {
 	MaximumPerArmy    *Limit                  `json:"maximumPerArmy"`
 	AvailableWhen     *Condition              `json:"availableWhen"`
 	Slots             map[string]BoundedLimit `json:"slots"`
-	KeywordLimits     map[string]BoundedLimit `json:"keywordLimits"`
 	Abilities         []string                `json:"abilities"`
 }
 
 type GameSystem struct {
-	Release           string                  `json:"release"`
-	Detachments       map[string]Detachment   `json:"detachments"`
-	ArmyKeywordLimits map[string]BoundedLimit `json:"armyKeywordLimits"`
-	Abilities         map[string]NamedEntry   `json:"abilities"`
-	WarmasterTraits   map[string]NamedEntry   `json:"warmasterTraits"`
+	Release         string                `json:"release"`
+	Detachments     map[string]Detachment `json:"detachments"`
+	Abilities       map[string]NamedEntry `json:"abilities"`
+	WarmasterTraits map[string]NamedEntry `json:"warmasterTraits"`
 }
 
 type Dataset struct {
