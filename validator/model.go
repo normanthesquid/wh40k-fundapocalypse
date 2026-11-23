@@ -201,6 +201,7 @@ type DatasheetLink struct {
 
 type DetachmentChoice struct {
 	FillsPlaceholder *string                           `json:"fillsPlaceholder"`
+	AlternativeGroup *string                           `json:"alternativeGroup"`
 	Minimum          *int                              `json:"minimum"`
 	Maximum          *int                              `json:"maximum"`
 	Options          map[string]DetachmentChoiceOption `json:"options"`

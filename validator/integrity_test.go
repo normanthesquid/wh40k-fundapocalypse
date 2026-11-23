@@ -358,6 +358,23 @@ func TestIntegrityRules(t *testing.T) {
 			dataset.Catalogues[factionID].DetachmentChoices["second-host"] = DetachmentChoice{FillsPlaceholder: pointer("<EXAMPLE HOST>")}
 			dataset.Catalogues[factionID].DetachmentChoices["third-host"] = DetachmentChoice{FillsPlaceholder: pointer("<EXAMPLE HOST>")}
 		}, `filled by more than one detachment choice: example-host, second-host, third-host`},
+		{"alternative group with one choice", func(dataset *Dataset) {
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.AlternativeGroup = pointer("hosts")
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+		}, `detachmentChoices/example-host: alternative group "hosts" has no other choice`},
+		{"alternative group shared by two choices", func(dataset *Dataset) {
+			link := dataset.Catalogues[factionID].DatasheetLinks[squadID]
+			link.AddsFactionKeywords = append(link.AddsFactionKeywords, "<EXAMPLE ORDER>")
+			dataset.Catalogues[factionID].DatasheetLinks[squadID] = link
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.AlternativeGroup = pointer("hosts")
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+			dataset.Catalogues[factionID].DetachmentChoices["order"] = DetachmentChoice{
+				FillsPlaceholder: pointer("<EXAMPLE ORDER>"),
+				AlternativeGroup: pointer("hosts"),
+			}
+		}, ""},
 		{"plain choice option with a keyword", func(dataset *Dataset) {
 			dataset.Catalogues[agentsID].DetachmentChoices["faction-filter"].Options["inquisition"] = DetachmentChoiceOption{Keyword: pointer("INQUISITION")}
 		}, "options/inquisition: only a subfaction choice's option names a keyword"},

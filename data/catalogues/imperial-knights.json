@@ -2242,6 +2242,10 @@
             "house-vulker": {
                "name": "House Vulker",
                "keyword": "HOUSE VULKER"
+            },
+            "freeblade": {
+               "name": "Freeblade",
+               "keyword": "FREEBLADE"
             }
          }
       },

@@ -2801,7 +2801,7 @@
          ],
          "factionKeywords": [
             "ORKS",
-            "FREEBOOTAS"
+            "FREEBOOTERZ"
          ],
          "weapons": [
             "choppa",
@@ -6192,7 +6192,7 @@
          ],
          "factionKeywords": [
             "ORKS",
-            "FREEBOOTAS"
+            "FREEBOOTERZ"
          ],
          "weapons": [
             "close-combat-weapons-user-7-9",
@@ -7627,7 +7627,7 @@
             },
             "freebooterz": {
                "name": "Freebooterz",
-               "keyword": "FREEBOOTAS"
+               "keyword": "FREEBOOTERZ"
             }
          }
       }

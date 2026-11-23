@@ -2801,6 +2801,7 @@
       "kabal": {
          "name": "Kabal",
          "fillsPlaceholder": "<KABAL>",
+         "alternativeGroup": "drukhari-subfaction",
          "minimum": 1,
          "maximum": 1,
          "options": {
@@ -2825,6 +2826,7 @@
       "wych-cult": {
          "name": "Wych Cult",
          "fillsPlaceholder": "<WYCH CULT>",
+         "alternativeGroup": "drukhari-subfaction",
          "minimum": 1,
          "maximum": 1,
          "options": {
@@ -2845,6 +2847,7 @@
       "haemonculus-coven": {
          "name": "Haemonculus Coven",
          "fillsPlaceholder": "<HAEMONCULUS COVEN>",
+         "alternativeGroup": "drukhari-subfaction",
          "minimum": 1,
          "maximum": 1,
          "options": {

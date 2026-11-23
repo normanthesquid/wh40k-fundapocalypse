@@ -218,6 +218,10 @@
                "type": "string",
                "pattern": "^<[^a-z<>]+>$"
             },
+            "alternativeGroup": {
+               "description": "Subfaction choices sharing a group fill placeholders a unit carries as alternatives, e.g. `<KABAL>` or `<WYCH CULT>`.",
+               "$ref": "common.schema.json#/$defs/slug"
+            },
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "type": "integer", "minimum": 1 },
             "options": {
@@ -243,6 +247,7 @@
          },
          "required": ["name", "options"],
          "additionalProperties": false,
+         "dependentRequired": { "alternativeGroup": ["fillsPlaceholder"] },
          "if": { "required": ["fillsPlaceholder"] },
          "then": { "properties": { "options": { "additionalProperties": { "required": ["keyword"] } } } },
          "else": {

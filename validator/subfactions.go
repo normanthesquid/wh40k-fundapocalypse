@@ -11,6 +11,7 @@ func (check *checker) checkSubfactions(where scope, catalogue *Catalogue) {
 	carried, complete := check.carriedPlaceholders(where, catalogue)
 	fillers := map[string][]string{}
 	optionKeywords := map[string]string{}
+	groupMembers := map[string][]string{}
 	for _, slug := range sortedKeys(catalogue.DetachmentChoices) {
 		choice := catalogue.DetachmentChoices[slug]
 		choiceScope := where.at("detachmentChoices/%s", slug)
@@ -20,6 +21,9 @@ func (check *checker) checkSubfactions(where scope, catalogue *Catalogue) {
 		}
 		placeholder := *choice.FillsPlaceholder
 		fillers[placeholder] = append(fillers[placeholder], slug)
+		if group := choice.AlternativeGroup; group != nil {
+			groupMembers[*group] = append(groupMembers[*group], slug)
+		}
 		// A link that doesn't resolve is reported already, and may be what carries the placeholder.
 		if complete && !carried[placeholder] {
 			check.report(choiceScope, "no unit of this faction carries %q", placeholder)
@@ -38,6 +42,11 @@ func (check *checker) checkSubfactions(where scope, catalogue *Catalogue) {
 				check.report(optionScope, "keyword %q is already option %q's", *keyword, other)
 			}
 			optionKeywords[*keyword] = optionSlug
+		}
+	}
+	for _, group := range sortedKeys(groupMembers) {
+		if members := groupMembers[group]; len(members) == 1 {
+			check.report(where.at("detachmentChoices/%s", members[0]), "alternative group %q has no other choice", group)
 		}
 	}
 	for _, placeholder := range sortedKeys(carried) {
