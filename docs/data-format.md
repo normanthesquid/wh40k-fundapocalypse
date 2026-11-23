@@ -105,16 +105,6 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.
 9. `game-system.json`'s `release` matches the tag being released (`go run . -release 2.0.0`; CI passes it on a tag push).
 
-## Revisions are computed, not stored
-
-fundamalleus flags saved army lists whose units changed in a new release. It does this with a hash of each datasheet section. Tooling computes the hash from the canonical JSON: references are resolved to their full content (weapon profiles, ability text), library links are merged, object keys are sorted, and keyword and ability lists are sorted, so reordering them is not a change. Option groups and options keep their order, because display order is part of the datasheet.
-
-* **cost:** the base cost, and every option's cost.
-* **wargear:** the option groups and options, without their costs.
-* **profile:** everything else: profiles, keywords, abilities, default weapons, transport, battlefield role, alternative roles, availability and limits.
-
-Because the hashes are derived, nobody maintains them by hand, and a change to a shared library weapon or ability changes the hash of every datasheet that uses it.
-
 ## Releases
 
 `game-system.json` carries `release`, which must match the git tag `v<release>`, and each release has a `CHANGELOG.md` entry. Pushing the tag runs CI, which checks the two match. The maintainer then fast-forwards the `release` branch to the tag (`git push origin v<release>^{commit}:refs/heads/release`); Actions' own token can't, since a release can change workflow files. fundamalleus pins this repo as a git submodule on that branch, so Dependabot's `gitsubmodule` updates (which follow a branch, not tags) propose each release exactly once.
