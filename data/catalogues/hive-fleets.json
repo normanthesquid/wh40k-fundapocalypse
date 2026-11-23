@@ -3865,6 +3865,44 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "hive-fleet": {
+         "name": "Hive Fleet",
+         "fillsPlaceholder": "<HIVE FLEET>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "behemoth": {
+               "name": "Behemoth",
+               "keyword": "BEHEMOTH"
+            },
+            "kraken": {
+               "name": "Kraken",
+               "keyword": "KRAKEN"
+            },
+            "leviathan": {
+               "name": "Leviathan",
+               "keyword": "LEVIATHAN"
+            },
+            "gorgon": {
+               "name": "Gorgon",
+               "keyword": "GORGON"
+            },
+            "jormungandr": {
+               "name": "Jormungandr",
+               "keyword": "JORMUNGANDR"
+            },
+            "hydra": {
+               "name": "Hydra",
+               "keyword": "HYDRA"
+            },
+            "kronos": {
+               "name": "Kronos",
+               "keyword": "KRONOS"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "synapse-2": {
          "ability": "synapse",

@@ -1,0 +1,12 @@
+{
+   "id": "bad",
+   "name": "Bad",
+   "kind": "Faction",
+   "detachmentChoices": {
+      "chapter": {
+         "name": "Chapter",
+         "fillsPlaceholder": "<CHAPTER>",
+         "options": { "own": { "name": "Own", "keyword": "<OWN>" } }
+      }
+   }
+}

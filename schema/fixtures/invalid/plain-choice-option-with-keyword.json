@@ -1,0 +1,6 @@
+{
+   "id": "bad",
+   "name": "Bad",
+   "kind": "Faction",
+   "detachmentChoices": { "filter": { "name": "Filter", "options": { "ordo": { "name": "Ordo", "keyword": "ORDO" } } } }
+}

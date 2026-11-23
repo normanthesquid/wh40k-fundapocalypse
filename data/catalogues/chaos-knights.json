@@ -1503,6 +1503,25 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "household": {
+         "name": "Household",
+         "fillsPlaceholder": "<QUESTOR TRAITORIS>",
+         "closed": true,
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "infernal-household": {
+               "name": "Infernal Household",
+               "keyword": "INFERNAL HOUSEHOLD"
+            },
+            "iconoclast-household": {
+               "name": "Iconoclast Household",
+               "keyword": "ICONOCLAST HOUSEHOLD"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "fallen-courts-2": {
          "ability": "fallen-courts",

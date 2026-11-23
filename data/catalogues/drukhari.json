@@ -2797,6 +2797,75 @@
          "datasheet": "aeldariweapons/webway-gate-2"
       }
    },
+   "detachmentChoices": {
+      "kabal": {
+         "name": "Kabal",
+         "fillsPlaceholder": "<KABAL>",
+         "alternativeGroup": "drukhari-subfaction",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "kabal-of-the-black-heart": {
+               "name": "Kabal of the Black Heart",
+               "keyword": "KABAL OF THE BLACK HEART"
+            },
+            "kabal-of-the-flayed-skull": {
+               "name": "Kabal of the Flayed Skull",
+               "keyword": "KABAL OF THE FLAYED SKULL"
+            },
+            "kabal-of-the-poisoned-tongue": {
+               "name": "Kabal of the Poisoned Tongue",
+               "keyword": "KABAL OF THE POISONED TONGUE"
+            },
+            "kabal-of-the-obsidian-rose": {
+               "name": "Kabal of the Obsidian Rose",
+               "keyword": "KABAL OF THE OBSIDIAN ROSE"
+            }
+         }
+      },
+      "wych-cult": {
+         "name": "Wych Cult",
+         "fillsPlaceholder": "<WYCH CULT>",
+         "alternativeGroup": "drukhari-subfaction",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "cult-of-strife": {
+               "name": "Cult of Strife",
+               "keyword": "CULT OF STRIFE"
+            },
+            "cult-of-the-cursed-blade": {
+               "name": "Cult of the Cursed Blade",
+               "keyword": "CULT OF THE CURSED BLADE"
+            },
+            "cult-of-the-red-grief": {
+               "name": "Cult of the Red Grief",
+               "keyword": "CULT OF THE RED GRIEF"
+            }
+         }
+      },
+      "haemonculus-coven": {
+         "name": "Haemonculus Coven",
+         "fillsPlaceholder": "<HAEMONCULUS COVEN>",
+         "alternativeGroup": "drukhari-subfaction",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "the-prophets-of-flesh": {
+               "name": "The Prophets of Flesh",
+               "keyword": "PROPHETS OF FLESH"
+            },
+            "the-dark-creed": {
+               "name": "The Dark Creed",
+               "keyword": "DARK CREED"
+            },
+            "coven-of-twelve": {
+               "name": "Coven of Twelve",
+               "keyword": "COVEN OF TWELVE"
+            }
+         }
+      }
+   },
    "weapons": {
       "husk-blade": {
          "name": "Husk Blade",

@@ -200,9 +200,18 @@ type DatasheetLink struct {
 }
 
 type DetachmentChoice struct {
-	Minimum *int                      `json:"minimum"`
-	Maximum *int                      `json:"maximum"`
-	Options map[string]KeywordChanges `json:"options"`
+	FillsPlaceholder *string                           `json:"fillsPlaceholder"`
+	AlternativeGroup *string                           `json:"alternativeGroup"`
+	Closed           bool                              `json:"closed"`
+	Minimum          *int                              `json:"minimum"`
+	Maximum          *int                              `json:"maximum"`
+	Options          map[string]DetachmentChoiceOption `json:"options"`
+}
+
+// DetachmentChoiceOption is one option of a detachment choice; a subfaction's names its keyword.
+type DetachmentChoiceOption struct {
+	KeywordChanges
+	Keyword *string `json:"keyword"`
 }
 
 type DetachmentAbility struct {

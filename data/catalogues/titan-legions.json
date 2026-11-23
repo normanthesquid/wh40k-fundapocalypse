@@ -685,6 +685,15 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "titan-legion": {
+         "name": "Titan Legion",
+         "fillsPlaceholder": "<TITAN LEGION>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {}
+      }
+   },
    "weapons": {
       "warlord-gatling-blaster": {
          "name": "Warlord Gatling Blaster",

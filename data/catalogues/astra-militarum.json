@@ -8760,6 +8760,48 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "regiment": {
+         "name": "Regiment",
+         "fillsPlaceholder": "<REGIMENT>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "cadian": {
+               "name": "Cadian",
+               "keyword": "CADIAN"
+            },
+            "catachan": {
+               "name": "Catachan",
+               "keyword": "CATACHAN"
+            },
+            "valhallan": {
+               "name": "Valhallan",
+               "keyword": "VALHALLAN"
+            },
+            "vostroyan": {
+               "name": "Vostroyan",
+               "keyword": "VOSTROYAN"
+            },
+            "armageddon": {
+               "name": "Armageddon",
+               "keyword": "ARMAGEDDON"
+            },
+            "tallarn": {
+               "name": "Tallarn",
+               "keyword": "TALLARN"
+            },
+            "mordian": {
+               "name": "Mordian",
+               "keyword": "MORDIAN"
+            },
+            "militarum-tempestus": {
+               "name": "Militarum Tempestus",
+               "keyword": "MILITARUM TEMPESTUS"
+            }
+         }
+      }
+   },
    "weapons": {
       "melta-cutter-drill": {
          "name": "Melta-cutter Drill",

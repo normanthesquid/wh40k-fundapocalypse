@@ -213,6 +213,19 @@
          "type": "object",
          "properties": {
             "name": { "type": "string", "minLength": 1 },
+            "fillsPlaceholder": {
+               "description": "The placeholder faction keyword this choice fills, e.g. `<CHAPTER>`: a subfaction choice.",
+               "type": "string",
+               "pattern": "^<[^a-z<>]+>$"
+            },
+            "closed": {
+               "description": "A subfaction choice whose options are the only values, with no \"your own\", e.g. Questor Imperialis or Questor Mechanicus.",
+               "const": true
+            },
+            "alternativeGroup": {
+               "description": "Subfaction choices sharing a group fill placeholders a unit carries as alternatives, e.g. `<KABAL>` or `<WYCH CULT>`.",
+               "$ref": "common.schema.json#/$defs/slug"
+            },
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "type": "integer", "minimum": 1 },
             "options": {
@@ -223,17 +236,29 @@
                   "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
                   "properties": {
                      "name": { "type": "string", "minLength": 1 },
+                     "keyword": {
+                        "description": "A subfaction choice's option: the faction keyword that replaces the placeholder, e.g. `ULTRAMARINES`.",
+                        "allOf": [{ "$ref": "common.schema.json#/$defs/keyword" }, { "pattern": "^[^<]" }]
+                     },
                      "addsFactionKeywords": true,
                      "addsKeywords": true
                   },
                   "required": ["name"],
                   "unevaluatedProperties": false
                },
-               "minProperties": 1
+               "description": "Only a subfaction choice may have no options: then \"your own\" is its only one."
             }
          },
          "required": ["name", "options"],
-         "additionalProperties": false
+         "additionalProperties": false,
+         "dependentRequired": { "alternativeGroup": ["fillsPlaceholder"], "closed": ["fillsPlaceholder"] },
+         "if": { "required": ["fillsPlaceholder"] },
+         "then": { "properties": { "options": { "additionalProperties": { "required": ["keyword"] } } } },
+         "else": {
+            "properties": {
+               "options": { "minProperties": 1, "additionalProperties": { "not": { "required": ["keyword"] } } }
+            }
+         }
       },
       "conditionalChange": {
          "description": "What changes about a datasheet while `when` holds.",

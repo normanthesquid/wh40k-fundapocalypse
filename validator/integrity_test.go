@@ -11,6 +11,7 @@ const (
 	factionID    = "example-faction"
 	libraryID    = "example-library"
 	squadID      = "example-squad"
+	hostID       = "example-host"
 )
 
 func loadValidDataset(t *testing.T) *Dataset {
@@ -199,7 +200,7 @@ func TestIntegrityRules(t *testing.T) {
 			dataset.Catalogues[agentsID].Weapons = map[string]NamedEntry{inquisitorID: {}}
 		}, `slug "inquisitor" names more than one entry`},
 		{"slug shared by two detachment choices' options", func(dataset *Dataset) {
-			dataset.Catalogues[agentsID].DetachmentChoices["second"] = DetachmentChoice{Options: map[string]KeywordChanges{"inquisition": {}}}
+			dataset.Catalogues[agentsID].DetachmentChoices["second"] = DetachmentChoice{Options: map[string]DetachmentChoiceOption{"inquisition": {}}}
 		}, `slug "inquisition" names more than one entry`},
 		{"game-system slug used twice", func(dataset *Dataset) {
 			dataset.GameSystem.Abilities["battalion"] = NamedEntry{}
@@ -294,9 +295,103 @@ func TestIntegrityRules(t *testing.T) {
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "IMPERIUM"}))
 		}, ""},
 		{"keyword only a choice adds", func(dataset *Dataset) {
-			dataset.Catalogues[agentsID].DetachmentChoices["faction-filter"].Options["inquisition"] = KeywordChanges{AddsKeywords: []string{"FILTERED"}}
+			dataset.Catalogues[agentsID].DetachmentChoices["faction-filter"].Options["inquisition"] = DetachmentChoiceOption{KeywordChanges: KeywordChanges{AddsKeywords: []string{"FILTERED"}}}
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "FILTERED"}))
 		}, ""},
+		{"keyword only a subfaction option names", func(dataset *Dataset) {
+			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "FIRST HOST"}))
+		}, ""},
+		{"placeholder no choice fills", func(dataset *Dataset) {
+			delete(dataset.Catalogues[factionID].DetachmentChoices, hostID)
+		}, `no detachment choice fills "<EXAMPLE HOST>"`},
+		{"placeholder two choices fill", func(dataset *Dataset) {
+			dataset.Catalogues[factionID].DetachmentChoices["second-host"] = DetachmentChoice{FillsPlaceholder: pointer("<EXAMPLE HOST>")}
+		}, `"<EXAMPLE HOST>" is filled by more than one detachment choice: example-host, second-host`},
+		{"subfaction choice no unit needs", func(dataset *Dataset) {
+			dataset.Catalogues[factionID].DetachmentChoices["legion"] = DetachmentChoice{FillsPlaceholder: pointer("<LEGION>")}
+		}, `detachmentChoices/legion: no unit of this faction carries "<LEGION>"`},
+		{"subfaction choice with only your own", func(dataset *Dataset) {
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.Options = nil
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+		}, ""},
+		{"subfaction option without a keyword", func(dataset *Dataset) {
+			dataset.Catalogues[factionID].DetachmentChoices[hostID].Options["first-host"] = DetachmentChoiceOption{}
+		}, "options/first-host: a subfaction choice's option names its keyword"},
+		{"subfaction keyword used by two options", func(dataset *Dataset) {
+			dataset.Catalogues[factionID].DetachmentChoices[hostID].Options["second-host"] = DetachmentChoiceOption{Keyword: pointer("FIRST HOST")}
+		}, `options/second-host: keyword "FIRST HOST" is already option "first-host"'s`},
+		{"placeholder a faction's own datasheet carries", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.FactionKeywords = append(inquisitor.FactionKeywords, "<ORDO>")
+			})
+		}, `no detachment choice fills "<ORDO>"`},
+		{"placeholder a library datasheet carries", func(dataset *Dataset) {
+			squad := dataset.Catalogues[libraryID].Datasheets[squadID]
+			squad.FactionKeywords = append(squad.FactionKeywords, "<LIBRARY HOST>")
+			dataset.Catalogues[libraryID].Datasheets[squadID] = squad
+		}, `example-faction.json: no detachment choice fills "<LIBRARY HOST>"`},
+		{"placeholder a conditional link keyword adds", func(dataset *Dataset) {
+			link := dataset.Catalogues[factionID].DatasheetLinks[squadID]
+			link.ConditionalKeywords = []ConditionalKeywords{{
+				KeywordChanges: KeywordChanges{AddsFactionKeywords: []string{"<VETERAN HOST>"}},
+				When:           *count(CountTarget{Kind: CountTargetKindAnyUnit}),
+			}}
+			dataset.Catalogues[factionID].DatasheetLinks[squadID] = link
+		}, `no detachment choice fills "<VETERAN HOST>"`},
+		{"placeholder an option adds", func(dataset *Dataset) {
+			editUpgrade(dataset, 0, func(option *Option) { option.AddsFactionKeywords = []string{"<ORDO>"} })
+		}, `no detachment choice fills "<ORDO>"`},
+		{"subfaction keyword that is a placeholder", func(dataset *Dataset) {
+			dataset.Catalogues[factionID].DetachmentChoices[hostID].Options["first-host"] = DetachmentChoiceOption{Keyword: pointer("<FIRST HOST>")}
+		}, `keyword "<FIRST HOST>" is a placeholder, not a subfaction`},
+		{"subfaction keyword shared across two choices", func(dataset *Dataset) {
+			link := dataset.Catalogues[factionID].DatasheetLinks[squadID]
+			link.AddsFactionKeywords = append(link.AddsFactionKeywords, "<EXAMPLE ORDER>")
+			dataset.Catalogues[factionID].DatasheetLinks[squadID] = link
+			dataset.Catalogues[factionID].DetachmentChoices["order"] = DetachmentChoice{
+				FillsPlaceholder: pointer("<EXAMPLE ORDER>"),
+				Options:          map[string]DetachmentChoiceOption{"first-order": {Keyword: pointer("FIRST HOST")}},
+			}
+		}, `options/first-order: keyword "FIRST HOST" is already option "first-host"'s`},
+		{"placeholder three choices fill", func(dataset *Dataset) {
+			dataset.Catalogues[factionID].DetachmentChoices["second-host"] = DetachmentChoice{FillsPlaceholder: pointer("<EXAMPLE HOST>")}
+			dataset.Catalogues[factionID].DetachmentChoices["third-host"] = DetachmentChoice{FillsPlaceholder: pointer("<EXAMPLE HOST>")}
+		}, `filled by more than one detachment choice: example-host, second-host, third-host`},
+		{"closed choice with no options", func(dataset *Dataset) {
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.Closed = true
+			choice.Options = nil
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+		}, "detachmentChoices/example-host: a closed choice has options"},
+		{"closed choice with options", func(dataset *Dataset) {
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.Closed = true
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+		}, ""},
+		{"alternative group with one choice", func(dataset *Dataset) {
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.AlternativeGroup = pointer("hosts")
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+		}, `detachmentChoices/example-host: alternative group "hosts" has no other choice`},
+		{"alternative group shared by two choices", func(dataset *Dataset) {
+			link := dataset.Catalogues[factionID].DatasheetLinks[squadID]
+			link.AddsFactionKeywords = append(link.AddsFactionKeywords, "<EXAMPLE ORDER>")
+			dataset.Catalogues[factionID].DatasheetLinks[squadID] = link
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.AlternativeGroup = pointer("hosts")
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+			dataset.Catalogues[factionID].DetachmentChoices["order"] = DetachmentChoice{
+				FillsPlaceholder: pointer("<EXAMPLE ORDER>"),
+				AlternativeGroup: pointer("hosts"),
+			}
+		}, ""},
+		{"plain choice option with a keyword", func(dataset *Dataset) {
+			dataset.Catalogues[agentsID].DetachmentChoices["faction-filter"].Options["inquisition"] = DetachmentChoiceOption{Keyword: pointer("INQUISITION")}
+		}, "options/inquisition: only a subfaction choice's option names a keyword"},
+		{"plain choice with no options", func(dataset *Dataset) {
+			dataset.Catalogues[agentsID].DetachmentChoices["faction-filter"] = DetachmentChoice{}
+		}, "faction-filter: only a subfaction choice may have no options"},
 		{"keyword only a link adds", func(dataset *Dataset) {
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "EXAMPLE CHAPTER"}))
 		}, ""},
