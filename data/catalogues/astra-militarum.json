@@ -5652,6 +5652,11 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA MILITARUM",
+            "<REGIMENT>"
+         ],
          "profiles": [
             {
                "name": "Bane Wolf",
@@ -5867,6 +5872,11 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "IMPERIUM",
+            "ASTRA MILITARUM",
+            "<REGIMENT>"
+         ],
          "profiles": [
             {
                "name": "Devil Dog",

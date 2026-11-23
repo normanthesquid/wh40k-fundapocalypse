@@ -2,6 +2,10 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.5.1
+
+* Eight datasheets get their printed Faction keywords, which were missing: Bane Wolf and Devil Dog (`<REGIMENT>`), the Armiger Moirax, Helverin and Warglaive (`<QUESTOR ALLEGIANCE>`, `<HOUSEHOLD>`), the War Dog and War Dog Moirax (`<QUESTOR TRAITORIS>`) and the Greater Possessed (`<LEGION>`).
+
 ## 2.5.0
 
 * Subfactions. A detachment choice's `fillsPlaceholder` makes it a faction's subfaction choice, and each option names the `keyword` that replaces the placeholder. Every placeholder faction keyword now has one: Adeptus Ministorum, Astra Militarum (Militarum Tempestus included), Asuryani, Chaos Knights, Drukhari, Genestealer Cults, Harlequins, Hive Fleets, Imperial Knights, Necrons, Orks, T'au Empire and Titan Legions get theirs, and Adeptus Astartes' and Heretic Astartes' filters become their Chapter and Legion. Chaos Knights choose an Infernal or Iconoclast Household, and an Imperial Knights Household may be Freeblade. Those two allegiances are `closed`: no "your own". A list builder also offers "your own", named by the player; Titan Legions and Asuryani Conclaves and Coteries offer only that. Drukhari's three choices share an `alternativeGroup`, since a Venom or Raider is from one of a Kabal, Wych Cult or Coven.
