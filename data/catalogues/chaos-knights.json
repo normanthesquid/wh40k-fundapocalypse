@@ -200,6 +200,11 @@
          "battlefieldRole": "LordOfWar",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
          "profiles": [
             {
                "name": "War Dog Moirax",
@@ -417,6 +422,11 @@
          "battlefieldRole": "LordOfWar",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "CHAOS KNIGHTS",
+            "<QUESTOR TRAITORIS>"
+         ],
          "profiles": [
             {
                "name": "War Dog",

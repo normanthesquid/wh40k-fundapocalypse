@@ -8088,6 +8088,11 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "HERETIC ASTARTES",
+            "<LEGION>"
+         ],
          "profiles": [
             {
                "name": "Greater Possessed",

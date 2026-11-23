@@ -56,6 +56,12 @@
          "battlefieldRole": "LordOfWar",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "IMPERIUM",
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>"
+         ],
          "profiles": [
             {
                "name": "Armiger Moirax",
@@ -294,6 +300,12 @@
          "battlefieldRole": "LordOfWar",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "IMPERIUM",
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>"
+         ],
          "profiles": [
             {
                "name": "Armiger Helverin",
@@ -436,6 +448,12 @@
          "battlefieldRole": "LordOfWar",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "IMPERIUM",
+            "IMPERIAL KNIGHTS",
+            "<QUESTOR ALLEGIANCE>",
+            "<HOUSEHOLD>"
+         ],
          "profiles": [
             {
                "name": "Armiver Warglaive",
