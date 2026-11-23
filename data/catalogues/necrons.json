@@ -4710,6 +4710,44 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "dynasty": {
+         "name": "Dynasty",
+         "fillsPlaceholder": "<DYNASTY>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "sautekh": {
+               "name": "Sautekh",
+               "keyword": "SAUTEKH"
+            },
+            "nihilakh": {
+               "name": "Nihilakh",
+               "keyword": "NIHILAKH"
+            },
+            "novokh": {
+               "name": "Novokh",
+               "keyword": "NOVOKH"
+            },
+            "mephrit": {
+               "name": "Mephrit",
+               "keyword": "MEPHRIT"
+            },
+            "nephrekh": {
+               "name": "Nephrekh",
+               "keyword": "NEPHREKH"
+            },
+            "szarekhan": {
+               "name": "Szarekhan",
+               "keyword": "SZAREKHAN"
+            },
+            "maynarkh": {
+               "name": "Maynarkh",
+               "keyword": "MAYNARKH"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "living-metal-2": {
          "ability": "living-metal",

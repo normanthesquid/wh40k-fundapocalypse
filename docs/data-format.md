@@ -42,6 +42,14 @@ A **reference** is a bare slug when the target is in the same catalogue or the g
 
 `imports` makes a library's entries referenceable but fields no units by itself. A faction lists each library datasheet it fields in `datasheetLinks`. The link can replace the battlefield role or cost and add faction keywords, keywords, abilities, alternative roles and an `availableWhen`. The link's own slug is the unit's id in that faction, so `dark-angels/tactical-squad` and `space-wolves/tactical-squad` stay distinct while sharing one library datasheet. A change to that library datasheet reaches every faction that links it. `conditionalKeywords` adds keywords only when a condition holds, e.g. when the unit takes one of the library datasheet's options.
 
+## Subfactions
+
+A placeholder faction keyword, such as `<CHAPTER>`, `<CLAN>` or `<SEPT>`, stands for the subfaction a detachment chooses. A `detachmentChoices` entry with `fillsPlaceholder` is that faction's subfaction choice, and each of its options names the `keyword` that replaces the placeholder, e.g. Ultramarines' `ULTRAMARINES` or Goffs' `GOFF`. Besides its options, a list builder offers "your own" subfaction, named by the player, which replaces the placeholder with that name; a choice with no options offers only that. A faction with several placeholders, such as Drukhari's `<KABAL>`, `<WYCH CULT>` and `<HAEMONCULUS COVEN>`, has one choice for each, and a detachment makes a choice only when it fields a unit carrying its placeholder.
+
+A unit that carries an option's keyword in place of the placeholder, such as Marneus Calgar's `ULTRAMARINES`, is that subfaction's own: it may join a detachment only when that option is chosen, or one of them when it carries several (Zhufor the Impaler's `WORLD EATERS` and `SKULLTAKERS`), and never under "your own". The data carries no condition for this; the keywords say it.
+
+A choice without `fillsPlaceholder`, such as Agents of the Imperium's Faction Filter, is not a subfaction: it has options, none names a keyword, and units restricted by it say so with `availableWhen`.
+
 ## Keywords and order
 
 Keywords are written in capitals (`INFANTRY`, `COMMANDER (T'AU)`) and match exactly; the schema rejects lower case, so `Infantry` can't silently become a second keyword.
@@ -104,6 +112,7 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 7. `removesWeapons` only names weapons the datasheet carries, another of its options adds, or a conditional change adds, and `profileChange.profile` names one of the datasheet's profiles, including those its options add.
 8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.
 9. `game-system.json`'s `release` matches the tag being released (`go run . -release 2.0.0`; CI passes it on a tag push).
+10. Each placeholder faction keyword a faction's units carry is filled by exactly one of its detachment choices, and each choice's placeholder is carried by one of its units. Every option of a subfaction choice names a `keyword`, unique in the catalogue; no other choice's option does, and only a subfaction choice may have no options.
 
 ## Releases
 
@@ -131,7 +140,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `selectionEntry` type `model` | 224 | per-model and unit-size options inside a datasheet (e.g. a `unit-size` option group), or a profile |
 | `selectionEntry` type `upgrade` | 3,241 | wargear `option`s |
 | `selectionEntryGroup` | 917 | wargear `optionGroup`s |
-| "Chapter Filter", "Faction Filter" and similar `List Configuration` entries | — | `detachmentChoices` |
+| "Chapter Filter", "Faction Filter" and similar `List Configuration` entries | — | `detachmentChoices`; a subfaction's fills a placeholder, and its "hidden unless this option" modifiers on units became the units' keywords (see "Subfactions") |
 | `entryLink` | 5,591 | references to shared entries; root-level links to library units become `datasheetLinks` |
 | `constraint` min/max, scope parent | 7,382 | `minimum`/`maximum` on option groups and options; no max constraint means `maximum` is left out |
 | `constraint` max, scope roster | 203 | `maximumPerArmy` |

@@ -2303,6 +2303,40 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "cult": {
+         "name": "Cult",
+         "fillsPlaceholder": "<CULT>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "cult-of-the-four-armed-emperor": {
+               "name": "Cult of the Four-Armed Emperor",
+               "keyword": "CULT OF THE FOUR-ARMED EMPEROR"
+            },
+            "the-pauper-princes": {
+               "name": "The Pauper Princes",
+               "keyword": "PAUPER PRINCES"
+            },
+            "the-hivecult": {
+               "name": "The Hivecult",
+               "keyword": "HIVECULT"
+            },
+            "the-bladed-cog": {
+               "name": "The Bladed Cog",
+               "keyword": "BLADED COG"
+            },
+            "the-rusted-claw": {
+               "name": "The Rusted Claw",
+               "keyword": "RUSTED CLAW"
+            },
+            "the-twisted-helix": {
+               "name": "The Twisted Helix",
+               "keyword": "TWISTED HELIX"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "cult-ambush-2": {
          "ability": "cult-ambush",

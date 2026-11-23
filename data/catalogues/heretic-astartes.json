@@ -43,137 +43,7 @@
          ],
          "abilities": [
             "inferno"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "servants-of-the-abyss"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         }
+         ]
       },
       "hellforged-mastodon": {
          "name": "Hellforged Mastodon",
@@ -207,7 +77,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/eternal-hunger",
@@ -358,7 +229,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/infernal-regeneration"
@@ -527,7 +399,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/machina-malifica"
@@ -887,7 +760,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/malignatas-beam-cannon",
@@ -1076,7 +950,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/armoured-feet"
@@ -1253,7 +1128,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/thermal-jets",
@@ -1375,7 +1251,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/eternal-hunger",
@@ -1591,7 +1468,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/fellblade-accelerator-cannon",
@@ -1810,7 +1688,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/blade-struts",
@@ -1935,7 +1814,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/soulburner-bombard",
@@ -2081,7 +1961,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/infernal-hunger"
@@ -2268,7 +2149,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/machina-malifica",
@@ -2456,7 +2338,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/infernal-hunger"
@@ -2724,7 +2607,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/artillery-battery"
@@ -2956,7 +2840,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/scorpius-multi-launcher",
@@ -3092,7 +2977,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/twin-accelerator-autocannon",
@@ -3280,7 +3166,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/malignatas-beam-laser",
@@ -3470,7 +3357,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/infernal-hunger"
@@ -3678,7 +3566,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/dreadhammer-siege-cannon",
@@ -3869,7 +3758,8 @@
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
-            "EYRINE CULTS"
+            "EYRINE CULTS",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/twin-avenger-bolt-cannon",
@@ -4096,7 +3986,8 @@
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
-            "EYRINE CULTS"
+            "EYRINE CULTS",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/bladed-wings"
@@ -4276,7 +4167,8 @@
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
-            "EYRINE CULTS"
+            "EYRINE CULTS",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/bladed-wings",
@@ -4425,7 +4317,8 @@
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
-            "EYRINE CULTS"
+            "EYRINE CULTS",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/dreadstrike-missiles",
@@ -4591,7 +4484,8 @@
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
-            "EYRINE CULTS"
+            "EYRINE CULTS",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/vengeance-launcher",
@@ -4807,7 +4701,8 @@
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
-            "EYRINE CULTS"
+            "EYRINE CULTS",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/massively-armoured-bulk"
@@ -5036,7 +4931,8 @@
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
-            "EYRINE CULTS"
+            "EYRINE CULTS",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/soulstalker-missiles",
@@ -5185,145 +5081,6 @@
             "deep-strike",
             "terror-troops"
          ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "world-eaters"
-                     },
-                     "maximum": 0
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "skulltakers"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         },
          "maximumPerArmy": 1
       },
       "lord-arkos": {
@@ -5370,145 +5127,6 @@
             "arch-villain",
             "aura-of-dark-majesty"
          ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "alpha-legion"
-                     },
-                     "maximum": 0
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "the-faithless"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         },
          "maximumPerArmy": 1
       },
       "chaos-hellwright-on-dark-abeyant": {
@@ -5542,7 +5160,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "hellwright-weapons-ranged",
@@ -5665,7 +5284,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "hellwright-weapons-ranged",
@@ -5784,7 +5404,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/crazed"
@@ -6087,7 +5708,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/crazed"
@@ -6389,7 +6011,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/helwrought-weapons"
@@ -6621,7 +6244,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "axe-of-dismemberment"
@@ -6742,7 +6366,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "impaler-chainglaive",
@@ -6887,7 +6512,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/force-weapon"
@@ -6990,136 +6616,6 @@
             "dark-destiny",
             "deep-strike"
          ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "black-legion"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         },
          "maximumPerArmy": 1
       },
       "haarken-worldclaimer": {
@@ -7166,137 +6662,7 @@
             "lord-of-the-raptors",
             "deep-strike",
             "terror-troops"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "black-legion"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         }
+         ]
       },
       "daemon-prince": {
          "name": "Daemon Prince",
@@ -7329,7 +6695,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "daemonic-weapons"
@@ -7443,7 +6810,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/force-weapon"
@@ -7684,7 +7052,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "accursed-crozius"
@@ -7814,7 +7183,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/power-axe"
@@ -7931,7 +7301,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "exalted-weapons"
@@ -8048,7 +7419,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "the-rod-of-torment"
@@ -8106,7 +7478,8 @@
          "factionKeywords": [
             "CHAOS",
             "KHORNE",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chain-weapons",
@@ -8222,7 +7595,8 @@
          "factionKeywords": [
             "CHAOS",
             "SLAANESH",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "noise-marine-weapons",
@@ -8380,7 +7754,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "wargear": [
             {
@@ -8548,7 +7923,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "combi-bolters",
@@ -8942,7 +8318,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "fleshmetal-weapons"
@@ -9058,7 +8435,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "wargear": [
             {
@@ -9338,7 +8716,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "wargear": [
             {
@@ -9580,7 +8959,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/mutated-beyond-reason",
@@ -9860,7 +9240,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/close-combat-weapons",
@@ -10025,7 +9406,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/chainswords",
@@ -10192,7 +9574,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/lightning-claws"
@@ -10338,7 +9721,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/close-combat-weapons"
@@ -10514,7 +9898,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "eviscerating-claws"
@@ -10648,7 +10033,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/defiler-claws",
@@ -10823,7 +10209,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "abilities": [
             "chaos-space-marines/infernal-regeneration"
@@ -11023,7 +10410,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/maulerfiend-fists"
@@ -11162,7 +10550,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/armoured-tracks"
@@ -11359,7 +10748,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/armoured-tracks",
@@ -11477,7 +10867,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "weapons/demolisher-cannon",
@@ -11617,7 +11008,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/melta-cutter",
@@ -11826,7 +11218,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "fleshmetal-guns",
@@ -11990,7 +11383,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/armoured-tracks",
@@ -12123,7 +11517,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/heldrake-claws"
@@ -12271,7 +11666,8 @@
          "factionKeywords": [
             "CHAOS",
             "KHORNE",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "great-cleaver-of-khorne"
@@ -12377,7 +11773,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "lashing-warp-energies"
@@ -12510,136 +11907,6 @@
             "armour-of-shrieking-souls",
             "inferno"
          ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "emperors-children"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         },
          "maximumPerArmy": 1
       },
       "kharn-the-betrayer": {
@@ -12685,136 +11952,6 @@
             "kill-maim-burn",
             "destroyer"
          ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "world-eaters"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         },
          "maximumPerArmy": 1
       },
       "chaos-lord-on-daemonic-mount": {
@@ -12848,7 +11985,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/helwrought-weapons"
@@ -12973,7 +12111,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/helwrought-weapons"
@@ -13081,137 +12220,7 @@
          ],
          "abilities": [
             "lord-of-chaos-2"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "servants-of-the-abyss"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         }
+         ]
       },
       "rogue-psyker": {
          "name": "Rogue Psyker",
@@ -13254,146 +12263,14 @@
          "availableWhen": {
             "kind": "Not",
             "condition": {
-               "kind": "Any",
-               "conditions": [
-                  {
-                     "kind": "Count",
-                     "scope": "Army",
-                     "of": {
-                        "kind": "Keyword",
-                        "keyword": "OBSIDIUS MALLEX"
-                     },
-                     "minimum": 1,
-                     "maximum": 1
-                  },
-                  {
-                     "kind": "All",
-                     "conditions": [
-                        {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "alpha-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "black-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "emperors-children"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "iron-warriors"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "night-lords"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "word-bearers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "world-eaters"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "renegade-chapter"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "red-corsairs"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "the-faithless"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "skulltakers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "servants-of-the-abyss"
-                                 },
-                                 "minimum": 1
-                              }
-                           ]
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "maximum": 0
-                        }
-                     ]
-                  }
-               ]
+               "kind": "Count",
+               "scope": "Army",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "OBSIDIUS MALLEX"
+               },
+               "minimum": 1,
+               "maximum": 1
             }
          }
       },
@@ -13433,137 +12310,7 @@
          ],
          "abilities": [
             "ignore-damage-6"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "servants-of-the-abyss"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         }
+         ]
       },
       "chaos-beastmen": {
          "name": "Chaos Beastmen",
@@ -13606,146 +12353,14 @@
          "availableWhen": {
             "kind": "Not",
             "condition": {
-               "kind": "Any",
-               "conditions": [
-                  {
-                     "kind": "Count",
-                     "scope": "Army",
-                     "of": {
-                        "kind": "Keyword",
-                        "keyword": "OBSIDIUS MALLEX"
-                     },
-                     "minimum": 1,
-                     "maximum": 1
-                  },
-                  {
-                     "kind": "All",
-                     "conditions": [
-                        {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "alpha-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "black-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "emperors-children"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "iron-warriors"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "night-lords"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "word-bearers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "world-eaters"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "renegade-chapter"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "red-corsairs"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "the-faithless"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "skulltakers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "servants-of-the-abyss"
-                                 },
-                                 "minimum": 1
-                              }
-                           ]
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "maximum": 0
-                        }
-                     ]
-                  }
-               ]
+               "kind": "Count",
+               "scope": "Army",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "OBSIDIUS MALLEX"
+               },
+               "minimum": 1,
+               "maximum": 1
             }
          }
       },
@@ -13790,145 +12405,13 @@
          "availableWhen": {
             "kind": "Not",
             "condition": {
-               "kind": "Any",
-               "conditions": [
-                  {
-                     "kind": "Count",
-                     "scope": "Army",
-                     "of": {
-                        "kind": "Keyword",
-                        "keyword": "OBSIDIUS MALLEX"
-                     },
-                     "maximum": 0
-                  },
-                  {
-                     "kind": "All",
-                     "conditions": [
-                        {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "alpha-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "black-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "emperors-children"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "iron-warriors"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "night-lords"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "word-bearers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "world-eaters"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "renegade-chapter"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "red-corsairs"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "the-faithless"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "skulltakers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "servants-of-the-abyss"
-                                 },
-                                 "minimum": 1
-                              }
-                           ]
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "maximum": 0
-                        }
-                     ]
-                  }
-               ]
+               "kind": "Count",
+               "scope": "Army",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "OBSIDIUS MALLEX"
+               },
+               "maximum": 0
             }
          }
       },
@@ -13970,137 +12453,7 @@
          ],
          "abilities": [
             "inferno"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "servants-of-the-abyss"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         }
+         ]
       },
       "rogue-psyker-2": {
          "name": "Rogue Psyker",
@@ -14143,145 +12496,13 @@
          "availableWhen": {
             "kind": "Not",
             "condition": {
-               "kind": "Any",
-               "conditions": [
-                  {
-                     "kind": "Count",
-                     "scope": "Army",
-                     "of": {
-                        "kind": "Keyword",
-                        "keyword": "OBSIDIUS MALLEX"
-                     },
-                     "maximum": 0
-                  },
-                  {
-                     "kind": "All",
-                     "conditions": [
-                        {
-                           "kind": "Any",
-                           "conditions": [
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "alpha-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "black-legion"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "emperors-children"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "iron-warriors"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "night-lords"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "word-bearers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "world-eaters"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "renegade-chapter"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "red-corsairs"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "the-faithless"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "skulltakers"
-                                 },
-                                 "minimum": 1
-                              },
-                              {
-                                 "kind": "Count",
-                                 "scope": "Detachment",
-                                 "of": {
-                                    "kind": "DetachmentChoice",
-                                    "option": "servants-of-the-abyss"
-                                 },
-                                 "minimum": 1
-                              }
-                           ]
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "maximum": 0
-                        }
-                     ]
-                  }
-               ]
+               "kind": "Count",
+               "scope": "Army",
+               "of": {
+                  "kind": "Keyword",
+                  "keyword": "OBSIDIUS MALLEX"
+               },
+               "maximum": 0
             }
          }
       },
@@ -14316,7 +12537,8 @@
          ],
          "factionKeywords": [
             "CHAOS",
-            "HERETIC ASTARTES"
+            "HERETIC ASTARTES",
+            "<LEGION>"
          ],
          "weapons": [
             "chaos-space-marines/horrifying-mutations"
@@ -14512,136 +12734,6 @@
             "lord-of-the-red-corsairs",
             "inferno"
          ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "red-corsairs"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         },
          "maximumPerArmy": 1
       }
    },
@@ -14660,7 +12752,10 @@
                "minimum": 1,
                "maximum": 1
             }
-         }
+         },
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "blood-slaughterer-of-khorne": {
          "datasheet": "chaos-space-marines/blood-slaughterer-of-khorne",
@@ -14676,7 +12771,10 @@
                "minimum": 1,
                "maximum": 1
             }
-         }
+         },
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "greater-blight-drone": {
          "datasheet": "chaos-space-marines/greater-blight-drone",
@@ -14707,7 +12805,10 @@
                   }
                ]
             }
-         }
+         },
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "plague-hulk-of-nurgle": {
          "datasheet": "chaos-space-marines/plague-hulk-of-nurgle",
@@ -14748,7 +12849,10 @@
                   }
                ]
             }
-         }
+         },
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "greater-brass-scorpion-of-khorne": {
          "datasheet": "chaos-space-marines/greater-brass-scorpion-of-khorne",
@@ -14764,149 +12868,31 @@
                "minimum": 1,
                "maximum": 1
             }
-         }
+         },
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "sonic-dreadnought": {
-         "datasheet": "chaos-space-marines/sonic-dreadnought",
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "All",
-               "conditions": [
-                  {
-                     "kind": "Any",
-                     "conditions": [
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "alpha-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "black-legion"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "emperors-children"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "iron-warriors"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "night-lords"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "word-bearers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "world-eaters"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "renegade-chapter"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "red-corsairs"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "the-faithless"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "skulltakers"
-                           },
-                           "minimum": 1
-                        },
-                        {
-                           "kind": "Count",
-                           "scope": "Detachment",
-                           "of": {
-                              "kind": "DetachmentChoice",
-                              "option": "servants-of-the-abyss"
-                           },
-                           "minimum": 1
-                        }
-                     ]
-                  },
-                  {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "emperors-children"
-                     },
-                     "maximum": 0
-                  }
-               ]
-            }
-         }
+         "datasheet": "chaos-space-marines/sonic-dreadnought"
       },
       "chaos-vindicator-laser-destroyer": {
-         "datasheet": "chaos-space-marines/chaos-vindicator-laser-destroyer"
+         "datasheet": "chaos-space-marines/chaos-vindicator-laser-destroyer",
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "cypher": {
-         "datasheet": "weapons/cypher"
+         "datasheet": "weapons/cypher",
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "fallen": {
-         "datasheet": "weapons/fallen"
+         "datasheet": "weapons/fallen",
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "plague-marines": {
          "datasheet": "chaos-space-marines/plague-marines",
@@ -14948,80 +12934,71 @@
                   }
                ]
             }
-         }
+         },
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       },
       "rubric-marines": {
          "datasheet": "chaos-space-marines/rubric-marines",
-         "battlefieldRole": "Elites"
+         "battlefieldRole": "Elites",
+         "addsFactionKeywords": [
+            "<LEGION>"
+         ]
       }
    },
    "detachmentChoices": {
       "legion-filter": {
-         "name": "Legion Filter",
+         "name": "Legion",
+         "fillsPlaceholder": "<LEGION>",
+         "minimum": 1,
+         "maximum": 1,
          "options": {
             "alpha-legion": {
                "name": "Alpha Legion",
-               "addsFactionKeywords": [
-                  "ALPHA LEGION"
-               ]
+               "keyword": "ALPHA LEGION"
             },
             "black-legion": {
                "name": "Black Legion",
-               "addsFactionKeywords": [
-                  "BLACK LEGION"
-               ]
+               "keyword": "BLACK LEGION"
             },
             "emperors-children": {
                "name": "Emperor's Children",
-               "addsFactionKeywords": [
-                  "EMPEROR'S CHILDREN"
-               ]
+               "keyword": "EMPEROR'S CHILDREN"
             },
             "iron-warriors": {
                "name": "Iron Warriors",
-               "addsFactionKeywords": [
-                  "IRON WARRIORS"
-               ]
+               "keyword": "IRON WARRIORS"
             },
             "night-lords": {
                "name": "Night Lords",
-               "addsFactionKeywords": [
-                  "NIGHT LORDS"
-               ]
+               "keyword": "NIGHT LORDS"
             },
             "word-bearers": {
                "name": "Word Bearers",
-               "addsFactionKeywords": [
-                  "WORD BEARERS"
-               ]
+               "keyword": "WORD BEARERS"
             },
             "world-eaters": {
                "name": "World Eaters",
-               "addsFactionKeywords": [
-                  "WORLD EATERS"
-               ]
-            },
-            "renegade-chapter": {
-               "name": "Renegade Chapter",
-               "addsFactionKeywords": [
-                  "<LEGION>"
-               ]
+               "keyword": "WORLD EATERS"
             },
             "red-corsairs": {
-               "name": "Red Corsairs"
+               "name": "Red Corsairs",
+               "keyword": "RED CORSAIRS"
             },
             "the-faithless": {
-               "name": "The Faithless"
+               "name": "The Faithless",
+               "keyword": "THE FAITHLESS"
             },
             "skulltakers": {
-               "name": "Skulltakers"
+               "name": "Skulltakers",
+               "keyword": "SKULLTAKERS"
             },
             "servants-of-the-abyss": {
-               "name": "Servants of the Abyss"
+               "name": "Servants of the Abyss",
+               "keyword": "SERVANTS OF THE ABYSS"
             }
-         },
-         "minimum": 1,
-         "maximum": 1
+         }
       }
    },
    "weapons": {

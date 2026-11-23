@@ -2910,6 +2910,40 @@
          }
       }
    },
+   "detachmentChoices": {
+      "order": {
+         "name": "Order",
+         "fillsPlaceholder": "<ORDER>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "order-of-our-martyred-lady": {
+               "name": "Order of Our Martyred Lady",
+               "keyword": "ORDER OF OUR MARTYRED LADY"
+            },
+            "order-of-the-valorous-heart": {
+               "name": "Order of the Valorous Heart",
+               "keyword": "ORDER OF THE VALOROUS HEART"
+            },
+            "order-of-the-bloody-rose": {
+               "name": "Order of the Bloody Rose",
+               "keyword": "ORDER OF THE BLOODY ROSE"
+            },
+            "order-of-the-ebon-chalice": {
+               "name": "Order of the Ebon Chalice",
+               "keyword": "ORDER OF THE EBON CHALICE"
+            },
+            "order-of-the-argent-shroud": {
+               "name": "Order of the Argent Shroud",
+               "keyword": "ORDER OF THE ARGENT SHROUD"
+            },
+            "order-of-the-sacred-rose": {
+               "name": "Order of the Sacred Rose",
+               "keyword": "ORDER OF THE SACRED ROSE"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "martyrdom-2": {
          "ability": "martyrdom",

@@ -1503,6 +1503,36 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "dread-household": {
+         "name": "Dread Household",
+         "fillsPlaceholder": "<QUESTOR TRAITORIS>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "house-herpetrax": {
+               "name": "House Herpetrax",
+               "keyword": "HOUSE HERPETRAX"
+            },
+            "house-khomentis": {
+               "name": "House Khomentis",
+               "keyword": "HOUSE KHOMENTIS"
+            },
+            "house-lucaris": {
+               "name": "House Lucaris",
+               "keyword": "HOUSE LUCARIS"
+            },
+            "house-vextrix": {
+               "name": "House Vextrix",
+               "keyword": "HOUSE VEXTRIX"
+            },
+            "house-korvax": {
+               "name": "House Korvax",
+               "keyword": "HOUSE KORVAX"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "fallen-courts-2": {
          "ability": "fallen-courts",

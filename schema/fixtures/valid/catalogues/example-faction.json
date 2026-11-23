@@ -11,7 +11,8 @@
          "datasheet": "example-library/example-squad",
          "battlefieldRole": "Troops",
          "addsFactionKeywords": [
-            "EXAMPLE CHAPTER"
+            "EXAMPLE CHAPTER",
+            "<EXAMPLE HOST>"
          ],
          "alternativeRoles": [
             {
@@ -27,6 +28,20 @@
                }
             }
          ]
+      }
+   },
+   "detachmentChoices": {
+      "example-host": {
+         "name": "Host",
+         "fillsPlaceholder": "<EXAMPLE HOST>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "first-host": {
+               "name": "First Host",
+               "keyword": "FIRST HOST"
+            }
+         }
       }
    },
    "detachmentAbilities": {

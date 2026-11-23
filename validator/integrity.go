@@ -84,8 +84,14 @@ func (check *checker) checkCatalogue(catalogueID string, catalogue *Catalogue) {
 		choice := catalogue.DetachmentChoices[slug]
 		check.checkBounds(where.at("detachmentChoices/%s", slug), choice.Minimum, choice.Maximum)
 		for _, option := range choice.Options {
-			check.addKeywords(option)
+			check.addKeywords(option.KeywordChanges)
+			if option.Keyword != nil {
+				check.addKeywords(KeywordChanges{AddsFactionKeywords: []string{*option.Keyword}})
+			}
 		}
+	}
+	if catalogue.Kind == CatalogueKindFaction {
+		check.checkSubfactions(where, catalogue)
 	}
 	for _, slug := range sortedKeys(catalogue.DetachmentAbilities) {
 		ability := catalogue.DetachmentAbilities[slug]

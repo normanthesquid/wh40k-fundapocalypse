@@ -685,6 +685,56 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "titan-legion": {
+         "name": "Titan Legion",
+         "fillsPlaceholder": "<TITAN LEGION>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "legio-astorum": {
+               "name": "Legio Astorum",
+               "keyword": "LEGIO ASTORUM"
+            },
+            "legio-atarus": {
+               "name": "Legio Atarus",
+               "keyword": "LEGIO ATARUS"
+            },
+            "legio-crucius": {
+               "name": "Legio Crucius",
+               "keyword": "LEGIO CRUCIUS"
+            },
+            "legio-defensor": {
+               "name": "Legio Defensor",
+               "keyword": "LEGIO DEFENSOR"
+            },
+            "legio-gryphonicus": {
+               "name": "Legio Gryphonicus",
+               "keyword": "LEGIO GRYPHONICUS"
+            },
+            "legio-ignatum": {
+               "name": "Legio Ignatum",
+               "keyword": "LEGIO IGNATUM"
+            },
+            "legio-metalica": {
+               "name": "Legio Metalica",
+               "keyword": "LEGIO METALICA"
+            },
+            "legio-praesagius": {
+               "name": "Legio Praesagius",
+               "keyword": "LEGIO PRAESAGIUS"
+            },
+            "legio-solaria": {
+               "name": "Legio Solaria",
+               "keyword": "LEGIO SOLARIA"
+            },
+            "legio-tempestus": {
+               "name": "Legio Tempestus",
+               "keyword": "LEGIO TEMPESTUS"
+            }
+         }
+      }
+   },
    "weapons": {
       "warlord-gatling-blaster": {
          "name": "Warlord Gatling Blaster",

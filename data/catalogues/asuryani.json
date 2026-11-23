@@ -5940,6 +5940,50 @@
          "datasheet": "aeldariweapons/webway-gate-2"
       }
    },
+   "detachmentChoices": {
+      "craftworld": {
+         "name": "Craftworld",
+         "fillsPlaceholder": "<CRAFTWORLD>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "alaitoc": {
+               "name": "Alaitoc",
+               "keyword": "ALAITOC"
+            },
+            "biel-tan": {
+               "name": "Biel-Tan",
+               "keyword": "BIEL-TAN"
+            },
+            "iyanden": {
+               "name": "Iyanden",
+               "keyword": "IYANDEN"
+            },
+            "saim-hann": {
+               "name": "Saim-Hann",
+               "keyword": "SAIM-HANN"
+            },
+            "ulthwe": {
+               "name": "Ulthwé",
+               "keyword": "ULTHWE"
+            }
+         }
+      },
+      "conclave": {
+         "name": "Conclave",
+         "fillsPlaceholder": "<CONCLAVE>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {}
+      },
+      "coterie": {
+         "name": "Coterie",
+         "fillsPlaceholder": "<COTERIE>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {}
+      }
+   },
    "weapons": {
       "executioner": {
          "name": "Executioner",

@@ -826,6 +826,40 @@
          "datasheet": "aeldariweapons/webway-gate-2"
       }
    },
+   "detachmentChoices": {
+      "masque": {
+         "name": "Masque",
+         "fillsPlaceholder": "<MASQUE>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "the-midnight-sorrow": {
+               "name": "The Midnight Sorrow",
+               "keyword": "MIDNIGHT SORROW"
+            },
+            "the-veiled-path": {
+               "name": "The Veiled Path",
+               "keyword": "VEILED PATH"
+            },
+            "the-frozen-stars": {
+               "name": "The Frozen Stars",
+               "keyword": "FROZEN STARS"
+            },
+            "the-dreaming-shadow": {
+               "name": "The Dreaming Shadow",
+               "keyword": "DREAMING SHADOW"
+            },
+            "the-soaring-spite": {
+               "name": "The Soaring Spite",
+               "keyword": "SOARING SPITE"
+            },
+            "the-silent-shroud": {
+               "name": "The Silent Shroud",
+               "keyword": "SILENT SHROUD"
+            }
+         }
+      }
+   },
    "weapons": {
       "troupe-master-weapons": {
          "name": "Troupe Master Weapons",

@@ -213,6 +213,11 @@
          "type": "object",
          "properties": {
             "name": { "type": "string", "minLength": 1 },
+            "fillsPlaceholder": {
+               "description": "The placeholder faction keyword this choice fills, e.g. `<CHAPTER>`: a subfaction choice.",
+               "type": "string",
+               "pattern": "^<[^a-z<>]+>$"
+            },
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "type": "integer", "minimum": 1 },
             "options": {
@@ -223,13 +228,17 @@
                   "allOf": [{ "$ref": "common.schema.json#/$defs/keywordChanges" }],
                   "properties": {
                      "name": { "type": "string", "minLength": 1 },
+                     "keyword": {
+                        "description": "A subfaction choice's option: the faction keyword that replaces the placeholder, e.g. `ULTRAMARINES`.",
+                        "$ref": "common.schema.json#/$defs/keyword"
+                     },
                      "addsFactionKeywords": true,
                      "addsKeywords": true
                   },
                   "required": ["name"],
                   "unevaluatedProperties": false
                },
-               "minProperties": 1
+               "description": "Only a subfaction choice may have no options: then \"your own\" is its only one."
             }
          },
          "required": ["name", "options"],

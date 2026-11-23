@@ -7594,6 +7594,44 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "clan": {
+         "name": "Clan",
+         "fillsPlaceholder": "<CLAN>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "goffs": {
+               "name": "Goffs",
+               "keyword": "GOFF"
+            },
+            "bad-moons": {
+               "name": "Bad Moons",
+               "keyword": "BAD MOONS"
+            },
+            "evil-sunz": {
+               "name": "Evil Sunz",
+               "keyword": "EVIL SUNZ"
+            },
+            "deathskulls": {
+               "name": "Deathskulls",
+               "keyword": "DEATHSKULLS"
+            },
+            "blood-axes": {
+               "name": "Blood Axes",
+               "keyword": "BLOOD AXE"
+            },
+            "snakebites": {
+               "name": "Snakebites",
+               "keyword": "SNAKEBITES"
+            },
+            "freebooterz": {
+               "name": "Freebooterz",
+               "keyword": "FREEBOOTAS"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "waaagh-3": {
          "ability": "waaagh",

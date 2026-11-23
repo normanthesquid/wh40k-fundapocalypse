@@ -2200,6 +2200,68 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "household": {
+         "name": "Household",
+         "fillsPlaceholder": "<HOUSEHOLD>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "house-terryn": {
+               "name": "House Terryn",
+               "keyword": "HOUSE TERRYN"
+            },
+            "house-griffith": {
+               "name": "House Griffith",
+               "keyword": "HOUSE GRIFFITH"
+            },
+            "house-cadmus": {
+               "name": "House Cadmus",
+               "keyword": "HOUSE CADMUS"
+            },
+            "house-hawkshroud": {
+               "name": "House Hawkshroud",
+               "keyword": "HOUSE HAWKSHROUD"
+            },
+            "house-mortan": {
+               "name": "House Mortan",
+               "keyword": "HOUSE MORTAN"
+            },
+            "house-raven": {
+               "name": "House Raven",
+               "keyword": "HOUSE RAVEN"
+            },
+            "house-taranis": {
+               "name": "House Taranis",
+               "keyword": "HOUSE TARANIS"
+            },
+            "house-krast": {
+               "name": "House Krast",
+               "keyword": "HOUSE KRAST"
+            },
+            "house-vulker": {
+               "name": "House Vulker",
+               "keyword": "HOUSE VULKER"
+            }
+         }
+      },
+      "questor-allegiance": {
+         "name": "Questor Allegiance",
+         "fillsPlaceholder": "<QUESTOR ALLEGIANCE>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "questor-imperialis": {
+               "name": "Questor Imperialis",
+               "keyword": "QUESTOR IMPERIALIS"
+            },
+            "questor-mechanicus": {
+               "name": "Questor Mechanicus",
+               "keyword": "QUESTOR MECHANICUS"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "knight-lances-2": {
          "ability": "knight-lances",

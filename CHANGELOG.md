@@ -2,6 +2,13 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.5.0
+
+* Subfactions. A detachment choice's `fillsPlaceholder` makes it a faction's subfaction choice, and each option names the `keyword` that replaces the placeholder. Every placeholder faction keyword now has one: Adeptus Ministorum, Astra Militarum (Militarum Tempestus included), Asuryani, Chaos Knights, Drukhari, Genestealer Cults, Harlequins, Hive Fleets, Imperial Knights, Necrons, Orks, T'au Empire and Titan Legions get theirs, and Adeptus Astartes' and Heretic Astartes' filters become their Chapter and Legion. A list builder also offers "your own", named by the player; Asuryani Conclaves and Coteries offer only that for now.
+* A unit carrying a subfaction's keyword (Marneus Calgar's ULTRAMARINES, Ghazghkull's GOFF) may join only a detachment of that subfaction, as [the data format](docs/data-format.md#subfactions) explains. The conditions that encoded this for Adeptus Astartes and Heretic Astartes units are removed. Captain Corien Sumatris, who carries no Chapter keyword, needs Astral Claws or Tiger Claws.
+* Heretic Astartes units without a fixed Legion carry `<LEGION>`, replacing the Legion filter's added keyword, and the Renegade Chapter option is gone: "your own" names one.
+* New integrity rule 10 checks each placeholder has exactly one subfaction choice, whose options each name a keyword.
+
 ## 2.4.0
 
 * New markers for list builders that record Commanders and the Warmaster: a datasheet's `cannotBeWarlord` (the three C'tan Shards), a datasheet's `beginsAsCommander` (the Tomb Ziggurat) and a detachment ability's `makesCharacter` (Knight Lances and Fallen Courts).

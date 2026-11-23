@@ -7885,6 +7885,44 @@
          ]
       }
    },
+   "detachmentChoices": {
+      "sept": {
+         "name": "Sept",
+         "fillsPlaceholder": "<SEPT>",
+         "minimum": 1,
+         "maximum": 1,
+         "options": {
+            "tau-sept": {
+               "name": "T'au Sept",
+               "keyword": "T'AU SEPT"
+            },
+            "viorla-sept": {
+               "name": "Vior'la Sept",
+               "keyword": "VIOR'LA SEPT"
+            },
+            "dalyth-sept": {
+               "name": "Dal'yth Sept",
+               "keyword": "DAL'YTH"
+            },
+            "sacea-sept": {
+               "name": "Sa'cea Sept",
+               "keyword": "SA'CEA SEPT"
+            },
+            "borkan-sept": {
+               "name": "Bork'an Sept",
+               "keyword": "BORK'AN SEPT"
+            },
+            "farsight-enclaves": {
+               "name": "Farsight Enclaves",
+               "keyword": "FARSIGHT ENCLAVES"
+            },
+            "kelshan": {
+               "name": "Ke'lshan",
+               "keyword": "KE'LSHAN"
+            }
+         }
+      }
+   },
    "detachmentAbilities": {
       "for-the-greater-good-2": {
          "ability": "for-the-greater-good",
