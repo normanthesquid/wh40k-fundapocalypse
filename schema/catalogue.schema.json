@@ -230,7 +230,7 @@
                      "name": { "type": "string", "minLength": 1 },
                      "keyword": {
                         "description": "A subfaction choice's option: the faction keyword that replaces the placeholder, e.g. `ULTRAMARINES`.",
-                        "$ref": "common.schema.json#/$defs/keyword"
+                        "allOf": [{ "$ref": "common.schema.json#/$defs/keyword" }, { "pattern": "^[^<]" }]
                      },
                      "addsFactionKeywords": true,
                      "addsKeywords": true
@@ -242,7 +242,14 @@
             }
          },
          "required": ["name", "options"],
-         "additionalProperties": false
+         "additionalProperties": false,
+         "if": { "required": ["fillsPlaceholder"] },
+         "then": { "properties": { "options": { "additionalProperties": { "required": ["keyword"] } } } },
+         "else": {
+            "properties": {
+               "options": { "minProperties": 1, "additionalProperties": { "not": { "required": ["keyword"] } } }
+            }
+         }
       },
       "conditionalChange": {
          "description": "What changes about a datasheet while `when` holds.",

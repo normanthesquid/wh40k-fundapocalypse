@@ -31,6 +31,9 @@ func (check *checker) checkSubfactions(where scope, catalogue *Catalogue) {
 				check.report(optionScope, "a subfaction choice's option names its keyword")
 				continue
 			}
+			if isPlaceholder(*keyword) {
+				check.report(optionScope, "keyword %q is a placeholder, not a subfaction", *keyword)
+			}
 			if other, taken := optionKeywords[*keyword]; taken {
 				check.report(optionScope, "keyword %q is already option %q's", *keyword, other)
 			}
@@ -65,26 +68,43 @@ func (check *checker) checkPlainChoice(where scope, choice DetachmentChoice) {
 func (check *checker) carriedPlaceholders(where scope, catalogue *Catalogue) (map[string]bool, bool) {
 	var keywords []string
 	for _, datasheet := range catalogue.Datasheets {
-		keywords = append(keywords, datasheet.FactionKeywords...)
+		keywords = append(keywords, datasheetFactionKeywords(datasheet)...)
 	}
 	silent := &checker{dataset: check.dataset}
 	complete := true
 	for _, link := range catalogue.DatasheetLinks {
 		keywords = append(keywords, link.AddsFactionKeywords...)
+		for _, conditional := range link.ConditionalKeywords {
+			keywords = append(keywords, conditional.AddsFactionKeywords...)
+		}
 		target := silent.linkedDatasheet(where, link)
 		if target == nil {
 			complete = false
 			continue
 		}
-		keywords = append(keywords, target.FactionKeywords...)
+		keywords = append(keywords, datasheetFactionKeywords(*target)...)
 	}
 	placeholders := map[string]bool{}
-	for _, keyword := range slices.Compact(keywords) {
+	for _, keyword := range keywords {
 		if isPlaceholder(keyword) {
 			placeholders[keyword] = true
 		}
 	}
 	return placeholders, complete
+}
+
+// datasheetFactionKeywords are the faction keywords a datasheet has or any of its options or conditional changes add.
+func datasheetFactionKeywords(datasheet Datasheet) []string {
+	keywords := slices.Clone(datasheet.FactionKeywords)
+	for _, group := range datasheet.Wargear {
+		for _, option := range group.Options {
+			keywords = append(keywords, option.AddsFactionKeywords...)
+		}
+	}
+	for _, change := range datasheet.ConditionalChanges {
+		keywords = append(keywords, change.AddsFactionKeywords...)
+	}
+	return keywords
 }
 
 func isPlaceholder(keyword string) bool {
