@@ -171,29 +171,6 @@
             "IMPERIUM",
             "ADEPTUS ASTARTES"
          ],
-         "availableWhen": {
-            "kind": "Any",
-            "conditions": [
-               {
-                  "kind": "Count",
-                  "scope": "Detachment",
-                  "of": {
-                     "kind": "DetachmentChoice",
-                     "option": "astral-claws"
-                  },
-                  "minimum": 1
-               },
-               {
-                  "kind": "Count",
-                  "scope": "Detachment",
-                  "of": {
-                     "kind": "DetachmentChoice",
-                     "option": "tiger-claws"
-                  },
-                  "minimum": 1
-               }
-            ]
-         },
          "weapons": [
             "goldenfang"
          ],
@@ -6736,13 +6713,12 @@
             "kind": "Not",
             "condition": {
                "kind": "Count",
-               "scope": "Detachment",
+               "scope": "Unit",
                "of": {
-                  "kind": "DetachmentChoice",
-                  "option": "black-templars"
+                  "kind": "Keyword",
+                  "keyword": "BLACK TEMPLARS"
                },
-               "minimum": 1,
-               "maximum": 1
+               "minimum": 1
             }
          }
       },
@@ -6755,13 +6731,12 @@
             "kind": "Not",
             "condition": {
                "kind": "Count",
-               "scope": "Detachment",
+               "scope": "Unit",
                "of": {
-                  "kind": "DetachmentChoice",
-                  "option": "black-templars"
+                  "kind": "Keyword",
+                  "keyword": "BLACK TEMPLARS"
                },
-               "minimum": 1,
-               "maximum": 1
+               "minimum": 1
             }
          }
       },

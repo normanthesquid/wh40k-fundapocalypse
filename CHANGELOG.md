@@ -2,6 +2,12 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.6.0
+
+* Each unit names its own subfaction, as the printed rules say, rather than its detachment choosing one for all its units. A detachment may mix subfactions, a Venom names one of a Kabal, Wych Cult or Coven, and a unit printed with a subfaction's keyword, such as Marneus Calgar, may join any detachment its other rules allow. See [the data format](docs/data-format.md#subfactions).
+* Heretic Astartes' Marks of Chaos and the Black Templars' Librarians test the unit's Legion or Chapter keyword, not the detachment's choice. Captain Corien Sumatris no longer has a Chapter condition: his wargear gives his keyword.
+* Integrity rule 10 also rejects a condition that counts a subfaction choice's option.
+
 ## 2.5.1
 
 * Eight datasheets get their printed Faction keywords, which were missing: Bane Wolf and Devil Dog (`<REGIMENT>`), the Armiger Moirax, Helverin and Warglaive (`<QUESTOR ALLEGIANCE>`, `<HOUSEHOLD>`), the War Dog and War Dog Moirax (`<QUESTOR TRAITORIS>`) and the Greater Possessed (`<LEGION>`).
