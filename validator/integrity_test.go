@@ -288,6 +288,11 @@ func TestIntegrityRules(t *testing.T) {
 			supreme.AvailableWhen = count(CountTarget{Kind: CountTargetKindDetachmentChoice, Option: agentsID + "/inquisition"})
 			dataset.GameSystem.Detachments["supreme-command"] = supreme
 		}, ""},
+		{"detachment choice option of a subfaction", func(dataset *Dataset) {
+			supreme := dataset.GameSystem.Detachments["supreme-command"]
+			supreme.AvailableWhen = count(CountTarget{Kind: CountTargetKindDetachmentChoice, Option: factionID + "/first-host"})
+			dataset.GameSystem.Detachments["supreme-command"] = supreme
+		}, `detachment choice option "` + factionID + `/first-host" is a subfaction: count its keyword in the unit`},
 		{"keyword nothing adds", func(dataset *Dataset) {
 			setInquisitorCondition(dataset, count(CountTarget{Kind: CountTargetKindKeyword, Keyword: "TYPO"}))
 		}, `keyword "TYPO" is never added`},

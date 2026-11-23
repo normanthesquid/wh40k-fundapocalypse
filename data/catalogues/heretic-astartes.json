@@ -105,23 +105,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -145,13 +143,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -301,23 +298,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -341,13 +336,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -594,23 +588,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -634,13 +626,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -801,23 +792,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -841,13 +830,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -1030,23 +1018,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -1070,13 +1056,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -1154,23 +1139,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -1194,13 +1177,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -1317,23 +1299,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -1357,13 +1337,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -1535,23 +1514,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -1575,13 +1552,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -1716,23 +1692,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -1756,13 +1730,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -1839,23 +1812,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -1879,13 +1850,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -2017,23 +1987,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -2057,13 +2025,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -2224,23 +2191,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -2264,13 +2229,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -2439,23 +2403,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -2479,13 +2441,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -2728,23 +2689,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -2768,13 +2727,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -2866,23 +2824,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -2906,13 +2862,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -3019,23 +2974,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -3059,13 +3012,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -3208,23 +3160,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -3248,13 +3198,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -3424,23 +3373,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -3464,13 +3411,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -3608,23 +3554,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -3648,13 +3592,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -3827,23 +3770,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -3867,13 +3808,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -4026,23 +3966,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -4066,13 +4004,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -4216,23 +4153,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -4256,13 +4191,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -4369,23 +4303,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -4409,13 +4341,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -4576,23 +4507,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -4616,13 +4545,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -4808,23 +4736,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -4848,13 +4774,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -4955,23 +4880,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -4995,13 +4918,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -5187,23 +5109,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -5227,13 +5147,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -5309,23 +5228,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -5349,13 +5266,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -5423,23 +5339,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -5463,13 +5377,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -5727,23 +5640,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -5767,13 +5678,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -6148,23 +6058,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -6188,13 +6096,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -6266,23 +6173,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -6306,13 +6211,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -6416,23 +6320,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -6456,13 +6358,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -6542,13 +6443,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -6995,13 +6895,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -7075,23 +6974,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -7115,13 +7012,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -7205,23 +7101,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -7245,13 +7139,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -7323,23 +7216,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -7363,13 +7254,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -7490,13 +7380,12 @@
                "battlefieldRole": "Troops",
                "when": {
                   "kind": "Count",
-                  "scope": "Detachment",
+                  "scope": "Unit",
                   "of": {
-                     "kind": "DetachmentChoice",
-                     "option": "world-eaters"
+                     "kind": "Keyword",
+                     "keyword": "WORLD EATERS"
                   },
-                  "minimum": 1,
-                  "maximum": 1
+                  "minimum": 1
                }
             }
          ],
@@ -7607,13 +7496,12 @@
                "battlefieldRole": "Troops",
                "when": {
                   "kind": "Count",
-                  "scope": "Detachment",
+                  "scope": "Unit",
                   "of": {
-                     "kind": "DetachmentChoice",
-                     "option": "emperors-children"
+                     "kind": "Keyword",
+                     "keyword": "EMPEROR'S CHILDREN"
                   },
-                  "minimum": 1,
-                  "maximum": 1
+                  "minimum": 1
                }
             }
          ],
@@ -7828,23 +7716,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -7868,13 +7754,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -8017,23 +7902,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -8057,13 +7940,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -8127,23 +8009,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -8194,13 +8074,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "availableWhen": {
                         "kind": "Count",
@@ -8345,23 +8224,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -8385,13 +8262,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -8626,23 +8502,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -8666,13 +8540,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -8827,23 +8700,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -8867,13 +8738,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -9135,23 +9005,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -9175,13 +9043,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -9314,23 +9181,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -9354,13 +9219,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -9481,23 +9345,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -9521,13 +9383,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -9631,23 +9492,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -9671,13 +9530,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -9793,23 +9651,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -9833,13 +9689,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -9926,23 +9781,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -9966,13 +9819,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -10117,23 +9969,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -10157,13 +10007,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -10276,23 +10125,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -10316,13 +10163,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -10460,23 +10306,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -10500,13 +10344,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -10615,23 +10458,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -10655,13 +10496,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -10777,23 +10617,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -10817,13 +10655,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -10895,23 +10732,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -10935,13 +10770,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -11060,23 +10894,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -11100,13 +10932,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -11292,23 +11123,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -11332,13 +11161,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -11409,23 +11237,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -11449,13 +11275,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -11572,23 +11397,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -11612,13 +11435,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -11747,13 +11569,12 @@
             "kind": "Not",
             "condition": {
                "kind": "Count",
-               "scope": "Detachment",
+               "scope": "Unit",
                "of": {
-                  "kind": "DetachmentChoice",
-                  "option": "emperors-children"
+                  "kind": "Keyword",
+                  "keyword": "EMPEROR'S CHILDREN"
                },
-               "minimum": 1,
-               "maximum": 1
+               "minimum": 1
             }
          }
       },
@@ -11801,23 +11622,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -11841,13 +11660,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -12629,23 +12447,21 @@
                         "conditions": [
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "world-eaters"
+                                 "kind": "Keyword",
+                                 "keyword": "WORLD EATERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            },
                            {
                               "kind": "Count",
-                              "scope": "Detachment",
+                              "scope": "Unit",
                               "of": {
-                                 "kind": "DetachmentChoice",
-                                 "option": "skulltakers"
+                                 "kind": "Keyword",
+                                 "keyword": "SKULLTAKERS"
                               },
-                              "minimum": 1,
-                              "maximum": 1
+                              "minimum": 1
                            }
                         ]
                      },
@@ -12669,13 +12485,12 @@
                      "name": "Slaanesh",
                      "requiredWhen": {
                         "kind": "Count",
-                        "scope": "Detachment",
+                        "scope": "Unit",
                         "of": {
-                           "kind": "DetachmentChoice",
-                           "option": "emperors-children"
+                           "kind": "Keyword",
+                           "keyword": "EMPEROR'S CHILDREN"
                         },
-                        "minimum": 1,
-                        "maximum": 1
+                        "minimum": 1
                      },
                      "addsFactionKeywords": [
                         "SLAANESH"
@@ -12749,13 +12564,12 @@
             "kind": "Not",
             "condition": {
                "kind": "Count",
-               "scope": "Detachment",
+               "scope": "Unit",
                "of": {
-                  "kind": "DetachmentChoice",
-                  "option": "emperors-children"
+                  "kind": "Keyword",
+                  "keyword": "EMPEROR'S CHILDREN"
                },
-               "minimum": 1,
-               "maximum": 1
+               "minimum": 1
             }
          },
          "addsFactionKeywords": [
@@ -12768,13 +12582,12 @@
             "kind": "Not",
             "condition": {
                "kind": "Count",
-               "scope": "Detachment",
+               "scope": "Unit",
                "of": {
-                  "kind": "DetachmentChoice",
-                  "option": "emperors-children"
+                  "kind": "Keyword",
+                  "keyword": "EMPEROR'S CHILDREN"
                },
-               "minimum": 1,
-               "maximum": 1
+               "minimum": 1
             }
          },
          "addsFactionKeywords": [
@@ -12790,23 +12603,21 @@
                "conditions": [
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "emperors-children"
+                        "kind": "Keyword",
+                        "keyword": "EMPEROR'S CHILDREN"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   },
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "world-eaters"
+                        "kind": "Keyword",
+                        "keyword": "WORLD EATERS"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   }
                ]
             }
@@ -12824,33 +12635,30 @@
                "conditions": [
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "emperors-children"
+                        "kind": "Keyword",
+                        "keyword": "EMPEROR'S CHILDREN"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   },
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "world-eaters"
+                        "kind": "Keyword",
+                        "keyword": "WORLD EATERS"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   },
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "skulltakers"
+                        "kind": "Keyword",
+                        "keyword": "SKULLTAKERS"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   }
                ]
             }
@@ -12865,13 +12673,12 @@
             "kind": "Not",
             "condition": {
                "kind": "Count",
-               "scope": "Detachment",
+               "scope": "Unit",
                "of": {
-                  "kind": "DetachmentChoice",
-                  "option": "emperors-children"
+                  "kind": "Keyword",
+                  "keyword": "EMPEROR'S CHILDREN"
                },
-               "minimum": 1,
-               "maximum": 1
+               "minimum": 1
             }
          },
          "addsFactionKeywords": [
@@ -12909,33 +12716,30 @@
                "conditions": [
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "emperors-children"
+                        "kind": "Keyword",
+                        "keyword": "EMPEROR'S CHILDREN"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   },
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "world-eaters"
+                        "kind": "Keyword",
+                        "keyword": "WORLD EATERS"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   },
                   {
                      "kind": "Count",
-                     "scope": "Detachment",
+                     "scope": "Unit",
                      "of": {
-                        "kind": "DetachmentChoice",
-                        "option": "skulltakers"
+                        "kind": "Keyword",
+                        "keyword": "SKULLTAKERS"
                      },
-                     "minimum": 1,
-                     "maximum": 1
+                     "minimum": 1
                   }
                ]
             }

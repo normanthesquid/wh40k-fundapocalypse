@@ -203,9 +203,14 @@ func (check *checker) checkDetachmentChoiceTarget(where scope, reference string)
 	}
 	if target != nil {
 		for _, choice := range target.DetachmentChoices {
-			if _, exists := choice.Options[slug]; exists {
-				return
+			if _, exists := choice.Options[slug]; !exists {
+				continue
 			}
+			// Each unit names its own subfaction, so a condition on one tests the unit's keyword (rule 10).
+			if choice.FillsPlaceholder != nil {
+				check.report(where, "detachment choice option %q is a subfaction: count its keyword in the unit", reference)
+			}
+			return
 		}
 	}
 	check.report(where, "detachment choice option %q does not resolve", reference)
