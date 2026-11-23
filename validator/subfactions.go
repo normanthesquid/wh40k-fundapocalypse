@@ -21,6 +21,9 @@ func (check *checker) checkSubfactions(where scope, catalogue *Catalogue) {
 		}
 		placeholder := *choice.FillsPlaceholder
 		fillers[placeholder] = append(fillers[placeholder], slug)
+		if choice.Closed && len(choice.Options) == 0 {
+			check.report(choiceScope, "a closed choice has options")
+		}
 		if group := choice.AlternativeGroup; group != nil {
 			groupMembers[*group] = append(groupMembers[*group], slug)
 		}

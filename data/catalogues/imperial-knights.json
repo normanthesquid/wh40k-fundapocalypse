@@ -2252,6 +2252,7 @@
       "questor-allegiance": {
          "name": "Questor Allegiance",
          "fillsPlaceholder": "<QUESTOR ALLEGIANCE>",
+         "closed": true,
          "minimum": 1,
          "maximum": 1,
          "options": {

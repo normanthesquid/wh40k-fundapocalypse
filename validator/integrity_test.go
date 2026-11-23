@@ -358,6 +358,17 @@ func TestIntegrityRules(t *testing.T) {
 			dataset.Catalogues[factionID].DetachmentChoices["second-host"] = DetachmentChoice{FillsPlaceholder: pointer("<EXAMPLE HOST>")}
 			dataset.Catalogues[factionID].DetachmentChoices["third-host"] = DetachmentChoice{FillsPlaceholder: pointer("<EXAMPLE HOST>")}
 		}, `filled by more than one detachment choice: example-host, second-host, third-host`},
+		{"closed choice with no options", func(dataset *Dataset) {
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.Closed = true
+			choice.Options = nil
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+		}, "detachmentChoices/example-host: a closed choice has options"},
+		{"closed choice with options", func(dataset *Dataset) {
+			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
+			choice.Closed = true
+			dataset.Catalogues[factionID].DetachmentChoices[hostID] = choice
+		}, ""},
 		{"alternative group with one choice", func(dataset *Dataset) {
 			choice := dataset.Catalogues[factionID].DetachmentChoices[hostID]
 			choice.AlternativeGroup = pointer("hosts")

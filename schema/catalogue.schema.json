@@ -218,6 +218,10 @@
                "type": "string",
                "pattern": "^<[^a-z<>]+>$"
             },
+            "closed": {
+               "description": "A subfaction choice whose options are the only values, with no \"your own\", e.g. Questor Imperialis or Questor Mechanicus.",
+               "const": true
+            },
             "alternativeGroup": {
                "description": "Subfaction choices sharing a group fill placeholders a unit carries as alternatives, e.g. `<KABAL>` or `<WYCH CULT>`.",
                "$ref": "common.schema.json#/$defs/slug"
@@ -247,7 +251,7 @@
          },
          "required": ["name", "options"],
          "additionalProperties": false,
-         "dependentRequired": { "alternativeGroup": ["fillsPlaceholder"] },
+         "dependentRequired": { "alternativeGroup": ["fillsPlaceholder"], "closed": ["fillsPlaceholder"] },
          "if": { "required": ["fillsPlaceholder"] },
          "then": { "properties": { "options": { "additionalProperties": { "required": ["keyword"] } } } },
          "else": {
