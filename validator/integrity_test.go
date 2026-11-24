@@ -70,6 +70,11 @@ func TestIntegrityRules(t *testing.T) {
 				inquisitor.Wargear[1].Minimum = &Bound{Growing: &Limit{Base: 9, Terms: []LimitTerm{term}}}
 			})
 		}, ""},
+		{"takes-no-slot condition is checked", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				inquisitor.TakesNoSlotWhen = count(CountTarget{Kind: CountTargetKindDetachment, Detachment: "nope"})
+			})
+		}, `takesNoSlotWhen/of: detachment "nope" is not a game-system detachment`},
 		{"cost change condition is checked", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) {
 				option.CostChanges = []CostChange{{When: *count(CountTarget{Kind: CountTargetKindOption, Option: "nope"})}}

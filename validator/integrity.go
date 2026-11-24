@@ -125,6 +125,7 @@ func (check *checker) checkDatasheet(where scope) {
 	}
 	check.checkAlternativeRoles(where, datasheet.AlternativeRoles)
 	check.checkCondition(where.at("availableWhen"), datasheet.AvailableWhen)
+	check.checkCondition(where.at("takesNoSlotWhen"), datasheet.TakesNoSlotWhen)
 	if required := datasheet.RequiredInDetachment; required != nil {
 		check.checkCondition(where.at("requiredInDetachment/when"), &required.When)
 		check.checkBounds(where.at("requiredInDetachment"), &required.Minimum, datasheet.MaximumPerDetachment)

@@ -36,8 +36,7 @@
             "minimum": { "type": "integer", "minimum": 0 },
             "maximum": { "$ref": "common.schema.json#/$defs/limit" }
          },
-         "additionalProperties": false,
-         "minProperties": 1
+         "additionalProperties": false
       },
       "detachment": {
          "type": "object",
@@ -48,13 +47,17 @@
                "description": "All units must be from the same Faction: they share at least one Faction keyword. Left out, units may mix Factions.",
                "type": "boolean"
             },
+            "commanderCannotBeWarlord": {
+               "description": "The detachment's Commander never gains the WARLORD keyword, even if it is a CHARACTER (Ad Hoc).",
+               "type": "boolean"
+            },
             "maximumPerArmy": {
                "description": "How many of this detachment an army may include; no limit when left out.",
                "$ref": "common.schema.json#/$defs/limit"
             },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
             "slots": {
-               "description": "Unit limits per battlefield role. A role left out has no limit.",
+               "description": "The battlefield roles the detachment allows, each with its limits. A role left out allows no units; `{}` allows any number.",
                "type": "object",
                "propertyNames": { "$ref": "common.schema.json#/$defs/battlefieldRole" },
                "additionalProperties": { "$ref": "#/$defs/slotLimit" }

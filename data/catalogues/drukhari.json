@@ -116,6 +116,15 @@
             "AELDARI",
             "DRUKHARI"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "BEASTMASTER"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "clawed-fists"
          ],
@@ -916,6 +925,15 @@
             "AELDARI",
             "DRUKHARI"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "BEASTMASTER"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "claws-talons"
          ],
@@ -1099,6 +1117,15 @@
             "AELDARI",
             "DRUKHARI"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "ARCHON"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "shaimeshi-blade"
          ],
@@ -1213,6 +1240,15 @@
             "AELDARI",
             "DRUKHARI"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "ARCHON"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "eyeburst-attack-ranged",
             "eyeburst-attack-melee"
@@ -1392,6 +1428,15 @@
             "DRUKHARI",
             "AELDARI"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "BEASTMASTER"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "razor-feathers"
          ],
@@ -1947,6 +1992,15 @@
             "AELDARI",
             "DRUKHARI"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "ARCHON"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "sslyth-battle-blade"
          ],
@@ -2263,6 +2317,15 @@
             "AELDARI",
             "DRUKHARI"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "ARCHON"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "claws-talons"
          ],

@@ -12077,25 +12077,21 @@
             "CHAOS",
             "SERVANTS OF THE ABYSS"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "OBSIDIUS MALLEX"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "chaos-stave"
          ],
          "abilities": [
             "slaves-to-mallex"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Army",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "OBSIDIUS MALLEX"
-               },
-               "minimum": 1,
-               "maximum": 1
-            }
-         }
+         ]
       },
       "negavolt-cultists": {
          "name": "Negavolt Cultists",
@@ -12166,77 +12162,22 @@
             "CHAOS",
             "SERVANTS OF THE ABYSS"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "OBSIDIUS MALLEX"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "pistols",
             "brutal-assault-weapons"
          ],
          "abilities": [
             "slaves-to-mallex"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Army",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "OBSIDIUS MALLEX"
-               },
-               "minimum": 1,
-               "maximum": 1
-            }
-         }
-      },
-      "chaos-beastmen-2": {
-         "name": "Chaos Beastmen",
-         "battlefieldRole": "NoForceOrgSlot",
-         "cost": 1,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "CHAOS BEASTMEN"
-         ],
-         "profiles": [
-            {
-               "name": "Chaos Beastmen (4 models)",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 6
-               },
-               "weaponSkill": 3,
-               "ballisticSkill": 4,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 4,
-               "save": 10
-            }
-         ],
-         "factionKeywords": [
-            "CHAOS",
-            "SERVANTS OF THE ABYSS"
-         ],
-         "weapons": [
-            "pistols",
-            "brutal-assault-weapons"
-         ],
-         "abilities": [
-            "slaves-to-mallex"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Army",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "OBSIDIUS MALLEX"
-               },
-               "maximum": 0
-            }
-         }
+         ]
       },
       "traitor-guardsmen": {
          "name": "Traitor Guardsmen",
@@ -12277,57 +12218,6 @@
          "abilities": [
             "inferno"
          ]
-      },
-      "rogue-psyker-2": {
-         "name": "Rogue Psyker",
-         "battlefieldRole": "NoForceOrgSlot",
-         "cost": 3,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "PSYKER",
-            "ROGUE PSYKER"
-         ],
-         "profiles": [
-            {
-               "name": "Rogue Psyker",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 6
-               },
-               "weaponSkill": 4,
-               "ballisticSkill": 4,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 6,
-               "save": 10
-            }
-         ],
-         "factionKeywords": [
-            "CHAOS",
-            "SERVANTS OF THE ABYSS"
-         ],
-         "weapons": [
-            "chaos-stave"
-         ],
-         "abilities": [
-            "slaves-to-mallex"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Army",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "OBSIDIUS MALLEX"
-               },
-               "maximum": 0
-            }
-         }
       },
       "possessed": {
          "name": "Possessed",

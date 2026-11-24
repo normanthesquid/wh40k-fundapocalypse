@@ -176,6 +176,7 @@ type Datasheet struct {
 	CostChanges          []CostChange        `json:"costChanges"`
 	AlternativeRoles     []AlternativeRole   `json:"alternativeRoles"`
 	AvailableWhen        *Condition          `json:"availableWhen"`
+	TakesNoSlotWhen      *Condition          `json:"takesNoSlotWhen"`
 	RequiredInDetachment *DetachmentMinimum  `json:"requiredInDetachment"`
 	MaximumPerDetachment *int                `json:"maximumPerDetachment"`
 }

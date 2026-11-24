@@ -44,8 +44,7 @@
             "Flyer",
             "DedicatedTransport",
             "LordOfWar",
-            "Fortification",
-            "NoForceOrgSlot"
+            "Fortification"
          ]
       },
       "weaponType": {
