@@ -74,7 +74,7 @@ The printed characteristics become typed values, so tools never parse text:
 | Weapon `Range`: `48"`, `*`, `Melee` | `{ "kind": "Inches", "inches": 48 }`, `{ "kind": "Special" }` (see the weapon's text), left out for melee |
 | `-` for a skill, Attacks, Leadership, SAP or SAT | the field is left out, never a placeholder value |
 | Weapon `Type` | `SmallArms`, `Heavy` or `Melee` |
-| Battlefield role | `HQ`, `Troops`, `Elites`, `FastAttack`, `HeavySupport`, `Flyer`, `DedicatedTransport`, `LordOfWar`, `Fortification`, `NoForceOrgSlot` |
+| Battlefield role | `HQ`, `Troops`, `Elites`, `FastAttack`, `HeavySupport`, `Flyer`, `DedicatedTransport`, `LordOfWar`, `Fortification` |
 
 Typos in the `v1.10.0` data (`Mele`, `Smaill Arms`, a WS of `26`) were fixed by the importer and listed in its fidelity report.
 
@@ -96,6 +96,8 @@ A **`limit`** is a number that grows or shrinks with the army: a `base`, plus `a
 A datasheet's `requiredInDetachment` makes a detachment hold at least `minimum` of the unit while `when` holds, as the parts of a fortification that come together: once a detachment has any part of a Castellum Stronghold, it needs its 3 Bunker Annexes.
 
 Each detachment's Commander is its unit with the highest Leadership, and a CHARACTER Commander is a WARLORD. Three markers record the exceptions: a datasheet's `cannotBeWarlord` (a C'tan Shard's Enslaved Star God), a datasheet's `beginsAsCommander` (a Tomb Ziggurat in its Tomb Citadel), and a detachment ability's `makesCharacter`, under which one of the faction's units in the detachment becomes a CHARACTER with its own Warmaster Trait (Knight Lances and Fallen Courts).
+
+A detachment's `slots` list the battlefield roles it allows, each with an optional `minimum` and `maximum`. A role left out allows no units, and `{}` allows any number, as for every role of the Ad Hoc detachment. A datasheet's `takesNoSlotWhen` keeps the unit out of its role's minimum and maximum while a condition holds, e.g. Crusaders in a detachment with a Ministorum Priest. The unit still needs a detachment that allows its role, and still costs its Power Level. A detachment's `commanderCannotBeWarlord` means its Commander never gains WARLORD, even as a CHARACTER (Ad Hoc).
 
 A detachment with `unitsShareFaction` requires all its units to be from the same Faction: every unit shares at least one Faction keyword, as the rulebook's Factions section explains. Super-heavy Auxiliary, Fortification Network and Ad Hoc leave it out, so their units may mix Factions.
 
@@ -160,6 +162,7 @@ From a survey of the `.gst` and all 38 `.cat` files at `v1.10.0`.
 | `modifier` on M/A/W/Sv, when an option is taken | — | `profileChanges` on that option |
 | `modifier` on M/A/W/Sv/name, unconditional (on a link) | — | a catalogue-local entry with its own slug, in place of a link with overrides |
 | `modifier` set hidden, with conditions | — | `availableWhen` |
+| a unit linked twice, once with no primary category (or "No Force Org Slot") and each link hidden by opposite conditions | 9 | one datasheet with `takesNoSlotWhen` |
 | `modifier` on a detachment's slot constraint (`increment`/`decrement` with `repeat`) | 66 repeats | `limit` terms |
 | `repeat` in catalogues | 12 | per-model costs, as an option with a `cost` and a `maximum` |
 | `condition`, `conditionGroup` (and/or) | 1,290 / 265 | `Count`, `All`, `Any`, `Not`, `PrimaryFaction` |

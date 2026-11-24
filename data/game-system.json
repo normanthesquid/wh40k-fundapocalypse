@@ -1,11 +1,22 @@
 {
    "$schema": "../schema/game-system.schema.json",
-   "release": "2.6.0",
+   "release": "2.7.0",
    "detachments": {
       "ad-hoc": {
          "name": "Ad Hoc Detachment",
          "kind": "Special",
-         "slots": {},
+         "commanderCannotBeWarlord": true,
+         "slots": {
+            "HQ": {},
+            "Troops": {},
+            "Elites": {},
+            "FastAttack": {},
+            "HeavySupport": {},
+            "Flyer": {},
+            "DedicatedTransport": {},
+            "LordOfWar": {},
+            "Fortification": {}
+         },
          "maximumPerArmy": {
             "base": 1
          }

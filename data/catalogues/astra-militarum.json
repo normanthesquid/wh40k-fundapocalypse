@@ -7858,6 +7858,15 @@
             "IMPERIUM",
             "ASTRA MILITARUM"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "MINISTORUM PRIEST"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "crusader-power-swords"
          ],
@@ -7943,151 +7952,7 @@
                "maximum": 1,
                "default": "2-models"
             }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "minimum": 1,
-               "maximum": 1
-            }
-         }
-      },
-      "crusaders-2": {
-         "name": "Crusaders",
-         "battlefieldRole": "NoForceOrgSlot",
-         "cost": 0,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "ECCLESIARCHY BATTLE CONCLAVE",
-            "CRUSADERS"
-         ],
-         "profiles": [
-            {
-               "name": "Crusaders",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 6
-               },
-               "weaponSkill": 3,
-               "ballisticSkill": 4,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 5,
-               "save": 6
-            }
-         ],
-         "factionKeywords": [
-            "IMPERIUM",
-            "ASTRA MILITARUM"
-         ],
-         "weapons": [
-            "crusader-power-swords"
-         ],
-         "abilities": [
-            "ecclesiarchy-battle-conclave"
-         ],
-         "wargear": [
-            {
-               "id": "2-10-models",
-               "name": "2 - 10 models",
-               "options": [
-                  {
-                     "id": "2-models",
-                     "name": "2 models",
-                     "cost": 1
-                  },
-                  {
-                     "id": "4-models",
-                     "name": "4 models",
-                     "cost": 2,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 2
-                              },
-                              "wounds": 2
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "6-models",
-                     "name": "6 models",
-                     "cost": 3,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 3
-                              },
-                              "wounds": 3
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "8-models",
-                     "name": "8 models",
-                     "cost": 4,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 4
-                              },
-                              "wounds": 4
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "10-models",
-                     "name": "10 models",
-                     "cost": 5,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 5
-                              },
-                              "wounds": 5
-                           }
-                        }
-                     ]
-                  }
-               ],
-               "minimum": 1,
-               "maximum": 1,
-               "default": "2-models"
-            }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "maximum": 0
-            }
-         }
+         ]
       }
    },
    "datasheetLinks": {

@@ -44,6 +44,15 @@
          "factionKeywords": [
             "UNALIGNED"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "AEGIS DEFENCE LINE"
+            },
+            "minimum": 1
+         },
          "abilities": [
             "aegis-defense-line-2",
             "emplacement-weapom"

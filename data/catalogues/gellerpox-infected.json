@@ -206,6 +206,15 @@
             "CHAOS",
             "GELLERPOX INFECTED"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "VULGRAR THRICE-CURSED"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "insectile-appendages"
          ],
@@ -230,90 +239,7 @@
                   "mutoid-vermin"
                ]
             }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "VULGRAR THRICE-CURSED"
-               },
-               "minimum": 1,
-               "maximum": 1
-            }
-         }
-      },
-      "mutoid-vermin-3": {
-         "name": "Mutoid Vermin",
-         "battlefieldRole": "FastAttack",
-         "cost": 3,
-         "keywords": [
-            "LIGHT",
-            "NURGLE",
-            "SWARM",
-            "MUTOID VERMIN"
-         ],
-         "profiles": [
-            {
-               "name": "Mutoid Vermin",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 8
-               },
-               "weaponSkill": 4,
-               "ballisticSkill": 4,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 3,
-               "leadership": 6,
-               "save": 11
-            }
-         ],
-         "factionKeywords": [
-            "CHAOS",
-            "GELLERPOX INFECTED"
-         ],
-         "weapons": [
-            "insectile-appendages"
-         ],
-         "abilities": [
-            "caustic-vermin"
-         ],
-         "conditionalChanges": [
-            {
-               "when": {
-                  "kind": "Not",
-                  "condition": {
-                     "kind": "Count",
-                     "scope": "Detachment",
-                     "of": {
-                        "kind": "Keyword",
-                        "keyword": "VULGRAR THRICE-CURSED"
-                     },
-                     "maximum": 0
-                  }
-               },
-               "addsAbilities": [
-                  "mutoid-vermin"
-               ]
-            }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "VULGRAR THRICE-CURSED"
-               },
-               "maximum": 0
-            }
-         }
+         ]
       }
    },
    "weapons": {

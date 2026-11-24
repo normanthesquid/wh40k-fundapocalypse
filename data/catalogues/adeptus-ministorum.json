@@ -533,7 +533,7 @@
          "keywords": [
             "LIGHT",
             "INFANTRY",
-            "REPENTIA SQUAD"
+            "SISTERS REPENTIA"
          ],
          "profiles": [
             {
@@ -1932,6 +1932,15 @@
             "ADEPTUS MINISTORUM",
             "ADEPTA SORORITAS"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "CELESTINE"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "geminae-power-swords",
             "weapons/bolt-pistols"
@@ -1970,106 +1979,7 @@
                "maximum": 1,
                "default": "1-model"
             }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "CELESTINE"
-               },
-               "minimum": 1
-            }
-         }
-      },
-      "geminae-superia-2": {
-         "name": "Geminae Superia",
-         "battlefieldRole": "Elites",
-         "cost": 0,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "FLY",
-            "CHARACTER",
-            "JUMP PACK",
-            "GEMINAE SUPERIA"
-         ],
-         "profiles": [
-            {
-               "name": "Geminae Superia",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 12
-               },
-               "weaponSkill": 3,
-               "ballisticSkill": 3,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 7,
-               "save": 6
-            }
-         ],
-         "factionKeywords": [
-            "IMPERIUM",
-            "ADEPTUS MINISTORUM",
-            "ADEPTA SORORITAS"
-         ],
-         "weapons": [
-            "geminae-power-swords",
-            "weapons/bolt-pistols"
-         ],
-         "abilities": [
-            "lifewards"
-         ],
-         "wargear": [
-            {
-               "id": "models",
-               "name": "Models",
-               "options": [
-                  {
-                     "id": "1-model",
-                     "name": "1 model",
-                     "cost": 2
-                  },
-                  {
-                     "id": "2-models",
-                     "name": "2 models",
-                     "cost": 4,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 2
-                              },
-                              "wounds": 2
-                           }
-                        }
-                     ]
-                  }
-               ],
-               "minimum": 1,
-               "maximum": 1,
-               "default": "1-model"
-            }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "CELESTINE"
-               },
-               "maximum": 0
-            }
-         }
+         ]
       },
       "repentia-superior": {
          "name": "Repentia Superior",
@@ -2079,7 +1989,7 @@
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
-            "MISTRESS OF REPENTANCE"
+            "REPENTIA SUPERIOR"
          ],
          "profiles": [
             {
@@ -2105,79 +2015,22 @@
             "ADEPTA SORORITAS",
             "<ORDER>"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "SISTERS REPENTIA"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "neural-whips"
          ],
          "abilities": [
             "driven-onwards",
             "mistress-of-the-penitent"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "REPENTIA SQUAD"
-               },
-               "maximum": 0
-            }
-         }
-      },
-      "repentia-superior-2": {
-         "name": "Repentia Superior",
-         "battlefieldRole": "Elites",
-         "cost": 3,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "CHARACTER",
-            "MISTRESS OF REPENTANCE"
-         ],
-         "profiles": [
-            {
-               "name": "Repentia Superior",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 6
-               },
-               "weaponSkill": 3,
-               "ballisticSkill": 3,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 6,
-               "save": 5
-            }
-         ],
-         "factionKeywords": [
-            "IMPERIUM",
-            "ADEPTUS MINISTORUM",
-            "ADEPTA SORORITAS",
-            "<ORDER>"
-         ],
-         "weapons": [
-            "neural-whips"
-         ],
-         "abilities": [
-            "driven-onwards",
-            "mistress-of-the-penitent"
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "REPENTIA SQUAD"
-               },
-               "minimum": 1
-            }
-         }
+         ]
       },
       "crusaders": {
          "name": "Crusaders",
@@ -2211,6 +2064,15 @@
             "IMPERIUM",
             "ADEPTUS MINISTORUM"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "MINISTORUM PRIEST"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "crusader-power-swords"
          ],
@@ -2297,151 +2159,7 @@
                "maximum": 1,
                "default": "2-models"
             }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "minimum": 1
-            }
-         }
-      },
-      "crusaders-2": {
-         "name": "Crusaders",
-         "battlefieldRole": "Elites",
-         "cost": 0,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "ECCLESIARCHY BATTLE CONCLAVE",
-            "CRUSADERS"
-         ],
-         "profiles": [
-            {
-               "name": "Crusaders",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 6
-               },
-               "weaponSkill": 3,
-               "ballisticSkill": 4,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 5,
-               "save": 6
-            }
-         ],
-         "factionKeywords": [
-            "IMPERIUM",
-            "ADEPTUS MINISTORUM"
-         ],
-         "weapons": [
-            "crusader-power-swords"
-         ],
-         "abilities": [
-            "ecclesiarchy-battle-conclave",
-            "zealot"
-         ],
-         "wargear": [
-            {
-               "id": "2-10-models",
-               "name": "2 -10 Models",
-               "options": [
-                  {
-                     "id": "2-models",
-                     "name": "2 Models",
-                     "cost": 1
-                  },
-                  {
-                     "id": "4-models",
-                     "name": "4 Models",
-                     "cost": 2,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 2
-                              },
-                              "wounds": 2
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "6-models",
-                     "name": "6 Models",
-                     "cost": 3,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 3
-                              },
-                              "wounds": 3
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "8-models",
-                     "name": "8 Models",
-                     "cost": 4,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 4
-                              },
-                              "wounds": 4
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "ten-models",
-                     "name": "Ten Models",
-                     "cost": 5,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 5
-                              },
-                              "wounds": 5
-                           }
-                        }
-                     ]
-                  }
-               ],
-               "minimum": 1,
-               "maximum": 1,
-               "default": "2-models"
-            }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "maximum": 0
-            }
-         }
+         ]
       },
       "death-cult-assassins": {
          "name": "Death Cult Assassins",
@@ -2475,6 +2193,15 @@
             "IMPERIUM",
             "ADEPTUS MINISTORUM"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "MINISTORUM PRIEST"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "death-cult-power-blades"
          ],
@@ -2561,151 +2288,7 @@
                "maximum": 1,
                "default": "2-models"
             }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "minimum": 1
-            }
-         }
-      },
-      "death-cult-assassins-2": {
-         "name": "Death Cult Assassins",
-         "battlefieldRole": "Elites",
-         "cost": 0,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "ECCLESIARCHY BATTLE CONCLAVE",
-            "DEATH CULT ASSASSINS"
-         ],
-         "profiles": [
-            {
-               "name": "Death Cult Assassins",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 7
-               },
-               "weaponSkill": 3,
-               "ballisticSkill": 4,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 5,
-               "save": 9
-            }
-         ],
-         "factionKeywords": [
-            "IMPERIUM",
-            "ADEPTUS MINISTORUM"
-         ],
-         "weapons": [
-            "death-cult-power-blades"
-         ],
-         "abilities": [
-            "ecclesiarchy-battle-conclave",
-            "zealot"
-         ],
-         "wargear": [
-            {
-               "id": "2-10-models",
-               "name": "2 -10 Models",
-               "options": [
-                  {
-                     "id": "2-models",
-                     "name": "2 Models",
-                     "cost": 1
-                  },
-                  {
-                     "id": "4-models",
-                     "name": "4 Models",
-                     "cost": 2,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 2
-                              },
-                              "wounds": 2
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "6-models",
-                     "name": "6 Models",
-                     "cost": 3,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 3
-                              },
-                              "wounds": 3
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "8-models",
-                     "name": "8 Models",
-                     "cost": 4,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 4
-                              },
-                              "wounds": 4
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "ten-models",
-                     "name": "Ten Models",
-                     "cost": 5,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 5
-                              },
-                              "wounds": 5
-                           }
-                        }
-                     ]
-                  }
-               ],
-               "minimum": 1,
-               "maximum": 1,
-               "default": "2-models"
-            }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "maximum": 0
-            }
-         }
+         ]
       },
       "arco-flagellants": {
          "name": "Arco-flagellants",
@@ -2739,6 +2322,15 @@
             "IMPERIUM",
             "ADEPTUS MINISTORUM"
          ],
+         "takesNoSlotWhen": {
+            "kind": "Count",
+            "scope": "Detachment",
+            "of": {
+               "kind": "Keyword",
+               "keyword": "MINISTORUM PRIEST"
+            },
+            "minimum": 1
+         },
          "weapons": [
             "arco-flails"
          ],
@@ -2794,120 +2386,7 @@
                "maximum": 1,
                "default": "3-models"
             }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "maximum": 0
-            }
-         }
-      },
-      "arco-flagellants-2": {
-         "name": "Arco-flagellants",
-         "battlefieldRole": "Elites",
-         "cost": 0,
-         "keywords": [
-            "LIGHT",
-            "INFANTRY",
-            "ECCLESIARCHY BATTLE CONCLAVE",
-            "ARCO-FLAGELLANTS"
-         ],
-         "profiles": [
-            {
-               "name": "Arco-flagellants",
-               "movement": {
-                  "kind": "Inches",
-                  "inches": 7
-               },
-               "weaponSkill": 3,
-               "ballisticSkill": 6,
-               "attacks": {
-                  "kind": "Fixed",
-                  "value": 1
-               },
-               "wounds": 1,
-               "leadership": 5,
-               "save": 10
-            }
-         ],
-         "factionKeywords": [
-            "IMPERIUM",
-            "ADEPTUS MINISTORUM"
-         ],
-         "weapons": [
-            "arco-flails"
-         ],
-         "abilities": [
-            "ecclesiarchy-battle-conclave",
-            "ignore-damage-6",
-            "zealot"
-         ],
-         "wargear": [
-            {
-               "id": "3-9-models",
-               "name": "3 - 9 Models",
-               "options": [
-                  {
-                     "id": "3-models",
-                     "name": "3 models",
-                     "cost": 2
-                  },
-                  {
-                     "id": "6-models",
-                     "name": "6 models",
-                     "cost": 4,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 2
-                              },
-                              "wounds": 2
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "id": "9-models",
-                     "name": "9 models",
-                     "cost": 6,
-                     "profileChanges": [
-                        {
-                           "set": {
-                              "attacks": {
-                                 "kind": "Fixed",
-                                 "value": 3
-                              },
-                              "wounds": 3
-                           }
-                        }
-                     ]
-                  }
-               ],
-               "minimum": 1,
-               "maximum": 1,
-               "default": "3-models"
-            }
-         ],
-         "availableWhen": {
-            "kind": "Not",
-            "condition": {
-               "kind": "Count",
-               "scope": "Detachment",
-               "of": {
-                  "kind": "Keyword",
-                  "keyword": "MINISTORUM PRIEST"
-               },
-               "minimum": 1
-            }
-         }
+         ]
       }
    },
    "detachmentChoices": {
@@ -3431,11 +2910,11 @@
       },
       "driven-onwards": {
          "name": "Driven Onwards",
-         "text": "If an <ORDER> REPENTIA SQUAD unit starts a Move action within 6\" of any friendly units with this ability, add 3\" to that unit’s Move characteristic whilst making that Move action."
+         "text": "If an <ORDER> SISTERS REPENTIA unit starts a Move action within 6\" of any friendly units with this ability, add 3\" to that unit’s Move characteristic whilst making that Move action."
       },
       "mistress-of-the-penitent": {
          "name": "Mistress of the Penitent",
-         "text": "This unit does not take up slots in a Detachment that contains any <ORDER> REPENTIA SQUAD units."
+         "text": "This unit does not take up slots in a Detachment that contains any <ORDER> SISTERS REPENTIA units."
       },
       "war-hymns": {
          "name": "War Hymns",

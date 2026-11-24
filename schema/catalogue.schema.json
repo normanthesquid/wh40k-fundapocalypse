@@ -138,6 +138,10 @@
                "items": { "$ref": "#/$defs/costChange" }
             },
             "availableWhen": { "$ref": "common.schema.json#/$defs/condition" },
+            "takesNoSlotWhen": {
+               "description": "While this holds, the unit doesn't count towards its detachment's slot minimum or maximum, e.g. Crusaders in a detachment with a Ministorum Priest. It still needs a detachment that allows its role.",
+               "$ref": "common.schema.json#/$defs/condition"
+            },
             "requiredInDetachment": {
                "description": "A detachment must hold at least `minimum` of this unit while `when` holds, e.g. 3 Bunker Annexes once it has any part of a Castellum Stronghold.",
                "type": "object",

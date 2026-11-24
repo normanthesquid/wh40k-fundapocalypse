@@ -2,6 +2,14 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.7.0
+
+* A detachment's `slots` list the roles it allows: a role left out allows no units, and `{}` allows any number. The Ad Hoc detachment lists every role that way. The `NoForceOrgSlot` role is removed.
+* A datasheet's `takesNoSlotWhen` keeps a unit out of its role's minimum and maximum while a condition holds. It replaces the second copies BattleScribe needed for this: Adeptus Ministorum Crusaders, Death Cult Assassins and Arco-flagellants (with a Ministorum Priest), Geminae Superia (with Celestine) and Repentia Superior (with Sisters Repentia); Astra Militarum Crusaders (with a Ministorum Priest); Heretic Astartes Chaos Beastmen and Rogue Psyker (with Obsidius Mallex in the detachment, as printed); and Gellerpox Mutoid Vermin (with Vulgrar Thrice-Cursed). Lists naming a removed copy (`-2`, or `mutoid-vermin-3`) need that unit added again.
+* `takesNoSlotWhen` also gives the printed rule to units that lacked it: Drukhari Lhamaean, Medusae, Sslyth and Ur-Ghul (with an Archon), Clawed Fiends, Khymerae and Razorwing Flocks (with a Beastmaster), and the Aegis Defense Line Gun Emplacement.
+* A detachment's `commanderCannotBeWarlord`: the Ad Hoc detachment's Commander never gains WARLORD.
+* Sisters Repentia and Repentia Superior carry their printed keywords, SISTERS REPENTIA and REPENTIA SUPERIOR, in place of REPENTIA SQUAD and MISTRESS OF REPENTANCE.
+
 ## 2.6.0
 
 * Each unit names its own subfaction, as the printed rules say, rather than its detachment choosing one for all its units. A detachment may mix subfactions, a Venom names one of a Kabal, Wych Cult or Coven, and a unit printed with a subfaction's keyword, such as Marneus Calgar, may join any detachment its other rules allow. See [the data format](docs/data-format.md#subfactions).
