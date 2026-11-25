@@ -2821,7 +2821,11 @@
          "name": "Carnifex Brood",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "CARNIFEX"
+         ],
          "factionKeywords": [
             "TYRANIDS",
             "TYRANID HIVE FLEETS",
@@ -3075,7 +3079,12 @@
          "name": "Screamer-Killer Brood",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "CARNIFEX",
+            "SCREAMER-KILLER"
+         ],
          "factionKeywords": [
             "TYRANIDS",
             "TYRANID HIVE FLEETS",
@@ -3138,7 +3147,12 @@
          "name": "Thornback Brood",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "CARNIFEX",
+            "THORNBACK"
+         ],
          "factionKeywords": [
             "TYRANIDS",
             "TYRANID HIVE FLEETS",
@@ -3521,7 +3535,12 @@
          "name": "Stone Crusher Brood",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "MONSTER",
+            "CARNIFEX",
+            "STONE CRUSHER CARNIFEX"
+         ],
          "factionKeywords": [
             "TYRANIDS",
             "TYRANID HIVE FLEETS",

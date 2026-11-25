@@ -56,7 +56,12 @@
          "name": "Armiger Moirax Squadron",
          "battlefieldRole": "LordOfWar",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "ARMIGER CLASS",
+            "ARMIGER MOIRAX"
+         ],
          "factionKeywords": [
             "IMPERIUM",
             "IMPERIAL KNIGHTS",
@@ -300,7 +305,12 @@
          "name": "Armiger Helverin Squadron",
          "battlefieldRole": "LordOfWar",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "ARMIGER CLASS",
+            "ARMIGER HELVERIN"
+         ],
          "factionKeywords": [
             "IMPERIUM",
             "IMPERIAL KNIGHTS",
@@ -448,7 +458,12 @@
          "name": "Armiger Warglaive Squadron",
          "battlefieldRole": "LordOfWar",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "ARMIGER CLASS",
+            "ARMIGER WARGLAIVE"
+         ],
          "factionKeywords": [
             "IMPERIUM",
             "IMPERIAL KNIGHTS",

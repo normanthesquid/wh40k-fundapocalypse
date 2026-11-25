@@ -2,6 +2,10 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.9.1
+
+* 30 datasheets get their printed keywords, which were missing: 16 Renegades and Heretics vehicle and artillery units, the Carnifex, Screamer-Killer, Thornback and Stone Crusher broods, the Armiger Helverin, Moirax and Warglaive, the Bane Wolf and Devil Dog, the War Dog and War Dog Moirax, the Greater Possessed (now a CHARACTER), the Drone Sentry Turrets, and the Space Marines' Tarantula Battery and Tarantula Air Defence Battery.
+
 ## 2.9.0
 
 * Each detachment has an `order`, where it comes in the rulebook's list of detachments, from Battalion (1) to Ad Hoc (11). New integrity rule 11 rejects two detachments with the same order.
