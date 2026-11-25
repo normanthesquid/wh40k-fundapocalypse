@@ -2240,7 +2240,11 @@
          "name": "Hellhound Squadron",
          "battlefieldRole": "FastAttack",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "HELLHOUND"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -2470,7 +2474,12 @@
          "name": "Salamander Scout Tank Squadron",
          "battlefieldRole": "FastAttack",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "SALAMANDER",
+            "SALAMANDER SCOUT TANK"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -2603,7 +2612,12 @@
          "name": "Armageddon Pattern Medusa Battery",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "MEDUSA",
+            "ARMAGEDDON PATTERN MEDUSA"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -2803,7 +2817,11 @@
          "name": "Basilisk Squadron",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "BASILISK"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3002,7 +3020,11 @@
          "name": "Colossus Bombard Battery",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "COLOSSUS BOMBARD"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3202,7 +3224,11 @@
          "name": "Earthshaker Carriage Batteries",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "EARTHSHAKER CARRIAGE BATTERY"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3279,7 +3305,11 @@
          "name": "Earthshaker Platform Battery",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "ARTILLERY",
+            "EARTHSHAKER PLATFORM"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3333,7 +3363,11 @@
          "name": "Griffon Mortar Carrier Battery",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "GRIFFON MORTAR CARRIER"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3532,7 +3566,12 @@
          "name": "Heavy Mortar Battery",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "ARTILLERY",
+            "HEAVY MORTAR"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3611,7 +3650,12 @@
          "name": "Heavy Quad Launcher Battery",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "ARTILLERY",
+            "HEAVY QUAD LAUNCHER"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3689,7 +3733,11 @@
          "name": "Hydra Squadron",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "HYDRA"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -3888,7 +3936,12 @@
          "name": "Leman Russ Squadron",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "LEMAN RUSS",
+            "LEMAN RUSS BATTLE TANK"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -4404,7 +4457,12 @@
          "name": "Medusa Carriage Battery",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "ARTILLERY",
+            "MEDUSA CARRIAGE"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -4482,7 +4540,11 @@
          "name": "Wyvern Squadron",
          "battlefieldRole": "HeavySupport",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "WYVERN"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -4681,7 +4743,14 @@
          "name": "Arvus Lighter Squadron",
          "battlefieldRole": "Flyer",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "AIRCRAFT",
+            "ARVUS LIGHTER"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"
@@ -4834,7 +4903,14 @@
          "name": "Valkyrie Squadron",
          "battlefieldRole": "Flyer",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "FLY",
+            "TRANSPORT",
+            "AIRCRAFT",
+            "VALKYRIE"
+         ],
          "factionKeywords": [
             "CHAOS",
             "RENEGADES AND HERETICS"

@@ -200,7 +200,12 @@
          "name": "War Dog Moirax Squadron",
          "battlefieldRole": "LordOfWar",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "WAR DOG",
+            "WAR DOG MOIRAX"
+         ],
          "factionKeywords": [
             "CHAOS",
             "CHAOS KNIGHTS",
@@ -422,7 +427,11 @@
          "name": "War Dog Squadron",
          "battlefieldRole": "LordOfWar",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "WAR DOG"
+         ],
          "factionKeywords": [
             "CHAOS",
             "CHAOS KNIGHTS",

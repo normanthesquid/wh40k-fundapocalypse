@@ -5652,7 +5652,12 @@
          "name": "Bane Wolf Squadron",
          "battlefieldRole": "FastAttack",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "HELLHOUND",
+            "BANE WOLF"
+         ],
          "factionKeywords": [
             "IMPERIUM",
             "ASTRA MILITARUM",
@@ -5872,7 +5877,12 @@
          "name": "Devil Dog Squadron",
          "battlefieldRole": "FastAttack",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "HELLHOUND",
+            "DEVIL DOG"
+         ],
          "factionKeywords": [
             "IMPERIUM",
             "ASTRA MILITARUM",

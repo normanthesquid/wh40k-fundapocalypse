@@ -6011,7 +6011,12 @@
          "name": "Drone Sentry Turrets",
          "battlefieldRole": "Fortification",
          "cost": 3,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "DRONE",
+            "DRONE SENTRY TURRET"
+         ],
          "factionKeywords": [
             "T'AU EMPIRE",
             "<SEPT>"

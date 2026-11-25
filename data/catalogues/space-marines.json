@@ -12285,7 +12285,12 @@
          "name": "Tarantula Battery",
          "battlefieldRole": "FastAttack",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "GUN EMPLACEMENT",
+            "TARANTULA SENTRY GUN"
+         ],
          "profiles": [
             {
                "name": "Tarantula Sentry Gun",
@@ -12430,7 +12435,12 @@
          "name": "Tarantula Air Defence Battery",
          "battlefieldRole": "FastAttack",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "HEAVY",
+            "VEHICLE",
+            "GUN EMPLACEMENT",
+            "TARANTULA AIR DEFENCE BATTERY"
+         ],
          "profiles": [
             {
                "name": "Tarantula Air Defence Battery",

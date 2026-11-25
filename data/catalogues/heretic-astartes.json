@@ -7970,7 +7970,13 @@
          "name": "Greater Possessed",
          "battlefieldRole": "Elites",
          "cost": 0,
-         "keywords": [],
+         "keywords": [
+            "LIGHT",
+            "INFANTRY",
+            "DAEMON",
+            "CHARACTER",
+            "GREATER POSSESSED"
+         ],
          "factionKeywords": [
             "CHAOS",
             "HERETIC ASTARTES",
