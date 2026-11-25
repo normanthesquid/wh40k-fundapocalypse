@@ -2,5 +2,6 @@
    "id": "bad",
    "name": "Bad",
    "kind": "Faction",
+   "factionKeyword": "BAD",
    "detachmentChoices": { "filter": { "name": "Filter", "closed": true, "options": { "ordo": { "name": "Ordo" } } } }
 }

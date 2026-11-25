@@ -226,6 +226,7 @@ type NamedEntry struct{}
 type Catalogue struct {
 	ID                  string                       `json:"id"`
 	Kind                CatalogueKind                `json:"kind"`
+	FactionKeyword      *string                      `json:"factionKeyword"`
 	Imports             []string                     `json:"imports"`
 	Datasheets          map[string]Datasheet         `json:"datasheets"`
 	DatasheetLinks      map[string]DatasheetLink     `json:"datasheetLinks"`

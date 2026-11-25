@@ -3,6 +3,7 @@
    "id": "astra-militarum",
    "name": "Imperium - Astra Militarum",
    "kind": "Faction",
+   "factionKeyword": "ASTRA MILITARUM",
    "datasheets": {
       "hades-breaching-drill-squadron": {
          "name": "Hades Breaching Drill Squadron",

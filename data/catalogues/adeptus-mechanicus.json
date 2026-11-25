@@ -3,6 +3,7 @@
    "id": "adeptus-mechanicus",
    "name": "Imperium - Adeptus Mechanicus",
    "kind": "Faction",
+   "factionKeyword": "ADEPTUS MECHANICUS",
    "datasheets": {
       "serberys-sulphurhounds": {
          "name": "Serberys Sulphurhounds",

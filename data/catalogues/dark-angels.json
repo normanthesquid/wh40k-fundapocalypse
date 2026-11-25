@@ -3,6 +3,7 @@
    "id": "dark-angels",
    "name": "Imperium - Dark Angels",
    "kind": "Faction",
+   "factionKeyword": "DARK ANGELS",
    "datasheets": {
       "techmarine": {
          "name": "Techmarine",

@@ -3,6 +3,7 @@
    "id": "necrons",
    "name": "Necrons",
    "kind": "Faction",
+   "factionKeyword": "NECRONS",
    "datasheets": {
       "catacomb-command-barge": {
          "name": "Catacomb Command Barge",

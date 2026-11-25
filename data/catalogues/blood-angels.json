@@ -3,6 +3,7 @@
    "id": "blood-angels",
    "name": "Imperium - Blood Angels",
    "kind": "Faction",
+   "factionKeyword": "BLOOD ANGELS",
    "datasheets": {
       "commander-dante": {
          "name": "Commander Dante",

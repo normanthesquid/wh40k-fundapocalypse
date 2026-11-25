@@ -3,6 +3,7 @@
    "id": "adeptus-astartes",
    "name": "Imperium - Adeptus Astartes",
    "kind": "Faction",
+   "factionKeyword": "ADEPTUS ASTARTES",
    "datasheets": {
       "lord-high-commander-carab-culln": {
          "name": "Lord High Commander Carab Culln",

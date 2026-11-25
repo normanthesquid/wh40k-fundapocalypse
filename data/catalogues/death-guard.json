@@ -3,6 +3,7 @@
    "id": "death-guard",
    "name": "Chaos - Death Guard",
    "kind": "Faction",
+   "factionKeyword": "DEATH GUARD",
    "datasheets": {
       "mamon-transfigured": {
          "name": "Mamon Transfigured",

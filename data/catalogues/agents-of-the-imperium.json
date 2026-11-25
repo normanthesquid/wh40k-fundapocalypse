@@ -3,6 +3,7 @@
    "id": "agents-of-the-imperium",
    "name": "Imperium - Agents of the Imperium",
    "kind": "Faction",
+   "factionKeyword": "IMPERIUM",
    "datasheets": {
       "prosecutors": {
          "name": "Prosecutors",

@@ -2,6 +2,7 @@
    "id": "bad",
    "name": "Bad",
    "kind": "Faction",
+   "factionKeyword": "BAD",
    "datasheets": {
       "unit": {
          "name": "Unit",

@@ -3,6 +3,7 @@
    "id": "death-korps-of-krieg",
    "name": "Imperium - Death Korps of Krieg",
    "kind": "Faction",
+   "factionKeyword": "DEATH KORPS OF KRIEG",
    "datasheets": {
       "death-korps-marshal-karis-venner": {
          "name": "Death Korps Marshal Karis Venner",

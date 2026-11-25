@@ -11,6 +11,10 @@
          "description": "A Faction can be an army's primary faction; a Library only supplies entries to the catalogues that import it.",
          "enum": ["Faction", "Library"]
       },
+      "factionKeyword": {
+         "description": "A Faction's own Faction keyword, e.g. `BLOOD ANGELS`: what a detachment of this faction is restricted to when a list doesn't say. Only a Faction has one.",
+         "allOf": [{ "$ref": "common.schema.json#/$defs/keyword" }, { "pattern": "^[^<]" }]
+      },
       "imports": {
          "description": "Catalogues whose entries this one may reference with `catalogue-id/slug`. Importing makes nothing available on its own: a faction lists the library datasheets it fields in `datasheetLinks`.",
          "type": "array",
@@ -70,6 +74,9 @@
    },
    "required": ["id", "name", "kind"],
    "additionalProperties": false,
+   "if": { "properties": { "kind": { "const": "Faction" } } },
+   "then": { "required": ["factionKeyword"] },
+   "else": { "not": { "required": ["factionKeyword"] } },
    "$defs": {
       "alternativeRole": {
          "description": "A battlefield role the unit takes instead when `when` holds, e.g. Troops for a cult unit.",

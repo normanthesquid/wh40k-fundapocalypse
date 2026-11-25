@@ -99,7 +99,7 @@ Each detachment's Commander is its unit with the highest Leadership, and a CHARA
 
 A detachment's `slots` list the battlefield roles it allows, each with an optional `minimum` and `maximum`. A role left out allows no units, and `{}` allows any number, as for every role of the Ad Hoc detachment. A datasheet's `takesNoSlotWhen` keeps the unit out of its role's minimum and maximum while a condition holds, e.g. Crusaders in a detachment with a Ministorum Priest. The unit still needs a detachment that allows its role, and still costs its Power Level. A detachment's `commanderCannotBeWarlord` means its Commander never gains WARLORD, even as a CHARACTER (Ad Hoc).
 
-A detachment with `unitsShareFaction` requires all its units to be from the same Faction: every unit shares at least one Faction keyword, as the rulebook's Factions section explains. Super-heavy Auxiliary, Fortification Network and Ad Hoc leave it out, so their units may mix Factions.
+A detachment with `unitsShareFaction` requires all its units to be from the same Faction, as the rulebook's Factions section explains: the list picks one Faction keyword for the detachment, such as IMPERIUM, ADEPTUS ASTARTES or SALAMANDERS, and every unit has it. A Faction catalogue's `factionKeyword` is that faction's own keyword, such as BLOOD ANGELS, which a builder offers first. Super-heavy Auxiliary, Fortification Network and Ad Hoc leave `unitsShareFaction` out, so their units may mix Factions.
 
 An option with `requiredWhen` must be taken while that condition holds, e.g. the Mark of Khorne once the detachment has chosen Khorne. An option that adds a model with its own characteristics lists it in `addsProfiles`; `profileChanges` may name it. A datasheet with no stat line at all leaves `profiles` out; that is right only where the official datasheet prints none, as for terrain features such as the Aegis Defence Line.
 
@@ -109,9 +109,9 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 
 1. Slugs are unique as listed under "Ids and references". Profile names are unique within a datasheet.
 2. Every reference resolves. A `catalogue-id/` reference only points into an imported catalogue; `imports` only names `kind: Library` catalogues that exist; a catalogue's `id` matches its file name.
-3. `datasheetLinks`, `detachmentChoices` and `detachmentAbilities` appear only in `kind: Faction` catalogues, and a `datasheetLinks` target is a library datasheet.
+3. `datasheetLinks`, `detachmentChoices` and `detachmentAbilities` appear only in `kind: Faction` catalogues, every one of which has a `factionKeyword`, and a `datasheetLinks` target is a library datasheet.
 4. Count targets resolve: a `Detachment` names a game-system detachment; a `DetachmentChoice` names an option of some `detachmentChoices` entry; an `Option` names an option of its datasheet (or of `datasheet`, when given); an `OptionGroup` names an option group of its datasheet; `PrimaryFaction` names a `kind: Faction` catalogue.
-5. Every keyword used in a count target is a keyword some datasheet, option, link or choice actually adds, which catches typos.
+5. Every keyword used in a count target or as a `factionKeyword` is a keyword some datasheet, option, link or choice actually adds, which catches typos.
 6. An option group's `default` is one of its options, and its `minimum` is no more than its options' `maximum`s add up to (any option without a fixed `maximum` lifts the cap). A group bound written as a limit always has terms, so it depends on the unit and is not compared.
 7. `removesWeapons` only names weapons the datasheet carries, another of its options adds, or a conditional change adds, and `profileChange.profile` names one of the datasheet's profiles, including those its options add.
 8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.

@@ -3,6 +3,7 @@
    "id": "hive-fleets",
    "name": "Tyranids - Hive Fleets",
    "kind": "Faction",
+   "factionKeyword": "TYRANID HIVE FLEETS",
    "datasheets": {
       "tyranid-shrikes": {
          "name": "Tyranid Shrikes",

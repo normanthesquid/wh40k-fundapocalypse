@@ -2,6 +2,7 @@
    "id": "bad",
    "name": "Bad",
    "kind": "Faction",
+   "factionKeyword": "BAD",
    "detachmentChoices": {
       "chapter": { "name": "Chapter", "fillsPlaceholder": "<CHAPTER>", "options": { "ultramarines": { "name": "Ultramarines" } } }
    }

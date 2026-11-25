@@ -3,6 +3,7 @@
    "id": "chaos-titans",
    "name": "Chaos - Chaos Titans",
    "kind": "Faction",
+   "factionKeyword": "TITANICUS TRAITORIS",
    "datasheets": {
       "chaos-warlord-battle-titan": {
          "name": "Chaos Warlord Battle Titan",

@@ -3,6 +3,7 @@
    "id": "deathwatch",
    "name": "Imperium - Deathwatch",
    "kind": "Faction",
+   "factionKeyword": "DEATHWATCH",
    "datasheets": {
       "watch-master-2": {
          "name": "Watch Master",

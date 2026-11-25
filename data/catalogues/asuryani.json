@@ -3,6 +3,7 @@
    "id": "asuryani",
    "name": "Aeldari - Asuryani",
    "kind": "Faction",
+   "factionKeyword": "ASURYANI",
    "datasheets": {
       "eldrad-ulthran": {
          "name": "Eldrad Ulthran",

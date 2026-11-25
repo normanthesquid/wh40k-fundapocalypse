@@ -3,6 +3,7 @@
    "id": "thousand-sons",
    "name": "Chaos - Thousand Sons",
    "kind": "Faction",
+   "factionKeyword": "THOUSAND SONS",
    "datasheets": {
       "ahriman": {
          "name": "Ahriman",

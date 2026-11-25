@@ -93,6 +93,9 @@ func (check *checker) checkCatalogue(catalogueID string, catalogue *Catalogue) {
 	if catalogue.Kind == CatalogueKindFaction {
 		check.checkSubfactions(where, catalogue)
 	}
+	if catalogue.FactionKeyword != nil {
+		check.useKeyword(where.at("factionKeyword"), *catalogue.FactionKeyword)
+	}
 	for _, slug := range sortedKeys(catalogue.DetachmentAbilities) {
 		ability := catalogue.DetachmentAbilities[slug]
 		abilityScope := where.at("detachmentAbilities/%s", slug)

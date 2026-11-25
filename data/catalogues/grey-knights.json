@@ -3,6 +3,7 @@
    "id": "grey-knights",
    "name": "Imperium - Grey Knights",
    "kind": "Faction",
+   "factionKeyword": "GREY KNIGHTS",
    "datasheets": {
       "lord-kaldor-draigo": {
          "name": "Lord Kaldor Draigo",

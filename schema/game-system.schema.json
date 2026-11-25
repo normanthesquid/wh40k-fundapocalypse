@@ -44,7 +44,7 @@
             "name": { "type": "string", "minLength": 1 },
             "kind": { "$ref": "common.schema.json#/$defs/detachmentKind" },
             "unitsShareFaction": {
-               "description": "All units must be from the same Faction: they share at least one Faction keyword. Left out, units may mix Factions.",
+               "description": "All units must be from the same Faction: they all have the one Faction keyword the list picks for the detachment. Left out, units may mix Factions.",
                "type": "boolean"
             },
             "commanderCannotBeWarlord": {

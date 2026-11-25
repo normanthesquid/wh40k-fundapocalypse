@@ -3,6 +3,7 @@
    "id": "tau-empire",
    "name": "T'au Empire",
    "kind": "Faction",
+   "factionKeyword": "T'AU EMPIRE",
    "datasheets": {
       "commander-shadowsun": {
          "name": "Commander Shadowsun",

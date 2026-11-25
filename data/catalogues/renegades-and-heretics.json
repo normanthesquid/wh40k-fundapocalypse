@@ -3,6 +3,7 @@
    "id": "renegades-and-heretics",
    "name": "Chaos - Renegades and Heretics",
    "kind": "Faction",
+   "factionKeyword": "RENEGADES AND HERETICS",
    "datasheets": {
       "renegade-commander": {
          "name": "Renegade Commander",

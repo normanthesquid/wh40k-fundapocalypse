@@ -3,6 +3,7 @@
    "id": "legiones-daemonica",
    "name": "Chaos - Legiones Daemonica",
    "kind": "Faction",
+   "factionKeyword": "LEGIONES DAEMONICA",
    "datasheets": {
       "skarbrand": {
          "name": "Skarbrand",

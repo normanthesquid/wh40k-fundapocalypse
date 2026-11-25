@@ -3,6 +3,7 @@
    "id": "heretic-astartes",
    "name": "Chaos - Heretic Astartes",
    "kind": "Faction",
+   "factionKeyword": "HERETIC ASTARTES",
    "datasheets": {
       "cultists-of-the-abyss": {
          "name": "Cultists of the Abyss",
