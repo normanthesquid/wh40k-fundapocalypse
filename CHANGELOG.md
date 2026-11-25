@@ -2,6 +2,12 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.9.0
+
+* Each detachment has an `order`, where it comes in the rulebook's list of detachments, from Battalion (1) to Ad Hoc (11). New integrity rule 11 rejects two detachments with the same order.
+* TYRANIDS is a Faction keyword of every Hive Fleets and Genestealer Cults datasheet, as printed, not a plain keyword. A detachment can now pick TYRANIDS and mix units from both.
+* 21 datasheets get their printed Faction keywords, which were missing: the Carnifex, Screamer-Killer, Thornback and Stone Crusher broods, 16 Renegades and Heretics vehicle and artillery units (Hellhound to Valkyrie squadrons), and the T'au Empire Drone Sentry Turrets.
+
 ## 2.8.0
 
 * Each Faction catalogue has a `factionKeyword`, its own Faction keyword, such as BLOOD ANGELS for Blood Angels, IMPERIUM for Agents of the Imperium and TYRANID HIVE FLEETS for Hive Fleets.

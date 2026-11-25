@@ -97,7 +97,7 @@ A datasheet's `requiredInDetachment` makes a detachment hold at least `minimum` 
 
 Each detachment's Commander is its unit with the highest Leadership, and a CHARACTER Commander is a WARLORD. Three markers record the exceptions: a datasheet's `cannotBeWarlord` (a C'tan Shard's Enslaved Star God), a datasheet's `beginsAsCommander` (a Tomb Ziggurat in its Tomb Citadel), and a detachment ability's `makesCharacter`, under which one of the faction's units in the detachment becomes a CHARACTER with its own Warmaster Trait (Knight Lances and Fallen Courts).
 
-A detachment's `slots` list the battlefield roles it allows, each with an optional `minimum` and `maximum`. A role left out allows no units, and `{}` allows any number, as for every role of the Ad Hoc detachment. A datasheet's `takesNoSlotWhen` keeps the unit out of its role's minimum and maximum while a condition holds, e.g. Crusaders in a detachment with a Ministorum Priest. The unit still needs a detachment that allows its role, and still costs its Power Level. A detachment's `commanderCannotBeWarlord` means its Commander never gains WARLORD, even as a CHARACTER (Ad Hoc).
+A detachment's `order` is where it comes in the rulebook's list of detachments, so a list builder can offer them in that order. A detachment's `slots` list the battlefield roles it allows, each with an optional `minimum` and `maximum`. A role left out allows no units, and `{}` allows any number, as for every role of the Ad Hoc detachment. A datasheet's `takesNoSlotWhen` keeps the unit out of its role's minimum and maximum while a condition holds, e.g. Crusaders in a detachment with a Ministorum Priest. The unit still needs a detachment that allows its role, and still costs its Power Level. A detachment's `commanderCannotBeWarlord` means its Commander never gains WARLORD, even as a CHARACTER (Ad Hoc).
 
 A detachment with `unitsShareFaction` requires all its units to be from the same Faction, as the rulebook's Factions section explains: the list picks one Faction keyword for the detachment, such as IMPERIUM, ADEPTUS ASTARTES or SALAMANDERS, and every unit has it. A Faction catalogue's `factionKeyword` is that faction's own keyword, such as BLOOD ANGELS, which a builder offers first. Super-heavy Auxiliary, Fortification Network and Ad Hoc leave `unitsShareFaction` out, so their units may mix Factions.
 
@@ -117,6 +117,7 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 8. `minimum` ≤ `maximum` wherever both appear, including movement ranges. A slot limit is compared only when its `maximum` has no `terms`, since a growing maximum depends on the army.
 9. `game-system.json`'s `release` matches the tag being released (`go run . -release 2.0.0`; CI passes it on a tag push).
 10. Each placeholder faction keyword a faction's units carry is filled by exactly one of its detachment choices, and each choice's placeholder is carried by one of its units. Every option of a subfaction choice names a `keyword`, unique in the catalogue; no other choice's option does, and only an open subfaction choice may have no options. Choices sharing an `alternativeGroup` are at least two. No condition counts a subfaction choice's option (`DetachmentChoice`); it counts the option's keyword in the unit instead.
+11. No two detachments share an `order`.
 
 ## Releases
 

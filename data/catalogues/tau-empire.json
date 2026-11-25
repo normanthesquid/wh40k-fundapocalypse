@@ -6012,6 +6012,10 @@
          "battlefieldRole": "Fortification",
          "cost": 3,
          "keywords": [],
+         "factionKeywords": [
+            "T'AU EMPIRE",
+            "<SEPT>"
+         ],
          "profiles": [
             {
                "name": "Drone Sentry Turret",

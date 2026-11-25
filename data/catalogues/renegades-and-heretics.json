@@ -2241,6 +2241,10 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Hellhound",
@@ -2467,6 +2471,10 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Salamander Scout Tank",
@@ -2596,6 +2604,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Armageddon Pattern Medusa",
@@ -2792,6 +2804,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Basilisk",
@@ -2987,6 +3003,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Colossus Bombard",
@@ -3183,6 +3203,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Earthshaker Carriage Battery (5 models)",
@@ -3256,6 +3280,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Earthshaker Platform",
@@ -3306,6 +3334,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Griffon Mortar Carrier",
@@ -3501,6 +3533,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Heavy Mortar",
@@ -3576,6 +3612,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Heavy Quad Launcher",
@@ -3650,6 +3690,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Hydra",
@@ -3845,6 +3889,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Leman Russ Battle Tank",
@@ -4357,6 +4405,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Medusa Carriage (5 models)",
@@ -4431,6 +4483,10 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Wyvern",
@@ -4626,6 +4682,10 @@
          "battlefieldRole": "Flyer",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Arvus Lighter",
@@ -4775,6 +4835,10 @@
          "battlefieldRole": "Flyer",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "CHAOS",
+            "RENEGADES AND HERETICS"
+         ],
          "profiles": [
             {
                "name": "Valkyrie",
