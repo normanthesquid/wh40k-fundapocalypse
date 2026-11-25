@@ -1,6 +1,6 @@
 {
    "$schema": "../schema/game-system.schema.json",
-   "release": "2.9.1",
+   "release": "2.9.2",
    "detachments": {
       "ad-hoc": {
          "name": "Ad Hoc Detachment",
