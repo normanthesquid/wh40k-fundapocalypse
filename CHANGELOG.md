@@ -2,6 +2,10 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.9.2
+
+* The Astra Militarum library's Chimera, Centaur Light Carrier, Trojan Support Vehicle and Gorgon Heavy Transporter are removed. No faction linked them; Astra Militarum has its own datasheets for all four.
+
 ## 2.9.1
 
 * 30 datasheets get their printed keywords, which were missing: 16 Renegades and Heretics vehicle and artillery units, the Carnifex, Screamer-Killer, Thornback and Stone Crusher broods, the Armiger Helverin, Moirax and Warglaive, the Bane Wolf and Devil Dog, the War Dog and War Dog Moirax, the Greater Possessed (now a CHARACTER), the Drone Sentry Turrets, and the Space Marines' Tarantula Battery and Tarantula Air Defence Battery.
