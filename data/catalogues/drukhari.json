@@ -1601,7 +1601,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "twin-splinter-rifle"
             }
          ]
       },

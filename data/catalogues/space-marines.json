@@ -15830,7 +15830,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "meltagun"
             },
             {
                "id": "mounted-weapon-2",
@@ -15925,7 +15926,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "ironclad-combat-weapon-2"
             },
             {
                "id": "upgrades",
