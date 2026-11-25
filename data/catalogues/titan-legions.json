@@ -3,6 +3,7 @@
    "id": "titan-legions",
    "name": "Imperium - Titan Legions",
    "kind": "Faction",
+   "factionKeyword": "ADEPTUS TITANICUS",
    "datasheets": {
       "reaver-battle-titan": {
          "name": "Reaver Battle Titan",

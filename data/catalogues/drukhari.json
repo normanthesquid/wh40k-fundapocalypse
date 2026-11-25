@@ -3,6 +3,7 @@
    "id": "drukhari",
    "name": "Aeldari - Drukhari",
    "kind": "Faction",
+   "factionKeyword": "DRUKHARI",
    "datasheets": {
       "archon": {
          "name": "Archon",

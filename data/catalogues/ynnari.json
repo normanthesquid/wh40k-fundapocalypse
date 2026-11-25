@@ -3,6 +3,7 @@
    "id": "ynnari",
    "name": "Aeldari - Ynnari",
    "kind": "Faction",
+   "factionKeyword": "YNNARI",
    "datasheets": {
       "the-visarch": {
          "name": "The Visarch",

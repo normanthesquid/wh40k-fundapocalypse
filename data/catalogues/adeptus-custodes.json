@@ -3,6 +3,7 @@
    "id": "adeptus-custodes",
    "name": "Imperium - Adeptus Custodes",
    "kind": "Faction",
+   "factionKeyword": "ADEPTUS CUSTODES",
    "datasheets": {
       "captain-general-trajann-valoris": {
          "name": "Captain-General Trajann Valoris",

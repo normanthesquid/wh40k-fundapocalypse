@@ -2,5 +2,6 @@
    "id": "bad",
    "name": "Bad",
    "kind": "Faction",
+   "factionKeyword": "BAD",
    "datasheetLinks": { "squad": { "datasheet": "library/squad", "points": 5 } }
 }

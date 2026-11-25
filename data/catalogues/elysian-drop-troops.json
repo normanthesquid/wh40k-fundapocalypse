@@ -3,6 +3,7 @@
    "id": "elysian-drop-troops",
    "name": "Imperium - Elysian Drop Troops",
    "kind": "Faction",
+   "factionKeyword": "ELYSIAN DROP TROOPS",
    "datasheets": {
       "elysian-company-commander": {
          "name": "Elysian Company Commander",

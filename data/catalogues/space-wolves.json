@@ -3,6 +3,7 @@
    "id": "space-wolves",
    "name": "Imperium - Space Wolves",
    "kind": "Faction",
+   "factionKeyword": "SPACE WOLVES",
    "datasheets": {
       "logan-grimnar": {
          "name": "Logan Grimnar",

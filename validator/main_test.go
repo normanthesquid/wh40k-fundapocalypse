@@ -14,8 +14,8 @@ const (
 	invalidFixtures        = "../schema/fixtures/invalid"
 	fixtureRelease         = "2.0.0"
 	agentsCatalogueFile    = "agents-of-the-imperium.json"
-	agentsCatalogueContent = `{"id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction", "datasheets": {"lord": {
-		"name": "Lord", "battlefieldRole": "HQ", "cost": 1, "keywords": ["CHARACTER"],
+	agentsCatalogueContent = `{"id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction", "factionKeyword": "IMPERIUM", "datasheets": {"lord": {
+		"name": "Lord", "battlefieldRole": "HQ", "cost": 1, "keywords": ["CHARACTER"], "factionKeywords": ["IMPERIUM"],
 		"profiles": [{"name": "Lord", "movement": {"kind": "Immobile"}, "wounds": 1, "save": 4}]}}}`
 )
 
@@ -86,10 +86,10 @@ func TestRunReportsProblems(t *testing.T) {
 		want    string
 	}{
 		{"schema violation", `{"id": "agents-of-the-imperium", "name": "Agents", "kind": "Army"}`, "does not match the schema"},
-		{"duplicate key", `{"id": "agents-of-the-imperium", "id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction"}`, "duplicate key /id"},
+		{"duplicate key", `{"id": "agents-of-the-imperium", "id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction", "factionKeyword": "IMPERIUM"}`, "duplicate key /id"},
 		{"broken JSON", `{"id": `, "not valid JSON"},
 		{"content after the JSON", agentsCatalogueContent + ` {}`, "not valid JSON"},
-		{"dangling import", `{"id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction", "imports": ["ghost"]}`, `"ghost" is not a library catalogue`},
+		{"dangling import", `{"id": "agents-of-the-imperium", "name": "Agents", "kind": "Faction", "factionKeyword": "IMPERIUM", "imports": ["ghost"]}`, `"ghost" is not a library catalogue`},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {

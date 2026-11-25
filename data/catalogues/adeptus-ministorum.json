@@ -3,6 +3,7 @@
    "id": "adeptus-ministorum",
    "name": "Imperium - Adeptus Ministorum",
    "kind": "Faction",
+   "factionKeyword": "ADEPTUS MINISTORUM",
    "datasheets": {
       "celestine": {
          "name": "Celestine",

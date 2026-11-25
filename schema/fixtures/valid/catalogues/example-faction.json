@@ -3,6 +3,7 @@
    "id": "example-faction",
    "name": "Example faction (illustrative values, not real data)",
    "kind": "Faction",
+   "factionKeyword": "EXAMPLE CHAPTER",
    "imports": [
       "example-library"
    ],

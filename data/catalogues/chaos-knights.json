@@ -3,6 +3,7 @@
    "id": "chaos-knights",
    "name": "Chaos - Chaos Knights",
    "kind": "Faction",
+   "factionKeyword": "CHAOS KNIGHTS",
    "datasheets": {
       "knight-rampager": {
          "name": "Knight Rampager",

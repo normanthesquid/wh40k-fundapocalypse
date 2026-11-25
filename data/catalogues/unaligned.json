@@ -3,6 +3,7 @@
    "id": "unaligned",
    "name": "Unaligned",
    "kind": "Faction",
+   "factionKeyword": "UNALIGNED",
    "datasheets": {
       "aegis-defense-line-3": {
          "name": "Aegis Defense Line",

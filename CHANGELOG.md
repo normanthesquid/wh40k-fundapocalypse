@@ -2,6 +2,11 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.8.0
+
+* Each Faction catalogue has a `factionKeyword`, its own Faction keyword, such as BLOOD ANGELS for Blood Angels, IMPERIUM for Agents of the Imperium and TYRANID HIVE FLEETS for Hive Fleets.
+* `unitsShareFaction` now means every unit in the detachment has the one Faction keyword the list picks for it, rather than the units sharing any keyword at all.
+
 ## 2.7.0
 
 * A detachment's `slots` list the roles it allows: a role left out allows no units, and `{}` allows any number. The Ad Hoc detachment lists every role that way. The `NoForceOrgSlot` role is removed.

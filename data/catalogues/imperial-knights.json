@@ -3,6 +3,7 @@
    "id": "imperial-knights",
    "name": "Imperium - Imperial Knights",
    "kind": "Faction",
+   "factionKeyword": "IMPERIAL KNIGHTS",
    "datasheets": {
       "acastus-knight-asterius": {
          "name": "Acastus Knight Asterius",

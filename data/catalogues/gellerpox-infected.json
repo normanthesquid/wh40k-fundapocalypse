@@ -3,6 +3,7 @@
    "id": "gellerpox-infected",
    "name": "Chaos - Gellerpox Infected",
    "kind": "Faction",
+   "factionKeyword": "GELLERPOX INFECTED",
    "datasheets": {
       "vulgrar-thrice-cursed": {
          "name": "Vulgrar Thrice-cursed",

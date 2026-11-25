@@ -3,6 +3,7 @@
    "id": "harlequins",
    "name": "Aeldari - Harlequins",
    "kind": "Faction",
+   "factionKeyword": "HARLEQUINS",
    "datasheets": {
       "death-jester": {
          "name": "Death Jester",

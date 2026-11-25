@@ -3,6 +3,7 @@
    "id": "genestealer-cults",
    "name": "Tyranids - Genestealer Cults",
    "kind": "Faction",
+   "factionKeyword": "GENESTEALER CULTS",
    "datasheets": {
       "patriarch": {
          "name": "Patriarch",

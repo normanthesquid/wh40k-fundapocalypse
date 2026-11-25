@@ -3,6 +3,7 @@
    "id": "orks",
    "name": "Orks",
    "kind": "Faction",
+   "factionKeyword": "ORKS",
    "datasheets": {
       "makari": {
          "name": "Makari",

@@ -180,6 +180,9 @@ func TestIntegrityRules(t *testing.T) {
 			battalion.Abilities = []string{"nope"}
 			dataset.GameSystem.Detachments["battalion"] = battalion
 		}, `battalion/abilities: ability "nope" does not resolve`},
+		{"faction keyword no unit carries", func(dataset *Dataset) {
+			dataset.Catalogues[factionID].FactionKeyword = pointer("EXAMPLE CHAPTR")
+		}, `factionKeyword: keyword "EXAMPLE CHAPTR" is never added`},
 		{"dangling detachment ability", func(dataset *Dataset) {
 			dataset.Catalogues[factionID].DetachmentAbilities["example-rally-rule"] = DetachmentAbility{Ability: "nope"}
 		}, `example-rally-rule: ability "nope" does not resolve`},
@@ -592,7 +595,9 @@ func TestEachDuplicateSlugIsReportedOnce(t *testing.T) {
 
 func TestBrokenLinkIsReportedOnce(t *testing.T) {
 	dataset := loadValidDataset(t)
-	dataset.Catalogues[factionID].DatasheetLinks[squadID] = DatasheetLink{Datasheet: libraryID + "/nope"}
+	link := dataset.Catalogues[factionID].DatasheetLinks[squadID]
+	link.Datasheet = libraryID + "/nope"
+	dataset.Catalogues[factionID].DatasheetLinks[squadID] = link
 	dataset.Catalogues[factionID].DetachmentAbilities["example-rally-rule"] = DetachmentAbility{
 		Ability:       "example-rally",
 		AvailableWhen: count(CountTarget{Kind: CountTargetKindDatasheet, Datasheet: pointer(squadID)}),
