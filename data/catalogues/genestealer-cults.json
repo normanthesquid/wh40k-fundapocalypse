@@ -10,13 +10,17 @@
          "battlefieldRole": "HQ",
          "cost": 7,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "PSYKER",
             "CHARACTER",
             "GENESTEALER",
             "PATRIARCH"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -36,10 +40,6 @@
                "save": 7
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "monstrous-rending-claws"
          ],
@@ -53,12 +53,16 @@
          "battlefieldRole": "HQ",
          "cost": 4,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "PSYKER",
             "CHARACTER",
             "MAGUS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -78,10 +82,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "magus-force-weapon"
          ],
@@ -95,11 +95,15 @@
          "battlefieldRole": "HQ",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "PRIMUS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -119,10 +123,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "elite-cult-weapons"
          ],
@@ -135,11 +135,15 @@
          "battlefieldRole": "HQ",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "ACOLYTE ICONWARD"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -159,10 +163,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "rending-claw"
          ],
@@ -177,12 +177,16 @@
          "battlefieldRole": "HQ",
          "cost": 4,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "ABERRANT",
             "ABOMINANT"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -202,10 +206,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "power-sledgehammer"
          ],
@@ -219,11 +219,15 @@
          "battlefieldRole": "HQ",
          "cost": 5,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "BIKER",
             "CHARACTER",
             "JACKAL ALPHUS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -243,10 +247,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "jackal-sniper-rifle",
             "close-combat-weapons-jackal-alphus"
@@ -262,10 +262,14 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "ACOLYTE HYBRIDS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -284,10 +288,6 @@
                "leadership": 6,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "acolyte-weapons",
@@ -428,10 +428,14 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "NEOPHYTE HYBRIDS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -450,10 +454,6 @@
                "leadership": 6,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "scavenged-weapons",
@@ -534,10 +534,14 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "BROOD BROTHERS INFANTRY SQUAD"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
          ],
          "profiles": [
             {
@@ -556,10 +560,6 @@
                "leadership": 6,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "BROOD BROTHERS"
          ],
          "weapons": [
             "lasguns",
@@ -656,10 +656,14 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "HYBRID METAMORPHS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -678,10 +682,6 @@
                "leadership": 6,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "metamorph-weapons-ranged",
@@ -725,10 +725,14 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "ABERRANT"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -747,10 +751,6 @@
                "leadership": 6,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "aberrant-weapons"
@@ -796,11 +796,15 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "GENESTEALER",
             "PURESTRAIN GENESTEALERS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -818,10 +822,6 @@
                "leadership": 7,
                "save": 9
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "purestrain-talons"
@@ -896,11 +896,15 @@
          "battlefieldRole": "Elites",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "CLAMAVUS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -920,10 +924,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "close-combat-weapons-clamavus"
          ],
@@ -936,11 +936,15 @@
          "battlefieldRole": "Elites",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "LOCUS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -960,10 +964,6 @@
                "save": 9
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "locus-blades"
          ],
@@ -976,11 +976,15 @@
          "battlefieldRole": "Elites",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "SANCTUS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -999,10 +1003,6 @@
                "leadership": 6,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "familiar-claws"
@@ -1045,11 +1045,15 @@
          "battlefieldRole": "Elites",
          "cost": 4,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "KELERMORPH"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -1069,10 +1073,6 @@
                "save": 9
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "liberator-autostubs",
             "cultist-knife"
@@ -1086,11 +1086,15 @@
          "battlefieldRole": "Elites",
          "cost": 2,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "NEXOS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -1110,10 +1114,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "close-combat-weapons-nexos"
          ],
@@ -1126,11 +1126,15 @@
          "battlefieldRole": "Elites",
          "cost": 2,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "BIOPHAGUS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -1150,10 +1154,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "injector-goad"
          ],
@@ -1166,10 +1166,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 6,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "VEHICLE",
             "ACHILLES RIDGERUNNERS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -1188,10 +1192,6 @@
                "leadership": 5,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "heavy-stubbers"
@@ -1309,10 +1309,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "BIKER",
             "ATALAN JACKALS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -1331,10 +1335,6 @@
                "leadership": 6,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "autopistols",
@@ -1451,10 +1451,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "VEHICLE",
             "CULT ARMOURED SENTINELS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
          ],
          "profiles": [
             {
@@ -1473,10 +1477,6 @@
                "leadership": 5,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "BROOD BROTHERS"
          ],
          "weapons": [
             "armoured-feet"
@@ -1621,10 +1621,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 4,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "VEHICLE",
             "CULT SCOUT SENTINELS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
          ],
          "profiles": [
             {
@@ -1643,10 +1647,6 @@
                "leadership": 5,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "BROOD BROTHERS"
          ],
          "weapons": [
             "armoured-feet"
@@ -1782,10 +1782,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 8,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "VEHICLE",
             "CULT LEMAN RUSS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
          ],
          "profiles": [
             {
@@ -1804,10 +1808,6 @@
                "leadership": 5,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "BROOD BROTHERS"
          ],
          "weapons": [
             "grinding-tracks"
@@ -1964,10 +1964,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "BROOD BROTHERS HEAVY WEAPONS SQUAD"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
          ],
          "profiles": [
             {
@@ -1986,10 +1990,6 @@
                "leadership": 5,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "BROOD BROTHERS"
          ],
          "weapons": [
             "close-combat-weapons-brood-brothers"
@@ -2051,11 +2051,15 @@
          "battlefieldRole": "HeavySupport",
          "cost": 7,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "VEHICLE",
             "TRANSPORT",
             "GOLIATH ROCKGRINDER"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -2074,10 +2078,6 @@
                "leadership": 5,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
          ],
          "weapons": [
             "drilldozer-blade",
@@ -2128,11 +2128,15 @@
          "battlefieldRole": "DedicatedTransport",
          "cost": 6,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "VEHICLE",
             "TRANSPORT",
             "GOLIATH TRUCK"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "<CULT>"
          ],
          "profiles": [
             {
@@ -2152,10 +2156,6 @@
                "save": 8
             }
          ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "<CULT>"
-         ],
          "weapons": [
             "twin-autocannon",
             "tough-chassis",
@@ -2172,11 +2172,15 @@
          "battlefieldRole": "DedicatedTransport",
          "cost": 7,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "VEHICLE",
             "TRANSPORT",
             "CULT CHIMERA"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "GENESTEALER CULTS",
+            "BROOD BROTHERS"
          ],
          "profiles": [
             {
@@ -2195,10 +2199,6 @@
                "leadership": 5,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "GENESTEALER CULTS",
-            "BROOD BROTHERS"
          ],
          "weapons": [
             "armoured-tracks"
@@ -2291,11 +2291,11 @@
          "battlefieldRole": "Fortification",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "SECTOR MECHANICUS",
             "TECTONIC FRAGDRILL"
          ],
          "factionKeywords": [
+            "TYRANIDS",
             "GENESTEALER CULTS"
          ],
          "abilities": [

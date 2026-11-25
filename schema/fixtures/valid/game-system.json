@@ -5,6 +5,7 @@
       "battalion": {
          "name": "Battalion Detachment",
          "kind": "Core",
+         "order": 1,
          "unitsShareFaction": true,
          "slots": {
             "HQ": { "maximum": { "base": 3 } },
@@ -30,6 +31,7 @@
       "supreme-command": {
          "name": "Supreme Command Detachment",
          "kind": "Special",
+         "order": 10,
          "unitsShareFaction": true,
          "availableWhen": {
             "kind": "Count",
@@ -46,6 +48,7 @@
       "air-wing": {
          "name": "Air Wing Detachment",
          "kind": "Special",
+         "order": 7,
          "unitsShareFaction": true,
          "maximumPerArmy": {
             "base": 0,
@@ -59,10 +62,10 @@
          },
          "slots": { "Flyer": { "minimum": 1, "maximum": { "base": 5 } } }
       },
-      "patrol": { "name": "Patrol Detachment", "kind": "Special", "unitsShareFaction": true, "slots": {} },
-      "vanguard": { "name": "Vanguard Detachment", "kind": "Core", "unitsShareFaction": true, "slots": {} },
-      "super-heavy-auxiliary": { "name": "Super-heavy Auxiliary Detachment", "kind": "Special", "slots": {} },
-      "fortification-network": { "name": "Fortification Network Detachment", "kind": "Special", "slots": {} }
+      "patrol": { "name": "Patrol Detachment", "kind": "Special", "order": 6, "unitsShareFaction": true, "slots": {} },
+      "vanguard": { "name": "Vanguard Detachment", "kind": "Core", "order": 4, "unitsShareFaction": true, "slots": {} },
+      "super-heavy-auxiliary": { "name": "Super-heavy Auxiliary Detachment", "kind": "Special", "order": 8, "slots": {} },
+      "fortification-network": { "name": "Fortification Network Detachment", "kind": "Special", "order": 9, "slots": {} }
    },
    "abilities": {
       "objective-secured": {

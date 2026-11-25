@@ -32,9 +32,14 @@ func (check *checker) checkGameSystem() {
 	where := scope{location: gameSystemFileName}
 	check.checkUniqueSlugs(where, sortedKeys(gameSystem.Detachments), sortedKeys(gameSystem.Abilities),
 		sortedKeys(gameSystem.WarmasterTraits))
+	detachmentAtOrder := map[int]string{}
 	for _, slug := range sortedKeys(gameSystem.Detachments) {
 		detachment := gameSystem.Detachments[slug]
 		detachmentScope := where.at("detachments/%s", slug)
+		if earlier, taken := detachmentAtOrder[detachment.Order]; taken {
+			check.report(detachmentScope.at("order"), "order %d is also %q's", detachment.Order, earlier)
+		}
+		detachmentAtOrder[detachment.Order] = slug
 		check.checkLimit(detachmentScope.at("maximumPerArmy"), detachment.MaximumPerArmy)
 		check.checkCondition(detachmentScope.at("availableWhen"), detachment.AvailableWhen)
 		for _, role := range sortedKeys(detachment.Slots) {

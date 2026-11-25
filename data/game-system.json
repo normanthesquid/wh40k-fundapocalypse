@@ -1,10 +1,11 @@
 {
    "$schema": "../schema/game-system.schema.json",
-   "release": "2.8.0",
+   "release": "2.9.0",
    "detachments": {
       "ad-hoc": {
          "name": "Ad Hoc Detachment",
          "kind": "Special",
+         "order": 11,
          "commanderCannotBeWarlord": true,
          "slots": {
             "HQ": {},
@@ -24,6 +25,7 @@
       "battalion": {
          "name": "Battalion Detachment",
          "kind": "Core",
+         "order": 1,
          "unitsShareFaction": true,
          "slots": {
             "HQ": {
@@ -107,6 +109,7 @@
       "spearhead": {
          "name": "Spearhead Detachment",
          "kind": "Core",
+         "order": 2,
          "unitsShareFaction": true,
          "slots": {
             "HQ": {
@@ -187,6 +190,7 @@
       "vanguard": {
          "name": "Vanguard Detachment",
          "kind": "Core",
+         "order": 4,
          "unitsShareFaction": true,
          "slots": {
             "HQ": {
@@ -267,6 +271,7 @@
       "supreme-command": {
          "name": "Supreme Command Detachment",
          "kind": "Special",
+         "order": 10,
          "unitsShareFaction": true,
          "slots": {
             "HQ": {
@@ -349,6 +354,7 @@
       "super-heavy": {
          "name": "Super-heavy Detachment",
          "kind": "Core",
+         "order": 5,
          "unitsShareFaction": true,
          "slots": {
             "LordOfWar": {
@@ -362,6 +368,7 @@
       "air-wing": {
          "name": "Air Wing Detachment",
          "kind": "Special",
+         "order": 7,
          "unitsShareFaction": true,
          "slots": {
             "Flyer": {
@@ -420,6 +427,7 @@
       "outrider": {
          "name": "Outrider Detachment",
          "kind": "Core",
+         "order": 3,
          "unitsShareFaction": true,
          "slots": {
             "HQ": {
@@ -500,6 +508,7 @@
       "patrol": {
          "name": "Patrol Detachment",
          "kind": "Special",
+         "order": 6,
          "unitsShareFaction": true,
          "slots": {
             "HQ": {
@@ -625,6 +634,7 @@
       "super-heavy-auxiliary": {
          "name": "Super-heavy Auxiliary Detachment",
          "kind": "Special",
+         "order": 8,
          "slots": {
             "LordOfWar": {
                "maximum": {
@@ -681,6 +691,7 @@
       "fortification-network": {
          "name": "Fortification Network Detachment",
          "kind": "Special",
+         "order": 9,
          "slots": {
             "Fortification": {
                "minimum": 1,

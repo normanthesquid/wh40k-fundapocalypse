@@ -239,6 +239,7 @@ type Catalogue struct {
 }
 
 type Detachment struct {
+	Order             int                     `json:"order"`
 	UnitsShareFaction bool                    `json:"unitsShareFaction"`
 	MaximumPerArmy    *Limit                  `json:"maximumPerArmy"`
 	AvailableWhen     *Condition              `json:"availableWhen"`

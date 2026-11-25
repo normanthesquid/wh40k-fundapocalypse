@@ -10,11 +10,15 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "FLY",
             "SPORE MINES",
             "MEIOTIC SPORES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -33,10 +37,6 @@
                "leadership": 7,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "ranged-bio-weapons",
@@ -141,11 +141,15 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "SWARM",
             "FLY",
             "SKY-SLASHER SWARMS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -164,10 +168,6 @@
                "leadership": 4,
                "save": 11
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "claws-teeth"
@@ -226,7 +226,6 @@
          "battlefieldRole": "HQ",
          "cost": 6,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "PSYKER",
@@ -234,6 +233,11 @@
             "GENESTEALER",
             "SYNAPSE CREATURE",
             "BROODLORD"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -252,10 +256,6 @@
                "save": 7
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "monstrous-rending-claws"
          ],
@@ -268,13 +268,17 @@
          "battlefieldRole": "HQ",
          "cost": 9,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "PSYKER",
             "CHARACTER",
             "SYNAPSE CREATURE",
             "HIVE TYRANT"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -293,10 +297,6 @@
                "leadership": 8,
                "save": 5
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "prehencile-pincer-tail"
@@ -403,7 +403,6 @@
          "battlefieldRole": "HQ",
          "cost": 12,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "PSYKER",
@@ -411,6 +410,11 @@
             "SYNAPSE CREATURE",
             "HIVE TYRANT",
             "THE SWARMLORD"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -430,10 +434,6 @@
                "save": 5
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "bone-sabres",
             "prehencile-pincer-tail"
@@ -450,12 +450,16 @@
          "battlefieldRole": "HQ",
          "cost": 6,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "SYNAPSE CREATURE",
             "TYRANID PRIME"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -475,10 +479,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "ranged-bio-weapons",
             "melee-bio-weapons"
@@ -492,13 +492,17 @@
          "battlefieldRole": "HQ",
          "cost": 10,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "PSYKER",
             "CHARACTER",
             "SYNAPSE CREATURE",
             "TERVIGON"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -517,10 +521,6 @@
                "leadership": 7,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "stinger-salvo"
@@ -561,7 +561,6 @@
          "battlefieldRole": "HQ",
          "cost": 5,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "FLY",
             "PSYKER",
@@ -570,6 +569,11 @@
             "ZOANTHROPE",
             "SYNAPSE CREATURE",
             "NEUROTHROPE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -589,10 +593,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "spirit-leech",
             "claws-teeth"
@@ -607,12 +607,16 @@
          "battlefieldRole": "HQ",
          "cost": 7,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "CHARACTER",
             "CARNIFEX",
             "OLD ONE EYE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -631,10 +635,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "monstrous-scything-talons",
             "monstrous-crushing-claws"
@@ -650,11 +650,15 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "SYNAPSE CREATURE",
             "TYRANID WARRIORS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -673,10 +677,6 @@
                "leadership": 7,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "ranged-bio-weapons",
@@ -781,10 +781,14 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "GENESTEALER"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -803,10 +807,6 @@
                "leadership": 7,
                "save": 9
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "genestealer-melee-weapons"
@@ -884,10 +884,14 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "TERMAGANTS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -906,10 +910,6 @@
                "leadership": 4,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "termagant-melee-weapons"
@@ -1077,10 +1077,14 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "HORMAGAUNTS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1099,10 +1103,6 @@
                "leadership": 4,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "scything-talons"
@@ -1164,10 +1164,14 @@
          "battlefieldRole": "Troops",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "SWARM",
             "RIPPERS"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1186,10 +1190,6 @@
                "leadership": 4,
                "save": 11
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "claws-teeth"
@@ -1251,10 +1251,14 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "TYRANT GUARD"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1273,10 +1277,6 @@
                "leadership": 4,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "tyrant-guard-melee-weapons"
@@ -1322,10 +1322,14 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "HIVE GUARD"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1344,10 +1348,6 @@
                "leadership": 5,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "forelimbs"
@@ -1419,10 +1419,14 @@
          "battlefieldRole": "Elites",
          "cost": 3,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "LICTOR"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1442,10 +1446,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "flesh-hooks",
             "grasping-talons"
@@ -1460,12 +1460,16 @@
          "battlefieldRole": "Elites",
          "cost": 4,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "LICTOR",
             "DEATHLEAPER"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1485,10 +1489,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "flesh-hooks",
             "grasping-talons"
@@ -1505,13 +1505,17 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "FLY",
             "PSYKER",
             "SYNAPSE CREATURE",
             "ZOANTHROPE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1530,10 +1534,6 @@
                "leadership": 7,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "zoanthrope-melee-weapons",
@@ -1581,12 +1581,16 @@
          "battlefieldRole": "Elites",
          "cost": 9,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "PSYKER",
             "SYNAPSE CREATURE",
             "MALECEPTOR"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1606,10 +1610,6 @@
                "save": 5
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "psychic-overload",
             "massive-scything-talons"
@@ -1623,11 +1623,15 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "FLY",
             "VENOMTHROPES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1646,10 +1650,6 @@
                "leadership": 4,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "toxic-lashes-ranged",
@@ -1698,10 +1698,14 @@
          "battlefieldRole": "Elites",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "PYROVORES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1720,10 +1724,6 @@
                "leadership": 4,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "flamespurt",
@@ -1787,10 +1787,14 @@
          "battlefieldRole": "Elites",
          "cost": 7,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "HARUSPEX"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1810,10 +1814,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "grasping-tongue",
             "ravenous-maw",
@@ -1829,11 +1829,15 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "FLY",
             "GARGOYLES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1852,10 +1856,6 @@
                "leadership": 4,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "blinding-venom",
@@ -1919,10 +1919,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "RAVENER"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -1941,10 +1945,6 @@
                "leadership": 4,
                "save": 10
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "ravener-ranged-weapons",
@@ -2007,12 +2007,16 @@
          "battlefieldRole": "Elites",
          "cost": 5,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "CHARACTER",
             "RAVENER",
             "THE RED TERROR"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2032,10 +2036,6 @@
                "save": 8
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "prehencile-pincer-tail",
             "scything-talons"
@@ -2051,10 +2051,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "FLY",
             "MUCOLID SPORES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2067,10 +2071,6 @@
                "leadership": 8,
                "save": 12
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "abilities": [
             "floating-death-mucolid-spores",
@@ -2123,10 +2123,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "FLY",
             "SPORE MINES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2139,10 +2143,6 @@
                "leadership": 8,
                "save": 12
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "abilities": [
             "floating-death-spore-mines",
@@ -2195,10 +2195,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 10,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "EXOCRINE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2218,10 +2222,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "bio-plasmic-cannon",
             "powerful-limbs"
@@ -2235,10 +2235,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 11,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "TYRANNOFEX"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2257,10 +2261,6 @@
                "leadership": 5,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "powerful-limbs",
@@ -2310,10 +2310,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "INFANTRY",
             "BIOVORES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2332,10 +2336,6 @@
                "leadership": 4,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "spore-mine-launcher",
@@ -2398,10 +2398,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 8,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "TOXICRENE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2421,10 +2425,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "choking-spores",
             "massive-toxic-lashes-ranged",
@@ -2440,10 +2440,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 7,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "MAWLOC"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2462,10 +2466,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "distensible-jaws",
             "scything-talons"
@@ -2481,10 +2481,14 @@
          "battlefieldRole": "HeavySupport",
          "cost": 10,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "TRYGON"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2504,10 +2508,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "bio-electric-pulse",
             "massive-scything-talons"
@@ -2521,12 +2521,16 @@
          "battlefieldRole": "HeavySupport",
          "cost": 11,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "CHARACTER",
             "SYNAPSE CREATURE",
             "TRYGON PRIME"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2546,10 +2550,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "bio-electric-pulse-with-containment-spines",
             "massive-scything-talons"
@@ -2563,11 +2563,15 @@
          "battlefieldRole": "DedicatedTransport",
          "cost": 8,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "FLY",
             "TYRANNOCYTE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2586,10 +2590,6 @@
                "leadership": 5,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "barbed-tentacles"
@@ -2636,11 +2636,15 @@
          "battlefieldRole": "Flyer",
          "cost": 9,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "FLY",
             "HARPY"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2659,10 +2663,6 @@
                "leadership": 7,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "stinger-salvo",
@@ -2702,11 +2702,15 @@
          "battlefieldRole": "Flyer",
          "cost": 9,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "FLY",
             "HIVE CRONE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2726,10 +2730,6 @@
                "save": 8
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "drool-cannon",
             "tentaclids",
@@ -2747,11 +2747,15 @@
          "battlefieldRole": "Fortification",
          "cost": 7,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "SYNAPSE CREATURE",
             "SPOROCYST"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -2769,10 +2773,6 @@
                "leadership": 5,
                "save": 8
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "spore-node",
@@ -2822,6 +2822,11 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
          "profiles": [
             {
                "name": "Carnifex",
@@ -3071,6 +3076,11 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
          "profiles": [
             {
                "name": "Screamer-Killer",
@@ -3129,6 +3139,11 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
          "profiles": [
             {
                "name": "Thornback",
@@ -3353,13 +3368,17 @@
          "battlefieldRole": "HQ",
          "cost": 5,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "FLY",
             "CHARACTER",
             "SYNAPSE CREATURE",
             "MALANTHROPE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -3379,10 +3398,6 @@
                "save": 10
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "grasping-tail"
          ],
@@ -3397,10 +3412,14 @@
          "battlefieldRole": "FastAttack",
          "cost": 11,
          "keywords": [
-            "TYRANIDS",
             "HEAVY",
             "MONSTER",
             "DIMACHAERON"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -3420,10 +3439,6 @@
                "save": 5
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "grasping-talons-thorax-spine-maw",
             "sickle-claws"
@@ -3434,11 +3449,15 @@
          "battlefieldRole": "FastAttack",
          "cost": 0,
          "keywords": [
-            "TYRANIDS",
             "LIGHT",
             "FLY",
             "SPORE MINES",
             "MEIOTIC SPORES"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -3451,10 +3470,6 @@
                "leadership": 8,
                "save": 12
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "abilities": [
             "living-bombs",
@@ -3507,6 +3522,11 @@
          "battlefieldRole": "HeavySupport",
          "cost": 0,
          "keywords": [],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
+         ],
          "profiles": [
             {
                "name": "Stone Crusher Carnifex",
@@ -3647,11 +3667,15 @@
          "battlefieldRole": "LordOfWar",
          "cost": 14,
          "keywords": [
-            "TYRANIDS",
             "SUPER-HEAVY",
             "MONSTER",
             "TITANIC",
             "BARBED HIERODULE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -3670,10 +3694,6 @@
                "leadership": 8,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "hierodule-scything-talons"
@@ -3701,11 +3721,15 @@
          "battlefieldRole": "LordOfWar",
          "cost": 14,
          "keywords": [
-            "TYRANIDS",
             "SUPER-HEAVY",
             "MONSTER",
             "TITANIC",
             "SCYTHED HIERODULE"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -3725,10 +3749,6 @@
                "save": 6
             }
          ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
-         ],
          "weapons": [
             "pairs-of-hierodule-scything-talons",
             "bio-acid-spray"
@@ -3742,13 +3762,17 @@
          "battlefieldRole": "LordOfWar",
          "cost": 24,
          "keywords": [
-            "TYRANIDS",
             "SUPER-HEAVY",
             "MONSTER",
             "FLY",
             "TRANSPORT",
             "TITANIC",
             "HARRIDAN"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -3767,10 +3791,6 @@
                "leadership": 8,
                "save": 6
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "harridan-scything-talons"
@@ -3803,12 +3823,16 @@
          "battlefieldRole": "LordOfWar",
          "cost": 95,
          "keywords": [
-            "TYRANIDS",
             "SUPER-HEAVY",
             "MONSTER",
             "TRANSPORT",
             "TITANIC",
             "HIEROPHANT BIO-TITAN"
+         ],
+         "factionKeywords": [
+            "TYRANIDS",
+            "TYRANID HIVE FLEETS",
+            "<HIVE FLEET>"
          ],
          "profiles": [
             {
@@ -3827,10 +3851,6 @@
                "leadership": 8,
                "save": 3
             }
-         ],
-         "factionKeywords": [
-            "TYRANID HIVE FLEETS",
-            "<HIVE FLEET>"
          ],
          "weapons": [
             "lashwhip-pods",

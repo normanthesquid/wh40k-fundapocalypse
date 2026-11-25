@@ -43,6 +43,11 @@
          "properties": {
             "name": { "type": "string", "minLength": 1 },
             "kind": { "$ref": "common.schema.json#/$defs/detachmentKind" },
+            "order": {
+               "description": "Where the detachment comes in the rulebook's list of detachments, from 1. No two detachments share one.",
+               "type": "integer",
+               "minimum": 1
+            },
             "unitsShareFaction": {
                "description": "All units must be from the same Faction: they all have the one Faction keyword the list picks for the detachment. Left out, units may mix Factions.",
                "type": "boolean"
@@ -69,7 +74,7 @@
                "uniqueItems": true
             }
          },
-         "required": ["name", "kind", "slots"],
+         "required": ["name", "kind", "order", "slots"],
          "additionalProperties": false
       }
    }

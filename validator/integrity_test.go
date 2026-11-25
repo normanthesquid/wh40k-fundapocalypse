@@ -155,6 +155,11 @@ func TestIntegrityRules(t *testing.T) {
 			battalion.Abilities = []string{"weapons/shared"}
 			dataset.GameSystem.Detachments["battalion"] = battalion
 		}, ""},
+		{"two detachments share an order", func(dataset *Dataset) {
+			vanguard := dataset.GameSystem.Detachments["vanguard"]
+			vanguard.Order = dataset.GameSystem.Detachments["battalion"].Order
+			dataset.GameSystem.Detachments["vanguard"] = vanguard
+		}, `detachments/vanguard/order: order 1 is also "battalion"'s`},
 		{"reference into a catalogue not imported", func(dataset *Dataset) {
 			editInquisitor(dataset, func(inquisitor *Datasheet) { inquisitor.Weapons = []string{libraryID + "/bolter"} })
 		}, `which this catalogue does not import`},
