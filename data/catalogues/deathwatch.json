@@ -1466,7 +1466,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "5-models"
             },
             {
                "id": "melee-weapons",
@@ -1594,7 +1595,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "5-models"
             },
             {
                "id": "heavy-weapons",
@@ -1746,7 +1748,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "5-models"
             },
             {
                "id": "specialist-operators",

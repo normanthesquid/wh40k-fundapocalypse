@@ -2607,7 +2607,8 @@
                         "amount": 1
                      }
                   ]
-               }
+               },
+               "default": "storm-bolter"
             }
          ]
       },
@@ -5493,7 +5494,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "5-models"
             },
             {
                "id": "upgrades",

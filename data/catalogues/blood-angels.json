@@ -909,7 +909,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "furioso-fists"
             },
             {
                "id": "storm-bolter",
@@ -1797,7 +1798,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "5-models"
             },
             {
                "id": "upgrades",

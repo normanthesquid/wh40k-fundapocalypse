@@ -323,7 +323,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "battle-cannon"
             }
          ]
       },
@@ -395,7 +396,8 @@
                   }
                ],
                "minimum": 2,
-               "maximum": 2
+               "maximum": 2,
+               "default": "battle-cannon"
             }
          ]
       },

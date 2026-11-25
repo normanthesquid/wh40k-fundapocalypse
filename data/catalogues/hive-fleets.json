@@ -366,7 +366,8 @@
                   }
                ],
                "minimum": 2,
-               "maximum": 2
+               "maximum": 2,
+               "default": "monstrous-scything-talons"
             },
             {
                "id": "upgrades",

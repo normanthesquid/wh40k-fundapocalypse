@@ -4129,7 +4129,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "skorpekh-destroyers-3-models"
             }
          ]
       },

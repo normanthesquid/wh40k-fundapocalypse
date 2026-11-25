@@ -1442,7 +1442,8 @@
                         "amount": 1
                      }
                   ]
-               }
+               },
+               "default": "battle-cannon"
             },
             {
                "id": "hull-weapon",
@@ -1586,7 +1587,8 @@
                         "amount": 1
                      }
                   ]
-               }
+               },
+               "default": "heavy-bolter"
             },
             {
                "id": "sponsons",

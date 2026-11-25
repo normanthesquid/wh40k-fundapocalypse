@@ -769,7 +769,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "5-models"
             }
          ]
       },
@@ -1665,7 +1666,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "twin-shuriken-catapults"
             }
          ]
       },
@@ -2308,7 +2310,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "5-models"
             }
          ]
       },
@@ -3797,7 +3800,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "1-model"
             },
             {
                "id": "heavy-weapon-options",
@@ -5300,7 +5304,7 @@
             }
          ],
          "factionKeywords": [
-            "ASURYANI",
+            "AELDARI",
             "<COTERIE>",
             "ANRATHE"
          ],
@@ -5359,7 +5363,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "shuriken-cannon"
             },
             {
                "id": "secondary-weapon-options",
@@ -5383,7 +5388,8 @@
                   }
                ],
                "minimum": 1,
-               "maximum": 1
+               "maximum": 1,
+               "default": "twin-shuriken-catapults"
             }
          ]
       },
