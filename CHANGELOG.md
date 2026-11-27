@@ -2,6 +2,10 @@
 
 Each release is a git tag `v<version>` matching `release` in `data/game-system.json`, with an entry here. See [docs/data-format.md](docs/data-format.md#releases).
 
+## 2.10.0
+
+* New integrity rule 12 rejects a placeholder faction keyword added by a conditional change, a link's `conditionalKeywords` or a detachment choice's option: a unit names its subfactions before those apply. No data changes.
+
 ## 2.9.3
 
 * 24 option groups get a `default`, so a newly added unit starts with it. Where the sheet prints what the unit is equipped with: the Corsair Falcon, Night Spinner, Death Company Dreadnought, Ironclad Dreadnought, Death Korps Leman Russ Mars-Alpha, Razorwing Jetfighter, Hive Tyrant, Wulfen Dreadnought, Vengeance Weapon Battery and Firestorm Redoubt. Each unit size group without one starts at its smallest size: Serberys Raiders and Sulphurhounds, Dark Reapers, Swooping Hawks, Wasp Assault Walkers, Death Company Intercessors, the Fortis, Indomitor and Spectrus Kill Teams, Skorpekh Destroyers and Hounds of Morkai. A group whose sheet leaves the pick to the player still has none.
