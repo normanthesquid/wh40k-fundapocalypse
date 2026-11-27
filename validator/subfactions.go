@@ -15,6 +15,9 @@ func (check *checker) checkSubfactions(where scope, catalogue *Catalogue) {
 	for _, slug := range sortedKeys(catalogue.DetachmentChoices) {
 		choice := catalogue.DetachmentChoices[slug]
 		choiceScope := where.at("detachmentChoices/%s", slug)
+		for _, optionSlug := range sortedKeys(choice.Options) {
+			check.checkNoPlaceholderAdded(choiceScope.at("options/%s", optionSlug), choice.Options[optionSlug].KeywordChanges)
+		}
 		if choice.FillsPlaceholder == nil {
 			check.checkPlainChoice(choiceScope, choice)
 			continue
@@ -86,9 +89,6 @@ func (check *checker) carriedPlaceholders(where scope, catalogue *Catalogue) (ma
 	complete := true
 	for _, link := range catalogue.DatasheetLinks {
 		keywords = append(keywords, link.AddsFactionKeywords...)
-		for _, conditional := range link.ConditionalKeywords {
-			keywords = append(keywords, conditional.AddsFactionKeywords...)
-		}
 		target := silent.linkedDatasheet(where, link)
 		if target == nil {
 			complete = false
@@ -105,7 +105,7 @@ func (check *checker) carriedPlaceholders(where scope, catalogue *Catalogue) (ma
 	return placeholders, complete
 }
 
-// datasheetFactionKeywords are the faction keywords a datasheet has or any of its options or conditional changes add.
+// datasheetFactionKeywords are the faction keywords a datasheet has or any of its options add.
 func datasheetFactionKeywords(datasheet Datasheet) []string {
 	keywords := slices.Clone(datasheet.FactionKeywords)
 	for _, group := range datasheet.Wargear {
@@ -113,10 +113,17 @@ func datasheetFactionKeywords(datasheet Datasheet) []string {
 			keywords = append(keywords, option.AddsFactionKeywords...)
 		}
 	}
-	for _, change := range datasheet.ConditionalChanges {
-		keywords = append(keywords, change.AddsFactionKeywords...)
-	}
 	return keywords
+}
+
+// checkNoPlaceholderAdded is rule 12: a unit names its subfactions before conditions and detachment choices apply,
+// so a placeholder one of them added could never be named.
+func (check *checker) checkNoPlaceholderAdded(where scope, changes KeywordChanges) {
+	for _, keyword := range changes.AddsFactionKeywords {
+		if isPlaceholder(keyword) {
+			check.report(where, "placeholder %q is added too late to be named: only a datasheet, its link or an option adds one", keyword)
+		}
+	}
 }
 
 func isPlaceholder(keyword string) bool {

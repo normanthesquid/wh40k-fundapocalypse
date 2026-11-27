@@ -143,6 +143,7 @@ func (check *checker) checkDatasheet(where scope) {
 	}
 	for index, change := range datasheet.ConditionalChanges {
 		changeScope := where.at("conditionalChanges/%d", index)
+		check.checkNoPlaceholderAdded(changeScope, change.KeywordChanges)
 		check.checkWargearChanges(changeScope, change.WargearChanges, carrier{conditionalChange: index})
 		check.checkCondition(changeScope.at("when"), &change.When)
 	}
@@ -321,6 +322,7 @@ func (check *checker) checkDatasheetLink(where scope, link DatasheetLink) {
 	check.checkAlternativeRoles(where, link.AlternativeRoles)
 	for index, conditional := range link.ConditionalKeywords {
 		check.addKeywords(conditional.KeywordChanges)
+		check.checkNoPlaceholderAdded(where.at("conditionalKeywords/%d", index), conditional.KeywordChanges)
 		check.checkCondition(where.at("conditionalKeywords/%d/when", index), &conditional.When)
 	}
 	check.checkCondition(where.at("availableWhen"), link.AvailableWhen)

@@ -352,11 +352,21 @@ func TestIntegrityRules(t *testing.T) {
 		{"placeholder a conditional link keyword adds", func(dataset *Dataset) {
 			link := dataset.Catalogues[factionID].DatasheetLinks[squadID]
 			link.ConditionalKeywords = []ConditionalKeywords{{
-				KeywordChanges: KeywordChanges{AddsFactionKeywords: []string{"<VETERAN HOST>"}},
+				KeywordChanges: KeywordChanges{AddsFactionKeywords: []string{"<EXAMPLE HOST>"}},
 				When:           *count(CountTarget{Kind: CountTargetKindAnyUnit}),
 			}}
 			dataset.Catalogues[factionID].DatasheetLinks[squadID] = link
-		}, `no detachment choice fills "<VETERAN HOST>"`},
+		}, `conditionalKeywords/0: placeholder "<EXAMPLE HOST>" is added too late to be named`},
+		{"placeholder a conditional change adds", func(dataset *Dataset) {
+			editInquisitor(dataset, func(inquisitor *Datasheet) {
+				changes := WargearChanges{KeywordChanges: KeywordChanges{AddsFactionKeywords: []string{"<ORDO>"}}}
+				inquisitor.ConditionalChanges = []ConditionalChange{{WargearChanges: changes, When: *count(CountTarget{Kind: CountTargetKindAnyUnit})}}
+			})
+		}, `conditionalChanges/0: placeholder "<ORDO>" is added too late to be named`},
+		{"placeholder a detachment choice option adds", func(dataset *Dataset) {
+			added := KeywordChanges{AddsFactionKeywords: []string{"<EXAMPLE HOST>"}}
+			dataset.Catalogues[agentsID].DetachmentChoices["faction-filter"].Options["inquisition"] = DetachmentChoiceOption{KeywordChanges: added}
+		}, `detachmentChoices/faction-filter/options/inquisition: placeholder "<EXAMPLE HOST>" is added too late to be named`},
 		{"placeholder an option adds", func(dataset *Dataset) {
 			editUpgrade(dataset, 0, func(option *Option) { option.AddsFactionKeywords = []string{"<ORDO>"} })
 		}, `no detachment choice fills "<ORDO>"`},
@@ -607,6 +617,17 @@ func TestBrokenLinkIsReportedOnce(t *testing.T) {
 		Ability:       "example-rally",
 		AvailableWhen: count(CountTarget{Kind: CountTargetKindDatasheet, Datasheet: pointer(squadID)}),
 	}
+	if problems := checkIntegrity(dataset, nil); len(problems) != 1 {
+		t.Fatalf("want one problem, got %v", problems)
+	}
+}
+
+func TestPlaceholderAddedTooLateNeedsNoChoice(t *testing.T) {
+	dataset := loadValidDataset(t)
+	editInquisitor(dataset, func(inquisitor *Datasheet) {
+		changes := WargearChanges{KeywordChanges: KeywordChanges{AddsFactionKeywords: []string{"<ORDO>"}}}
+		inquisitor.ConditionalChanges = []ConditionalChange{{WargearChanges: changes, When: *count(CountTarget{Kind: CountTargetKindAnyUnit})}}
+	})
 	if problems := checkIntegrity(dataset, nil); len(problems) != 1 {
 		t.Fatalf("want one problem, got %v", problems)
 	}

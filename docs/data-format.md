@@ -118,6 +118,7 @@ JSON Schema checks each file's shape. These rules span entries or files, so `val
 9. `game-system.json`'s `release` matches the tag being released (`go run . -release 2.0.0`; CI passes it on a tag push).
 10. Each placeholder faction keyword a faction's units carry is filled by exactly one of its detachment choices, and each choice's placeholder is carried by one of its units. Every option of a subfaction choice names a `keyword`, unique in the catalogue; no other choice's option does, and only an open subfaction choice may have no options. Choices sharing an `alternativeGroup` are at least two. No condition counts a subfaction choice's option (`DetachmentChoice`); it counts the option's keyword in the unit instead.
 11. No two detachments share an `order`.
+12. Only a datasheet, its link's `addsFactionKeywords` or one of its options adds a placeholder faction keyword. A unit names its subfactions before conditional changes, a link's `conditionalKeywords` and detachment choices apply, so a placeholder one of those added could never be named.
 
 ## Releases
 
